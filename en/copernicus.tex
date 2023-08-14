@@ -1,0 +1,397 @@
+% !TeX root = orbits.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Sun-centered solar system}\label{s.copernicus}
+
+As everyone living far from equator knows, the time between sunrise and sunset varies with the seasons. The reason is that the axis of the rotation of the Earth is offset by $23.5^\circ{}$ relative to the orbit of the Earth. The plane of the orbit of the Earth around the Sun is called the \emph{ecliptic}. Measuring the length of the day as the time from sunrise to sunset, there is a day in June, called the \emph{summer solstice}, when the length of the day is longest. Similarly, there is a day in December, called the \emph{winter solstice}, when the length of the day is shortest.\footnote{This holds for the northern hemisphere; in the southern hemisphere the opposite holds.} There are also two days when the length of the day equals the length of the night: the \emph{autumn equinox} in September and the \emph{spring equinox} in March.
+
+Today we know that the universe is immensely large and that the stars are moving at extremely high speeds, but an observer on Earth sees them as if their positions are fixed on a sphere around the earth, called the \emph{celestial sphere}. This solstices and equinoxes can be associated with the projection of the Sun on the celestial sphere as seen from the Earth. The details of the Earth's orbit can be found in books on astronomy, as well as in the Wikipedia articles on \textit{Equinox} and \textit{Solstice}.
+
+\subsection{The length of the year and the length of the seasons}
+
+Let us assume that the Earth orbits the Sun in a circle, such that the center of the orbit $O$ is the center of the Sun $S$. In Figure~\ref{f.circle} the inner circle is orbit of the Earth and the outer circle is the celestial sphere. The orbit can be divided into four quadrants called \emph{seasons}: spring, summer, autumn, winter.
+
+\begin{table}[b]
+\begin{center}
+\begin{sffamily}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|r|r|}
+\hline
+Season & \multicolumn{1}{|c|}{Days}&\multicolumn{1}{|c|}{$\%$}\\\hline\hline
+Spring & $94\frac{1}{4}$ & 25.8\\\hline
+Summer & $92\frac{1}{2}$ & 25.3\\\hline
+Autumn & $88\frac{1}{8}$ & 24.1\\\hline
+Winter & $90\frac{1}{8}$ & 24.7\\\hline
+\end{tabular}
+\end{sffamily}
+\caption{The lengths of the seasons and their percentages of a year}\label{t.seasons}
+\end{center}
+\end{table}
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}
+
+% Draw the orbit of the Earth and the celestial sphere
+\coordinate (S) at (0,0) node[above right,xshift=-2pt,yshift=-2pt] {$O,S$};
+\vertexsm{S};
+\node[draw,circle,minimum size=2.2cm,name path=Eorbit] at (S) {};
+\node[draw,circle,minimum size=6cm,name path=Csphere] at (S) {};
+
+% Locate the solstices and the equinoxes
+\coordinate (SS) at (90:3cm);
+\node[above] at (SS) {\textsf{summer solstice}};
+\vertexsm{SS};
+\coordinate (WS) at (-90:3cm);
+\node[below] at (WS) {\textsf{winter solstice}};
+\vertexsm{WS};
+\coordinate (SE) at (0:3cm);
+\node[right,xshift=5pt] at (SE) {\textsf{spring equinox}};
+\vertexsm{SE};
+\coordinate (AE) at (180:3cm);
+\node[left,xshift=-5pt] at (AE) {\textsf{autumn equinox}};
+\vertexsm{AE};
+
+% Draw axes between  the solstices and the equinoxes
+\draw[name path = Equi] (AE) -- (SE);
+\draw[name path = Sols] (WS) -- (SS);
+
+% Draw vertices at intersections with the Earth's orbit
+\path [name intersections = {%
+    of = Eorbit and Equi,
+    by = {Sp,Au}
+    }];
+\vertexsm{Sp};
+\vertexsm{Au};
+
+\path [name intersections = {%
+    of = Eorbit and Sols,
+    by = {Su,Wi}
+    }];
+\vertexsm{Su};
+\vertexsm{Wi};
+
+% Names of the seasons
+\node at (45:2) {\textsf{spring}};
+\node at (135:2) {\textsf{summer}};
+\node at (-135:2) {\textsf{autumn}};
+\node at (-45:2) {\textsf{winter}};
+
+\end{tikzpicture}
+\caption{The orbit of the Earth and the seasons}\label{f.circle}
+\end{center}
+\end{figure}
+The length of a year is approximately $365 \frac{1}{4}$ days. The extra $\frac{1}{4}$ day is accounted for by adding a day in leap years.\footnote{The length of a year is actually $365.2425$. In the sixteenth century, the \emph{Gregorian calendar} accounted for the difference by removing three leap years in every four hundred years.} The length of each season as determined by the equinoxes and the solstices is $365.25/4=91.3125$ days. However, measurements by the Greek astronomer Hipparchus showed that the actual lengths of the seasons differed from this number (Table~\ref{t.seasons}) and a model of the solar system must be able to explain these differences.
+
+In his Earth-centered solar system, Hipparchus proposed that the center of the Earth's orbit be offset from the center of the Sun. Copernicus used the same idea in his Sun-centered solar system (Figure~\ref{f.seasons}). If the center of the Earth's orbit is in the upper-left quadrant of the coordinate system defined by the equinoxes and the solstices, the angles for spring and summer are obtuse, so the seasons are longer than one-fourth of a year, whereas the angles for the autumn and winter are acute, so the they are shorter than one-fourth of a year.
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}
+
+% Draw the orbit the Earth (offset) and the celestial sphere
+\coordinate (S) at (0,0);
+\node[below right] at (S) {$S$};
+\vertexsm{S};
+\coordinate (O) at (-.3,.5);
+\node[above left] at (O) {$O$};
+\vertexsm{O};
+\node[draw,circle,minimum size=2.2cm,name path=Eorbit] at (O) {};
+\node[draw,circle,minimum size=6cm,name path=Csphere] at (S) {};
+
+% Locate the solstices and the equinoxes
+\coordinate (SS) at (90:3cm);
+\node[above] at (SS) {\textsf{summer solstice}};
+\vertexsm{SS};
+\coordinate (WS) at (-90:3cm);
+\node[below] at (WS) {\textsf{winter solstice}};
+\vertexsm{WS};
+\coordinate (SE) at (0:3cm);
+\node[right,xshift=5pt] at (SE) {\textsf{spring equinox}};
+\vertexsm{SE};
+\coordinate (AE) at (180:3cm);
+\node[left,xshift=-5pt] at (AE) {\textsf{autumn equinox}};
+\vertexsm{AE};
+
+% Draw axes between  the solstices and the equinoxes
+\draw[name path = Equi] (AE) -- (SE);
+\draw[name path = Sols] (WS) -- (SS);
+
+% Draw axes from center of Earth's orbit (colored)
+\draw[red,thick] (SE) -- 
+  (O) -- (SS);
+\draw[blue,thick] ($(SS)+(-2pt,0)$) -- 
+  ($(O)+(-2pt,0)$) -- (AE);
+\draw[purple,thick] ($(AE)+(0,-2pt)$) -- 
+  ($(O)+(0,-2pt)$) -- (WS);
+\draw[green!70!black,thick] ($(WS)+(2pt,0)$) -- 
+  ($(O)+(2pt,-2pt)$) -- ($(SE)+(0,-2pt)$);
+
+% Names of the seasons
+\node[yshift=6pt] at (45:2) {\textsf{spring}};
+\node[yshift=6pt] at (135:2) {\textsf{summer}};
+\node at (-135:2) {\textsf{autumn}};
+\node at (-45:2) {\textsf{winter}};
+\end{tikzpicture}
+\caption{The lengths of the seasons are not equal}\label{f.seasons}
+\end{center}
+\end{figure}
+
+Figure~\ref{f.seasons-details} shows a magnified and distorted view of Figure~\ref{f.seasons}. It has been annotated with additional lines and labels that will facilitate the demonstration of Copernicus' computation. The axes $A'C'$ and $B'D'$ have their origin $O$ at the center of the Earth's orbit and are parallel to the axes in the ecliptic. The dashed lines from $O$ are all radii of the Earth's orbit that will be denoted $r$. The dotted lines form two right triangles which will be used in the computation.
+
+\subsection{The location of the center of the Earth's orbit}
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}
+\clip (-7,-2) rectangle (7,5.5);
+
+% Draw the orbit the Earth (offset) and the celestial sphere
+\coordinate (S) at (0,0);
+\node[below right] at (S) {$S$};
+\vertexsm{S};
+\coordinate (O) at (140:1.8);
+\node[below left] at (O) {$O$};
+\vertexsm{O};
+\node[draw,circle,minimum size=5cm,name path=Eorbit] at (O) {};
+\node[draw,circle,minimum size=10cm,name path=Csphere] at (S) {};
+
+% Locate the solstices and the equinoxes
+\coordinate (SS) at (90:5cm);
+\node[above,yshift=1pt] at (SS) {\textsf{summer solstice}};
+\vertexsm{SS};
+\coordinate (WS) at (-90:5cm);
+\node[below] at (WS) {\textsf{winter solstice}};
+\vertexsm{WS};
+\coordinate (SE) at (0:5cm);
+\node[right,xshift=5pt] at (SE) 
+  {\parbox{1.2cm}{\textsf{spring\\equinox}}};
+\vertexsm{SE};
+\coordinate (AE) at (180:5cm);
+\node[left,xshift=-5pt] at (AE) 
+  {\parbox{1.2cm}{\textsf{autumn\\equinox}}};
+\vertexsm{AE};
+
+% Locate intersections of extension of the line from the centers
+%   of the orbits with the orbits
+\path[name path=SEpath] (S) -- ($(S) ! 3 ! (O)$);
+\path [name intersections = {%
+    of = SEpath and Eorbit,
+    by = {F}
+    }];
+\path [name intersections = {%
+    of = SEpath and Csphere,
+    by = {G}
+    }];
+\draw (S) -- (G);
+\vertexsm{F};
+\node[below,xshift=2pt,yshift=-3pt] at (F) {$F$};
+
+% Indicate the angle of the offset of the center of the Earth's orbit
+\draw[<->,thick] (SS) 
+  arc [start angle=90,end angle=140,radius=5]
+  node[midway,above] {$\lambda$};
+
+% Draw line A' to C'
+\path[name path = Eoffset] ($(O)+(-2.5,0)$) -- ($(O)+(2.5,0)$);
+\path [name intersections = {%
+    of = Eoffset and Eorbit,
+    by = {AP,CP}
+    }];
+\draw[dashed,thick] (O) -- 
+  (AP) node[right] {$A'$} --
+  (CP) node[left,xshift=2pt] {$C'$};;
+
+% Draw line B' to D'
+\path[name path = Soffset] ($(O)+(0,-2.5)$) -- ($(O)+(0,2.5)$);
+\path [name intersections = {%
+    of = Soffset and Eorbit,
+    by = {BP,DP}
+    }];
+\draw[dashed,thick] (BP) node[above] {$B'$} -- (O) -- (DP) node[below] {$D'$};
+
+% Draw axes between  the solstices and the equinoxes
+\draw[name path = Equi] (AE) -- (SE);
+\draw[name path = Sols] (WS) -- (SS);
+
+% Locate line A to C
+\path [name intersections = {%
+    of = Equi and Eorbit,
+    by = {C,A}
+    }];
+\draw (C) node[below left] {$C$} -- (A) node[below right] {$A$};
+
+% Locate line B to D
+\path [name intersections = {%
+    of = Sols and Eorbit,
+    by = {B,D}
+    }];
+\draw (B) node[above right] {$B$} -- (D);
+
+% Draw right triangles
+\draw[very thick,dotted] (A) -- (O) -- (B);
+\draw[very thick] (S) -- node[below,xshift=-3pt,yshift=2pt] {$c$} (O); 
+\draw[very thick,dotted] (B) -- node[below] {$b$} (B -| BP) coordinate (BRA);
+\draw[very thick,dotted] (A) -- node[left] {$a$} (A |- AP) coordinate (ARA);
+\draw[rotate=-90] (BRA) rectangle +(5pt,5pt);
+\draw[rotate=180] (ARA) rectangle +(5pt,5pt);
+
+% Indicate angles \alpha and \beta
+\node[above,xshift=5pt,yshift=8pt] at (O) {$\beta$};
+\node[below right,xshift=16pt,yshift=2pt] at (O) {$\alpha$};
+
+\end{tikzpicture}
+\caption{Computing the center of the Earth}\label{f.seasons-details}
+\end{center}
+\end{figure}
+
+Copernicus' task was to locate the position of the center of the Earth's orbit $O$ relative to the center of the Sun $S$. This will be given in polar coordinates $OS=c$ and $\angle FSB = \lambda$ (the label is on the large circle of the ecliptic). The strategy of the computation is as follows:
+\begin{itemize}
+\item Initially, we compute the angles of the arcs in radians; the lengths of the arc can then be obtained by multiplying by the radius $r$.
+\item We use the lengths of the seasons that Copernicus used: summer is $93\frac{14.5}{60}$ days and spring is $92\frac{51}{60}$.
+\item The angle of the arc $\widehat{AC}$ can be computed from the combined length of spring and summer and the angle of the arc $\widehat{AB}$ can be computed from the length of spring.
+\item From $\widehat{AC}$ and $\widehat{AB}$, the angle $\alpha$ subtended by $\widehat{AA'}$ and the angle $\beta$ subtended by $\widehat{BB'}$ can be computed.
+\item Since the Earth is very close to the Sun relative to the radius of its orbit, $r\,\widehat{AA'}$ and $r\,\widehat{BB'}$ approximate the line segments $a$ and $b$. From these $c$ and $\lambda$ can be computed.
+\end{itemize}
+
+\subsubsection*{Computing the angles of the arcs $\widehat{AB}, \widehat{AC}$}
+
+The arcs $\widehat{AB}, \widehat{AC}$ are sectors of the Earth's orbit and their angles are their proportions of a full year times $2\pi$ radians.
+\begin{eqn}
+\widehat{AB} &=& 
+  2\pi \cdot \frac{ 92\frac{51}{60} }{365.25} =
+  2\pi\cdot\frac{92.85}{365.25}=
+  1.5972 \;\textsf{radians}\\[10pt]
+\widehat{AC} &=& 
+  2\pi \cdot \frac{ 92\frac{51}{60}+ 93\frac{14.5}{60} }{365.25} =
+  2\pi\cdot\frac{186.09}{365.25}=
+  3.2012 \;\textsf{radians}\,.
+\end{eqn}
+
+\subsubsection*{Computing the angles of the arcs $\widehat{AA'}, \widehat{BB'}$}
+
+Let us express the arcs $\widehat{AC}$ and $\widehat{AB}$ in terms of the arcs that comprise them. Since $AC$ is parallel to $A'C'$, $\widehat{AA'}=\widehat{C'C}$. Compute $\widehat{AA'}$:
+\begin{eqn}
+\widehat{AC} &=& \widehat{AA'} + \widehat{A'C'} + \widehat{C'C}= 2\widehat{AA'} + \pi\\[4pt]
+\widehat{AA'} &=& \frac{1}{2}(3.2012-\pi) = 0.0298\;\textsf{radians}\,.
+\end{eqn}
+Now that we have computed $\widehat{AB}$ and $\widehat{AA'}$ we can compute $\widehat{BB'}$:
+\begin{eqn}
+\widehat{AB} &=& \widehat{AA'} + \widehat{A'B'} - \widehat{BB'}\\[4pt]
+\widehat{BB'} &=& 0.0298 + \frac{\pi}{2} - 1.5927 = 0.0034\;\textsf{radians}\,.
+\end{eqn}
+
+\subsubsection*{Computing the lengths of the arcs $\widehat{AA'}, \widehat{BB'}$}
+
+$OA$ and $OB$ are radii of the Earth's orbit so
+\begin{eqn}
+\sin \alpha &=& \frac{a}{r} \approx \alpha\\[4pt]
+a &\approx& r\alpha = r\widehat{AA'} = 0.0298r\\[4pt]
+\sin \beta &=& \frac{b}{r} \approx \beta\\[4pt]
+b &\approx& r\beta = r\widehat{BB'} = 0.0034r\,,
+\end{eqn}
+where we have used the assumption that $O$, the center of the Earth's orbit, is very close to the Sun  $S$ so that $\displaystyle\lim_{x\rightarrow 0} \frac{\sin x}{x} = 1$.
+
+\subsubsection*{Computing the position of $O$ relative to $S$}
+
+Figure~\ref{f.seasons-triangles} shows a magnified diagram of a portion of Figure~\ref{f.seasons-details}. In the dotted triangles, we have already computed the lengths $a$ and $b$. Since $OT$ is parallel to $A'A$ and $TS$ is parallel to $BB'$, we can label $OT$ by $a$ and $TS$ by $b$. The emphasized triangle is a right triangle and $c$, the distance of $O$ from $S$, can be obtained from Pythagoras' theorem:
+\[
+c = \sqrt{a^2+b^2}=r\sqrt{(0.0298)^2+(0.0034)^2}=0.03r\,.
+\]
+$\lambda$ can be obtained from trigonometry:
+\[
+\lambda = \tan^{-1} \frac{b}{a} = \tan^{-1} \frac{0.0034}{0.03} = 0.1129\;\textsf{radians} \approx 6.47^\circ\,.
+\]
+
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}
+
+% Locate the center of the Sun but not the celestial sphere
+\coordinate (S) at (0,0);
+\node[below right] at (S) {$S$};
+\vertexsm{S};
+
+% Draw the orbit of the Earth (offset)
+\coordinate (O) at (140:2.5);
+\node[above left] at (O) {$O$};
+\vertexsm{O};
+\node[draw,circle,minimum size=6.5cm,name path=Eorbit] at (O) {};
+
+% Locate A' and C' on the orbit
+\path[thick,dashed] ($(O)+(-3.25,0)$) node[left] {$C'$} -- 
+  ($(O)+(3.25,0)$)  node[right] {$A'$} coordinate (AP);
+\path[thick,dashed,name path=vert] ($(O)+(0,-3.25)$) -- 
+  ($(O)+(0,3.25)$) node[above] {$B'$} coordinate (BP);
+
+% Locate A and C on the orbit and draw a line A -- C
+\path[name path=equi] ($(S)+(-5,0)$) -- ($(S)+(2,0)$);
+\path [name intersections = {%
+    of = equi and Eorbit,
+    by = {C,A}
+    }];
+\draw[name path=horiz] (C) node[left] {$C$} -- (A) node[right] {$A$};
+
+
+% Locate B and D on the orbit and draw a line B -- D
+\path[name path=sols] ($(S)+(0,-2)$) -- ($(S)+(0,5)$);
+\path [name intersections = {%
+    of = sols and Eorbit,
+    by = {B,D}
+    }];
+\draw (D) node[below right] {$D$} -- (B) node[above right] {$B$};
+
+% Draw dotted triangles
+\draw[very thick,dotted] (A) -- (O) -- (B);
+\draw[very thick,dotted] (B) -- node[below] {$b$} (B -| BP) coordinate (BRA) -- (O);
+\draw[very thick,dotted] (A) -- node[left] {$a$} (A |- AP) coordinate (ARA) -- (O);
+
+% Locate R and draw emphasized triangle
+\path [name intersections = {%
+    of = vert and horiz,
+    by = {T}
+    }];
+\node[below left] at (T) {$T$};
+\draw[very thick] (S) -- 
+  node[below] {$b$} (T) -- node[left] {$a$} (O);
+\draw[very thick] (S) --
+  node[below,xshift=-3pt,yshift=2pt] {$c$} (O); 
+
+% Draw right angle squares
+\draw[rotate=-90] (BRA) rectangle +(6pt,6pt);
+\draw[rotate=180] (ARA) rectangle +(6pt,6pt);
+\draw[rotate=0] (T) rectangle +(6pt,6pt);
+
+% Label \alpha and \beta
+\node[above,xshift=5pt,yshift=8pt] at (O) {$\beta$};
+\node[below right,xshift=16pt,yshift=2pt] at (O) {$\alpha$};
+
+% Draw angle labels \lambda
+\draw[<->] ($(S)+(0,.8)$) node[above left] {$\lambda$}
+  arc[start angle=90,end angle=140,radius=.8cm];
+\draw[<->] ($(O)+(0,-.7)$) node[below right,xshift=4pt,yshift=2pt] {$\lambda$}
+  arc[start angle=-90,end angle=-40,radius=.7cm];
+
+\end{tikzpicture}
+\caption{Three triangles}\label{f.seasons-triangles}
+\end{center}
+\end{figure}
+
+The distance $0.03r$ is shown in Table~\ref{t.orbit-distance} using the values of $r$ from Table~\ref{t.radii-distances}.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|r|r|r|}
+\hline
+&\multicolumn{1}{|c|}{Aristarchus (km)}&
+\multicolumn{1}{|c|}{Copernicus (km)} & \multicolumn{1}{|c|}{Modern (km)}\\
+\hline\hline
+radius of Earth's orbit & $2,320,660$ & $8,000,000$ & $150,000,000$\\\hline
+distance of $O$ from $S$ & $69,620$ & $240,000$ & $4,500,000$ \\
+\hline
+\end{tabular}
+\caption{Values computed by Aristarchus' method compared with modern values}
+\label{t.orbit-distance}
+\end{center}
+\end{table}

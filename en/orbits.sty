@@ -1,0 +1,65 @@
+% !TeX root = orbits.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mathpazo}
+\usepackage{microtype}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{bm}
+
+% TikZ package
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc,arrows.meta,shapes,intersections,through}
+\tikzset {>=Stealth}
+
+% Display vertex not affected by tikz scale
+\newcommand*{\vertex}[1]
+  {\fill[shift only] (#1) circle (2.5pt)}
+\newcommand*{\vertexcolor}[2]
+  {\fill[shift only,#2] (#1) circle (2.5pt)}
+\newcommand*{\vertexsm}[1]
+  {\fill[shift only] (#1) circle (1.5pt)}
+\newcommand*{\vertexsmcolor}[2]
+  {\fill[shift only,#2] (#1) circle (1.5pt)}
+
+% Reduce space around c column in eqnarray*
+\newenvironment{eqn}
+  {\addtolength{\arraycolsep}{-3pt}
+   \begin{eqnarray*}}
+  {\end{eqnarray*}}
+
+% Reduce space around c column in eqnarray with labels
+\newenvironment{eqnlabels}
+  {\addtolength{\arraycolsep}{-3pt}
+   \begin{eqnarray}}
+  {\end{eqnarray}}
+  
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand*{\hqed}{\hfill\rule{4pt}{10pt}}
+\newenvironment{proof}
+{\textbf{Proof}}{}
+
+% Change LaTeX defaults for figures
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{3}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.8}
+
+% Layout
+\textwidth=150mm
+\textheight=225mm
+\topmargin=0pt
+\headheight=11pt
+\oddsidemargin=1em
+\evensidemargin=0mm
+\headsep=0pt
+\parindent=0pt
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
