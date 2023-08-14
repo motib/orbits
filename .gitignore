@@ -1,0 +1,11 @@
+﻿*.bat
+*.zip
+*~
+*.aux
+*.log
+*.auxlock
+*.bbl
+*.blg
+*.synctex.gz
+*.toc
+en/*.pdf
