@@ -24,6 +24,9 @@
 \newcommand*{\vertexsmcolor}[2]
   {\fill[shift only,#2] (#1) circle (1.5pt)}
 
+% Very small math, used in drawings
+\newcommand*{\sm}[1]{$\scriptstyle #1$}
+
 % Reduce space around c column in eqnarray*
 \newenvironment{eqn}
   {\addtolength{\arraycolsep}{-3pt}
@@ -51,6 +54,8 @@
 \setcounter{totalnumber}{3}
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.8}
+\setlength{\abovecaptionskip}{0pt plus 1pt minus 1pt}
+\setlength{\belowcaptionskip}{0pt plus 1pt minus 1pt}
 
 % Layout
 \textwidth=150mm
@@ -63,3 +68,5 @@
 \parindent=0pt
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
+\setlength{\fboxrule}{1pt}
+

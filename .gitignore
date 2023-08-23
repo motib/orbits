@@ -1,4 +1,5 @@
-﻿*.bat
+﻿ellipses/*
+*.bat
 *.zip
 *~
 *.aux

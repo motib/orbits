@@ -21,7 +21,7 @@
 \bigskip
 \bigskip
 
-Version $0.7$
+Version $0.8$
 
 \bigskip
 
@@ -85,10 +85,24 @@ The prerequisites for reading the document are a good knowledge of Euclidean geo
 
 The following shortcuts facilitate a less verbose presentation:
 \begin{itemize}
-\item $a$ and $b$ always denote the semi-major and semi-minor axes of an ellipse.
+\item $a$ and $b$ denote the semi-major and semi-minor axes of an ellipse.
 \item $AB$ denotes both a line segment and its length.
 \item $\triangle ABC$ denotes both a triangle and its area.
+\item The diagram below shows that when the line segment $AB$ is \emph{extended} it intersects the line $CD$ at a point $E$. The rather archaic term for extended is \emph{produced}. When the text says that $AB$ intersects $CD$, the intention is that $AB$ can produced or extended until it intersects $CD$.
 \end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\draw (0,0) coordinate (A) node[below] {$A$} -- (2,0) coordinate(B) node[below] {$B$};
+\draw (4.5,-.5) coordinate (C) node[below] {$C$} -- (5.5,.5) coordinate (D) node[above] {$D$}; 
+\draw[dotted,thick] (B) -- (5,0) coordinate (E) node[xshift=6pt,right] {$E$};
+%\vertexsm{A};
+%\vertexsm{B};
+%\vertexsm{C};
+%\vertexsm{D};
+\vertexsm{E};
+\end{tikzpicture}
+\end{center}
 
 \subsection*{Acknowledgments}
 
