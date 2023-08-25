@@ -2,14 +2,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The proof of Theorem~\ref{thm.lr-limit}}
+\section{The proof Proposition~XI, Problem~VI}
 \label{s.centripetal}
 
 Theorem~\ref{thm.lr-limit} is Book~I, Section~III, Proposition~XI, Problem~VI of the \emph{Principia}.
 
 Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half of the ellipse has been clipped, but we still refer to lines from the center to points on the ellipse as diameters.}
 \begin{itemize}
-\item  Given an ellipse whose center is $C$ and whose foci are $S$ and $H$, let $P,Q$ be two points on the ellipse. The points represent the movement of a body in an elliptical orbit separated by a time interval $\Delta t$.
+\item  Given an ellipse whose center is $C$ and whose foci are $S$ and $H$, let $P,Q$ be two points on the ellipse. These points represent the movement of a body in an elliptical orbit separated by a time interval $\Delta t$.
 
 \item Construct lines from $P$ to the center and the foci. 
 
@@ -21,7 +21,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 
 \item Construct a line parallel to $RP$ through $H$ and let $I$ be its intersection with $PS$. 
 
-\item Construct $DC$ the conjugate diameter to $PC$(Definition~\ref{def.conjugate}). Let $E$ be its intersection with $PS$.
+\item Construct $DC$ the conjugate diameter to $PC$ (Definition~\ref{def.conjugate}) and let $E$ be its intersection with $PS$.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,7 +80,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 % Draw QR
 \path[name path=qr] (Q) -- +(10:2);
 \path [name intersections = {of = t and qr, by = {R} }];
-\node[above right] at (R) {$R$};
+\node[right] at (R) {$R$};
 \draw (R) -- (Q);
 
 % Draw QX
@@ -140,19 +140,20 @@ By Theorem~\ref{thm.tangent-angles}, $\alpha=\angle RPX = \angle ZPH$ and by alt
 \]
 so $\triangle IPH$ (red) is isoceles and $d=PI=PH$.
 
-$SC=CH=c$ are equal because they are the distances of the foci from the center of the ellipse. By construction $EC\parallel IH$ so $\triangle ESC \sim \triangle ISH$ (blue) and 
+$SC=CH=c$ are equal because they are the distances of the foci from the center of the ellipse. Let $SE=e$. By construction $EC\parallel IH$ so $\triangle ESC \sim \triangle ISH$ (blue) so
 \begin{eqn}
-\frac{SC}{SE}&=&\frac{SH}{SI}\\
-\frac{c}{e}&=&\frac{2c}{SI}\,.
+\frac{SC}{SE}&=&\frac{SH}{SI}\\[4pt]
+\frac{c}{e}&=&\frac{2c}{SI}\\
+SI &=& 2e\,.
 \end{eqn}
-It follows that $EI=SI-SE=2e-e=e$. By definition of an ellipse, $SP+PH=2CA$, so $e+e+d+d=2CA$ and $EP=e+d=CA$.
+By definition of an ellipse $SP+PH=SI+IP+PH=2CA$ so $(2e+d)+d=2CA$ and $EP=e+d=CA$.
 
 $QV \parallel EC$ so  $\triangle EPC \sim \triangle XPV$ and
 \begin{eqn}
-\frac{PX}{PV} &=& \frac{EP}{PC} =\frac{CA}{PC}\\
+\frac{PX}{PV} &=& \frac{EP}{PC} =\frac{CA}{PC}\\[4pt]
 PX &=& PV\cdot \frac{CA}{PC}\,.
 \end{eqn}
-By construction $QR=PX$ proving that $QR= PV\cdot\displaystyle\frac{AC}{PC}$.
+By construction of the parallelogram $QR=PX$ proving that $QR= PV\cdot\displaystyle\frac{AC}{PC}$.
 \hqed
 \end{proof}
 
@@ -397,6 +398,7 @@ QT&=&QX\cdot \frac{FP}{EP}= \frac{FP}{CA}\,,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{proof}
 Let use combine the equations in Theorems~\ref{thm.qr} and ~\ref{thm.qt} to get $QR/QT^2$.
 \begin{equation}
 \frac{QR}{QT^2}=\frac{PV\cdot\displaystyle\frac{CA}{CP}}
@@ -404,10 +406,10 @@ Let use combine the equations in Theorems~\ref{thm.qr} and ~\ref{thm.qt} to get 
 \frac{PV\cdot CA^3}
 {QX^2\cdot CP\cdot FP^2}\,.\label{eqn.qr-qt}
 \end{equation}
-Theorem~\ref{thm.conj-diag} gives a formula for $PV$ that we substitute into Equation~\ref{eqn.qr-qt}.
+$DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a formula for $PV$ that we substitute into Equation~\ref{eqn.qr-qt}.
 \begin{equation}
 \frac{QR}{QT^2}=
-\frac{QV^2\cdot CP^2}{GV \cdot PV \cdot CD^2}\cdot
+\frac{QV^2\cdot CP^2}{GV \cdot CD^2}\cdot
 \frac{CA^3}
 {QX^2\cdot CP\cdot FP^2}=\frac{CP}{CD^2}\cdot \frac{CA^3}{FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.three-multiplications}
 \end{equation}
@@ -495,7 +497,7 @@ Theorem~\ref{thm.conj-diag} gives a formula for $PV$ that we substitute into Equ
 \draw[thick,red] (C) -- (Top) -- (R) -- cycle;
 
 %% Draw perpendicular to conjugate diameter
-\draw[very thick,orange!70] (P) -- ($(D)!(P)!(C)$) coordinate (F);
+\draw[very thick,green!70!black] (P) -- ($(D)!(P)!(C)$) coordinate (F);
 \node[below left,xshift=5pt,yshift=1pt] at (F) {$F$};
 \draw[rotate=33] (F) rectangle +(8pt,8pt);
 
@@ -506,15 +508,14 @@ Theorem~\ref{thm.conj-diag} gives a formula for $PV$ that we substitute into Equ
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Next we show that $CD\cdot FP = CA \cdot CB$ (Figure~\ref{f.conj-diam}). Theorem~\ref{thm.conj-diam-para} proved that the areas of the parallelograms formed by the tangents conjugate diameters are equal. By symmetry the areas of the four small parallelograms are equal, as are the triangles formed by constructing corresponding diagonals. In Figure~\ref{f.conj-diam-para} the area of the $\triangle ABC'$ (red), which is $AC\cdot AB$, is equal to the area of $\triangle PCD$ (blue), which is $FP\cdot CD$.
-
-Substituting for $CD\cdot FP$ in Equation~\ref{eqn.three-multiplications} gives
+Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} proves that the areas of the parallelograms formed by the tangents to conjugate diameters are equal (Figure~\ref{f.conj-diam}). By symmetry the areas of the four small parallelograms are equal, as are the triangles formed by constructing corresponding diagonals. In Figure~\ref{f.conj-diam-para} the area of the $\triangle ABC$ (red), which is $(1/2)AC\cdot AB$, is equal to the area of $\triangle PCD$ (blue), which is $(1/2)FP\cdot CD$. Substituting for $CD\cdot FP$ in Equation~\ref{eqn.three-multiplications} gives
 \begin{eqnlabels}
 \frac{QR}{QT^2}&=&\frac{CP}{CD^2}\cdot \frac{CA^3}{FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\nonumber\\
 %&=&CP\cdot \frac{CA^3}{CD^2\cdot FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\\
-&=&\frac{CP\cdot CA^3}{CB^2\cdot CA^2}\cdot \frac{QV^2}{GV\cdot QX^2}\nonumber\\
-&=&\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.two-labels}
+\frac{QR}{QT^2}&=&\frac{CP\cdot CA^3}{CB^2\cdot CA^2}\cdot \frac{QV^2}{GV\cdot QX^2}
+=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.two-labels}
 \end{eqnlabels}\hqed
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

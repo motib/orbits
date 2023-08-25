@@ -1,26 +1,23 @@
-% !TeX root = ellipses.tex
+% !TeX root = orbits.tex
 
 \section{Ellipses in Euclidean geometry}\label{s.geometry}
 
-In this document the proofs of theorems about planetary have freely used analytic geometry and trigonometry. But for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry, perhaps believing it to be a ``pure'' form of mathematics. Newton, even though he used limits as needed and invented differential calculus (along with Leibntiz), published proofs in Euclidean geometry. Even into the late nineteenth century, students at Cambridge University [ref????] continued to study the original works of Euclid and Newton. In this section, I present proofs in Euclidean geometry (\emph{geometric proofs}) of theorems that appeared before. The presentation is based on the textbook \emph{Conic Sections Treated Geometrically} written by the Cambridge mathematician William H. Besant \cite{besant}.
+The proofs of theorems about planetary freely used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. Even into the late nineteenth century, students continued to study the original works of Euclid and Newton. In this section, I present proofs in Euclidean geometry (\emph{geometric proofs}) of theorems that appeared in the previous sections. 
 
 The section starts with geometric proofs of several theorems on triangles that will be needed below. The next subsection defines ellipses in terms of the geometric concepts of focus and directrix instead of the familiar analytic definition, points which satisfy the following equation for $0<a,b$:
 \[
 \frac{x^2}{a^2}+\frac{y^2}{b^2}=1\,.
 \]
-
-
+This is followed by a theorem on focal chords and then a subsection on constructing a right angle at the focus of an allipse.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Theorems on triangles}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsubsection*{The median of the hypothenuse}
+\subsubsection*{The median of the hypotenuse}
 
 \begin{theorem}
-The median to the hypotenuse of a right triangle is equal to half the hypotenuse (Figure~\ref{f.median}). Therefore,
+Let $ACB$ be a right triangle and let $D$ be the intersection of the median from $C$ and the hypotenuse $AC$ (Figure~\ref{f.median}). Then $CD=AB/2$ and
 \[
 AD \cdot DB = DC^2\,.
 \]
@@ -36,7 +33,7 @@ AD \cdot DB = DC^2\,.
   (6,0) coordinate (B) node[right] {$B$} --
   (0,4) coordinate (A) node[above left] {$A$} -- cycle;
 \draw (C) rectangle +(6pt,6pt);
-\draw (C) -- node[above] {$b$} ($(A)!.5!(B)$)
+\draw (C) -- ($(A)!.5!(B)$)
   coordinate (D) node[above,xshift=2pt] {$D$};
 \path (A) -- node[above] {$a$} (D) --
   node[above] {$a$} (B);
@@ -64,23 +61,23 @@ Therefore, $\triangle DEC\cong \triangle DEB$ and $DC=DB$.\hqed
 
 \subsubsection*{Adjacent pairs of similar triangles}
 
-I have not encountered the following definition before but it explicitly expresses relation among similar triangles that would have been obvious to geometers.
+I have not encountered the following definition before but it explicitly expresses a relation among similar triangles that would have been obvious to geometers.
 
 \begin{definition}
-In Figure~\ref{f.adjacent}, $\triangle BAC\sim \triangle EAF$ and $\triangle CAD\sim \triangle FAG$ is an \emph{adjacent pair of similar triangles}.
+An \emph{adjacent pair of similar triangles} is a pair of (a pair of) similar triangles that share sides (Figure~\ref{f.adjacent}). $\triangle BAC\sim \triangle EAF$ and $\triangle CAD\sim \triangle FAG$ are an adjacent pair of similar triangles.
 \end{definition}
 
 \begin{theorem}
 For the adjacent pair of similar triangles in Figure~\ref{f.adjacent},
 \[
-\frac{AB}{AF}=\frac{AD}{AG}\,.
+\frac{AB}{AE}=\frac{AD}{AG}\,.
 \]
 \end{theorem}
 \begin{proof} By similar triangles,
 \begin{eqn}
-\frac{AB}{AF}&=&\frac{AC}{AF}\\[6pt]
+\frac{AB}{AE}&=&\frac{AC}{AF}\\[6pt]
 \frac{AC}{AF}&=&\frac{AD}{AG}\\[6pt]
-\frac{AB}{AF}&=&\frac{AD}{AG}\,.
+\frac{AB}{AE}&=&\frac{AD}{AG}\,.
 \end{eqn}\hqed
 \end{proof}
 
@@ -129,10 +126,10 @@ Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ b
 
 \subsubsection*{The angle bisector theorems}
 
-The angle bisector theorems, which are not well-known to students today, were used extensively in the study of conic systems, often implicitly.
+The angle bisector theorems are used extensively in the study of conic systems, often implicitly.
 \begin{theorem}[Interior angle bisector theorem]
 \label{thm.interior-angle-bisector}
-In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bisector}). Then $AD$ bisects $\angle CAB$ if and only if
+In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bisector}). Then $AD$ bisects $\angle CAB$ \emph{if and only if}
 \[
 \frac {BD}{CD}=\frac {AB}{AC}\,.
 \]
@@ -182,7 +179,7 @@ In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bise
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-Construct a line through $C$ parallel to $AB$ and let its intersection with $AD$ be $E$. By alternate interior angles, $\angle BAD=\angle AEC=$ and by vertical angles $\angle BDA=\angle CDE$. Therefore, $\triangle ABD\sim \triangle EDC$ so
+Suppose that $AD$ bisects $\angle BAC$. Construct a line through $C$ parallel to $AB$ and let its intersection with $AD$ be $E$. By alternate interior angles, $\angle BAD=\angle CED=$ and by vertical angles $\angle BDA=\angle CDE$. Therefore, $\triangle ABD\sim \triangle EDC$ so
 \[
 \frac{BD}{CD}=\frac{AB}{CE}\,.
 \]
@@ -198,7 +195,7 @@ To prove the converse just ``run'' the proof backwards.
 
 \begin{theorem}[Exterior angle bisector theorem]
 \label{thm.exterior-angle-bisector}
-In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the triangle (Figure~\ref{f.exterior-angle-bisector}). Then $AD$ bisects the supplementary angle of $\angle BAC$ if and only if
+In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the triangle (Figure~\ref{f.exterior-angle-bisector}). Then $AD$ bisects the exterior angle of $\angle BAC$ if and only if
 \[
 \frac {BD}{CD}=\frac {AB}{AC}\,.
 \]
@@ -250,11 +247,11 @@ In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the trian
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-Construct a line through $B$ parallel to $AD$ and let its intersection with $AC$ be $E$. By alternate interior angles $\angle BAD=\angle ABE$ and by corresponding angles $\angle FAD=\angle AEB$. Therefore, $\triangle BCE\sim \triangle DCA$ so
+Suppose that $AD$ bisects $BAF$. Construct a line through $B$ parallel to $AD$ and let its intersection with $AC$ be $E$. By alternate interior angles $\angle BAD=\angle ABE$ and by corresponding angles $\angle FAD=\angle AEB$. Therefore, $\triangle BCE\sim \triangle DCA$ so
 \[
 \frac{BD}{CD}=\frac{AE}{AC}\,.
 \]
-$\triangle BAE$ is isoceles so $AE=AB$ and
+But $\triangle BAE$ is isoceles so $AE=AB$ and
 \[
 \frac{BD}{CD}=\frac{AB}{AC}\,.
 \]
@@ -263,7 +260,7 @@ To prove the converse just ``run'' the proof backwards.
 \end{proof}
 
 \begin{center}
-\fbox{\parbox{.8\textwidth}{The exterior angle bisector theoren confusing to understand in a proof, because it can be hard to identify the components of a diagram. The following color-coding is used below: triangle is red, the extension of one side is dashed red and the bisector is blue.}}
+\fbox{\parbox{.8\textwidth}{The exterior angle bisector theoren confusing to understand in a proof, because it can be hard to identify the components of a diagram. The following color-coding is used below: the triangle is red, the extension of one side is dashed red and the bisector is blue.}}
 \end{center}
 
 
@@ -272,12 +269,12 @@ To prove the converse just ``run'' the proof backwards.
 \subsection{The definition of an ellipse using the focus and the directrix}
 
 \begin{definition}
-Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix. Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the geometric locus of points such that the ratio of its distance to the focus to its distance to the directrix is $e$.
+Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix. Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the geometric locus of points $P$ such that the ratio of  $PS$ to the distance of $P$ to the directrix is $e$.
 \end{definition}
 
 All the conic sections (parabolas, ellipses and hyperbolas) are defined the same way and are distinguished by their eccentricity. You might be familiar with the definition of the parabola where $e=1$ (Figure~\ref{f.parabola}).
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=.6]
 \draw (-6,-2) -- node[below,near start] {$d$} (6,-2);
@@ -286,14 +283,14 @@ All the conic sections (parabolas, ellipses and hyperbolas) are defined the same
 \vertexsm{F};
 \node[above] at (F) {$S$};
 \coordinate (vertex) at (0,0);
-\node[below right] at (vertex) {$A_2$};
+\node[below right] at (vertex) {$P_2$};
 \coordinate (FP) at (-5,-2);
 \coordinate (F2) at (3,1.125);
-\node[right,yshift=-4pt] at (F2) {$A_3$};
+\node[right,yshift=-4pt] at (F2) {$P_3$};
 \coordinate (F3) at (5,3.125);
-\node[right] at (F3) {$A_4$};
+\node[right] at (F3) {$P_4$};
 \coordinate (F4) at (-5,3.125);
-\node[left] at (F4) {$A_1$};
+\node[left] at (F4) {$P_1$};
 \draw (F) -- (0,-2);
 \draw (F) -- (F2) -- (3,-2);
 \draw (F) -- (F3) -- (5,-2);
@@ -309,7 +306,7 @@ Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
 
@@ -318,17 +315,21 @@ Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ 
 \node[left] at (X) {$X$};
 \coordinate (S) at (3,0);
 \node[below] at (S) {$S$};
-\draw[name path=directrix] ($(X)+(0,2)$) --
-  node[left,near start] {$d$} ($(X)+(0,-2)$);
-\draw (S) -- node[above left] {$1$} (A) -- node[above] {$2$} (X);
-
 % Locate the vertex with eccentricity 1/2
 \coordinate (A) at (2,0);
 \node[below] at (A) {$A$};
+\coordinate (AP) at (9,0);
+\node[below] at (AP) {$A'$};
+
+\draw[name path=directrix] ($(X)+(0,2)$) --
+  node[left,near start] {$d$} ($(X)+(0,-2)$);
+\draw  (AP) -- node[above] {$6$} (S) -- node[above left] {$1$} (A) --
+  node[above] {$2$} (X);
 
 \vertexsm{X};
 \vertexsm{S};
 \vertexsm{A};
+\vertexsm{AP};
 \end{tikzpicture}
 \end{center}
 \caption{The elements of the definition of an ellipse}\label{f.def-ellipse}
@@ -350,7 +351,6 @@ A'X-SA'&=&SX\\[4pt]
 SA'&=&SX\cdot \frac{1}{1-e}\\[4pt]
 A'X&=&SX\cdot \frac{2-e}{1-e}\,.
 \end{eqn}
-For example, if $SX=3,e=1/3$ then $SA=1,AX=2$, and $SA'=9/2,A'X=15/2$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -381,14 +381,14 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 
 %\coordinate (E) at (0,-1.5);
 \node[left] at (E) {$E$};
-\draw[name path=EA] (E) -- ($(E)!2.3!(A)$);
+\path[name path=EA] (E) -- ($(E)!2.3!(A)$);
 
-\draw[name path=ES] (E) -- ($(E)!2.3!(S)$);
+\path[name path=ES] (E) -- ($(E)!2.3!(S)$);
 
-\draw[name path=SP] (S) -- +(60:3) coordinate (Q);
+\path[name path=SP] (S) -- +(60:3);
 \path [name intersections = {of = EA and SP, by = {P} }];
-\node[above left] at (P) {$P$};
-\node[left] at (Q) {$Q$};
+\node[above] at (P) {$P$};
+\draw (S) -- (P);
 
 \path[name path=PK] (P) -- +(180:4.5);
 \path [name intersections = {of = PK and directrix, by = {K} }];
@@ -416,13 +416,11 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 The point $P$ is on the ellipse.
 \end{theorem}
 \begin{proof}
-$\angle PLS = \angle LSN$ by alternate interior angles, so $\triangle LPS$ is isoceles and $PL=SP$. Since $PK\parallel SX$, $\triangle XEA\sim \triangle KEP$ and $\triangle AES\sim \triangle PEL$ are adjacent pairs of similar triangles, so
-\begin{eqn}
-%\frac{PL}{AS}&=&\frac{PK}{AX}\\
-\frac{PL}{PK}&=&\frac{SA}{AX}\\
-\frac{PS}{PK}&=&\frac{SA}{AX}= e\,.
-\end{eqn}
-Therefore, $P$ is on the ellipse since the ratio of its distance from the focus to its distance from directrix is equal to $e$.\hqed
+$\angle PLS = \angle LSN=\alpha$ by alternate interior angles, so $\triangle LPS$ is isoceles and $PL=SP$. Since $PK\parallel SX$, $\triangle XEA\sim \triangle KEP$ and $\triangle AES\sim \triangle PEL$ are adjacent pairs of similar triangles, so
+\[
+\frac{PS}{PK}=\frac{PL}{PK}=\frac{SA}{AX}=e\,.
+\]
+Therefore, $P$ is on the ellipse.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -473,9 +471,9 @@ Therefore, $P$ is on the ellipse since the ratio of its distance from the focus 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We now construct another point on $KP$. Construct a line from $F$ on the directrix through $P$ such that $\angle FSK = \angle KSP$ (Figure~\ref{f.other-vertex}).
+We now construct another point on $KP$. Construct a line from $F$ on the directrix through $S$ such that $\angle FSK = \angle KSP=\beta$ and let $P'$ be the intersection of $FS$ with $KP$ (Figure~\ref{f.other-vertex}).
 \begin{theorem}
-$P'$, the intersection of $FS$ with $KP$, is on the ellipse.
+$P'$ is on the ellipse.
 \end{theorem}
 
 \enlargethispage{\baselineskip}
@@ -485,7 +483,7 @@ Since $KS$ bisects $\angle PSF$, by the exterior angle bisector theorem
 \frac{SP'}{SP}&=&\frac{P'K}{PK}\\
 \frac{SP'}{P'K}&=&\frac{SP}{PK}=e\,,
 \end{eqn}
-since $P$ is on the ellipse.\hqed
+and therefore $P$ is on the ellipse.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -552,8 +550,7 @@ Let $P,P'$ be points on an ellipse. $PP'$ is a \emph{focal chord} of the ellipse
 \draw[very thick] (PP) -- (KP);
 
 \path [name intersections = {of = PKP and ES, by = {LP} }];
-\vertexsm{LP};
-\node[above,xshift=4pt] at (LP) {$L'$};
+\node[above,xshift=4pt,yshift=2pt] at (LP) {$L'$};
 
 \node[above right,xshift=13pt,yshift=-1pt] at (LP) {$\alpha$};
 \node[below left,xshift=-7pt,yshift=-7pt] at (S) {$\alpha$};
@@ -561,7 +558,14 @@ Let $P,P'$ be points on an ellipse. $PP'$ is a \emph{focal chord} of the ellipse
 \node[above right,xshift=8pt,yshift=8pt] at (S) {$\alpha$};
 \node[below left,xshift=-14pt,yshift=1pt] at (L) {$\alpha$};
 
+\draw[thick,red] (X) -- (S) -- (E);
+\draw[thick,red] (KP) -- (LP);
+\draw[thick,red] ($(E)+(-3pt,0)$) -- ($(S)+(-3pt,0)$);
 
+\draw[thick,blue] (S) -- (AP) -- (E) -- cycle;
+\draw[thick,blue] (LP) -- (PP);
+
+\vertex{LP};
 \end{tikzpicture}
 \end{center}
 \caption{Constructing a focal chord}\label{f.focal-chord}
@@ -569,9 +573,9 @@ Let $P,P'$ be points on an ellipse. $PP'$ is a \emph{focal chord} of the ellipse
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let us continue with the construction of Figure~\ref{f.construct} as shown in Figure~\ref{f.focal-chord} with new lines emphasized. Construct the second vertex $A'$. Construct $EA'$ and label its intersection with $SP$ by $P'$. Construct a perpendicular from $P'$ to the directrix and label its intersection with the directrix by $K'$. Label the intersection of $P'K'$ and $EL$ by $L'$.
+Let us continue with the construction of Figure~\ref{f.construct} as shown in Figure~\ref{f.focal-chord}. Construct the second vertex $A'$. Construct $EA'$ and label its intersection with $SP$ by $P'$. Construct a perpendicular from $P'$ to the directrix and label its intersection with the directrix by $K'$. Label the intersection of $P'K'$ and $EL$ by $L'$.
 \begin{theorem}
-The point $P'$ is on the ellipse and since $PP'$ is a focal chord since it intersects $S$.
+The point $P'$ is on the ellipse and since $PP'$ intersects $S$ it is a focal chord.
 \end{theorem}
 \begin{proof}
 $\triangle SEA' \sim \triangle L'EP'$ and $\triangle XES\sim K'EL'$ are adjacent similar triangles, so
@@ -582,23 +586,7 @@ By alternate interior angles and vertical angles we have $\angle SL'P'=\angle L'
 \[
 \frac{SP'}{P'K'}=\frac{SA'}{A'X}=e\,,
 \]
-and $P'$ is on the curve.\hqed
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{A right angle at the focus of an ellipse}
-
-\begin{theorem}\label{thm.bisect}
-Let $P,P'$ be points on the ellipse and let $F$ be the intersection of $PP'$ with the directrix. Then $FS$ bisects the exterior angle $\angle P'SP$(Figure~\ref{f.bisect-angle}).
-\end{theorem}
-\begin{proof}
-Since $P,P'$ are on the ellipse and $\triangle PFK\sim P'FK'$,
-\begin{eqn}
-\frac{SP}{PK}&=&\frac{SP'}{P'K'}=e\\
-\frac{SP}{SP'}&=&\frac{PK}{P'K'}=\frac{PF}{P'F}\,.
-\end{eqn}
-$\!$By the exterior angle bisector theorem for $\triangle PSP'$, $FS$ bisects the exterior angle of $\angle P'SP$.\hqed
+and $P'$ is a point on the ellipse.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -654,20 +642,9 @@ $\!$By the exterior angle bisector theorem for $\triangle PSP'$, $FS$ bisects th
 \caption{Bisecting the angle at the focus}\label{f.bisect-angle}
 \end{figure}
 
-
-\begin{theorem}
-Let $P$ be a point on the ellipse and construct lines from $PA$ and $PA'$. Label their intersections with the directrix by $E$ and $F$, respectively. Then $\angle FSE$ is a right angle (Figure~\ref{f.bisect-angle}).
-\end{theorem}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{proof}
-$P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$ bisects $\angle PSA=2\gamma$ and $ES$ bisects $\angle P'SA=2\delta$, so $2\gamma + 2\delta= 180^\circ$ and $\angle FSE=\gamma + \delta= 90^\circ$.\hqed
-\end{proof}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}[scale=1.1]
 \coordinate (X) at (0,0);
@@ -720,3 +697,30 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 \end{center}
 \caption{The right angle at the focus}\label{f.right-angle}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{A right angle at the focus of an ellipse}
+
+\begin{theorem}\label{thm.bisect}
+Let $P,P'$ be points on the ellipse and let $F$ be the intersection of $PP'$ with the directrix. Then $FS$ bisects the exterior angle of $\angle P'SP$(Figure~\ref{f.bisect-angle}).
+\end{theorem}
+\begin{proof}
+Since $P,P'$ are on the ellipse 
+\[
+\frac{SP}{PK}=\frac{SP'}{P'K'}=e\,,
+\]
+and since $\triangle PFK\sim P'FK'$,
+\[
+\frac{SP}{SP'}=\frac{PK}{P'K'}=\frac{PF}{P'F}\,.
+\]
+By the exterior angle bisector theorem $FS$ bisects the exterior angle of $\angle P'SP$.\hqed
+\end{proof}
+
+\begin{theorem}
+Let $P$ be a point on the ellipse and construct lines $PA,PA'$. Label their intersections with the directrix by $E$ and $F$, respectively. Then $\angle FSE$ is a right angle (Figure~\ref{f.bisect-angle}).
+\end{theorem}
+
+\begin{proof}
+$P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$ bisects $\angle PSA=2\gamma$ and $ES$ bisects $\angle P'SA=2\delta$, so $2\gamma + 2\delta= 180^\circ$ and $\angle FSE=\gamma + \delta= 90^\circ$.\hqed
+\end{proof}
