@@ -1,0 +1,930 @@
+% !TeX root = orbits.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ellipses in Euclidean Geometry (2)}\label{s.besant}
+
+\subsection{The altitude to a hypothenuse}
+
+\begin{theorem}\label{thm.dividing}
+Let $AA'$ be a line segment whose midpoint is $C$. Then 
+\[
+AC^2-CN^2=AN\cdot NA'\,.
+\]
+\end{theorem}
+
+%\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+
+\draw (0,0) coordinate (A) node[below] {$A$} -- (2.5,0) coordinate (N) node[below] {$N$} -- (4,0) coordinate (C) node[below] {$C$} -- (8,0) coordinate (AP) node[below] {$A'$};
+\vertexsm{A};
+\vertexsm{N};
+\vertexsm{C};
+\vertexsm{AP};
+
+\end{tikzpicture}
+\end{center}
+%\caption{Dividing one-half of a line segment}\label{f.dividing}
+%\end{figure}
+
+\begin{proof}
+$AN=AC-CN$ and $NA'=A'C+CN=AC+CN$ since $C$ is the midpoint of $AA'$. The result is obtaining by multiplying the two equations.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.alt-hypo}
+Let $Q$ be a point on a circle whose diameter is $AA'$ and construct a perpendicular $QN$ to the diameter (Figure~\ref{f.circle-besant}). Then
+\[
+QN^2=AN\cdot NA'\,.
+\]
+The equation also holds if \emph{it is given} that $\triangle AQA'$ is a right triangle.
+\end{theorem}
+
+\begin{proof}
+An angle that subtends a diameter is a right angle. Since the sum of the angles of a triangle is $180^\circ$, we can label the angles as shown in the Figure, from which follows that $\triangle QNA \sim\triangle A'NQ$. Therefore,
+\[
+\frac{QN}{AN} = \frac{NA'}{QN}\,.
+\]
+\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\def\a{4.33}
+\def\b{3}
+
+% Draw a hemi-ellipse and a circumscribing hemi-circle
+\coordinate (O) at (0,0);
+\draw[name path=circle] (\a,0) arc(0:180:\a);
+
+% Draw axes through O
+\coordinate (L) at (-\a,0);
+\coordinate (R) at (\a,0);
+\draw[name path=major] (L) node[below] {$A$} -- (O) -- (R) node[below] {$A'$};
+
+% Choose arbitrary point on major-axis, raise a perpendicular
+%   and label its intersections with the ellipse and the circle
+\coordinate (N) at (-2,0);
+\path[name path=atN] (N) -- ($(N)+(0,\a)$);
+\path [name intersections = {of = atN and circle, by = {Q} }];
+\draw (N) -- (Q);
+\draw (L) -- (Q) -- (R);
+
+\draw[rotate=-120] (Q) rectangle +(8pt,8pt);
+\draw (N) rectangle +(8pt,8pt);
+
+% Label X and the intersections
+\node[below] at (N) {$N$};
+\node[above] at (Q) {$Q$};
+
+\node[above right,xshift=6pt] at (L) {$90^\circ\!-\!\alpha$};
+\node[below right,yshift=-16pt] at (Q) {$90^\circ\!-\!\alpha$};
+\node[above left,xshift=-14pt] at (R) {$\alpha$};
+\node[below left,yshift=-18pt] at (Q) {$\alpha$};
+
+\end{tikzpicture}
+\caption{Right triangle in a circle at the diameter}\label{f.circle-besant}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Ratios}
+
+\begin{theorem}\label{thm.ratios-besant}
+Let $P$ be a point on an ellipse not on the major axis and construct perpendiculars $PN,PM$ from $P$ to the major and minor axes, respectively (Figure~\ref{f.besant-ratios}). Then
+\begin{eqnlabels}
+\frac{PN^2}{A'N\cdot AN}&=&\frac{BC^2}{AC^2} = \frac{b^2}{a^2}\label{eqn.pnan}\\[6pt]
+\frac{PM^2}{B'N\cdot BN}&=&\frac{AC^2}{BC^2} = \frac{a^2}{b^2}\label{eqn.pmbn}\,.
+\end{eqnlabels}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof} (Equation \ref{eqn.pnan})
+$\triangle AXE\sim \triangle ANP$ since they are right triangles and the vertical angles at $A$ are equal (red). Therefore,
+\begin{equation}
+\frac{PN}{AN}=\frac{EX}{AX}\,.\label{eqn.triangle1}
+\end{equation}
+$\triangle PA'N\sim \triangle FA'X$ (blue) so
+\begin{equation}
+\frac{PN}{A'N}=\frac{FX}{A'X}\,.\label{eqn.triangle2}
+\end{equation}
+Multiplying Equations~\ref{eqn.triangle1} and \ref{eqn.triangle2} gives
+\[
+\frac{PN^2}{AN\cdot A'N}=\frac{EX\cdot FX}{AX\cdot A'X}\,.
+\]
+By Theorem~\ref{thm.right-angle} $\triangle FSE$ is a right triangle so by Theorem~\ref{thm.alt-hypo} giving
+\[
+\frac{PN^2}{AN\cdot A'N}=\frac{SX^2}{AX\cdot A'X}\,.
+\]
+Since $P$ was arbitrary this holds for any point on the ellipse, in particular, for $B$ on the minor axis, where $PN=BC$ and $AN=AN'=AC$. Therefore,
+\begin{eqn}
+\frac{BC^2}{AC^2}&=&\frac{SX^2}{AX\cdot A'X}\\[6pt]
+\frac{PN^2}{AN\cdot A'N}&=&\frac{SX^2}{AX\cdot A'X}=\frac{BC^2}{AC^2}=\frac{b^2}{a^2}\,.
+\end{eqn}\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof} (Equation \ref{eqn.pmbn})
+From Equation~\ref{eqn.pnan}, since $CM=PN, PM=CN$ and by Theorem~\ref{thm.dividing},
+\begin{eqnlabels}
+AN\cdot NA'&=&AC^2-CN^2\\[6pt]
+\frac{CM^2}{AC^2-PM^2}&=&\frac{BC^2}{AC^2}\nonumber\\[6pt]
+\frac{AC^2}{AC^2-PM^2}&=&\frac{BC^2}{CM^2}\label{eqn.acbc1}\\[6pt]
+\frac{AC^2}{PM^2}&=&\frac{BC^2}{BC^2-CM^2}\label{eqn.acbc2}\\[6pt]
+\frac{PM^2}{BM\cdot MB'}&=&\frac{AC^2}{BC^2}\nonumber\,.
+\end{eqnlabels}
+The equivalence of Equations~\ref{eqn.acbc1} and~\ref{eqn.acbc2} can be seen by cross-multiplying the two equations.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale=.9]
+
+\clip (-7,-2.5) rectangle +(12,7);
+
+\def\a{4.33}
+\def\b{3}
+\coordinate (C) at (0,0);
+\node[below right] at (C) {$C$};
+
+% Draw an ellipse with center C
+\draw[name path=ellipse] (\a,0) 
+  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
+
+% Locate the focal points
+\coordinate (S) at ({-sqrt(\a*\a-\b*\b)},0);
+
+% Draw axes whose center is C
+\coordinate (L) at +(180:{\a} and {\b});
+\coordinate (R) at +(0:{\a} and {\b});
+\node[below] at (R) {$A'$};
+\node[above left] at (L) {$A$};
+\coordinate (Top) at +(90:{\a} and {\b});
+\node[above] at (Top) {$B$};
+\draw[name path=major] (L) -- (R);
+\draw[name path=minor] (C) -- (Top);
+
+\draw[thick,dashed] (C) -- +(0,{-\b/3}) node[below] {$B'$};
+
+\coordinate (X) at (-6,0);
+\node[left] at (X) {$X$};
+\draw (X) -- (L);
+\node[below right] at (S) {$S$};
+\path[name path=directrix] ($(X)+(0,4.5)$) -- ($(X)+(0,-2.5)$);
+
+\path[name path=fromL] (L) -- +(50:4) -- +(230:3);
+\path [name intersections = {of = ellipse and fromL, by = {P} }];
+\node[above] at (P) {$P$};
+\path [name intersections = {of = directrix and fromL, by = {E} }];
+\node[left] at (E) {$E$};
+\draw (P) -- (E);
+
+\path (P) -- ($(L)!(P)!(C)$) coordinate (N) node[below] {$N$};
+\draw (P) -- ($(Top)!(P)!(C)$) coordinate (M) node[right] {$M$};
+
+\path[name path=fromR] (R) -- ($(R)!1.7!(P)$);
+\path [name intersections = {of = directrix and fromR, by = {F} }];
+\node[left] at (F) {$F$};
+\draw (R) -- (F);
+
+\draw (F) -- (S) -- (E) -- cycle;
+\draw[rotate=125] (S) rectangle +(8pt,8pt);
+
+\draw[thick,red] (X) -- (E) -- (P) -- (N) -- cycle;
+\draw[thick,blue] ($(R)+(-4pt,2pt)$) -- ($(X)+(0,2pt)$) --
+  (F) -- ($(F)!.99!(R)$);
+\draw[thick,blue] ($(P)+(2pt,0)$) -- ($(P)!.98!($(N)+(2pt,0)$)$);
+\end{tikzpicture}
+\end{center}
+\caption{Ratio of an ordinate}\label{f.besant-ratios}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{A circle circumscribing an ellipse}
+
+Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-circle-besant}). Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively.
+\begin{theorem}\label{thm.ellipse-b-over-a-besant}
+The perpendicular to the major axis through a point $Q$ on the circle circumscribing an ellipse intersects the ellipse at $P$ such that
+\[
+\frac{PN}{QN}=\frac{BC}{AC}=\frac{b}{a}\,.
+\]
+\end{theorem}
+\begin{proof} 
+From Theorem~\ref{thm.ratios-besant},
+\[
+\frac{PN^2}{AN\cdot NA'} = \frac{BC^2}{AC^2}\,,
+\]
+and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
+\end{proof}
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\def\a{4.33}
+\def\b{3}
+
+% Draw a hemi-ellipse and a circumscribing hemi-circle
+\coordinate (O) at (0,0);
+\node[below] at (O) {$C$};
+\draw[name path=circle] (\a,0)
+  arc[start angle=0,end angle=180,radius=\a];
+\draw[name path=ellipse] (\a,0)
+  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
+
+% Draw axes through O
+\coordinate (L) at (-\a,0);
+\coordinate (R) at (\a,0);
+\coordinate (T) at (0,\a);
+\draw[name path=major] (L) node[below] {$A$} -- (O) -- 
+  (R) node[below] {$A'$};
+\draw[name path=minor] (O) -- (T);
+\path [name intersections = {of = minor and ellipse, by = {B} }];
+\node[above right] at (B) {$B$};
+
+% Choose arbitrary point on major-axis, raise a perpendicular
+%   and label its intersections with the ellipse and the circle
+\coordinate (N) at (-2,0);
+\path[name path=atN] (N) -- ($(N)+(0,\a)$);
+\path [name intersections = {of = atN and circle, by = {Q} }];
+\draw (N) -- (Q);
+
+% Label X and the intersections
+\node[below] at (N) {$N$};
+\node[above] at (Q) {$Q$};
+\path [name intersections = {of = atN and ellipse, by = {P} }];
+\node[above right] at (P) {$P$};
+
+\end{tikzpicture}
+\caption{A circle circumscribing an ellipse}\label{f.ellipse-circle-besant}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The latus rectum of an ellipse}
+
+\begin{definition}\label{def.ellipse-lr-besant}
+Let $L=L_1L_2$ be a perpendicular to the major axis of an ellipse through a \emph{focus} $S$, such that its intersections with the ellipse are $L_1,L_2$. $L$ is a \emph{latus rectum} of an ellipse (Figure~\ref{f.ellipse-latus-rectum-besant}).\footnote{Normally, points are denoted by upper-case letters and line segments or lengths by lower-case letters, but $L$ for the latus rectum is the standard notation.}
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+% Size and center of the ellipse
+\def\a{4.33}
+\def\b{3}
+
+% Draw an ellipse with center O
+\coordinate (C) at (0,0);
+\node[below] at (C) {$C$};
+\draw[name path=ellipse] (0,0) ellipse[x radius=\a, y radius=\b];
+
+% The Sun is at a focal point
+\coordinate (S) at ({-sqrt(\a*\a-\b*\b)},0);
+\node[below right] at (S) {$S$};
+
+% Draw axes whose center is O
+\coordinate (L) at (-\a,0);
+\coordinate (R) at (\a,0);
+\coordinate (B) at (0,-\b);
+\coordinate (T) at (0,\b);
+\node[above] at (T) {$B$};
+\node[left] at (L) {$A$};
+\node[right] at (R) {$A'$};
+\draw[name path=major] (L) -- (R);
+\draw[name path=minor] (T) -- node[right] {$b$} (C);
+
+\path[name path=atS] (S) -- ($(S)+(0,3)$) -- ($(S)+(0,-3)$);
+\path [name intersections = {of = atS and ellipse, by = {L,LP} }];
+\node[above,yshift=2pt] at (L) {$L_1$};
+\node[below] at (LP) {$L_2$};
+\draw[thick,red] (L) -- (LP);
+\draw (S) -- node[left] {$a$} (T);
+\path (C) -- node[above] {$a$} (R);
+\end{tikzpicture}
+\caption{The latus rectum of an ellipse}\label{f.ellipse-latus-rectum-besant}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.ellipse-lr-besant}
+$L$, the length of the latus rectum of an ellipse, is 
+$\displaystyle\frac{2b^2}{a}$.
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm.ratios-besant},
+\[
+\frac{SL_1^2}{AS\cdot SA'}=\frac{BC^2}{AC^2}\,.
+\]
+By Theorem 7.2, $SB=AC=a$, so by Pythagoras's theorem,
+\[
+BC^2=BS^2-SC^2=AC^2-SC^2=(AC-SC)(AC+SC)=AS\cdot SA'\,.
+\]
+Therefore,
+\begin{eqn}
+SL_1^2&=&\frac{BC^4}{AC^2}\\[4pt]
+SL_1&=&\frac{BC^2}{AC}=\frac{b^2}{a}\,,
+\end{eqn}
+but $L_1$ is one-half the latus rectum.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Areas of parallelograms}
+
+Construct the normal to the tangent at $P$ and let its intersection with the conjugate diameter $DK$ be $F$ and its intersection with the major axis be $G$. Construct a perpendicular from $P$ to the major axis and let its intersection be $N$ (Figure~\ref{f.parallelogram1}). Let the intersection of the tangent with the minor axis be $T$ and its intersection with the major axis be $T'$.
+
+\begin{theorem}\label{thm.parallelogram1}
+\[
+PF\cdot PG = BC^2\,.
+\]
+\end{theorem}
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}%[scale=.9]
+
+% Size and center of the ellipse
+\def\a{4.33}
+\def\b{3}
+\coordinate (C) at (0,0);
+\node[below left,xshift=2pt] at (C) {$C$};
+\node[below right,xshift=10pt,yshift=3pt] at (C) {\sm{\beta}};
+\node[above left,xshift=0pt,yshift=4pt] at (C) {\sm{\alpha}};
+
+% Draw the ellipse
+\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
+
+% Locate the focal points
+\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+
+% Draw axes AA' and BB'
+\coordinate (L) at +(180:{\a} and {\b});
+\coordinate (R) at +(0:{\a} and {\b});
+\coordinate (Top) at +(90:{\a} and {\b});
+\coordinate (Bot) at +(-90:{\a} and {\b});
+\draw[name path=major] (L) -- 
+  %node[left,xshift=3pt,yshift=6pt] {$A'$} --
+  (R) node[below right] {$A$};
+\draw[name path=minor] (Bot) --
+  %node[below,xshift=-3pt,yshift=2pt] {$B'$} --
+  (Top) node[above left] {$B$};
+
+% Select an arbitrary point P on the ellipse
+\path[name path=fromF1p] (F1) -- +(20:8);
+\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
+\path[name path=ph] (P) -- (F2);
+\path[name path=pc] (P) -- (C);
+\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
+\node[below,xshift=-4pt,yshift=-6pt] at (P) {\sm{\beta}};
+
+% Draw tangent at P
+\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
+\path[name path=t1] ($(Tan1)!.1!(P)$) coordinate (Z) -- 
+  ($(Tan1)!1.75!(P)$) coordinate (TP);
+
+\path[name path=bt] (C) -- ($(C)!1.5!(Top)$);
+\path [name intersections = {of = t1 and bt, by = {T} }];
+\node[left] at (T) {$T$};
+\node[below right,xshift=-2pt,yshift=-4pt] at (T) {\sm{\alpha}};
+
+% Conjugate diameters from D through C
+\path[name path=cd] (C) -- +($(P)-(Z)$);
+\path[name path=dk] (C) -- +($(Z)-(P)$);
+\path [name intersections = {of = cd and ellipse, by = {D} }];
+\path [name intersections = {of = dk and ellipse, by = {K} }];
+\node[above left,xshift=3pt,yshift=-2pt] at (D) {$D$};
+\node[below right,xshift=0pt,yshift=0pt] at (K) {$K$};
+\draw (D) -- (K);
+
+\draw (P) -- ($(C)!(P)!(R)$) coordinate (N);
+\node[below right] at (N) {$N$};
+
+\path[name path=pk] (P) -- ($(P)!2!(N)$);
+\path [name intersections = {of = pk and dk, by = {J} }];
+\node[below left,yshift=4pt] at (J) {$J$};
+\node[above left,xshift=2pt,yshift=2pt] at (J) {\sm{\alpha}};
+\draw (N) -- (J);
+
+\draw[name path=pf] (P) -- ($(D)!(P)!(K)$) coordinate (F);
+\node[below left] at (F) {$F$};
+
+\path [name intersections = {of = pf and major, by = {G} }];
+\node[above left] at (G) {$G$};
+\node[above right,xshift=2pt,yshift=-1pt] at (G) {\sm{\alpha}};
+\node[below left,xshift=-1pt,yshift=1pt] at (G) {\sm{\alpha}};
+\node[below right,xshift=-4pt,yshift=0pt] at (G) {\sm{180^\circ\!-\!\alpha}};
+
+\path[name path=semimajor] (C) -- ($(C)!1.6!(R)$);
+
+\path [name intersections = {of = t1 and semimajor, by = {TP} }];
+\node[below] at (TP) {$T'$};
+\draw (Top) -- (T) -- (TP) -- (R);
+
+\draw[rotate=-32]  (F) rectangle +(7pt,7pt);
+\draw[rotate=180]   (N) rectangle +(7pt,7pt);
+\draw[rotate=-212] (P) rectangle +(7pt,7pt);
+\draw[rotate=0]    (C) rectangle +(7pt,7pt);
+
+\end{tikzpicture}
+\caption{Parallelograms formed by conjugate diameters}\label{f.parallelogram-conjugate-diameters}
+\end{center}
+\end{figure}
+
+
+\begin{theorem}\label{thm.perp-tangent}
+Let $Y$ be the intersection of the perpendicular to the focus $S$ and the tangent $TT'$ at $P$, and let $L$ be the intersection of $S'P$ and $SY$ (Figure~\ref{f.perp-focus-tangent}). Then $Y$ is on the circumscribing circle and $CY\parallel S'L$.
+\end{theorem}
+
+\begin{proof}
+$\triangle STY$ and $\triangle T'TC$ are right triangles that share the acute angle $\angle CTT'=\angle YTS$ so $\angle CT'T=\angle YST$.
+
+$\angle SPY=\angle S'PT'$ by Theorem~\ref{thm.tangent-angles} since they are the angles to the foci at the tangent and $\angle S'PT'=\angle YPL$ are vertical angles so $\angle SPY=\angle SPT$. Then $\triangle SPY\cong\triangle SPT$ since they are right triangles with an equal acute angle and a common side $PY$. Therefore, $PL=PS$ and $S'L=S'P+PL=AA'=2a$.
+
+Since $\triangle SPY\cong\triangle$, $SY=YL$, and since $S,S'$ are foci, $S'C=SC$. It follows that $\triangle CSY\sim \triangle S'SL$ and $CY\parallel S'L$. By similarity,
+\[
+\frac{CY}{S'L}=\frac{CS}{S'S}=\frac{CS}{2CS}\,.
+\]
+Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of radius $a$.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+
+% Size and center of the ellipse
+\def\a{4.33}
+\def\b{3}
+\coordinate (C) at (0,0);
+\node[below] at (C) {$C$};
+
+% Draw the ellipse
+\draw[name path=ellipse] (\a,0) 
+  arc[start angle=0,end angle=180,x radius=\a,y radius=\b];
+\draw[thick,dotted] (\a,0) 
+  arc[start angle=0,end angle=180,radius=\a];
+
+% Locate the focal points
+\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+\node[below] at (F1) {$S'$};
+\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+\node[below] at (F2) {$S$};
+
+% Draw axes AA' and BB'
+\coordinate (L) at +(180:{\a} and {\b});
+\coordinate (R) at +(0:{\a} and {\b});
+\coordinate (Top) at +(90:{\a} and {\b});
+\node[below] at (L) {$A'$};
+\node[below] at (R) {$A$};
+\draw[name path=major] (L) -- (R);
+\draw (Top) -- (C);
+
+% Select an arbitrary point P on the ellipse
+\path[name path=fromF1p] (F1) -- +(25:8);
+\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
+\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
+
+% Draw tangent at P
+\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
+\path[name path=t1] ($(Tan1)!-.5!(P)$) coordinate (Z) -- 
+  ($(Tan1)!1.75!(P)$) coordinate (TP);
+
+\path[name path=ct] (C) -- ($(C)!2!(R)$);
+\path[name path=bt] (C) -- ($(C)!1.5!(Top)$);
+\path [name intersections = {of = t1 and bt, by = {TP} }];
+\path [name intersections = {of = t1 and ct, by = {T} }];
+\node[below] at (T) {$T$};
+\node[above] at (TP) {$T'$};
+
+\draw (C) -- (T) -- (TP) -- cycle;
+\draw (F2) -- ($(T)!(F2)!(TP)$) coordinate (Y);
+\node[above] at (Y) {$Y$};
+\vertexsm{Y};
+
+\path[name path=spp] (F1) -- ($(F1)!1.5!(P)$);
+\path[name path=sy] (F2) -- ($(F2)!2.3!(Y)$);
+\path [name intersections = {of = spp and sy, by = {LL} }];
+\node[above left] at (LL) {$L$};
+\draw (F1) -- (P) -- node[above] {$d$} (LL) -- (F2) -- node[near start,left] {$d$} (P);
+
+\draw[thick,dashed] (C) -- (Y);
+
+\draw[rotate=-115]  (Y) rectangle +(6pt,6pt);
+\draw  (C) rectangle +(6pt,6pt);
+
+\node[left,xshift=-3pt] at (P) {\sm{\alpha}};
+\node[right,xshift=3pt] at (P) {\sm{\alpha}};
+\node[below right,xshift=2pt,yshift=-2pt] at (P) {\sm{\alpha}};
+
+\node[below right,xshift=2pt,yshift=-2pt] at (TP) {\sm{\beta}};
+\node[above right,xshift=2pt,yshift=-2pt] at (F2) {\sm{\beta}};
+%\draw[thick,dotted] (TP) -- (F2);
+
+\end{tikzpicture}
+\caption{The perpendicular from a focus to a tangent}\label{f.perp-focus-tangent}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.cnntacac}
+$CN\cdot NT = AC^2=AN\cdot NA'$.
+\end{theorem}
+
+\begin{proof}
+Construct the perpendicular from $S$ to the tangent and let its intersection be $Y$.  We deduce the angles as shown in the Figure:
+\begin{itemize}
+\item $CY\parallel S'P$ (Theorem~\ref{thm.perp-tangent}) so $\angle CYP = \angle S'PT'$ by corresponding angles.
+\item $\angle S'PT' = \angle SPY$ by Theorem~\ref{thm.tangent-angles} since they are the angles to the foci at the tangent.
+\item $\angle SYP$ and $\angle SNP$ are right angles and therefore $SYPN$ is quadrilateral that can be circumscribed by a circle whose diameter is $PS$.
+Therefore, $\angle SPY = \angle SNY$ since they are subtended by the same chord $YS$.
+\end{itemize}
+It follows that $\triangle CYT\sim \triangle CNY$ and
+\begin{eqnlabels}
+\frac{CN}{CY}&=&\frac{CY}{CT}\nonumber\\[6pt]
+CN\cdot CT&=&CY^2=AC^2\,,\label{eqn.cnctacac}
+\end{eqnlabels}
+since the perpendicular to the tangent from a focus is on the circumscribing circle (Theorem~\ref{thm.perp-tangent}).
+
+Since $NT=CT-CN$, we have $CN\cdot NT = CN\cdot CT - CN^2$ which equals $AC^2-CN^2$ by Equation~\ref{eqn.cnctacac}. This in turn equals $AN\cdot NA'$ by Theorem~\ref{thm.dividing}.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+
+% Size and center of the ellipse
+\def\a{4.33}
+\def\b{3}
+\coordinate (C) at (0,0);
+\node[below] at (C) {$C$};
+
+% Draw the ellipse
+\draw[name path=ellipse] (\a,0) 
+  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
+
+% Locate the focal points
+\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+\node[below] at (F1) {$S'$};
+\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+\node[below] at (F2) {$S$};
+
+% Draw axes AA' and BB'
+\coordinate (L) at +(180:{\a} and {\b});
+\coordinate (R) at +(0:{\a} and {\b});
+\coordinate (Top) at +(90:{\a} and {\b});
+\node[below] at (L) {$A'$};
+\node[below] at (R) {$A$};
+\draw[name path=major] (L) -- (R);
+\draw (Top) -- (C);
+
+% Select an arbitrary point P on the ellipse
+\path[name path=fromF1p] (F1) -- +(25:8);
+\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
+\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
+
+\draw (F1) -- (P) -- (F2);
+
+% Draw tangent at P
+\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
+\path[name path=t1] ($(Tan1)!-.5!(P)$) coordinate (Z) -- 
+  ($(Tan1)!1.75!(P)$) coordinate (TP);
+
+\path[name path=ct] (C) -- ($(C)!2!(R)$);
+\path[name path=bt] (C) -- ($(C)!1.5!(Top)$);
+\path [name intersections = {of = t1 and bt, by = {TP} }];
+\path [name intersections = {of = t1 and ct, by = {T} }];
+\node[below] at (T) {$T$};
+\node[above] at (TP) {$T'$};
+
+\draw (C) -- (T) -- (TP) -- cycle;
+\draw (F2) -- ($(T)!(F2)!(TP)$) coordinate (Y);
+\node[above] at (Y) {$Y$};
+
+\draw (P) --  ($(L)!(P)!(R)$) coordinate (N);
+\node[below] at (N) {$N$};
+\draw (N) -- (Y) -- (C);
+
+\draw[rotate=-115]  (Y) rectangle +(7pt,7pt);
+\draw[rotate=90]  (N) rectangle +(7pt,7pt);
+
+\node[left,xshift=-3pt] at (Y) {\sm{\alpha}};
+\node[left,xshift=-3pt] at (P) {\sm{\alpha}};
+\node[below right,xshift=1pt,yshift=-2pt] at (P) {\sm{\alpha}};
+\node[above right,xshift=4pt,yshift=-1pt] at (N) {\sm{\alpha}};
+
+\draw[thick,red] ($(Y)+(-1pt,-2pt)$) -- ($(C)+(8pt,2pt)$) -- ($(T)+(-4pt,2pt)$) -- (Y);
+
+\draw[thick,blue] (C) -- (N) -- (Y) -- cycle;
+
+\end{tikzpicture}
+\caption{Parallelograms formed by conjugate diameters}\label{f.parallelogram1}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+$\triangle NPG \sim \triangle FPJ$ (rotate $\triangle NPG$ to see this) so $\angle PGN=\angle PJF = \alpha$ and
+\begin{eqn}
+\frac{PF}{PN}&=&\frac{PJ}{PG}\nonumber\\[6pt]
+PF\cdot PG &=& PJ\cdot PN\,.\label{eqn.pnpj}
+\end{eqn}
+By vertical angles $\angle PGN = \angle CGF = \alpha$ so 
+$\triangle NPG\sim \triangle FCG$ and $\angle NPG = \angle FCG = \beta =90^\circ-\alpha$. By adding $\beta$ to the right angle $\angle BCN =\angle BNC$, we get that $\angle BCF = \angle BCJ$ and therefore $TPJC$ is a parallelogram, so $CT=PJ$ and $PF\cdot PG = CT\cdot PN$. We need to show that $CT\cdot PN=BC^2$.
+
+$\triangle TT'C\sim \triangle PT'N$ so 
+\begin{eqn}
+\frac{CT}{CT'}&=&\frac{PN}{NT'}\\[6pt]
+\frac{CT}{PN}&=&\frac{CT'}{NT'}\,.
+\end{eqn}
+Multiplying each side by fractions equal to $1$ gives
+\[
+\frac{CT\cdot PN}{PN^2}=\frac{CT'\cdot CN}{CN \cdot NT'}\,,
+\]
+and because ...
+\[
+\frac{CT\cdot PN}{PN^2}=\frac{AC^2}{AN\cdot NA'}\,.
+\]
+By Theorem~\ref{thm.ratios-besant} 
+\begin{eqnlabels}
+\frac{CT\cdot PN}{PN^2}&=&\frac{PN^2}{AN\cdot NA'}\cdot \frac{AC^2}{PN^2}=\frac{BC^2}{AC^2}\cdot \frac{AC^2}{PN^2}\nonumber\\[6pt]
+CT\cdot PN&=&BC^2\,.\label{eqn.ctpn}
+\end{eqnlabels}
+\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.cmpnacbc}
+In Figure~\ref{f.parallelogram3},
+\begin{eqn}
+CN^2&=&AM\cdot MA',\quad CM^2=AN\cdot NA'\\[6pt]
+\frac{DM}{CN}&=&\frac{BC}{AC}\\[6pt]
+\frac{CM}{PN}&=&\frac{BC}{AC}
+\end{eqn}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+%\clip (-7.5,-5) rectangle +(15,10);
+
+% Size and center of the ellipse
+\def\a{4.33}
+\def\b{3}
+\coordinate (C) at (0,0);
+\node[below left,xshift=2pt,yshift=-4pt] at (C) {$C$};
+
+% Draw the ellipse
+\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
+
+% Locate the focal points
+\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+
+% Draw axes AA' and BB'
+\coordinate (L) at +(180:{\a} and {\b});
+\coordinate (R) at +(0:{\a} and {\b});
+\coordinate (Top) at +(90:{\a} and {\b});
+\coordinate (Bot) at +(-90:{\a} and {\b});
+\draw[name path=major] (L) node[below left] {$A'$} --
+  (R) node[below right] {$A$};
+\draw[name path=minor] (Bot) node[below] {$B'$} --
+  (Top) node[above] {$B$};
+
+\path[name path=tans] ($(L)+(-4,0)$) -- ($(R)+(2,0)$);
+
+% Select an arbitrary point P on the ellipse
+\path[name path=fromF1p] (F1) -- +(15:9);
+\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
+\path[name path=ph] (P) -- (F2);
+\draw[name path=pc] (P) -- (C);
+\node[above right] at (P) {$P$};
+
+% Draw tangent at P
+\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
+\path[name path=t1] (P) -- ($(Tan1)!.2!(P)$) coordinate (Z);
+\path [name intersections = {of = t1 and tans, by = {T} }];
+\node[below] at (T) {$T$};
+\draw (P) -- (T);
+
+% Conjugate diameter from P through C
+\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G);
+\node[below left] at (G) {$P'$};
+
+% Conjugate diameters from D through C
+\path[name path=cd] (C) -- +($(P)-(Z)$);
+\path[name path=dk] (C) -- +($(Z)-(P)$);
+\path [name intersections = {of = cd and ellipse, by = {D} }];
+\path [name intersections = {of = dk and ellipse, by = {K} }];
+\node[above left] at (D) {$D$};
+\node[below right] at (K) {$K$};
+\draw (D) -- (K);
+
+% Draw tangent at D
+\tkzDefLine[bisector out](F1,D,F2) \tkzGetPoint{Tan3}
+\path[name path=t3] (D) --  ($(Tan3)!4.3!(D)$);
+\path [name intersections = {of = tans and t3, by = {TP} }];
+\draw (D) -- (TP) node[below] {$T'$};
+
+\draw (T) -- (TP);
+
+\draw (P) -- ($(L)!(P)!(R)$) coordinate (N) node[below] {$N$};
+\draw (D) -- ($(L)!(D)!(R)$) coordinate (MM) node[below] {$M$};
+\draw[rotate=90]   (N) rectangle +(8pt,8pt);
+\draw[rotate=0]    (MM) rectangle +(8pt,8pt);
+
+\end{tikzpicture}
+\caption{Areas of parallelograms}\label{f.parallelogram3}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+By Theorem~\ref{thm.cnntacac},
+\begin{eqn}
+CN\cdot CT &=& AC^2=CM\cdot CT'\\[6pt]
+\frac{CM}{CN} &=& \frac{CT}{CT'}\,.
+\end{eqn}
+Since $DK$ and $PP'$ are conjugate diameters, $DT'\parallel PP'$ and $\triangle T'DC \sim \triangle CPT$, so
+\begin{eqn}
+\frac{CM}{CN} &=& \frac{CT}{CT'} =  \frac{CN}{MT'}\\[6pt]
+CN^2 &=& CM\cdot MT'\,,
+\end{eqn}
+Therefore,
+\begin{equation}
+CN^2=CM\cdot MT'=AC^2-CM^2 = AM\cdot MA'\label{eqn.cnannap}
+\end{equation}
+by Theorem~\ref{thm.cnntacac}.
+
+By Theorem~\ref{thm.ratios-besant},
+\[
+\frac{DM^2}{AM\cdot MA'}=\frac{BC^2}{AC^2}\,,
+\]
+and by Equation~\ref{eqn.cnannap},
+\begin{eqn}
+\frac{DM^2}{CN^2}&=&\frac{BC^2}{AC^2}\\[6pt]
+\frac{DM}{CN}&=&\frac{BC}{AC}\,,
+\end{eqn}
+A symmetric argument shows that
+\begin{eqn}
+CM^2&=& AN\cdot NA'\\[6pt]
+\frac{CM}{PN}&=&\frac{BC}{AC}\,.
+\end{eqn}\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.area-parallelogram}
+The area of the parallelogram formed by the tangents at the ends of the conjugate diameters $PG,DK$ is equal to the rectangle enclosing the ellipse at the ends of the axes (Figure~\ref{f.parallelogram2}).
+\end{theorem}
+
+\begin{proof}
+By the definition of conjugate diameters, it is sufficient to show that the area of $PCDL$ is $AC\cdot BC$. The area of a parallelogram is width times height so it is $CD\cdot PF$. 
+
+By vertical angles $\angle DCM = \angle GCF$ and $\angle CGF = \angle PGN$, so $\triangle DCM\sim \triangle PGN$ 
+\[
+\frac{PG}{CD}=\frac{PN}{CM}\,,
+\]
+and by Theorem~\ref{thm.cmpnacbc}
+\begin{eqnlabels}
+\frac{PG}{CD}&=&\frac{BC}{AC}\nonumber\\[6pt]
+\frac{CD}{AC}&=&\frac{PG}{BC}\,.\label{eqn.cdac}
+\end{eqnlabels}
+By Theorem~\ref{thm.parallelogram1},
+\begin{equation}
+\frac{PG}{BC}=\frac{BC}{PF}\,.\label{eqn.pgbc}
+\end{equation}
+From Equations~\ref{eqn.cdac} and~\ref{eqn.pgbc} gives $CD\cdot PF = AC \cdot BC$.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+% Size and center of the ellipse
+\def\a{4.33}
+\def\b{3}
+\coordinate (C) at (0,0);
+\node[below left,xshift=2pt,yshift=-4pt] at (C) {$C$};
+
+% Draw the ellipse
+\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
+
+% Locate the focal points
+\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+
+% Draw axes AA' and BB'
+\coordinate (L) at +(180:{\a} and {\b});
+\coordinate (R) at +(0:{\a} and {\b});
+\coordinate (Top) at +(90:{\a} and {\b});
+\coordinate (Bot) at +(-90:{\a} and {\b});
+\draw[name path=major] (L) node[left] {$A'$} --
+  (R) node[right] {$A$};
+\draw[name path=minor] (Bot) node[below] {$B'$} --
+  (Top) node[above] {$B$};
+
+% Select an arbitrary point P on the ellipse
+\path[name path=fromF1p] (F1) -- +(20:8);
+\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
+\path[name path=ph] (P) -- (F2);
+\path[name path=pc] (P) -- (C);
+\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
+
+% Draw tangent at P
+\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
+\path[name path=t1] ($(Tan1)!.15!(P)$) -- ($(Tan1)!2!(P)$);
+
+% Conjugate diameter from P through C
+\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G);
+\node[below left] at (G) {$P'$};
+
+% Find a point Z on tangent for drawing the tangent
+\path[name path=f1q] (F1) -- +(60:6);
+\path [name intersections = {of = f1q and t1, by = {Z} }];
+
+% Conjugate diameters from D through C
+\path[name path=cd] (C) -- +($(Z)-(P)$);
+\path[name path=dk] (C) -- +($(P)-(Z)$);
+\path [name intersections = {of = cd and ellipse, by = {D} }];
+\path [name intersections = {of = dk and ellipse, by = {K} }];
+\node[above left,xshift=1pt,yshift=-5pt] at (D) {$D$};
+\node[below right,xshift=0pt,yshift=0pt] at (K) {$K$};
+\draw (D) -- (K);
+
+% Draw tangent at G (continuation of PC)
+\tkzDefLine[bisector out](F2,G,F1) \tkzGetPoint{Tan2}
+\path[name path=t2] ($(Tan2)!.1!(G)$) -- ($(Tan2)!1.9!(G)$);
+
+% Draw tangent at D
+\tkzDefLine[bisector out](F1,D,F2) \tkzGetPoint{Tan3}
+\path[name path=t3] ($(Tan3)!-1.7!(D)$) -- ($(Tan3)!3.6!(D)$);
+
+% Draw tangent at K (continuation of DC)
+\tkzDefLine[bisector out](F1,K,F2) \tkzGetPoint{Tan4}
+\path[name path=t4] ($(Tan4)!.2!(K)$)  -- ($(Tan4)!1.8!(K)$);
+
+% Draw large dashed rectangle
+\draw[thick,dashed] (\a,\b) -- (-\a,\b) -- 
+  (-\a,-\b) -- (\a,-\b) -- cycle;
+
+% Get the intersections of the tangents
+\path [name intersections = {of = t1 and t3, by = {J} }];
+\path [name intersections = {of = t2 and t3, by = {KK} }];
+\path [name intersections = {of = t1 and t4, by = {M} }];
+\path [name intersections = {of = t2 and t4, by = {LL} }];
+
+% Draw the parallelogram
+\draw (J) node[above] {$L$} -- (KK) -- (LL) -- (M) -- cycle;
+
+\draw (P) -- ($(L)!(P)!(R)$) coordinate (N) node[below] {$N$};
+
+\draw (D) -- ($(L)!(D)!(R)$) coordinate (M) node[below] {$M$};
+
+\draw[name path=pf] (P) -- ($(D)!(P)!(K)$) coordinate (F);
+\node[below left] at (F) {$F$};
+
+\path [name intersections = {of = pf and major, by = {GG} }];
+\node[above left] at (GG) {$G$};
+
+\draw[rotate=-32]  (F) rectangle +(7pt,7pt);
+\draw[rotate=90]   (N) rectangle +(7pt,7pt);
+\draw[rotate=-212] (P) rectangle +(7pt,7pt);
+\draw[rotate=0]    (M) rectangle +(7pt,7pt);
+
+\draw[thick,red]  (C) -- (M) --  (D) -- cycle;
+\draw[thick,blue] (GG) -- (N) --  (P) -- cycle;
+
+\end{tikzpicture}
+\caption{Areas of parallelograms}\label{f.parallelogram2}
+\end{center}
+\end{figure}
+
