@@ -28,7 +28,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.1]
 
 % Size and center of the ellipse
 \def\a{4.33}
@@ -125,6 +125,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage
 
 \subsection{A formula for $QR$}
@@ -153,15 +154,25 @@ $QV \parallel EC$ so  $\triangle EPC \sim \triangle XPV$ and
 \frac{PX}{PV} &=& \frac{EP}{PC} =\frac{CA}{PC}\\[4pt]
 PX &=& PV\cdot \frac{CA}{PC}\,.
 \end{eqn}
-By construction of the parallelogram $QR=PX$ proving that $QR= PV\cdot\displaystyle\frac{AC}{PC}$.
-\hqed
+By construction of the parallelogram $QR=PX$ proving that $QR= PV\cdot\displaystyle\frac{AC}{PC}$.\hqed
 \end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{A formula for $QT$}
+
+\begin{theorem}\label{thm.qt}
+Add a perpendicular from $P$ to $DC$ to the diagram and label its intersection with $DC$ by $F$ (Figure~\ref{f.elliptical-orbit-2}).
+\[
+QT=QX\cdot \frac{FP}{CA}\,.
+\]
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.1]
 
 \clip (-5,-1) rectangle +(10.5,5);
 
@@ -260,31 +271,19 @@ By construction of the parallelogram $QR=PX$ proving that $QR= PV\cdot\displayst
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{A formula for $QT$}
-
-Add a perpendicular from $P$ to $DC$ to the diagram and label its intersection with $DC$ by $F$ (Figure~\ref{f.elliptical-orbit-2}).
-
-\begin{theorem}\label{thm.qt}
-\[
-QT=QX\cdot \frac{FP}{CA}\,.
-\]
-\end{theorem}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
 By construction, $QR \parallel PX$, so by alternate interior angles $\angle RQX =\angle QXT=\beta$. By construction, $QX \parallel DC$, so by alternate interior angles $\angle QXT =\angle PEF=\beta$. Since $\triangle PFE$ and $\triangle QTX$ are right triangles with an equal acute angle $\beta$, $\triangle PFE\sim\triangle QTX$. In the proof of Theorem~\ref{thm.qr} we showed that $EP=CA$ so
 \begin{eqn}
 \frac{QT}{QX}&=& \frac{FP}{EP}\\
-QT&=&QX\cdot \frac{FP}{EP}= \frac{FP}{CA}\,,
-\end{eqn}\hqed
+QT&=&QX\cdot \frac{FP}{EP}= \frac{FP}{CA}\,.\fqed
+\end{eqn}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}[scale=1]
 
@@ -386,8 +385,6 @@ QT&=&QX\cdot \frac{FP}{EP}= \frac{FP}{CA}\,,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-
 \subsection{A formula for $QR/QT^2$}
 
 \begin{theorem}
@@ -418,7 +415,7 @@ $DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a for
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.6]
+\begin{tikzpicture}[scale=.75]
 
 % Size and center of the ellipse
 \def\a{4.33}
@@ -513,8 +510,8 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 \frac{QR}{QT^2}&=&\frac{CP}{CD^2}\cdot \frac{CA^3}{FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\nonumber\\
 %&=&CP\cdot \frac{CA^3}{CD^2\cdot FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\\
 \frac{QR}{QT^2}&=&\frac{CP\cdot CA^3}{CB^2\cdot CA^2}\cdot \frac{QV^2}{GV\cdot QX^2}
-=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.two-labels}
-\end{eqnlabels}\hqed
+=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.two-labels}\fqed
+\end{eqnlabels}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -591,6 +588,8 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \subsection{Approaching the limit}
 

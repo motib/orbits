@@ -105,11 +105,11 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 % Draw the ellipse and bullets for the points
 %   over the shade
 \draw (0,0) ellipse({\a} and {\b});
-\vertexsm{Sun};
-\vertexsm{P1};
-\vertexsm{P2};
-\vertexsm{P3};
-\vertexsm{P4};
+%\vertexsm{Sun};
+%\vertexsm{P1};
+%\vertexsm{P2};
+%\vertexsm{P3};
+%\vertexsm{P4};
 
 % Construct the arrows
 \draw[->,style={shorten >= 3pt}] (P1) -- (Sun);
@@ -159,11 +159,11 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 % Draw the ellipse and bullets for the points
 %   over the shade
 \draw (0,0) ellipse({\a} and {\b});
-\vertexsm{Sun};
-\vertexsm{P1};
-\vertexsm{P2};
-\vertexsm{P3};
-\vertexsm{P4};
+%\vertexsm{Sun};
+%\vertexsm{P1};
+%\vertexsm{P2};
+%\vertexsm{P3};
+%\vertexsm{P4};
 
 % Label the times and areas
 \node at (3.6,2) {$t$};
@@ -203,24 +203,24 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 % The Sun is at a focal point
 \coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (S) {$S$};
-\vertexsm{S};
+%\vertexsm{S};
 
 % Construct the ellipse
 \draw[name path=ellipse] (5,0) arc(0:60:5cm and 4cm);
 
-% Locate and label four arbitrary points on the list
+% Locate and label three arbitrary points on the list
 \path [name path=a] (S) -- ($(S)+(10:3)$);
 \path [name intersections = {of = ellipse and a, by = {A} }];
 \draw (S) -- (A) node[right] {$A$};
-\vertexsm{A};
+%\vertexsm{A};
 \path [name path=b] (S) -- ($(S)+(50:3)$);
 \path [name intersections = {of = ellipse and b, by = {B} }];
 \draw (S) -- (B) node[above right] {$B$};
-\vertexsm{B};
+%\vertexsm{B};
 \path [name path=c] (S) -- ($(S)+(82:3)$);
 \path [name intersections = {of = ellipse and c, by = {C} }];
 \draw (S) -- (C) node[above] {$C$};
-\vertexsm{C};
+%\vertexsm{C};
 
 % Label A, B, C
 \path (A) --
@@ -244,7 +244,7 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 % The Sun is at a focal point
 \coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (S) {$S$};
-\vertexsm{S};
+%\vertexsm{S};
 
 % Construct the ellipse
 \draw[name path=ellipse] (5,0) arc(0:60:5cm and 4cm);
@@ -252,10 +252,10 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 % Locate and label four arbitrary points on the list
 \coordinate (A) at +(5:{\a} and {\b});
 \draw (S) -- (A) node[right] {$A$};
-\vertexsm{A};
+%\vertexsm{A};
 \coordinate (B) at +(30:{\a} and {\b});
 \draw (B) node[above right] {$B$} -- (S);
-\vertexsm{B};
+%\vertexsm{B};
 
 % Draw the force arrow
 \coordinate (BX) at ($(B)+(.2,0)$);
@@ -277,8 +277,8 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 % Locate Cnew as the correct location of C
 \path[name path=cp] (CP) -- +(230:2);
 \path [name intersections = {of = cp and ellipse, by = {Cnew} }];
-\vertexsm{Cnew};
-\draw[very thick,dashed,->,style={shorten >= 2pt}] (CP) -- 
+%\vertexsm{Cnew};
+\draw[very thick,dashed,->] (CP) -- 
   (Cnew) node[above,xshift=-2pt,yshift=2pt] {$C$};
 \draw (Cnew) -- (S);
 
@@ -301,7 +301,7 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[tb]
+\begin{figure}[b]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
@@ -349,12 +349,12 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \draw[rotate=115] (H) rectangle +(4pt,4pt);
 
 % Place dots are vertices
-\vertexsm{S};
-\vertexsm{A};
-\vertexsm{B};
+%\vertexsm{S};
+%\vertexsm{A};
+%\vertexsm{B};
 \vertexsm{CP};
-\vertexsm{Cnew};
-\vertexsm{H};
+%\vertexsm{Cnew};
+%\vertexsm{H};
 
 \end{tikzpicture}
 \caption{$\triangle ASB=\triangle BSC'$}\label{f.grav-areas1}
@@ -419,12 +419,12 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \draw[rotate=140] (H2) rectangle +(4pt,4pt);
 
 % Dots are vertices
-\vertexsm{S};
-\vertexsm{B};
-\vertexsm{CP};
-\vertexsm{Cnew};
-\vertexsm{H1};
-\vertexsm{H2};
+%\vertexsm{S};
+%\vertexsm{B};
+%\vertexsm{CP};
+%\vertexsm{Cnew};
+%\vertexsm{H1};
+%\vertexsm{H2};
 
 \end{tikzpicture}
 \caption{$\triangle BSC'=\triangle BSC$}\label{f.grav-areas2}
@@ -437,6 +437,8 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \begin{proof}
 This will be done in two steps by showing that $\triangle ASB=\triangle BSC'$ and $\triangle BSC'=\triangle BSC$. In Figure~\ref{f.grav-areas1}, $\triangle ASB$ is shown in blue and $\triangle BSC'$ is shown in red. It is assumed that $AB=BC'$ (the planet moves from $B$ to $C'$ during the same interval $\Delta t$), so since $SH$ is the height of both triangles, their areas are equal. In Figure~\ref{f.grav-areas2}, $\triangle BSC$ is shown in blue and $\triangle BSC'$ is shown in red. It is assumed $CC'$ is parallel to $SB$ (the planet is subject to the centripetal force at $C'$ in the \emph{same} direction as the force at $B$, so the heights of both triangles to the common side $SB$ are equal and their areas are equal. It follows that $\triangle ASB=\triangle BSC'=\triangle BSC$, which we denote by $\Delta A$.\hqed
 \end{proof}
+
+\pagebreak[4]
 
 We assume that the sectors of the orbit are each divided up into small sectors of uniform duration $\Delta t$. By the theorem, each sector has the same area $\Delta A$. Therefore, 
 \[
@@ -467,7 +469,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=1.3]
+\begin{tikzpicture}[scale=1.1]
 
 % Size and center of the ellipse
 \def\a{4.5}
@@ -483,7 +485,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (F1) {$S$};
-\vertexsm{F1};
+%\vertexsm{F1};
 
 % Draw axes whose center is O
 \coordinate (L) at +(180:{\a} and {\b});
@@ -495,15 +497,15 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 % Select an arbitrary point P on the ellipse and draw a line to the Sun
 \path[name path=fromF1p] (F1) -- +(5:8);
 \path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\draw (F1) -- node[below,xshift=30pt,yshift=2pt] {$r_p$} (P);
-\vertexsm{P};
+\draw (F1) -- node[below,xshift=32pt,yshift=3pt] {$r_p$} (P);
+%\vertexsm{P};
 \node[right] at (P) {$P$};
 
 % Select an arbitrary point Q on the ellipse and draw a line to the Sun
 \path[name path=fromF1q] (F1) -- +(20:8);
 \path [name intersections = {of = ellipse and fromF1q, by = {Q} }];
 \draw (F1) -- (Q);
-\vertexsm{Q};
+%\vertexsm{Q};
 \node[above] at (Q) {$Q$};
 
 % Draw PQ
@@ -517,7 +519,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 % Draw QR
 \path[name path=qr] (Q) -- +(10:2);
 \path [name intersections = {of = t and qr, by = {R} }];
-\vertexsm{R};
+%\vertexsm{R};
 \node[above right] at (R) {$R$};
 \draw (Q) -- node[above] {$q$} (R);
 
@@ -540,7 +542,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 % Draw force arrow from P
 \draw (Q) -- node[left] {$h$} ($(F1)!(Q)!(P)$) coordinate (T);
 \node[below] at (T) {$T$};
-\vertexsm{T};
+%\vertexsm{T};
 
 \end{tikzpicture}
 \caption{The derivation of the inverse square law}\label{f.grav-inverse1}

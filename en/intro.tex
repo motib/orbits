@@ -51,59 +51,120 @@ Everyone ``knows'' that Kepler discovered that the orbits of the planets are ell
 
 \textit{Calculus in Context} \cite{hahn-cic} by Alexander J. Hahn is a comprehensive textbook on introductory calculus that augments theory with  applications in physics and astronomy, such as the work of Kepler, Newton and Galileo, as well as applications in engineering such as building bridges and domed structures. These are not just historical anecdotes but detailed computations.
 
-This document works out one topic based on the presentation in the book: the determination of orbits by Aristarchus, Copernicus, Kepler and Newton. The presentation is mathematical, since the historical and astronomical aspects are thoroughly described in \cite{hahn-cic}, as well as in other works. The document is intended to enrich the learning of mathematics by secondary-school students and students in introductory university courses.
+This document works out one topic based on the presentation in the book: the determination of orbits by Aristarchus, Copernicus, Kepler and Newton. The presentation is mathematical, since the historical and astronomical aspects are thoroughly described in \cite{hahn-cic}, as well as in other works. The document is intended to enrich the learning of mathematics by secondary-school students and students in introductory university courses. The prerequisites are a very good knowledge of Euclidean geometry is needed along with some trigonometry, a bit calculus and Newton's laws of motions.
 
-Section~\ref{s.aristarchus} presents the measurements of the radii and distances of the Earth, the Moon and the Sun by Eratosthenes and Aristarchus. Section~\ref{s.copernicus} describes the construction of a model of a Sun-centered system by Copernicus. Section~\ref{s.kepler} shows how Kepler developed his three laws of planetary motion and Section~\ref{s.newton} presents Newton's derivation of the inverse-square law of gravitation from of Kepler's laws. One step of Newton's derivation requires a theorem whose proof is very long, so it is split off into Section~\ref{s.centripetal}. Appendix~\ref{s.ellipse} contains more than you ever wanted to know about the mathematics of ellipses, but these theorems are necessary. I suggest that you look up each theorem (and its proof) as needed, rather than trying to study them all at once.
+Section~\ref{s.aristarchus} presents the measurements of the radii and distances of the Earth, the Moon and the Sun by Eratosthenes and Aristarchus. Section~\ref{s.copernicus} describes the construction of a model of a Sun-centered system by Nicolaus Copernicus. Section~\ref{s.kepler} shows how Johannes Kepler developed his three laws of planetary motion and Section~\ref{s.newton} presents Isaac Newton's derivation of the inverse-square law of gravitation from of Kepler's laws. One step of Newton's derivation requires a theorem whose proof is very long, so it is split off into Section~\ref{s.centripetal}. Section~\ref{s.ellipse} contains more than you ever wanted to know about the mathematics of ellipses, but these theorems are necessary. I suggest that you look up each theorem (and its proof) as needed, rather than trying to study them all at once. Section~\ref{s.geometry} is discussed in the next paragraph. Theorems of Euclidean geometry that are used but do not concerning ellipses are collected in Appendix~\ref{s.elementary}.
 
-The computations in Hahn's book are faithful to the historical record, for example, measuring distances in units such as the stadia of the Greeks. Here,  the computations are fully modernized and use modern units such as kilometers.
+\subsection*{Aspects of history}
 
 It is easy to measure angles. We are familiar with the use of a protractor\footnote{More precisely, a device for measuring angles is called a \emph{goniometer}.} in school and these can be scaled-up to obtain more accurate measurements. Measuring long distances was impossible until the recent inventions of radar and lasers. At most one could pace-off distances with low accuracy. The only \emph{measured} distance used here is the estimate of $800$ km by Eratosthenes for the distance between two places in Egypt (Section~\ref{s.eratosthenes}).
 
-This documents uses many diagrams to facilitate understanding each step in the geometrical proofs, more than appear in other sources. For example, Newton proved his difficult theorem (Section~\ref{s.centripetal}) using only a single diagram. The diagrams are not to scale and are often distorted. Otherwise, it would be impossible to draw the Earth, Moon and Sun on a piece of paper, since the Sun is almost $400$ times farther away from the Earth than the Moon. If we drew the Moon one centimeter from the Earth, we would have to draw the Sun four meters away!
+For this reason, the mathematics used is primarily geometry with an occasional dash of limits that had been used already by Archimedes to compute the circumference and area of a circle by approximating the circle by regular polygons of increasing number of sides. Starting from the method of limits, Newton (along with his contemporary Gottfried Wilhelm Leibniz) developed the calculus. However, Newton's \textit{Principia} uses Euclidean geometry almost exclusively, although analytic geometry had been developed by René Descartes and Pierre de Fermat even before Newton was born.
 
-The prerequisites for reading the document are a good knowledge of Euclidean geometry, some trigonometry, a bit calculus and Newton's laws of motions. In particular you must know that if a sector of a circle subtends an angle of $\theta$ radians, the length of the sector is $r\theta$, where $r$ is the radius of the circle (Figure~\ref{f.radians}).
+Newton expected his readers to have an extensive knowledge of geometry. This expectation continued until relatively recently:
+\begin{quote}
+In book 1, prop[osition] 10 (and notably in prop[osition] 11), Newton made use of a property of conics which he presents without proof, merely saying that the result in question comes from ``the \textit{Conics}.'' Here, as elsewhere in the \textit{Principia}, Newton assumes the reader to be familiar with the principles of conics and of Euclid. In the eighteenth and nineteenth centuries, when Newton's treatise was still being read in British universities[!], authors of books on ``conic sections''---for example, W. H. Besant, W. H. Drew, Isaac Milnes---supplied the proof of this theorem in order to help readers of the \textit{Principia} who might be baffled by the problem of finding a proof. They even chose letters to designate points on the diagrams so that the final result would appear in exactly the same form as in the \textit{Principia} \cite[p.~330]{newton-cohen}.
+\end{quote}
 
-\begin{figure}[t]
-\begin{center}
-\begin{tikzpicture}
-\node[draw,circle,minimum size=5cm] at (0,0) {};
-\draw (-2.5,0) -- (2.5,0);
-\draw (0,-2.5) -- (0,2.5);
-\draw[very thick] (0,0) -- node[below] {$r\!=\!2$} (2.5,0);
-\draw[very thick] (0,0) -- (60:2.5);
-\node[above right,xshift=8pt] at (0,0) 
-  {$\theta\!=\!\frac{\pi}{6}$};
-\draw[very thick] (2.5,0) arc(0:60:2.5)
-  node[right,midway,xshift=4pt]
-    {$s\!=\!r\theta\!=\!\displaystyle\frac{\pi}{3}$};
-\end{tikzpicture}
-\caption{Angles and arcs}\label{f.radians}
-\end{center}
-\end{figure}
+To keep this spirit alive, Section~\ref{s.geometry} brings the necessary proofs based on \cite{besant}. The reader is forewarned, however, that as Euclid said, ``There is no royal road to geometry!''
 
-\subsection*{Notation}
+% In particular you must know that if a sector of a circle subtends an angle of $\theta$ radians, the length of the sector is $r\theta$, where $r$ is the radius of the circle (Figure~\ref{f.radians}).
+
+%\begin{figure}[t]
+%\begin{center}
+%\begin{tikzpicture}
+%\node[draw,circle,minimum size=5cm] at (0,0) {};
+%\draw (-2.5,0) -- (2.5,0);
+%\draw (0,-2.5) -- (0,2.5);
+%\draw[very thick] (0,0) -- node[below] {$r\!=\!2$} (2.5,0);
+%\draw[very thick] (0,0) -- (60:2.5);
+%\node[above right,xshift=8pt] at (0,0) 
+%  {$\theta\!=\!\frac{\pi}{6}$};
+%\draw[very thick] (2.5,0) arc(0:60:2.5)
+%  node[right,midway,xshift=4pt]
+%    {$s\!=\!r\theta\!=\!\displaystyle\frac{\pi}{3}$};
+%\end{tikzpicture}
+%\caption{Angles and arcs}\label{f.radians}
+%\end{center}
+%\end{figure}
+
+\subsection*{Style and notation}
+
+The computations in Hahn's book are faithful to the historical record, for example, measuring distances in units such as the stadia of the Greeks. Here,  the computations are fully modernized and use modern units such as kilometers. 
+
+Diagrams are used to facilitate understanding each step in the geometrical proofs, more than appear in other sources. For example, Newton proved his difficult theorem (Section~\ref{s.centripetal}) using only a single diagram. The diagrams are not to scale and are often distorted. Otherwise, it would be impossible to draw planetary orbits on a piece of paper.
 
 The following shortcuts facilitate a less verbose presentation:
 \begin{itemize}
-\item $a$ and $b$ denote the semi-major and semi-minor axes of an ellipse.
+
 \item $AB$ denotes both a line segment and its length.
 \item $\triangle ABC$ denotes both a triangle and its area.
-\item The diagram below shows that when the line segment $AB$ is \emph{extended} it intersects the line $CD$ at a point $E$. The rather archaic term for extended is \emph{produced}. When the text says that $AB$ intersects $CD$, the intention is that $AB$ can produced or extended until it intersects $CD$.
-\end{itemize}
-
+\item The line segment $AB$ can be \emph{extended}\footnote{The term used by Newton is \emph{produced}.} until it intersects the line $CD$. In this text, the intention of ``$AB$ intersects $CD$'' is that $AB$ can be extended until it intersects $CD$.
 \begin{center}
 \begin{tikzpicture}
 \draw (0,0) coordinate (A) node[below] {$A$} -- (2,0) coordinate(B) node[below] {$B$};
 \draw (4.5,-.5) coordinate (C) node[below] {$C$} -- (5.5,.5) coordinate (D) node[above] {$D$}; 
 \draw[dotted,thick] (B) -- (5,0) coordinate (E) node[xshift=6pt,right] {$E$};
-%\vertexsm{A};
-%\vertexsm{B};
-%\vertexsm{C};
-%\vertexsm{D};
 \vertexsm{E};
+\end{tikzpicture}
+\end{center}
+\item The notation in the following diagram will be used consistently to refer to elements of an ellipse. The diagram is for reference as the terms will be defined as needed.
+\begin{itemize}
+\item $C$ is the center of the ellipse and $a,b$ are the semi-major and semi-minor axes of an ellipse. $A,A'$ are the vertices on the major axis and $B,B'$ are the vertices on the minor axes.
+\item $S$ and $H$ are the foci and $c$ is the distance from a focus to the center.
+\item $X$ is the intersection of the major axis with the directrix $d$. (There is a second directrix on the right side of the ellipse.)
+\end{itemize}
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+
+\coordinate (X) at (0,0);
+\coordinate (A) at (3,0);
+\coordinate (S) at (4,0);
+\coordinate (H) at (9,0);
+\coordinate (AP) at (10,0);
+\coordinate (C) at (6.5,0);
+\coordinate (B) at (6.5,2);
+\coordinate (BP) at (6.5,-2);
+
+\node[below left] at (C) {$C$};
+\node[below] at (S) {$S$};
+\node[below] at (S) {$S$};
+\node[below] at (H) {$H$};
+\node[below left] at (A) {$A$};
+\node[below right] at (AP) {$A'$};
+\node[left] at (X) {$X$};
+\node[above] at (B) {$B$};
+\node[below] at (BP) {$B'$};
+
+\draw[name path=minor] (X) -- (AP);
+\draw[name path=major] (B) -- (BP);
+\draw[name path=directrix] (0,-2) -- node[left, near end] {$d$} (0,2);
+
+% Size and center of the ellipse
+\def\a{3.5}
+\def\b{2}
+
+\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
+
+% Select an arbitrary point P on the ellipse and draw lines to the focis
+\path[name path=fromF1p] (S) -- +(15:8);
+\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
+\draw (S) -- (P) -- (H);
+\path (P) -- (H);
+\path (P) -- (C);
+\node[above right] at (P) {$P$};
+
+\draw[<->] ($(A)+(0,-20pt)$) -- node[fill=white] {$a$} ($(C)+(0,-20pt)$);
+\draw[<->] ($(C)+(0,-20pt)$) -- node[fill=white] {$a$} ($(AP)+(0,-20pt)$);
+\path (S) -- node[below] {$c$} (C);
+\path (C) -- node[below] {$c$} (H);
+\path (B) -- node[left] {$b$} (C);
+\path (C) -- node[left] {$b$} (BP);
+
 \end{tikzpicture}
 \end{center}
 
 \subsection*{Acknowledgments}
-
 

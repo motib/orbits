@@ -14,7 +14,7 @@ A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Ear
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.9]
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below left] at (O) {$O$};
@@ -33,7 +33,7 @@ A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Ear
 % Locate various positions of the Earth in its orbit
 \foreach \angle/\name/\c in { 110/E1/red, 70/E2/purple, 25/E3/{blue}, -40/E4/green} {
   \coordinate (\name) at (\angle:2.5);
-  \vertexsmcolor{\name}{\c};
+  %\vertexsmcolor{\name}{\c};
   \draw[\c,thick] (O) -- (\name) -- (M);
 }
 
@@ -44,8 +44,8 @@ A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Ear
 \node[below,xshift=2pt,yshift=-3pt] at (E4) {$E_4$};
 
 % Nodes drawn at the end to override colors
-\vertexsm{M};
-\vertexsm{O};
+%\vertexsm{M};
+%\vertexsm{O};
 
 % Draw the Sun
 \coordinate (S) at (25:20pt);
@@ -103,7 +103,7 @@ OE_i &=& OM\,\frac{\sin \beta}{\sin \alpha}\,.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{table}[b]
+Tycho Brahe was able to measure all three angles:\footnote{The values are rounded to one decimal point.}
 \[
 \begin{array}{rrrrr}
 \hline
@@ -116,12 +116,7 @@ E_4 & 1.6& 3.4& 175.0 & 0.6805\\
 \hline
 \end{array}
 \]
-\caption{Tycho's measurements of the distance of the Earth from the center}\label{tab.tycho}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Tycho Brahe was able to measure all three angles (Table~\ref{tab.tycho})\footnote{The values are rounded to one decimal point.}. The values of $OE$ are given in the fourth column of the table and they are not equal. Assuming (as everyone did at that time) that the Earth' orbit is circular, the only solution was to move the center of the orbit so that $\{E_1,E_2,E_3,E_4\}$ were all on the circle.
+The values of $OE$ are given in the fourth column of the table and they are not equal. Assuming (as everyone did at that time) that the Earth' orbit is circular, the only solution was to move the center of the orbit so that $\{E_1,E_2,E_3,E_4\}$ were all on the circle.
 
 \subsection{Measuring the angles in the triangle Sun-Earth-Mars}
 
@@ -139,7 +134,7 @@ This gives values for $\theta_E$ and $\theta_M$. From geometry we have
 \alpha' &=& 180-\theta_E = \alpha-\theta_M\\
 \alpha &=& 180 - \theta_E + \theta_M\,,
 \end{eqn}
-and the values of $OE_i$ in Table~\ref{tab.tycho} can be computed.
+and the values of $OE_i$ can be computed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -164,9 +159,9 @@ and the values of $OE_i$ in Table~\ref{tab.tycho} can be computed.
 \node[above] at (E2) {$E$};
 \draw (O) -- (E2) -- (M) -- cycle;
 
-\vertexsm{O};
+%\vertexsm{O};
 \vertexsm{E2};
-\vertexsm{M};
+%\vertexsm{M};
 
 \node[right,xshift=8pt,yshift=20pt] at (O) {$\alpha'$};
 \node[above left,xshift=-24pt,yshift=14pt] at (M) {$\beta$};
@@ -181,7 +176,7 @@ and the values of $OE_i$ in Table~\ref{tab.tycho} can be computed.
 
 
 \coordinate (E2P) at (200:2);
-\vertexsm{E2P};
+%\vertexsm{E2P};
 \node[left] at (E2P) {$E'$};
 \coordinate (MPP) at (20:4);
 \vertexsm{MPP};
@@ -197,56 +192,7 @@ and the values of $OE_i$ in Table~\ref{tab.tycho} can be computed.
 
 \subsection{A new location for the center of the Earth's orbit}
 
-Kepler's next task was to obtain a new value $O'$ for the center of the Earth's orbit such that the $E_i$ in Table~\ref{tab.tycho} are on the orbit. We need the following theorem in geometry.
-
-\begin{theorem}\label{thm.three-points}
-Given three non-collinear points,\footnote{\emph{Collinear} means that the points all on the same line.} a circle can be constructed that goes through all three points.
-\end{theorem}
-
-\begin{proof}
-Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\ref{f.kepler-circumscribed}). Construct the perpendicular bisectors of any two of its three sides, say, $AC$ and $BC$. By definition the perpendicular bisector is the geometric locus of points equidistant from the endpoints of the segment. Let $O$ be the intersection of the two bisectors. Then the $AO=CO=BO$ is the radius of a circle centered at $O$ that goes through $A,B,C$.\hqed
-\end{proof}
-
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}[scale=.8]
-  % Define the coordinates of an arbitrary triangle,
-  %   label the vertices and draw dots at each vertex
-  \coordinate[label = left:$A$]  (A) at ( 0, 0);
-  \coordinate[label = right:$B$] (B) at (5, 0);
-  \coordinate[label = above:$C$] (C) at (3.5 ,4);
-  \vertexsm{A};
-  \vertexsm{B};
-  \vertexsm{C};
-  
-  % Draw the triangle
-  \draw (A) -- (B) -- (C) -- cycle;
-
-  % Construct perpendicular bisectors
-  \coordinate (AC) at ($(A)!.5!(C)$);
-  \draw[name path=ac] ($(AC)!1.5cm!-90:(A)$) -- ($(AC)!2.5cm!90:(A)$);
-  \coordinate (BC) at ($(B)!.5!(C)$);
-  \draw[name path=bc] ($(BC)!3cm!-90:(B)$) -- ($(BC)!.5cm!90:(B)$);
-
-  % Find the intersection
-  \path [name intersections = {of = bc and ac, by = {M}}];
-  \vertexsm{M};
-  \node[above right,xshift=-1pt,yshift=2pt] at (M) {$O$};
-
-  % Construct a circumscribed circle
-  \node[draw] at (M) [circle through = (A)] {};
-
-  \draw[rotate=-40] (AC) rectangle +(6pt,6pt);
-  \draw[rotate=200] (BC) rectangle +(6pt,6pt);
-
-\end{tikzpicture}
-\caption{A circle through three arbitrary points}\label{f.kepler-circumscribed}
-\end{center}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Given the new locations of the Earth $\{E_1,E_2,E_3,E_4\}$, a circle centered at $O'$ can be constructed that goes through $\{E_1,E_2,E_3\}$ (Figure~\ref{f.kepler-earth-new}). To verify that this is the correct orbit, check that $E_4$ is on the circle.
+Kepler's next task was to obtain a new value $O'$ for the center of the Earth's orbit such that the $E_i$'s are on the orbit. Given the new locations of the Earth $\{E_1,E_2,E_3,E_4\}$, by Theorem~\ref{thm.three-points} a circle centered at $O'$ can be constructed that goes through $\{E_1,E_2,E_3\}$ (Figure~\ref{f.kepler-earth-new}). To verify that this is the correct orbit, check that $E_4$ is on the circle.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -274,7 +220,7 @@ Given the new locations of the Earth $\{E_1,E_2,E_3,E_4\}$, a circle centered at
 
 % Draw the center of the new orbit
 \coordinate (OP) at (25:12pt);
-\vertexsm{OP};
+%\vertexsm{OP};
 \node[below,yshift=-2pt] at (OP) {$O'$};
 \draw (O) -- (OP);
 
@@ -288,7 +234,7 @@ Given the new locations of the Earth $\{E_1,E_2,E_3,E_4\}$, a circle centered at
 % Locate various positions of the Earth in its orbit
 \foreach \angle/\name/\c in { 110/E1/red, 70/E2/purple, 25/E3/{blue}, -40/E4/green} {
   \coordinate (\name) at ($(OP)+(\angle:2.5)$);
-  \vertexsmcolor{\name}{\c};
+  %\vertexsmcolor{\name}{\c};
   \draw[\c,thick] (OP) -- (\name) -- (M);
 }
 
@@ -299,7 +245,7 @@ Given the new locations of the Earth $\{E_1,E_2,E_3,E_4\}$, a circle centered at
 \node[below,xshift=2pt,yshift=-3pt] at (E4) {$E_4$};
 
 % Nodes drawn at the end to override colors
-\vertexsm{M};
+%\vertexsm{M};
 \vertexsm{OP};
 
 \end{tikzpicture}
@@ -328,11 +274,11 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.9]
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below] at (O) {$O$};
-\vertexsm{O};
+%\vertexsm{O};
 \coordinate (C) at (0,4);
 \coordinate (A) at (4,0);
 
@@ -346,11 +292,11 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 % Locate Mars
 \coordinate (M) at (0,3);
 \node[below left] at (M) {$M$};
-\vertexsm{M};
+%\vertexsm{M};
 
 % Locate the Sun
 \coordinate (S) at (2.3,0);
-\vertexsm{S};
+%\vertexsm{S};
 \node[below] at (S) {$S$};
 
 % Draw line from Sun to Mars
@@ -366,11 +312,11 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.9]
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below] at (O) {$O$};
-\vertexsm{O};
+%\vertexsm{O};
 
 % The circular orbit of the Earth and an elliptical orbit of Mars
 \draw[thick,dashed,name path=ellipse] (4,0) arc(0:180:4cm and 3cm);
@@ -381,7 +327,7 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 % Locate Mars
 \coordinate (M) at (0,3);
 \node[below left] at (M) {$M$};
-\vertexsm{M};
+%\vertexsm{M};
 
 % Locate the Sun
 \coordinate (S) at (2.8,0);
@@ -415,9 +361,12 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 \draw (O3) -- (C3) node[above] {$C_3$};
 
 % Label positions of Mars on the ellipse
-\vertexsm{M1} node[below right] {$M_1$};
-\vertexsm{M2} node[below left,yshift=-4pt,xshift=1pt] {$M_2$};
-\vertexsm{M3} node[below left] {$M_3$};
+%\vertexsm{M1};
+\node[below right] at (M1) {$M_1$};
+%\vertexsm{M2};
+\node[below left,yshift=-4pt,xshift=1pt] at (M2) {$M_2$};
+%\vertexsm{M3};
+\node[below left] at (M3) {$M_3$};
 
 \end{tikzpicture}
 \caption{The orbit of Mars as an ellipse}\label{f.kepler-ellipse}

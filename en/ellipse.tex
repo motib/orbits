@@ -9,8 +9,8 @@
 \begin{definition}[Ellipse]
 \mbox{}
 \begin{itemize}
-\item Let $F_1$ and $F_2$ be two points in the plane such that $F_1F_2=2c\geq 0$ and choose $a$ such that $2a> 2c$ (Figure~\ref{f.ellipse-features1}). An \emph{ellipse} is the geometric locus of all points $P$ such that $F_1P+F_2P=2a$. If $c=0$ the geometric locus is a \emph{circle}.
-\item Construct $AB$ through $F_1F_2$, where $A,B$ are the intersections of the line with the ellipse. $AB$ is  the \emph{major axis} of the ellipse. Let $O$ be the midpoint of $F_1F_2$. $AO$ and $OB$ are the \emph{semi-major axes} of the ellipse.
+\item Let $S$ and $H$ be two points in the plane such that $SH=2c\geq 0$ and choose $a$ such that $2a> 2c$ (Figure~\ref{f.ellipse-features1}). An \emph{ellipse} is the geometric locus of all points $P$ such that $SP+HP=2a$. If $c=0$ the geometric locus is a \emph{circle}.
+\item Construct $AB$ through $SH$, where $A,B$ are the intersections of the line with the ellipse. $AB$ is  the \emph{major axis} of the ellipse. Let $O$ be the midpoint of $SH$. $AO$ and $OB$ are the \emph{semi-major axes} of the ellipse.
 \item Construct the perpendicular to $AB$ at $O$ and let $C,D$ be its intersections with the ellipse. $CD$ is the \emph{minor axis} of the ellipse and $CO$ and $OD$ are the \emph{semi-minor axes} of the ellipse.
 \end{itemize}
 \end{definition}
@@ -29,17 +29,17 @@
 
 % Draw an ellipse with center O
 \coordinate (O) at (0,0);
-\vertexsm{O};
+%\vertexsm{O};
 \node[below left] at (O) {$O$};
 \draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
 
 % Draw the two focal points
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F1) {$F_1$};
-\node[below] at (F2) {$F_2$};
-\vertexsm{F1};
-\vertexsm{F2};
+\node[below] at (F1) {$S$};
+\node[below] at (F2) {$H$};
+%\vertexsm{F1};
+%\vertexsm{F2};
 
 % Draw axes whose center is O
 \coordinate (L) at +(180:{\a} and {\b});
@@ -64,7 +64,7 @@
 
 % Label P
 \node[above] at (P) {$P$};
-\vertexsm{P};
+%\vertexsm{P};
 
 \end{tikzpicture}
 \caption{The definition of an ellipse}\label{f.ellipse-features1}
@@ -75,7 +75,7 @@
 
 \begin{theorem}(Figure~\ref{f.ellipse-features2})\label{thm.ellipses-features}
 \begin{enumerate}
-\item $F_1C=F_2C=a$.
+\item $SC=HC=a$.
 \item $AO=OB=a$.
 \item $CO=OD$. (Label $CO=OD$ by $b$.)
 \end{enumerate}
@@ -83,13 +83,13 @@
 
 \begin{proof}
 \begin{enumerate}
-\item $\triangle F_1CO\cong\triangle F_2CO$ by side-angle-side  so $F_1C=F_2C$. Since $C$ is on the ellipse, $F_1C+F_2C=2a$ and $F_1C=F_2C=a$ follows. 
+\item $\triangle SCO\cong\triangle HCO$ by side-angle-side  so $SC=HC$. Since $C$ is on the ellipse, $SC+HC=2a$ and $SC=HC=a$ follows. 
 \item Since $A$ is on the ellipse,
 \[
-2a = AF_1+AF_2 = (AO-c)+(AO+c)=2AO\,,
+2a = AS+AH = (AO-c)+(AO+c)=2AO\,,
 \]
 so $AO=a$. $OB=a=AO$ follows by symmetry.
-\item $CO=OD$ follows since $\triangle F_1CO\cong\triangle F_1DO$.\hqed
+\item $CO=OD$ follows since $\triangle SCO\cong\triangle SDO$.\hqed
 \end{enumerate}
 \end{proof}
 
@@ -105,17 +105,17 @@ so $AO=a$. $OB=a=AO$ follows by symmetry.
 
 % Draw an ellipse with center O
 \coordinate (O) at (0,0);
-\vertexsm{O};
+%\vertexsm{O};
 \node[below left] at (O) {$O$};
 \draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
 
 % Locate the two focal points
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F1) {$F_1$};
-\node[below] at (F2) {$F_2$};
-\vertexsm{F1};
-\vertexsm{F2};
+\node[below] at (F1) {$S$};
+\node[below] at (F2) {$H$};
+%\vertexsm{F1};
+%\vertexsm{F2};
 
 % Draw axes whose center is O
 \coordinate (L) at +(180:{\a} and {\b});
@@ -127,12 +127,13 @@ so $AO=a$. $OB=a=AO$ follows by symmetry.
 \node[above] at (T) {$C$};
 \node[below] at (B) {$D$};
 \draw[name path=major] (L) -- (R);
-\draw[name path=minor] (B) --  node[left] {$b$} (O) -- node[left] {$b$} (T);
+\draw[name path=minor] (B) --  
+  node[left,yshift=-8pt] {$b$} (O) -- node[left] {$b$} (T);
 \draw (O) rectangle +(9pt,9pt);
 
 % Indicates distances along the major axis
-\draw[<->] ($(O)+(0,-25pt)$) -- node[fill=white] {$a$} ($(R)+(0,-25pt)$);
-\draw[<->] ($(O)+(0,-25pt)$) -- node[fill=white] {$a$} ($(L)+(0,-25pt)$);
+\draw[<->] ($(O)+(0,-27pt)$) -- node[fill=white] {$a$} ($(R)+(0,-27pt)$);
+\draw[<->] ($(O)+(0,-27pt)$) -- node[fill=white] {$a$} ($(L)+(0,-27pt)$);
 
 % Label distances from center to foci by c
 \path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
@@ -142,15 +143,10 @@ so $AO=a$. $OB=a=AO$ follows by symmetry.
 \draw (F1) -- node[above] {$a$} (T) -- node[above] {$a$} (F2);
 
 \end{tikzpicture}
-\caption{The semi-major and semi-minor axes of an ellipse}\label{f.ellipse-features2}
+\caption{The semi-major and semi-minor axes of an ellipse}
+\label{f.ellipse-features2}
 \end{center}
 \end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{center}
-\fbox{$a$ and $b$ will always denote the semi-major and semi-minor axes of an ellipse.}
-\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -162,9 +158,9 @@ A point $P=(x,y)$ on an ellipse satisfies the equation
 \end{theorem}
 
 \begin{proof}
-Since $F_1=(-c,0)$, $F_2=(c,0)$ and $PF_1+PF_2=2a$,
+Since $S=(-c,0)$, $H=(c,0)$ and $PS+PH=2a$,
 \[
-PF_1+PF_2=\sqrt{(x-(-c))^2 + y^2}+\sqrt{(x-c)^2+y^2} = 2a\,.
+PS+PH=\sqrt{(x-(-c))^2 + y^2}+\sqrt{(x-c)^2+y^2} = 2a\,.
 \]
 Squaring twice results in
 \begin{eqn}
@@ -177,8 +173,8 @@ a^2 +\frac{c^2}{a^2}x^2 &=& x^2+c^2+y^2\\[4pt]
 
 By Theorem~\ref{thm.ellipses-features} and Pythagoras's theorem, $b^2=a^2-c^2$ so
 \[
-\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\,.
-\]\hqed
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\,.\fqed
+\]
 \end{proof}
 
 \subsection{A circle circumscribing an ellipse}
@@ -190,8 +186,9 @@ The perpendicular to the major axis through a point $P_c=(x,y_c)$ on the circle 
 \begin{proof} Using the formulas for points on an ellipse and on a circle we have
 \begin{eqnlabels}
 \frac{x^2}{a^2}+\frac{y_e^2}{b^2}&=&1\nonumber\\[4pt]
-y_e&=& \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\label{eq.point-on-ellipse}
-\end{eqnlabels}\hqed
+y_e&=& \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}
+\label{eq.point-on-ellipse}\fqed
+\end{eqnlabels}
 \end{proof}
 
 \begin{figure}[tb]
@@ -209,10 +206,11 @@ y_e&=& \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\label{eq.po
 \coordinate (L) at (-4.5,0);
 \coordinate (R) at (4.5,0);
 \coordinate (T) at (0,4.5);
-\draw[name path=major] (L) -- node[below] {$a$} (O) -- node[below] {$a$}(R);
+\draw[name path=major] (L) -- 
+  node[below] {$a$} (O) -- node[below] {$a$}(R);
 \draw[name path=minor] (O) -- (T);
-\draw[<->] ($(O)+(-10pt,1pt)$) -- node[near end,fill=white] {$a$} ($(T)+(-10pt,-1pt)$);
-
+\draw[<->] ($(O)+(-10pt,1pt)$) --
+  node[near end,fill=white] {$a$} ($(T)+(-10pt,-1pt)$);
 
 % Choose arbitrary point on major-axis, raise a perpendicular
 %   and label its intersections with the ellipse and the circle
@@ -249,8 +247,8 @@ $\displaystyle\frac{2b^2}{a}$.
 \begin{proof}
 By Equation~\ref{eq.ye} and Pythagoras's theorem,
 \[
-L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.
-\]\hqed
+L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.\fqed
+\]
 \end{proof}
 
 \begin{figure}[tb]
@@ -263,7 +261,7 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.
 
 % Draw an ellipse with center O
 \coordinate (O) at (0,0);
-\vertexsm{O};
+%\vertexsm{O};
 \node[below left] at (O) {$O$};
 \draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
 \draw[name path=circle] (4,0) arc(0:180:4cm);
@@ -273,10 +271,10 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.
 % The Sun is at a focal point
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F1) {$F_1$};
-\node[below left] at (F2) {$F_2$};
-\vertexsm{F1};
-\vertexsm{F2};
+\node[below] at (F1) {$S$};
+\node[below left] at (F2) {$H$};
+%\vertexsm{F1};
+%\vertexsm{F2};
 
 % Draw axes whose center is O
 \coordinate (L) at +(180:{\a} and {\b});
@@ -291,7 +289,7 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.
 
 \path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
 
-% Draw latus rectum as intersections of perpendicular at F_2
+% Draw latus rectum as intersections of perpendicular at H
 %  with the ellipse
 \path[name path=LR] ($(F2)+(0,-2.5)$) -- ($(F2)+(0,2.5)$);
 \path [name intersections = {of = ellipse and LR, by = {LR1,LR2} }];
@@ -299,9 +297,9 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.
 \draw[very thick] (LR1) -- (LR2);
 
 % Label endpoint of the LR
-\vertexsm{LR1};
+%\vertexsm{LR1};
 \node[above left,xshift=2pt,yshift=6pt] at (LR1) {$L_1$};
-\vertexsm{LR2};
+%\vertexsm{LR2};
 \node[below,yshift=-2pt] at (LR2) {$L_2$};
 \draw (LR1) -- (LR1c);
 \draw (F2) rectangle +(7pt,7pt);
@@ -315,6 +313,8 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \subsection{The area of an ellipse}
 
@@ -346,73 +346,13 @@ A_c &=& 2\int_{-a}^{a} \sqrt{a^2-x^2} \;dx= 2\int_{-\pi}^{0} \sqrt{a^2-(a \cos \
 %&=& 2a^2 \int_{-\pi}^{0} \sqrt{1-\cos^2 \theta} \;\;d(\cos\theta)\\[4pt]
 &=& 2\cdot a\cdot a \int_{-\pi}^{0} \sin \theta (-\sin\theta)\;d\theta
 = -2a^2 \int_{-\pi}^{0} \sin^2 \theta \;d\theta\\[4pt]
-&=& -2a^2 \left.\left( \frac{\theta}{2} - \frac{\sin 2\theta}{4}+C\right)\right|_{-\pi}^{0}=\pi a^2\,.
-\end{eqn}\hqed
+&=& -2a^2 \left.\left( \frac{\theta}{2} - \frac{\sin 2\theta}{4}+C\right)\right|_{-\pi}^{0}=\pi a^2\,.\fqed
+\end{eqn}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{The angles between a tangent and the lines to the foci}
-
-We will need the following theorem:
-
-\begin{theorem}[Angle bisector theorem]\label{thm.angle-bisector}
-In $\triangle ABC$ let the angle bisector of $\angle BAC$ intersect $BC$ at $D$ (Figure~\ref{f.angle-bisector}). Then
-\[
-\frac {BD}{CD}=\frac {AB}{AC}\,.
-\]
-\end{theorem}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}
-
-% Draw base and paths of two lines at known angles
-\draw (0,0) coordinate (b) node[left] {$B$} -- 
-  (8,0) coordinate (c) node[right] {$C$};
-\path[name path=ba] (b) -- +(50:4.5);
-\path[name path=ca] (c) -- +(150:7);
-
-% Get their intersection and draw lines between vertices
-\path[name intersections={of=ba and ca,by=a}];
-\node[above] at (a) {$A$};
-\draw (a) -- (c) -- (b) -- (a);
-\path[name path=bc] (b) -- (c);
-
-% Draw bisector
-\path[name path=bisector] (a) -- +(-80:4);
-\path[name intersections={of= bc and bisector,by=d}];
-\node[below] at (d) {$D$};
-\draw (a) -- (d);
-
-% Label angles
-\node[below left,xshift=2pt,yshift=-8pt] at (a) {$\alpha$};
-\node[below right,xshift=2pt,yshift=-8pt] at (a) {$\alpha$};
-
-% Draw altitude
-\draw[dashed,thick] (a) -- node[left] {$h$} (a |- b);
-\draw (a|-b) rectangle +(7pt,7pt);
-\end{tikzpicture}
-\end{center}
-\caption{The angle bisector theorem}\label{f.angle-bisector}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{proof}
-We prove the theorem by computing the areas of two triangles in two ways: the base and the height, and the base, the angle and a side.
-\begin{eqn}
-\triangle ABD&=&\frac{1}{2}BD\,h=\frac{1}{2}AB\,AD\sin \alpha\\[4pt]
-\frac{BD}{AB}&=&\frac{AD \sin \alpha}{h}\\[4pt]
-\triangle ACD&=&\frac{1}{2}CD\,h=\frac{1}{2}AC\,AD\sin \alpha\\[4pt]
-\frac{CD}{AC}&=&\frac{AD \sin \alpha}{h}\\[4pt]
-\frac{BD}{CD}&=&\frac{AB}{AC}\,.
-\end{eqn}\hqed
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}\label{thm.tangent-angles}
 Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extension of $SP$ such that $SU=AA'=2a$ (Figure~\ref{f.tangent-angles}). Let $RQ$ be the bisector of $\angle HPU$. Then $RQ$ is the tangent to the ellipse at $P$ and $\angle RPS = \angle HPQ$.
@@ -420,9 +360,9 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.1]
 
 % Size and center of the ellipse
 \def\a{4.33}
@@ -454,7 +394,7 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 \path [name intersections = {of = ellipse and fromF1p, by = {P} }];
 \draw[name path=ph] (P) -- (F2);
 \node[above right,xshift=-4pt,yshift=2pt] at (P) {$P$};
-\vertexsm{P};
+%\vertexsm{P};
 
 % Locate tangent at P
 \tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan}
@@ -463,16 +403,16 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 \coordinate (Q) at ($(Tan)!.75!(P)$);
 \node[right] at (Q) {$Q$};
 \draw (Q) -- (F1);
-\vertexsm{Q};
+%\vertexsm{Q};
 
 % Draw the tangent from Q to R
-\draw[name path=tan] ($(Tan)!.60!(P)$) coordinate (Z)
-  -- %node[right,very near end] {$t$}
+\draw[name path=tan] ($(Tan)!.60!(P)$) coordinate (Z) --
   ($(Tan)!1.3!(P)$) coordinate (R);
 \node[right] at (R) {$R$};
 
 % Draw HQ and QU
-\draw (F2) -- node[below right,xshift=6pt,yshift=6pt] {$d$} (Q) -- 
+\draw (F2) -- 
+  node[below right,xshift=6pt,yshift=6pt] {$d$} (Q) -- 
   node[right] {$d$} (U);
 \draw[thick,dashed,name path=F2U] (F2) -- (U);
 
@@ -480,7 +420,7 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 \path [name intersections = {of = tan and F2U, by = {W} }];
 \node[right,xshift=1pt,yshift=-2pt] at (W) {$W$};
 
-%% Label angles
+% Label angles
 \node[below,yshift=-4pt] at (P) {$\alpha$};
 \node[right,xshift=4pt,yshift=-5pt] at (P) {$\alpha$};
 \node[left,xshift=-4pt,yshift=6pt] at (P) {$\alpha$};
@@ -505,15 +445,7 @@ Construct the line $HU$ to form the triangle $\triangle HPU$. By construction $S
 $\triangle UWQ\cong\triangle HWQ$ by side-angle-side so $UQ=HQ$. Suppose that $Q$ is on the ellipse. Then $2a=SQ+HQ=SQ+QU$. By the triangle inequality $2a=SQ+QU>SU=2a$, contradicting that $Q$ is on the ellipse.\hqed
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{The parametric representation of an ellipse}
-
-Figure~\ref{f.parametric} shows an ellipse and two circles: one whose radius is the length of the semi-major axis (dotted red) and one whose radius is the semi-minor axis (dashed blue). The figure shows the \emph{parametric representation} of a point $P=(x,y)$ on the ellipse:
-\[
-(x,y)= (a\cos t,\, y = b \sin t)\,.
-\]
-The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-axis. It is constructed by projecting $P$ onto the minor axis. Then the line at angle $t$ is constructed from $C$ to the intersection of the projection with the inner circle (blue dot). The line is extended to intersect the outer circle (red dot). The parametric representation of $P$ is computed by multiplying the lengths of the axes by the appropriate trigonometry function.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[t]
 \begin{center}
@@ -568,44 +500,27 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \draw[thick,red] (PI) -- (PO);
 
 % Dots at vertices
-\vertexcolor{PI}{blue};
-\vertexcolor{PO}{red};
-\vertexsm{C};
-\vertexsm{P};
+\vertexsmcolor{PI}{blue};
+\vertexsmcolor{PO}{red};
+%\vertexsm{C};
+%\vertexsm{P};
 
 \end{tikzpicture}
 \caption{Parametric representation of an ellipse}\label{f.parametric}
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The parametric representation of an ellipse}
 
-\subsection{Ratios}
-
-\begin{theorem}\label{thm.ratios}
-Let $P=(x,y)$ be a point on an ellipse (not on the major axis $AA'$) and construct a perpendicular $PV$ from $P$ to the major axis (Figure~\ref{f.ellipse-ratios}). Then
+Figure~\ref{f.parametric} shows an ellipse and two circles: one whose radius is the length of the semi-major axis (dotted red) and one whose radius is the semi-minor axis (dashed blue). The figure shows the \emph{parametric representation} of a point $P=(x,y)$ on the ellipse:
 \[
-\frac{A'V\cdot AV}{PV^2} = \frac{a^2}{b^2}\,.
+(x,y)= (a\cos t,\, y = b \sin t)\,.
 \]
-\end{theorem}
-\begin{proof}
-By Equation~\ref{eq.point-on-ellipse}),
-\begin{eqn}
-y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
-\frac{A'V\cdot AV}{PV^2}&=&\frac{(a+x)(a-x)}{y^2}=\frac{a^2(a^2-x^2)}{b^2(a^2-x^2)}= \frac{a^2}{b^2}\,.
-\end{eqn}\hqed
-\end{proof}
+The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-axis. It is constructed by projecting $P$ onto the minor axis. Then the line at angle $t$ is constructed from $C$ to the intersection of the projection with the inner circle (dashed). The line is extended to intersect the outer circle (dotted). The parametric representation of $P$ is computed by multiplying the lengths of the axes by the appropriate trigonometry function.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{theorem}\label{thm.conj-diag}
-Let $PG,DK$ be conjugate diameters of an ellipse and let $Q$ be a point on the ellipse (Figure~\ref{f.conj-ratios}). Drop a perpendicular $QV$ from $Q$ to the major axis, then
-\[
-PV = \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
-\]
-\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[b]
 \begin{center}
@@ -679,9 +594,9 @@ PV = \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
 \draw[blue,thick] (V) -- (P);
 \draw[green!80!black,thick] (Q) -- (V);
 
-\vertexsm{V};
+%\vertexsm{V};
 \vertexsm{G};
-\vertexsm{C};
+%\vertexsm{C};
 \vertexsm{P};
 \vertexsm{D};
 \vertexsm{Q};
@@ -692,6 +607,33 @@ PV = \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
 \end{center}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Ratios}
+
+\begin{theorem}\label{thm.ratios}
+Let $P=(x,y)$ be a point on an ellipse (not on the major axis $AA'$) and construct a perpendicular $PV$ from $P$ to the major axis (Figure~\ref{f.ellipse-ratios}). Then
+\[
+\frac{A'V\cdot AV}{PV^2} = \frac{a^2}{b^2}\,.
+\]
+\end{theorem}
+\begin{proof}
+By Equation~\ref{eq.point-on-ellipse}),
+\begin{eqn}
+y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
+\frac{A'V\cdot AV}{PV^2}&=&\frac{(a+x)(a-x)}{y^2}=\frac{a^2(a^2-x^2)}{b^2(a^2-x^2)}= \frac{a^2}{b^2}\,.\fqed
+\end{eqn}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.conj-diag}
+Let $PG,DK$ be conjugate diameters of an ellipse and let $Q$ be a point on the ellipse (Figure~\ref{f.conj-ratios}). Drop a perpendicular $QV$ from $Q$ to the major axis, then
+\[
+PV = \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
+\]
+\end{theorem}
+
 \begin{proof}
 Figure~\ref{f.conj-ratios} shows a dashed ellipse which is the original ellipse rotated about the same center $C$, so that $CP$ is the semi-major axis and $CD$ is the semi-minor axis. By Theorem~\ref{thm.ratios}
 \[
@@ -700,28 +642,33 @@ Figure~\ref{f.conj-ratios} shows a dashed ellipse which is the original ellipse 
 where $a',b'$ are the lengths of the semi-major and semi-minor axes of the rotated ellipse. By construction $a'=CP$ and $b'=CD$ so
 \begin{eqn}
 \frac{GV\cdot PV}{QV^2} &=& \frac{CP^2}{CD^2}\\
-PV &=& \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
+PV &=& \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.\fqed
 \end{eqn}
-\hqed
 \end{proof}
+
+\vspace*{-5ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
-\subsection{Parallelograms formed by tangents to conjugate diameters}
+\subsection{Areas of parallelograms}
 
 There are two equivalent definitions of conjugate diameters.
 
 \begin{definition}\label{def.conjugate}\mbox{}
-
-\begin{itemize}
-\item Let $P$ be a point on an ellipse, $PG$ a diameter and let $t$ be the tangent to the ellipse at $P$. Diameter $DK$ is a \emph{conjugate diameter} if it is parallel to $t$ (Figure~\ref{f.ellipse-conj}).
-\item Two diameters $PG$ and $DK$ are \emph{conjugate diameters} if the midpoints of chords ($D'K', D''K''$) parallel to one diameter ($DK$) lie on another diameter ($PG$).
-\end{itemize}
+Let $P$ be a point on an ellipse, $PG$ a diameter and let $t$ be the tangent to the ellipse at $P$. Diameter $DK$ is a \emph{conjugate diameter} if it is parallel to $t$ (Figure~\ref{f.ellipse-conj}). Two diameters $PG$ and $DK$ are \emph{conjugate diameters} if the midpoints of chords ($D'K', D''K''$) parallel to one diameter ($DK$) lie on another diameter ($PG$).
 \end{definition}
 
-\begin{figure}[b]
+\vspace*{-3ex}
+
+\begin{theorem}\label{thm.conj-diam-para}
+The areas of parallelograms formed by tangents to the intersections of conjugate diameters with the ellipse are equal (Figure~\ref{f.ellipse-conj-diam-proof}).
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.7]
+\begin{tikzpicture}[scale=.6]
 
 % Size and center of the ellipse
 \def\a{4.33}
@@ -777,7 +724,7 @@ There are two equivalent definitions of conjugate diameters.
 
 % Draw parallel to the tangent
 \path (C) -- +(24:-1.6) coordinate(PP);
-\vertexsm{PP};
+%\vertexsm{PP};
 \path[name path=pp1] (PP) -- +($(Z)-(P)$);
 \path[name path=pp2] (PP) -- +($(P)-(Z)$);
 \path [name intersections = {of = pp1 and ellipse, by = {DP} }];
@@ -786,7 +733,7 @@ There are two equivalent definitions of conjugate diameters.
   (KP) node[below,xshift=5pt,yshift=2pt] {$K'$};
 
 \path (C) -- +(24:2.9) coordinate(PPP);
-\vertexsm{PPP};
+%\vertexsm{PPP};
 \path[name path=ppp1] (PPP) -- +($(Z)-(P)$);
 \path[name path=ppp2] (PPP) -- +($(P)-(Z)$);
 \path [name intersections = {of = ppp1 and ellipse, by = {DPP} }];
@@ -799,15 +746,12 @@ There are two equivalent definitions of conjugate diameters.
 \end{center}
 \end{figure}
 
-\begin{theorem}\label{thm.conj-diam-para}
-Parallelograms formed by tangents to the intersections of conjugate diameters with the ellipse are equal (Figure~\ref{f.ellipse-conj-diam-proof}).
-\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}
 \begin{center}
-\begin{tikzpicture}[scale=.7]
+\begin{tikzpicture}[scale=.67]
 
 % Size and center of the ellipse
 \def\a{4.33}
@@ -898,25 +842,24 @@ Parallelograms formed by tangents to the intersections of conjugate diameters wi
 \end{figure}
 
 \begin{proof}
-We will show that the area of the parallelogram $JKLM$ is equal to the area of the parallelogram formed by tangents to the major and minor axes (dashed rectangle). By symmetry it suffices to prove that the areas of one of the four quadrants of those parallelograms are equal: $A_{ACBC'}=A_{PCDJ}$. Furthermore, since the diagonals bisect a parallelogram, it suffices to prove that that the area of $\triangle ABC$ (red) equals the area of $\triangle PCD$ (blue).
+We show that the area of the parallelogram $JKLM$ is equal to the area of the parallelogram formed by tangents to the major and minor axes (dashed). By symmetry it suffices to prove that the areas of one of the quadrants of those parallelograms are equal: $A_{ACBC'}=A_{PCDJ}$. Since the diagonals bisect a parallelogram, it suffices to prove that that the area of $\triangle ABC$ (red) equals the area of $\triangle PCD$ (blue).
 
-Let $P=(x_p,y_p)=(a\cos t, b\sin t)$ and $D=(x_d,y_d)$ be the parametric representations of the points on the ellipse. Since conjugate diameters are perpendicular, $\angle DCP$ is a right angle so
+Let $P=(x_p,y_p)=(a\cos t, b\sin t), D=(x_d,y_d)$ be the parametric representations of the points on the ellipse. Conjugate diameters are perpendicular so $\angle DCP$ is a right angle and
 \[
 D=(x_d,y_d)=(a\cos (t+\pi/2), b\sin (t+\pi/2))=(-a\sin t, b\cos t)\,.
 \]
-Construct $DD'=(x_d,0)$ and $PP'=(x_p,0)$ perpendicular to the major axis. The area of $\triangle PCD$ can be computed as the area of the trapezoid $P'PDD'$ minus the areas of the triangles $\triangle D'DC, \triangle P'PC$.
+Construct $DD'=(x_d,0)$ and $PP'=(x_p,0)$ perpendicular to the major axis. The area of $\triangle PCD$ can be computed as the area of the trapezoid $P'PDD'$ minus the areas of the triangles $\triangle D'DC, \triangle P'PC$. Therefore,
 \begin{eqn}
 \triangle PCD &=& \frac{y_p+y_d}{2} (x_p-x_d) - \frac{1}{2}x_dy_d - \frac{1}{2}x_py_p=\frac{1}{2}\left(x_py_d -x_dy_p\right)\\[6pt]
-&=&\frac{1}{2} \left( a\cos t \cdot b \cos t - (-a)\sin t\cdot b\sin t\right)=\frac{1}{2}ab=\triangle ABC\,.
+&=&\frac{1}{2} \left( a\cos t \cdot b \cos t - (-a)\sin t\cdot b\sin t\right)=\frac{1}{2}ab=\triangle ABC\,.\fqed
 \end{eqn}
-\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}
 \begin{center}
-\begin{tikzpicture}[scale=.8]
+\begin{tikzpicture}[scale=.7]
 
 % Size and center of the ellipse
 \def\a{4.33}
@@ -950,17 +893,16 @@ Construct $DD'=(x_d,0)$ and $PP'=(x_p,0)$ perpendicular to the major axis. The a
 \draw (P) -- node[left] {$y$} (V) node[below] {$V$};
 
 % Draw length arrows
-\draw[<->] ($(L)+(0,-20pt)$) -- 
-  node[fill=white] {$a\!+\!x$} ($(V)+(0,-20pt)$);
-\draw[<->] ($(V)+(0,-20pt)$) -- 
-  node[fill=white] {$a\!-\!x$} ($(R)+(0,-20pt)$);
+\draw[<->] ($(L)+(0,-24pt)$) -- 
+  node[fill=white] {$a\!+\!x$} ($(V)+(0,-24pt)$);
+\draw[<->] ($(V)+(0,-24pt)$) -- 
+  node[fill=white] {$a\!-\!x$} ($(R)+(0,-24pt)$);
 
 % Dots at vertices
-\vertexsm{P};
-\vertexsm{V};
+%\vertexsm{P};
+%\vertexsm{V};
 
 \end{tikzpicture}
 \caption{Ratios on conjugate diameters}\label{f.ellipse-ratios}
 \end{center}
 \end{figure}
-

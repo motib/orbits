@@ -1,0 +1,408 @@
+% !TeX root = orbits.tex
+
+\section{Theorems of Euclidean Geometry}\label{s.elementary}
+
+\subsection{Constructing a circle from three points}
+
+\begin{theorem}\label{thm.three-points}
+Given three non-collinear points,\footnote{\emph{Collinear} means that the points all on the same line.} a circle can be constructed that goes through all three points.
+\end{theorem}
+
+\begin{proof}
+Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\ref{f.kepler-circumscribed}). Construct the perpendicular bisectors of any two of its three sides, say, $AC$ and $BC$. By definition the perpendicular bisector is the geometric locus of points equidistant from the endpoints of the segment. Let $O$ be the intersection of the two bisectors. Then the $AO=CO=BO$ is the radius of a circle centered at $O$ that goes through $A,B,C$.\hqed
+\end{proof}
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=.9]
+  % Define the coordinates of an arbitrary triangle,
+  %   label the vertices and draw dots at each vertex
+  \coordinate[label = left:$A$]  (A) at ( 0, 0);
+  \coordinate[label = right:$B$] (B) at (5, 0);
+  \coordinate[label = above:$C$] (C) at (3.5 ,4);
+  %\vertexsm{A};
+  %\vertexsm{B};
+  %\vertexsm{C};
+  
+  % Draw the triangle
+  \draw (A) -- (B) -- (C) -- cycle;
+
+  % Construct perpendicular bisectors
+  \coordinate (AC) at ($(A)!.5!(C)$);
+  \draw[name path=ac] ($(AC)!1.5cm!-90:(A)$) -- ($(AC)!2.5cm!90:(A)$);
+  \coordinate (BC) at ($(B)!.5!(C)$);
+  \draw[name path=bc] ($(BC)!3cm!-90:(B)$) -- ($(BC)!.5cm!90:(B)$);
+
+  % Find the intersection
+  \path [name intersections = {of = bc and ac, by = {M}}];
+  %\vertexsm{M};
+  \node[above,xshift=2pt,yshift=0pt] at (M) {$O$};
+
+  % Construct a circumscribed circle
+  \node[draw] at (M) [circle through = (A)] {};
+
+  % Draw the right-angle squares
+  \draw[rotate=-40] (AC) rectangle +(7pt,7pt);
+  \draw[rotate=200] (BC) rectangle +(7pt,7pt);
+
+\end{tikzpicture}
+\caption{A circle through three arbitrary points}\label{f.kepler-circumscribed}
+\end{center}
+\end{figure}
+
+\subsection{The altitude to a hypothenuse}
+
+\begin{theorem}\label{thm.dividing}
+Let $AA'$ be a line segment whose midpoint is $C$. Then 
+\[
+AC^2-CN^2=AN\cdot NA'\,.
+\]
+\end{theorem}
+
+%\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+
+\draw (0,0) coordinate (A) node[below] {$A$} -- 
+  (2.5,0) coordinate (N) node[below] {$N$} --
+  (4,0) coordinate (C) node[below] {$C$} -- 
+  (8,0) coordinate (AP) node[below] {$A'$};
+\vertexsm{A};
+\vertexsm{N};
+\vertexsm{C};
+\vertexsm{AP};
+
+\end{tikzpicture}
+\end{center}
+%\caption{Dividing one-half of a line segment}\label{f.dividing}
+%\end{figure}
+
+\begin{proof}
+$AN=AC-CN$ and $NA'=A'C+CN=AC+CN$ since $C$ is the midpoint of $AA'$. The result is obtaining by multiplying the two equations.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}\label{thm.alt-hypo}
+Let $Q$ be a point on a circle whose diameter is $AA'$ and construct a perpendicular $QN$ to the diameter (Figure~\ref{f.circle-besant}). Then
+\[
+QN^2=AN\cdot NA'\,.
+\]
+The equation also holds if \emph{it is given} that $\triangle AQA'$ is a right triangle.
+\end{theorem}
+
+\begin{proof}
+An angle that subtends a diameter is a right angle. Since the sum of the angles of a triangle is $180^\circ$, we can label the angles as shown in the Figure, from which follows that $\triangle QNA \sim\triangle A'NQ$. Therefore,
+\[
+\frac{QN}{AN} = \frac{NA'}{QN}\,.\fqed
+\]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\def\a{4.33}
+\def\b{3}
+
+% Draw a hemi-ellipse and a circumscribing hemi-circle
+\coordinate (O) at (0,0);
+\draw[name path=circle] (\a,0) arc(0:180:\a);
+
+% Draw axes through O
+\coordinate (L) at (-\a,0);
+\coordinate (R) at (\a,0);
+\draw[name path=major] (L) node[below] {$A$} -- (O) -- (R) node[below] {$A'$};
+
+% Choose arbitrary point on major-axis, raise a perpendicular
+%   and label its intersections with the ellipse and the circle
+\coordinate (N) at (-2,0);
+\path[name path=atN] (N) -- ($(N)+(0,\a)$);
+\path [name intersections = {of = atN and circle, by = {Q} }];
+\draw (N) -- (Q);
+\draw (L) -- (Q) -- (R);
+
+\draw[rotate=-120] (Q) rectangle +(8pt,8pt);
+\draw (N) rectangle +(8pt,8pt);
+
+% Label X and the intersections
+\node[below] at (N) {$N$};
+\node[above] at (Q) {$Q$};
+
+\node[above right,xshift=6pt] at (L) {$90^\circ\!-\!\alpha$};
+\node[below right,yshift=-16pt] at (Q) {$90^\circ\!-\!\alpha$};
+\node[above left,xshift=-14pt] at (R) {$\alpha$};
+\node[below left,yshift=-18pt] at (Q) {$\alpha$};
+
+\end{tikzpicture}
+\caption{Right triangle in a circle at the diameter}\label{f.circle-besant}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The median of the hypotenuse}
+
+\begin{theorem}
+Let $ACB$ be a right triangle and let $D$ be the intersection of the median from $C$ and the hypotenuse $AC$ (Figure~\ref{f.median}). Then $CD=AB/2$ and
+\[
+AD \cdot DB = DC^2\,.
+\]
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+% Construct the triangle
+\draw (0,0) coordinate (C) node[below left] {$C$} -- 
+  (6,0) coordinate (B) node[right] {$B$} --
+  (0,4) coordinate (A) node[above left] {$A$} -- cycle;
+
+% Construct a median to the hypotenuse and label the segments
+\draw (C) -- ($(A)!.5!(B)$)
+  coordinate (D) node[above,xshift=2pt] {$D$};
+\path (A) -- node[above] {$a$} (D) --
+  node[above] {$a$} (B);
+
+% Construct the perpendicular from D and label the segments
+\draw[thick,dashed] (D) -- ($(B)!(D)!(C)$) coordinate (E) node[below] {$E$};
+\path (C) -- node[below] {$c_1$} (E) -- node[below] {$c_2$} (B);
+
+% Draw the right-angle squares
+\draw (C) rectangle +(8pt,8pt);
+\draw (E) rectangle +(8pt,8pt);
+
+\end{tikzpicture}
+\end{center}
+\caption{Median to the hypotenuse}\label{f.median}
+\end{figure}
+
+\begin{proof}
+Drop the perpendicular from $D$ to $BC$ and label the intersection by $E$.
+
+By similar triangles,
+\begin{eqn}
+\frac{a}{c_2} &=& \frac{a+a}{c_1+c_2}\\[6pt]
+c_1&=&c_2\,.
+\end{eqn}
+Therefore, $\triangle DEC\cong \triangle DEB$ and $DC=DB$.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Adjacent pairs of similar triangles}
+
+I have not encountered the following definition before but it explicitly expresses a relation among similar triangles that would have been obvious to geometers.
+
+\begin{definition}
+An \emph{adjacent pair of similar triangles} is a pair of (a pair of) similar triangles that share sides (Figure~\ref{f.adjacent}). $\triangle BAC\sim \triangle EAF$ and $\triangle CAD\sim \triangle FAG$ are an adjacent pair of similar triangles.
+\end{definition}
+
+\begin{theorem}
+For the adjacent pair of similar triangles in Figure~\ref{f.adjacent},
+\[
+\frac{AB}{AE}=\frac{AD}{AG}\,.
+\]
+\end{theorem}
+\begin{proof} By similar triangles,
+\begin{eqn}
+\frac{AB}{AE}&=&\frac{AC}{AF}\\[6pt]
+\frac{AC}{AF}&=&\frac{AD}{AG}\\[6pt]
+\frac{AB}{AE}&=&\frac{AD}{AG}\,.\fqed
+\end{eqn}
+\end{proof}
+
+Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ by using an intermediate step with $AC$. We will use the term \emph{by an adjacent pair of similar triangles} and leave it to the reader to make the intermediate step.
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.9]
+
+% Construct a vertical line and locate three points
+\coordinate (A) at (0,-2);
+\node[left] at (A) {$A$};
+\coordinate (E) at (0,0);
+\node[left] at (E) {$E$};
+\coordinate (B) at (0,2.4);
+\node[left] at (B) {$B$};
+\draw[thick,blue] (A) -- (B);
+
+% Locate C and D
+\coordinate (C) at (4,2.4);
+\node[above] at (C) {$C$};
+\coordinate (D) at (7,2.4);
+\node[right] at (D) {$D$};
+\draw[thick,blue] (B) -- ($(C)+(-3pt,0)$) coordinate (CX);
+\draw[thick,red] (C) -- (D);
+
+% Construct AC, AD
+\draw[thick,red,name path=ad] (A) -- (D);
+\draw[thick,blue,name path=ac] ($(A)+(0pt,3pt)$) -- ($(C)+(-3pt,0)$);
+\draw[thick,red] (C) -- (A);
+
+% Construct lines from E
+\path[name path=eg] (E) -- ($(E)+(4,0)$);
+\path [name intersections = {of = eg and ac, by = {F} }];
+\path [name intersections = {of = eg and ad, by = {G} }];
+
+% Label intersections
+\node[above left] at (F) {$F$};
+\node[right,xshift=4pt] at (G) {$G$};
+\draw[thick,blue] (E) -- (F);
+\draw[thick,red] ($(F)+(3pt,0)$) -- (G);
+
+\end{tikzpicture}
+\end{center}
+\caption{Adjacent pairs of similar triangles}\label{f.adjacent}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\subsection{The angle bisector theorems}
+
+The angle bisector theorems are used extensively in the study of conic systems, often implicitly.
+\begin{theorem}[Interior angle bisector theorem]
+\label{thm.interior-angle-bisector}
+In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bisector}). Then $AD$ bisects $\angle CAB$ \emph{if and only if}
+\[
+\frac {BD}{CD}=\frac {AB}{AC}\,.
+\]
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.9]
+
+% Draw base and paths of two lines at known angles
+\draw (0,0) coordinate (b) node[left] {$B$} -- 
+  (8,0) coordinate (c) node[right] {$C$};
+\path[name path=ba] (b) -- +(30:8);
+\path[name path=ca] (c) -- +(140:6);
+
+% Get their intersection and draw lines between vertices
+\path[name intersections={of=ba and ca,by=a}];
+\node[above] at (a) {$A$};
+\draw[name path=bc] (b) -- (c);
+\draw (b) -- (a) -- (c);
+
+% Draw bisector
+\path[name path=bisector] (a) -- +(-95:5.5);
+\path[name intersections={of= bc and bisector,by=d}];
+\node[below left] at (d) {$D$};
+
+% Extend bisector and construct a line parallel to AB
+\path[name path=ce] (c) -- +(210:5);
+\path[name intersections={of= bisector and ce,by=e}];
+\node[left] at (e) {$E$};
+\draw[thick,dashed] (c) -- (e);
+\draw (a) -- (e);
+
+% Label angles
+\node[below left,xshift=-2pt,yshift=-8pt] at (a) {$\alpha$};
+\node[below right,xshift=0pt,yshift=-8pt] at (a) {$\alpha$};
+\node[above right,xshift=0pt,yshift=6pt] at (e) {$\alpha$};
+\node[above left,xshift=0pt,yshift=0pt] at (d) {$\beta$};
+\node[below right,xshift=0pt,yshift=0pt] at (d) {$\beta$};
+
+\end{tikzpicture}
+\end{center}
+\caption{The interior angle bisector theorem}
+\label{f.interior-angle-bisector}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+Suppose that $AD$ bisects $\angle BAC$. Construct a line through $C$ parallel to $AB$ and let its intersection with $AD$ be $E$. By alternate interior angles, $\angle BAD=\angle CED=$ and by vertical angles $\angle BDA=\angle CDE$. Therefore, $\triangle ABD\sim \triangle EDC$ so
+\[
+\frac{BD}{CD}=\frac{AB}{CE}\,.
+\]
+$\triangle ECA$ is isoceles so $CE=AC$ and
+\[
+\frac{BD}{CD}=\frac{AB}{AC}\,.
+\]
+To prove the converse just ``run'' the proof backwards.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}[Exterior angle bisector theorem]
+\label{thm.exterior-angle-bisector}
+In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the triangle (Figure~\ref{f.exterior-angle-bisector}). Then $AD$ bisects the exterior angle of $\angle BAC$ if and only if
+\[
+\frac {BD}{CD}=\frac {AB}{AC}\,.
+\]
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+
+% Draw base and paths of two lines at known angles
+\path (0,0) coordinate (b) node[below] {$B$} -- 
+  (8,0) coordinate (c) node[below] {$C$};
+\path[name path=ba] (b) -- +(50:3);
+\path[name path=ca] (c) -- +(170:7.5);
+
+% Get their intersection and draw lines between vertices
+\path[name intersections={of=ba and ca,by=a}];
+\node[above] at (a) {$A$};
+\path[name path=bc] (c) -- ($(c)!1.5!(b)$);
+\draw[red,thick] (b) -- (a) -- (c) -- cycle;
+
+% Extend AC to F
+\path (c) -- ($(c)!1.4!(a)$) coordinate (f);
+\draw (a) -- (f) node[above] {$F$};
+
+% Draw bisector to D and extend BC to intersect it
+\path[name path=bisector] (a) -- +(200:5.5);
+\path[name intersections={of= bc and bisector,by=d}];
+\node[below] at (d) {$D$};
+\draw[thick,red,dashed] (b) -- (d);
+\draw[thick,blue] (a) -- (d);
+
+% Construct parallel to AD from B and label intersection with AC by E
+\path[name path=be] (b) -- +(20:4);
+\path[name intersections={of= be and ca,by=e}];
+\node[above] at (e) {$E$};
+\draw[thick,dashed] (b) -- (e);
+
+% Label angles
+\node[left,xshift=-12pt,yshift=-2pt] at (a) {$\alpha$};
+\node[below left,xshift=-10pt,yshift=-6pt] at (a) {$\alpha$};
+\node[above right,xshift=10pt,yshift=6pt] at (b) {$\alpha$};
+\node[left,xshift=-10pt,yshift=-2pt] at (e) {$\alpha$};
+
+\end{tikzpicture}
+\end{center}
+\caption{The exterior angle bisector theorem}
+\label{f.exterior-angle-bisector}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+Suppose that $AD$ bisects $BAF$. Construct a line through $B$ parallel to $AD$ and let its intersection with $AC$ be $E$. By alternate interior angles $\angle BAD=\angle ABE$ and by corresponding angles $\angle FAD=\angle AEB$. Therefore, $\triangle BCE\sim \triangle DCA$ so
+\[
+\frac{BD}{CD}=\frac{AE}{AC}\,.
+\]
+But $\triangle BAE$ is isoceles so $AE=AB$ and
+\[
+\frac{BD}{CD}=\frac{AB}{AC}\,.
+\]
+To prove the converse just ``run'' the proof backwards.\hqed
+\end{proof}
+
+\begin{center}
+\fbox{\parbox{.8\textwidth}{The exterior angle bisector theoren confusing to understand in a proof, because it can be hard to identify the components of a diagram. In the text the following color-coding is used: the triangle is red, the extension of one side is dashed red and the bisector is blue.}}
+\end{center}
+
