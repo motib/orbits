@@ -14,7 +14,7 @@ Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\re
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}[scale=.8]
   % Define the coordinates of an arbitrary triangle,
   %   label the vertices and draw dots at each vertex
   \coordinate[label = left:$A$]  (A) at ( 0, 0);
@@ -50,7 +50,9 @@ Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\re
 \end{center}
 \end{figure}
 
-\subsection{The altitude to a hypothenuse}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The product of two subsegments}
 
 \begin{theorem}\label{thm.dividing}
 Let $AA'$ be a line segment whose midpoint is $C$. Then 
@@ -78,7 +80,7 @@ AC^2-CN^2=AN\cdot NA'\,.
 %\end{figure}
 
 \begin{proof}
-$AN=AC-CN$ and $NA'=A'C+CN=AC+CN$ since $C$ is the midpoint of $AA'$. The result is obtaining by multiplying the two equations.
+$AN=AC-CN$ and $NA'=A'C+CN=AC+CN$ since $C$ is the midpoint of $AA'$. The result is obtaining by multiplying the two equations.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,7 +104,7 @@ An angle that subtends a diameter is a right angle. Since the sum of the angles 
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.8]
+\begin{tikzpicture}[scale=.7]
 \def\a{4.33}
 \def\b{3}
 
@@ -141,57 +143,57 @@ An angle that subtends a diameter is a right angle. Since the sum of the angles 
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{The median of the hypotenuse}
-
-\begin{theorem}
-Let $ACB$ be a right triangle and let $D$ be the intersection of the median from $C$ and the hypotenuse $AC$ (Figure~\ref{f.median}). Then $CD=AB/2$ and
-\[
-AD \cdot DB = DC^2\,.
-\]
-\end{theorem}
+%
+%\subsection{The median of the hypotenuse}
+%
+%\begin{theorem}\label{thm.median}
+%Let $ACB$ be a right triangle and let $D$ be the intersection of the median from $C$ and the hypotenuse $AC$ (Figure~\ref{f.median}). Then $CD=AB/2$ and
+%\[
+%AD \cdot DB = DC^2\,.
+%\]
+%\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
-\begin{center}
-\begin{tikzpicture}[scale=.8]
-
-% Construct the triangle
-\draw (0,0) coordinate (C) node[below left] {$C$} -- 
-  (6,0) coordinate (B) node[right] {$B$} --
-  (0,4) coordinate (A) node[above left] {$A$} -- cycle;
-
-% Construct a median to the hypotenuse and label the segments
-\draw (C) -- ($(A)!.5!(B)$)
-  coordinate (D) node[above,xshift=2pt] {$D$};
-\path (A) -- node[above] {$a$} (D) --
-  node[above] {$a$} (B);
-
-% Construct the perpendicular from D and label the segments
-\draw[thick,dashed] (D) -- ($(B)!(D)!(C)$) coordinate (E) node[below] {$E$};
-\path (C) -- node[below] {$c_1$} (E) -- node[below] {$c_2$} (B);
-
-% Draw the right-angle squares
-\draw (C) rectangle +(8pt,8pt);
-\draw (E) rectangle +(8pt,8pt);
-
-\end{tikzpicture}
-\end{center}
-\caption{Median to the hypotenuse}\label{f.median}
-\end{figure}
-
-\begin{proof}
-Drop the perpendicular from $D$ to $BC$ and label the intersection by $E$.
-
-By similar triangles,
-\begin{eqn}
-\frac{a}{c_2} &=& \frac{a+a}{c_1+c_2}\\[6pt]
-c_1&=&c_2\,.
-\end{eqn}
-Therefore, $\triangle DEC\cong \triangle DEB$ and $DC=DB$.\hqed
-\end{proof}
-
+%\begin{figure}[b]
+%\begin{center}
+%\begin{tikzpicture}[scale=.8]
+%
+%% Construct the triangle
+%\draw (0,0) coordinate (C) node[below left] {$C$} -- 
+%  (6,0) coordinate (B) node[right] {$B$} --
+%  (0,4) coordinate (A) node[above left] {$A$} -- cycle;
+%
+%% Construct a median to the hypotenuse and label the segments
+%\draw (C) -- ($(A)!.5!(B)$)
+%  coordinate (D) node[above,xshift=2pt] {$D$};
+%\path (A) -- node[above] {$a$} (D) --
+%  node[above] {$a$} (B);
+%
+%% Construct the perpendicular from D and label the segments
+%\draw[thick,dashed] (D) -- ($(B)!(D)!(C)$) coordinate (E) node[below] {$E$};
+%\path (C) -- node[below] {$c_1$} (E) -- node[below] {$c_2$} (B);
+%
+%% Draw the right-angle squares
+%\draw (C) rectangle +(8pt,8pt);
+%\draw (E) rectangle +(8pt,8pt);
+%
+%\end{tikzpicture}
+%\end{center}
+%\caption{Median to the hypotenuse}\label{f.median}
+%\end{figure}
+%
+%\begin{proof}
+%Drop the perpendicular from $D$ to $BC$ and label the intersection by $E$.
+%
+%By similar triangles,
+%\begin{eqn}
+%\frac{a}{c_2} &=& \frac{a+a}{c_1+c_2}\\[6pt]
+%c_1&=&c_2\,.
+%\end{eqn}%
+%Therefore, $\triangle DEC\cong \triangle DEB$ so $DC=DB$ and AD \cdot DB = DC^2\,.\hqed
+%\end{proof}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Adjacent pairs of similar triangles}
@@ -199,7 +201,7 @@ Therefore, $\triangle DEC\cong \triangle DEB$ and $DC=DB$.\hqed
 I have not encountered the following definition before but it explicitly expresses a relation among similar triangles that would have been obvious to geometers.
 
 \begin{definition}
-An \emph{adjacent pair of similar triangles} is a pair of (a pair of) similar triangles that share sides (Figure~\ref{f.adjacent}). $\triangle BAC\sim \triangle EAF$ and $\triangle CAD\sim \triangle FAG$ are an adjacent pair of similar triangles.
+An \emph{adjacent pair of similar triangles} is a pair of (a pair of) similar triangles that share sides. In Figure~\ref{f.adjacent}, $\triangle BAC\sim \triangle EAF$ and $\triangle CAD\sim \triangle FAG$ are an adjacent pair of similar triangles.
 \end{definition}
 
 \begin{theorem}
@@ -213,14 +215,14 @@ For the adjacent pair of similar triangles in Figure~\ref{f.adjacent},
 \frac{AB}{AE}&=&\frac{AC}{AF}\\[6pt]
 \frac{AC}{AF}&=&\frac{AD}{AG}\\[6pt]
 \frac{AB}{AE}&=&\frac{AD}{AG}\,.\fqed
-\end{eqn}
+\end{eqn}%
 \end{proof}
 
 Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ by using an intermediate step with $AC$. We will use the term \emph{by an adjacent pair of similar triangles} and leave it to the reader to make the intermediate step.
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}[scale=.8]
 
 % Construct a vertical line and locate three points
 \coordinate (A) at (0,-2);
@@ -250,7 +252,7 @@ Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ b
 \path [name intersections = {of = eg and ad, by = {G} }];
 
 % Label intersections
-\node[above left] at (F) {$F$};
+\node[above left,xshift=3pt] at (F) {$F$};
 \node[right,xshift=4pt] at (G) {$G$};
 \draw[thick,blue] (E) -- (F);
 \draw[thick,red] ($(F)+(3pt,0)$) -- (G);
@@ -262,11 +264,8 @@ Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ b
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-
 \subsection{The angle bisector theorems}
 
-The angle bisector theorems are used extensively in the study of conic systems, often implicitly.
 \begin{theorem}[Interior angle bisector theorem]
 \label{thm.interior-angle-bisector}
 In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bisector}). Then $AD$ bisects $\angle CAB$ \emph{if and only if}
@@ -276,9 +275,9 @@ In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bise
 \end{theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}[scale=.8]
 
 % Draw base and paths of two lines at known angles
 \draw (0,0) coordinate (b) node[left] {$B$} -- 
@@ -324,7 +323,7 @@ Suppose that $AD$ bisects $\angle BAC$. Construct a line through $C$ parallel to
 \[
 \frac{BD}{CD}=\frac{AB}{CE}\,.
 \]
-$\triangle ECA$ is isoceles so $CE=AC$ and
+$\triangle ECA$ is isosceles so $CE=AC$ and
 \[
 \frac{BD}{CD}=\frac{AB}{AC}\,.
 \]
@@ -391,16 +390,18 @@ In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the trian
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-Suppose that $AD$ bisects $BAF$. Construct a line through $B$ parallel to $AD$ and let its intersection with $AC$ be $E$. By alternate interior angles $\angle BAD=\angle ABE$ and by corresponding angles $\angle FAD=\angle AEB$. Therefore, $\triangle BCE\sim \triangle DCA$ so
+Suppose that $AD$ bisects $\angle BAF$. Construct a line through $B$ parallel to $AD$ and let its intersection with $AC$ be $E$. By alternate interior angles $\angle BAD=\angle ABE$ and by corresponding angles $\angle FAD=\angle AEB$. Therefore, $\triangle BCE\sim \triangle DCA$ so
 \[
 \frac{BD}{CD}=\frac{AE}{AC}\,.
 \]
-But $\triangle BAE$ is isoceles so $AE=AB$ and
+But $\triangle BAE$ is isosceles so $AE=AB$ and
 \[
 \frac{BD}{CD}=\frac{AB}{AC}\,.
 \]
 To prove the converse just ``run'' the proof backwards.\hqed
 \end{proof}
+
+\medskip
 
 \begin{center}
 \fbox{\parbox{.8\textwidth}{The exterior angle bisector theoren confusing to understand in a proof, because it can be hard to identify the components of a diagram. In the text the following color-coding is used: the triangle is red, the extension of one side is dashed red and the bisector is blue.}}

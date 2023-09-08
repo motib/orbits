@@ -4,7 +4,13 @@
 
 \section{Gravitation}\label{s.newton}
 
-In this section we present Isaac Newton's demonstrations that the inverse-square law can be deduced from Kepler's observation that the orbits of planets are ellipses. After a review of Newton's Laws of force and motion,  we show that Kepler's second law must hold in any system subject to a centripetal force. The next step is to show that the inverse square law for gravitation must hold in an elliptical orbit. Then it is a small step to universal gravitation and Kepler's third law. For readers who wish to study the \emph{Principia} the labels of the points in the diagrams are the same as those used by Newton.
+In the \textit{Principia} Isaac Newton proved the following theorem led to the theory of universal gravitation.
+\begin{quote}
+\begin{theorem}
+If a planet subject to a centripetal force follows an elliptical orbit around the Sun, then the force decreases as the inverse square of the distance from the Sun.
+\end{theorem}
+\end{quote}
+After a review of Newton's Laws of force and motion,  we show that Kepler's second law must hold in \emph{any} system subject to a centripetal force. The next step is to show the inverse square law and then it is a small step to universal gravitation and Kepler's third law.
 
 \subsection{Newton's laws of motion}
 
@@ -88,7 +94,7 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 \coordinate (R) at (0:{\a} and {\b});
 \draw (L) -- (R);
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (Sun) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below,xshift=-2pt,yshift=-2pt] at (Sun) {$S$};
 
@@ -136,7 +142,7 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 \coordinate (R) at (0:{\a} and {\b});
 \draw (L) -- (R);
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (Sun) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (Sun) {$S$};
 
@@ -168,8 +174,8 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 % Label the times and areas
 \node at (3.6,2) {$t$};
 \node at (-3.8,-1.6) {$t$};
-\node at (2.8,1.2) {$A_{12}$};
-\node at (-1.7,-1) {$A_{34}$};
+%\node at (2.8,1.2) {$A_{12}$};
+%\node at (-1.7,-1) {$A_{34}$};
 \end{tikzpicture}
 \caption{Equal areas in equal times}\label{f.grav-second}
 \end{center}
@@ -178,7 +184,7 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Kepler's second law states that a planet in orbit sweeps out equal area in intervals of equal duration, if it takes the planet time $t$ to move from $P_1$ to $P_2$ and also $t$ to move from $P_3$ to $P_4$, then $A_{12}$, the area of the sector $P_1SP_2$, is equal to $A_{34}$, the area of $P_3SP_4$ (Figure~\ref{f.grav-second}). Obviously, this means that the speed of the planet must vary as it traverses its orbit $v_{P_1P_2} \gg v_{P_3P_4}$. Newton proved that this must be true in any system where a body is subject to a centripetal force from another body. 
+Kepler's second law states that a planet in orbit sweeps out equal area in intervals of equal duration, that is, if it takes the planet time $t$ to move from $P_1$ to $P_2$ and also $t$ to move from $P_3$ to $P_4$, then the area of the sector $P_1SP_2$ is equal to the area of $P_3SP_4$ (Figure~\ref{f.grav-second}). (Obviously, this means that the speed of the planet must vary as it traverses its orbit $v_{P_1P_2} \gg v_{P_3P_4}$.) Newton proved that this must be true in any system where a body is subject to a centripetal force from another body. 
 
 The proof is based on dividing an area into very small sectors and then taking the limit. Consider three points $A,B,C$ on the orbit (Figure~\ref{f.grav-very-small}) that represent the positions of the planet at intervals of $\Delta t$. For clarity we have drawn them spaced out, but the intention is that they are very close together. Newton assumed that the planet does not smoothly traverse the arcs, but rather that it every $\Delta t$ it jumps in discrete steps from one point on the orbit to the next.
 
@@ -186,7 +192,7 @@ The proof is based on dividing an area into very small sectors and then taking t
 
 Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The planet moves from $A$ to $B$ and we expect that the centripetal force at $B$ will cause an acceleration that moves the planet to $C$, the next point on the orbit. Instead, we ``pretend'' that the force is not applied at $B$, but, in the absence of an applied force, planet continues to move in the same direction and at the same speed. After another period of $\Delta t$ as passed and the planet has reached point $C'$, the force is now applied \emph{in the same direction} as it would have been applied at $B$, moving the planet to $C$. 
 
-\begin{figure}[tb]
+\begin{figure}[t]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
@@ -200,7 +206,7 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 \def\b{4}
 \coordinate (O) at (0,0);
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (S) {$S$};
 %\vertexsm{S};
@@ -241,7 +247,7 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 \def\b{4}
 \coordinate (O) at (0,0);
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (S) {$S$};
 %\vertexsm{S};
@@ -311,7 +317,7 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \def\b{4}
 \coordinate (O) at (0,0);
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (S) {$S$};
 
@@ -374,7 +380,7 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \def\b{4}
 \coordinate (O) at (0,0);
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (S) {$S$};
 
@@ -408,14 +414,14 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 
 % Draw dashed line H1C
 \coordinate (H1) at ($(S)!(Cnew)!(B)$);
-\node[right,yshift=-2pt] at (H1) {$H_1$};
-\draw[thick,dashed,blue] (H1) -- (Cnew);
+%\node[right,yshift=-2pt] at (H1) {$H_1$};
+\draw[thick,dashed,blue] (H1) -- node[above,black] {$h$} (Cnew);
 \draw[rotate=140] (H1) rectangle +(4pt,4pt);
 
 % Draw dashed line H2C
 \coordinate (H2) at ($(S)!(CP)!(B)$);
-\node[right,yshift=-2pt] at (H2) {$H_2$};
-\draw[thick,dashed,red] (H2) -- (CP);
+%\node[right,yshift=-2pt] at (H2) {$H_2$};
+\draw[thick,dashed,red] (H2) -- node[above,black] {$h$} (CP);
 \draw[rotate=140] (H2) rectangle +(4pt,4pt);
 
 % Dots are vertices
@@ -435,20 +441,18 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-This will be done in two steps by showing that $\triangle ASB=\triangle BSC'$ and $\triangle BSC'=\triangle BSC$. In Figure~\ref{f.grav-areas1}, $\triangle ASB$ is shown in blue and $\triangle BSC'$ is shown in red. It is assumed that $AB=BC'$ (the planet moves from $B$ to $C'$ during the same interval $\Delta t$), so since $SH$ is the height of both triangles, their areas are equal. In Figure~\ref{f.grav-areas2}, $\triangle BSC$ is shown in blue and $\triangle BSC'$ is shown in red. It is assumed $CC'$ is parallel to $SB$ (the planet is subject to the centripetal force at $C'$ in the \emph{same} direction as the force at $B$, so the heights of both triangles to the common side $SB$ are equal and their areas are equal. It follows that $\triangle ASB=\triangle BSC'=\triangle BSC$, which we denote by $\Delta A$.\hqed
+The proof will be done in two steps by showing that $\triangle ASB=\triangle BSC'$ and then that $\triangle BSC'=\triangle BSC$.
+\begin{itemize}
+\item In Figure~\ref{f.grav-areas1}, $\triangle ASB$ is shown in blue and $\triangle BSC'$ is shown in red. It is assumed that $AB=BC'$ (the planet moves from $B$ to $C'$ during the same interval $\Delta t$), so since $SH$ is the height of both triangles, their areas are equal.
+\item In Figure~\ref{f.grav-areas2}, $\triangle BSC$ is shown in blue and $\triangle BSC'$ is shown in red. It is assumed $CC'$ is parallel to $SB$ (the planet is subject to the centripetal force at $C'$ in the \emph{same} direction as the force at $B$), so the heights of both triangles to the common side $SB$ are equal and their areas are equal. It follows that $\triangle ASB=\triangle BSC'=\triangle BSC$, which we denote by $\Delta A$.\hqed
+\end{itemize}
 \end{proof}
 
-\pagebreak[4]
-
-We assume that the sectors of the orbit are each divided up into small sectors of uniform duration $\Delta t$. By the theorem, each sector has the same area $\Delta A$. Therefore, 
+We assume that the sectors of the orbit are each divided up into small sectors of uniform duration $\Delta t$. By the theorem, each sector has the same area $\Delta A$. Therefore (see Figure~\ref{f.grav-second}),
 \[
-\frac{A_{12}}{\Delta A} =\frac{t}{\Delta t} = \frac{A_{34}}{\Delta A}\,,
+\frac{A_{P_1SP_2}}{\Delta A} =\frac{t}{\Delta t} = \frac{A_{P_3SP_4}}{\Delta A}\,,
 \]
-from which Kepler's second law follows:
-\begin{eqn}
-\frac{A_{12}}{t} &=& \frac{A_{34}}{t}\\[4pt]
-A_{12} &=& A_{34}\,.
-\end{eqn}
+from which Kepler's second law follows: $A_{P_1SP_2}=A_{P_3SP_4}$.
 
 The proof used two approximations:
 \begin{itemize}
@@ -465,11 +469,11 @@ For a given elliptical orbit, $\kappa=\displaystyle\frac{A}{t}$, where $A$ is th
 
 \subsection{The inverse square law for gravitation}
 
-Newton's next step was to show that if the orbit of a planet is elliptical, the centripetal force must be proportional to the mass of the planet and inversely proportional to the square of its distance from the Sun. In Figure~\ref{f.grav-inverse1}, $S$ is the Sun, and $P$ and $Q$ are points on the orbit that are very close to each other. $PR$ is a tangent to the ellipse at $P$ and $R$ is a point such that $QR$ is parallel to $SP$.  $QT$ is constructed perpendicular to $SP$. Denote the lengths $r_P=SP$, $h=QT$, $q=QR$ and the time interval from $P$ to $Q$ by $\Delta t$.
+Newton's next step was to show that if the orbit of a planet is elliptical, the centripetal force must be proportional to the mass of the planet and inversely proportional to the square of its distance from the Sun. In Figure~\ref{f.grav-inverse1}, $S$ is the Sun, and $P$ and $Q$ are points on the orbit that are very close to each other. $PR$ is the tangent to the ellipse at $P$, and $R$ is chosen to that $QR$ is parallel to $SP$.  $QT$ is constructed perpendicular to $SP$. Denote the lengths $r_P=SP$, $h=QT$, $q=QR$ and the time interval from $P$ to $Q$ by $\Delta t$.
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=1.1]
+\begin{tikzpicture}[scale=1.2]
 
 % Size and center of the ellipse
 \def\a{4.5}
@@ -481,7 +485,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 \draw[name path=ellipse] ({\a},0) 
   arc[start angle=0,end angle=180,x radius={\a}, y radius={\b}];
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (F1) {$S$};
@@ -542,6 +546,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 % Draw force arrow from P
 \draw (Q) -- node[left] {$h$} ($(F1)!(Q)!(P)$) coordinate (T);
 \node[below] at (T) {$T$};
+\draw[rotate=96] (T) rectangle +(6pt,6pt);
 %\vertexsm{T};
 
 \end{tikzpicture}
@@ -553,14 +558,14 @@ When a point is subject to an acceleration $a$ for a period of $\Delta t$, its d
 \begin{eqn}
 q &=& \frac{1}{2}\frac{F_P}{m} (\Delta t)^2\\[10pt]
 F_P &=& \frac{2mq}{(\Delta t)^2}\,.
-\end{eqn}
+\end{eqn}%
 
-Now we compute the area of $\Delta A = \triangle SPQ = (1/2)hr_p$ and use Kepler's constant:
+Now we compute the area of $\Delta A_{PSQ} \approx \triangle SPQ = (1/2)hr_p$ and use Kepler's constant:
 \begin{eqn}
-\Delta t &=& \frac{\Delta A}{\kappa}=\frac{hr_P}{2\kappa}\\[6pt]
+\Delta t &=& \frac{\Delta A_{PSQ}}{\kappa}=\frac{hr_P}{2\kappa}\\[6pt]
 F_P &=& 2mq\cdot\frac{4\kappa^2}{(hr_P)^2}= 8\kappa^2m\cdot\frac{q}{h^2}\cdot \frac{1}{r_P^2}\,.
-\end{eqn}
-To obtain an inverse-square law for the force, the first two factors have to be independent of the distance. For a given planet $m$ is constant and for a given elliptical orbit $\kappa$ is constant, so the first factor does not depend on the distance. What about the second factor $q/h^2$, in particular, what value does it have if $\Delta t$ approaches zero?
+\end{eqn}%
+To obtain an inverse-square law for the force, the first two factors have to be independent of the distance. For a given planet $m$ is constant and for a given elliptical orbit $\kappa$ is constant, so the first factor does not depend on the distance. What about the second factor $q/h^2$, in particular, what value does it have as $\Delta t$ approaches zero?
 \begin{theorem}\label{thm.lr-limit}
 In an elliptical orbit
 \[
@@ -568,15 +573,12 @@ In an elliptical orbit
 \]
 where $L$ is the length of the latus rectum of the ellipse (Definition~\ref{def.ellipse-lr}).
 \end{theorem}
-Newton's proof is very long and is presented separately in Section~\ref{s.centripetal}.
+Newton's proof is very complex and is presented separately in Section~\ref{s.centripetal}.
 
 Since $L$ is constant for any given ellipse, the inverse square law can be written
-\[
+\begin{equation}
 F_P = \frac{8\kappa^2m}{L}\cdot\frac{1}{r_P^2}\,.\label{eqn.inverse}
-\]
-
-\paragraph{A simplified formula for the force}
-
+\end{equation}%
 The formula can be re-written so that the constant values appearing are more familiar: $a$, the semi-major axis and $T$, the period of the orbit. By Theorem~\ref{thm.ellipse-lr}, $L\!\!=\!\!2b^2/a$ and by Theorem~\ref{thm.ellipse-area}, $\kappa = A_{\textit{\scriptsize ellipse}}/T\!\!=\!\!\pi ab/T$, so
 \begin{equation}
 F_P = \frac{8\kappa^2 m}{L}\cdot\frac{1}{r_P^2}
@@ -585,13 +587,11 @@ F_P = \frac{8\kappa^2 m}{L}\cdot\frac{1}{r_P^2}
 %F_P = \frac{8\kappa^2 am}{2b^2}\cdot\frac{1}{r_P^2}
 %=\frac{4\pi^2 a^2 b^2 am}{b^2 T^2}\cdot \frac{1}{r_P^2}
 %=\frac{4\pi^2 a^3 m}{T^2}\cdot\frac{1}{r_P^2}\,.\label{eqn.planet-force}
-\end{equation}
-
-\paragraph{Applicability of the inverse square law}
-Newton was able to show that
+\end{equation}%
+Newton was able to show that:
 \begin{itemize}
-\item The inverse square law applies to all conic sections including a parabola and a hyperbola, not just to an ellipse and, of course, a circle. Some comets have hyperbolic orbits and orbit the Sun only once.
-\item The converse holds: if a planet is subject to an inverse-square centripetal force then the orbit must be an ellipse (or other conic section).
+\item The inverse square law applies to all conic sections including a parabola and a hyperbola, not just to an ellipse and, of course, to a circle. Some comets have hyperbolic orbits and orbit the Sun only once.
+\item The converse holds: if a planet is subject to an inverse-square centripetal force then the orbit must be an ellipse (or another conic section).
 \item The proof assumes that a planet is a very small point, but the result holds even for large planets as long as the density of the planet is radially symmetric, that is, for a given distance from the center the density is constant.
 \end{itemize}
 
@@ -599,23 +599,22 @@ Newton was able to show that
 
 \subsection{Universal gravitation}
 
-Recall Newton's third law: If one body exerts a force on a second body, the second body exerts a force on the first that is equal in magnitude but in the opposite direction. Therefore, we can equate the force that the Sun $S$ exerts on a planet $S$ with the force that the planet exerts on the Sun. Let $m$ be the mass of the planet and $M$ be the mass of the Sun. Let $F_{S\leftarrow E}$ be the forced exerted by the Sun on the Earth and let $F_{E\leftarrow S}$ be the force exerted by the Earth on the Sun. Using Equation~\ref{eqn.planet-force},
+By Newton's third law, we can equate the force $F_{S\leftarrow E}$ that the Sun $S$ exerts on the Earth $E$ with the force $F_{E\leftarrow S}$ that the Earth exerts on the Sun. Let $m$ be the mass of the Earth and $M$ be the mass of the Sun, then by Equation~\ref{eqn.inverse},
 \begin{eqn}
-F_{S\leftarrow E} &=& \frac{8\kappa_E^2m}{L_E}\cdot\frac{1}{r^2}=\frac{C_Em}{r^2}\\[6pt]
-F_{E\leftarrow S} &=& \frac{8\kappa_S^2M}{L_S}\cdot\frac{1}{r^2}=\frac{C_SM}{r^2}\\[6pt]
+F_{S\leftarrow E} &=& \frac{8\kappa_E^2m}{L_E}\cdot\frac{1}{r^2}=\frac{C_Em}{r^2}\\[4pt]
+F_{E\leftarrow S} &=& \frac{8\kappa_S^2M}{L_S}\cdot\frac{1}{r^2}=\frac{C_SM}{r^2}\\[4pt]
 \frac{C_E}{M}\cdot\frac{1}{r^2}&=&\frac{C_S}{m}\cdot\frac{1}{r^2}\,,
-\end{eqn}
+\end{eqn}%
 from some constants $C_E,C_S$.
 
 Why are the constants different? The Earth and the Sun both rotate around their center of mass called the \emph{barycenter}, which is very close to the center of the Sun since the Sun is so much more massive than the Earth. The ellipse of the Sun's orbit is very small relative to the Earth so $A$ and $L$ are smaller, and the Sun's period is large so $T$ is larger. The different values for $8\kappa^2/L$ are encapsulated into the constants $C_E,C_S$. Let $G=\displaystyle\frac{C_E}{M}=\frac{C_S}{m}$ so that
 \begin{equation}
 F_{S\leftarrow E}=F_{E\leftarrow S}=G\frac{mM}{r^2}\,.\label{eqn.universal}
-\end{equation}
+\end{equation}%
 This is Newton's law of universal gravitation. It is not specific to planetary orbits but holds between any two bodies with masses $m,M$.
 
 \subsection{Kepler's third law}
 
-Newton proved that Kepler's third law follows from the law of universal gravitation.
 \begin{theorem}[Kepler's third law]
 Let $P_1, P_2$ be two planets whose elliptical orbits have semi-major axes $a_1, a_2$ and whose orbital periods around the Sun are $T_1$ and $T_2$. Then
 \[
@@ -631,5 +630,5 @@ After canceling $m$ and $r_i$ we get
 \[
 \frac{a_i^3}{T_i^2}=\frac{GM}{4\pi^2}\,.
 \]
-$\displaystyle\frac{GM}{4\pi^2}$ is a constant that depends only on the mass of the Sun and the gravitational constant, so $\displaystyle\frac{a_i^3}{T_i^2}$ is constant for all planets rotating around the Sun.\hqed
+$GM/4\pi^2$ is a constant that depends only on the mass of the Sun and the gravitational constant, so $a_i^3/T_i^2$ is constant for all planets rotating around the Sun.\hqed
 \end{proof}

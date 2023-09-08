@@ -2,26 +2,20 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The proof Proposition~XI, Problem~VI}
+\section{A proof Proposition~XI, Problem~VI}
 \label{s.centripetal}
 
 Theorem~\ref{thm.lr-limit} is Book~I, Section~III, Proposition~XI, Problem~VI of the \emph{Principia}.
 
-Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half of the ellipse has been clipped, but we still refer to lines from the center to points on the ellipse as diameters.}
+Study Figure~\ref{f.elliptical-orbit-1}:\footnote{The bottom half of the ellipse is not shown, but we still refer to lines $DC,PC$ as diameters.}
 \begin{itemize}
-\item  Given an ellipse whose center is $C$ and whose foci are $S$ and $H$, let $P,Q$ be two points on the ellipse. These points represent the movement of a body in an elliptical orbit separated by a time interval $\Delta t$.
+\item Let $P,Q$ be two points on the ellipse that represent the movement of a body in an elliptical orbit separated by a time interval $\Delta t$. Construct lines from $P$ to the center $C$ and the foci $S,H$.
 
-\item Construct lines from $P$ to the center and the foci. 
-
-\item Let $RPZ$ be the tangent at $P$ such that the line segment $PR$ is the path that the body would transverse if it continued moving for time $\Delta t$, but was not subject to any force.
-
-\item Construct the parallelogram $PRQX$.
-
-\item Extend $QX$ until it intersects $PC$ at $V$.
+\item Construct the tangent at $P$ and choose $R$ on the tangent such that the body would move from $P$ to $R$ if it continued for time $\Delta t$ not subject to any force. Construct the parallelogram $PRQX$ and extend $QX$ until it intersects $PC$ at $V$.
 
 \item Construct a line parallel to $RP$ through $H$ and let $I$ be its intersection with $PS$. 
 
-\item Construct $DC$ the conjugate diameter to $PC$ (Definition~\ref{def.conjugate}) and let $E$ be its intersection with $PS$.
+\item Construct $DC$ the conjugate diameter to $PC$ (Definition~\ref{def.conjugate}), and let $E$ be its intersection with $PS$.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,7 +37,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 \draw[name path=ellipse] (\a,0) 
   arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (F1) {$S$};
@@ -54,6 +48,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 \coordinate (R) at +(0:{\a} and {\b});
 \node[below] at (R) {$A$};
 \coordinate (Top) at +(90:{\a} and {\b});
+\node[above] at (Top) {$B$};
 \draw[name path=major] (L) -- (R);
 \draw[name path=minor] (C) -- (Top);
 
@@ -126,8 +121,6 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{To save space the bottom half 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-
 \subsection{A formula for $QR$}
 
 \begin{theorem}\label{thm.qr}
@@ -135,34 +128,33 @@ $QR = PV\cdot \displaystyle\frac{CA}{CP}$.
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm.tangent-angles}, $\alpha=\angle RPX = \angle ZPH$ and by alternate interior angles,
+By Theorem~\ref{thm.tangent-angles}, $\angle RPX = \angle ZPH=\alpha$ and by alternate interior angles,
 \[
 \angle PHI = \angle ZPH = \alpha = \angle RPX = \angle PIH\,,
 \]
-so $\triangle IPH$ (red) is isoceles and $d=PI=PH$.
+so $\triangle IPH$ (red) is isosceles and $PI=PH=d$.
 
-$SC=CH=c$ are equal because they are the distances of the foci from the center of the ellipse. Let $SE=e$. By construction $EC\parallel IH$ so $\triangle ESC \sim \triangle ISH$ (blue) so
+$SC=CH=c$ are equal because they are the distances of the foci from the center of the ellipse. Let $SE=e$. By construction $EC\parallel IH$ so $\triangle ESC \sim \triangle ISH$ (blue) and
 \begin{eqn}
 \frac{SC}{SE}&=&\frac{SH}{SI}\\[4pt]
-\frac{c}{e}&=&\frac{2c}{SI}\\
-SI &=& 2e\,.
-\end{eqn}
-By definition of an ellipse $SP+PH=SI+IP+PH=2CA$ so $(2e+d)+d=2CA$ and $EP=e+d=CA$.
+SI&=&\frac{SH\cdot SE}{SC}=\frac{2c\cdot e}{c}= 2e\,.
+\end{eqn}%
+By definition of an ellipse $SP+PH=SI+IP+PH=2CA$ so $2e+d+d=2CA$ and $EP=e+d=CA$.
 
 $QV \parallel EC$ so  $\triangle EPC \sim \triangle XPV$ and
 \begin{eqn}
 \frac{PX}{PV} &=& \frac{EP}{PC} =\frac{CA}{PC}\\[4pt]
 PX &=& PV\cdot \frac{CA}{PC}\,.
-\end{eqn}
-By construction of the parallelogram $QR=PX$ proving that $QR= PV\cdot\displaystyle\frac{AC}{PC}$.\hqed
+\end{eqn}%
+Since $PRQX$ is a parallelogram $QR=PX$, $QR= PV\cdot\displaystyle\frac{AC}{PC}$.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{A formula for $QT$}
 
+Construct a perpendicular from $P$ to $DC$ and label its intersection with $DC$ by $F$. Construct a perpendicular from $Q$ to $SP$ and label its intersection with $SP$ by $T$ (Figure~\ref{f.elliptical-orbit-2}).
 \begin{theorem}\label{thm.qt}
-Add a perpendicular from $P$ to $DC$ to the diagram and label its intersection with $DC$ by $F$ (Figure~\ref{f.elliptical-orbit-2}).
 \[
 QT=QX\cdot \frac{FP}{CA}\,.
 \]
@@ -188,7 +180,7 @@ QT=QX\cdot \frac{FP}{CA}\,.
 \node[below left] at (C) {$C$};
 \draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (F1) {$S$};
@@ -198,6 +190,7 @@ QT=QX\cdot \frac{FP}{CA}\,.
 \coordinate (R) at +(0:{\a} and {\b});
 \node[right] at (R) {$A$};
 \coordinate (Top) at +(90:{\a} and {\b});
+\node[above] at (Top) {$B$};
 \draw[name path=major] (L) -- (R);
 \draw[name path=minor] (C) -- (Top);
 
@@ -206,7 +199,7 @@ QT=QX\cdot \frac{FP}{CA}\,.
 \path [name intersections = {of = ellipse and fromF1p, by = {P} }];
 \draw (F1) -- (P);
 \path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
+\draw[name path=pc] (P) -- (C);
 \node[right] at (P) {$P$};
 
 % Select an arbitrary point Q on the ellipse and draw a line to the Sun
@@ -277,141 +270,11 @@ QT=QX\cdot \frac{FP}{CA}\,.
 By construction, $QR \parallel PX$, so by alternate interior angles $\angle RQX =\angle QXT=\beta$. By construction, $QX \parallel DC$, so by alternate interior angles $\angle QXT =\angle PEF=\beta$. Since $\triangle PFE$ and $\triangle QTX$ are right triangles with an equal acute angle $\beta$, $\triangle PFE\sim\triangle QTX$. In the proof of Theorem~\ref{thm.qr} we showed that $EP=CA$ so
 \begin{eqn}
 \frac{QT}{QX}&=& \frac{FP}{EP}\\
-QT&=&QX\cdot \frac{FP}{EP}= \frac{FP}{CA}\,.\fqed
-\end{eqn}
+QT&=&QX\cdot \frac{FP}{EP}= QX\cdot\frac{FP}{CA}\,.\fqed
+\end{eqn}%
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[b]
-\begin{center}
-\begin{tikzpicture}[scale=1]
-
-% Size and center of the ellipse
-\def\a{4.33}
-\def\b{3.5}
-
-% A bit of padding to center
-\path ({-\a},0) -- +(-20pt,0);
-
-% Draw an ellipse with center C
-\coordinate (C) at (0,0);
-\node[below left] at (C) {$C$};
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
-
-% The Sun is at a focal point
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F1) {$S$};
-%\node[below] at (F2) {$H$};
-
-% Draw axes whose center is C
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\node[right] at (R) {$A$};
-\coordinate (Top) at +(90:{\a} and {\b});
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (C) -- (Top);
-
-% Select an arbitrary point P on the ellipse and draw a line to the Sun
-\path[name path=fromF1p] (F1) -- +(15:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\draw (F1) -- (P);
-\path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
-\node[right] at (P) {$P$};
-
-% Select an arbitrary point Q on the ellipse and draw a line to the Sun
-\path[name path=fromF1q] (F1) -- +(40:7);
-\path [name intersections = {of = ellipse and fromF1q, by = {Q} }];
-\node[above] at (Q) {$Q$};
-
-% Draw tangent at P
-\path (F1) -- ($(F1)!1.1!(P)$);
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan}
-\draw[name path=t] ($(Tan)!.65!(P)$) 
-  coordinate (Z) node[above,xshift=4pt,yshift=-2pt] {$Z$} -- 
-  ($(Tan)!1.5!(P)$);
-
-% Draw QR
-\path[name path=qr,red] (Q) -- +(10:2);
-\path [name intersections = {of = t and qr, by = {R} }];
-\node[above right] at (R) {$R$};
-\draw (R) -- (Q);
-
-% Draw QX
-\path[name path=qx] (Q) -- +($(Z)-(R)$);
-\path [name intersections = {of = qx and fromF1p, by = {X} }];
-\path [name intersections = {of = qx and pc, by = {V} }];
-\node[above right,xshift=-4pt,yshift=0pt] at (X) {$X$};
-\draw (X) -- (V) node[below right,xshift=-2pt,yshift=-4pt] {$V$};
-\vertexsm{V};
-
-% Draw T
-\draw (Q) -- ($(F1)!(Q)!(P)$) coordinate (T);
-\node[below] at (T) {$T$};
-\draw[rotate=13] (T) rectangle +(5pt,5pt);
-
-% Conjugate diameter
-\path[name path=cd] (C) -- +($(R)-(Z)$);
-\path[name path=dk] (C) -- +($(Z)-(R)$);
-\path [name intersections = {of = cd and ellipse, by = {D} }];
-\path [name intersections = {of = dk and ellipse, by = {K} }];
-\node[above left] at (D) {$D$};
-\node[below right] at (K) {$K$};
-\draw (D) -- (K);
-\path [name intersections = {of = fromF1p and cd, by = {E} }];
-\node[above,xshift=3pt] at (E) {$E$};
-
-% Conjugate diameter
-\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G) node[left] {$G$};
-
-% Draw PF
-\draw (P) -- ($(C)!(P)!(K)$) coordinate (F) node[left] {$F$};
-\draw[rotate=33] (F) rectangle +(5pt,5pt);
-
-\draw (E) -- (P) -- (F) -- cycle;
-\draw (Q) -- (T) -- (X) -- cycle;
-
-\draw[red,thick] (G) -- (V);
-\draw[blue,thick] (V) -- (P);
-\draw[green!80!black,thick] (Q) -- (V);
-\draw[magenta,thick] (D) -- (C);
-
-\end{tikzpicture}
-\caption{Ratios on conjugate diameters}\label{f.conj-diam}
-\end{center}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{A formula for $QR/QT^2$}
-
-\begin{theorem}
-\[
-\frac{QR}{QT^2}=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.
-\]
-\end{theorem}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{proof}
-Let use combine the equations in Theorems~\ref{thm.qr} and ~\ref{thm.qt} to get $QR/QT^2$.
-\begin{equation}
-\frac{QR}{QT^2}=\frac{PV\cdot\displaystyle\frac{CA}{CP}}
-{\left(QX\cdot \displaystyle\frac{FP}{CA}\right)^2}=
-\frac{PV\cdot CA^3}
-{QX^2\cdot CP\cdot FP^2}\,.\label{eqn.qr-qt}
-\end{equation}
-$DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a formula for $PV$ that we substitute into Equation~\ref{eqn.qr-qt}.
-\begin{equation}
-\frac{QR}{QT^2}=
-\frac{QV^2\cdot CP^2}{GV \cdot CD^2}\cdot
-\frac{CA^3}
-{QX^2\cdot CP\cdot FP^2}=\frac{CP}{CD^2}\cdot \frac{CA^3}{FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.three-multiplications}
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[b]
 \begin{center}
@@ -426,7 +289,7 @@ $DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a for
 % Draw the ellipse
 \draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
 
-% Locate the focal points
+% Locate the foci
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 
@@ -503,15 +366,43 @@ $DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a for
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} proves that the areas of the parallelograms formed by the tangents to conjugate diameters are equal (Figure~\ref{f.conj-diam}). By symmetry the areas of the four small parallelograms are equal, as are the triangles formed by constructing corresponding diagonals. In Figure~\ref{f.conj-diam-para} the area of the $\triangle ABC$ (red), which is $(1/2)AC\cdot AB$, is equal to the area of $\triangle PCD$ (blue), which is $(1/2)FP\cdot CD$. Substituting for $CD\cdot FP$ in Equation~\ref{eqn.three-multiplications} gives
-\begin{eqnlabels}
-\frac{QR}{QT^2}&=&\frac{CP}{CD^2}\cdot \frac{CA^3}{FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\nonumber\\
-%&=&CP\cdot \frac{CA^3}{CD^2\cdot FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\\
+\subsection{A formula for $QR/QT^2$}
+
+\begin{theorem}
+\begin{equation}
+\frac{QR}{QT^2}=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.
+\label{eqn.three-multiplications}
+\end{equation}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+Let use combine the equations in Theorems~\ref{thm.qr} and ~\ref{thm.qt} to get $QR/QT^2$.
+\begin{equation}
+\frac{QR}{QT^2}=\frac{PV\cdot\displaystyle\frac{CA}{CP}}
+{\left(QX\cdot \displaystyle\frac{FP}{CA}\right)^2}=
+\frac{PV\cdot CA^3}
+{QX^2\cdot CP\cdot FP^2}\,.
+\end{equation}%
+$DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a formula for $PV$ that we substitute into Equation~\ref{eqn.qr-qt}.
+\begin{equation}
+\frac{QR}{QT^2}=
+\frac{QV^2\cdot CP^2}{GV \cdot CD^2}\cdot
+\frac{CA^3}
+{QX^2\cdot CP\cdot FP^2}=\frac{CP\cdot CA^3}{CD^2\cdot FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.qr-qt}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Next we show that $CD\cdot FP = CA \cdot CB$. By Theorem~\ref{thm.conj-diam-para} the areas of the parallelograms formed by the tangents to conjugate diameters are equal. By symmetry the areas of the four small parallelograms are equal, as are the triangles formed by constructing diagonals. In Figure~\ref{f.conj-diam-para} the area of the $\triangle ABC$ (red), which is $(1/2)CA\cdot CB$, is equal to the area of $\triangle PCD$ (blue), which is $(1/2)CD\cdot FP$. Substituting for $CD\cdot FP$ in Equation~\ref{eqn.qr-qt} gives
+\begin{eqn}
 \frac{QR}{QT^2}&=&\frac{CP\cdot CA^3}{CB^2\cdot CA^2}\cdot \frac{QV^2}{GV\cdot QX^2}
-=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.two-labels}\fqed
-\end{eqnlabels}
+=\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\fqed
+\end{eqn}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -522,9 +413,9 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 
 % Size and center of the ellipse
 \def\a{4.33}
-\def\b{3.5}
+\def\b{2.7}
 
-\clip (2,.95) rectangle +(2.5,2);
+\clip (2,.95) rectangle +(2.5,1.6);
 
 % Draw an ellipse with center C
 \coordinate (C) at (0,0);
@@ -533,7 +424,7 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 \draw[name path=ellipse] (\a,0) 
   arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
 
-% The Sun is at a focal point
+% The Sun is at a focus
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 
@@ -548,9 +439,9 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 \path[name path=fromF1p] (F1) -- +(15:7);
 \path [name intersections = {of = ellipse and fromF1p, by = {P} }];
 \draw (P) -- ($(P)!.65!(F1)$);
-\draw[name path=ph] (P) -- (F2);
+\path[name path=ph] (P) -- (F2); % Something wrong when magnified
 \draw[name path=pc,->] (P) -- ($(P)!1.1!(C)$) node[left,yshift=-2pt] {$G$};
-\node[right] at (P) {$P$};
+\node[above] at (P) {$P$};
 
 % Select an arbitrary point Q on the ellipse and draw a line to the Sun
 \path[name path=fromF1q] (F1) -- +(23:7);
@@ -561,7 +452,7 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 \draw (F1) -- ($(F1)!1.1!(P)$);
 \tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan}
 \draw[name path=t] ($(Tan)!.75!(P)$) 
-  coordinate (Z) -- node[very near end,right] {$t$} ($(Tan)!1.25!(P)$);
+  coordinate (Z) -- ($(Tan)!1.3!(P)$);
 
 % Draw QR
 \path[name path=qr] (Q) -- +(10:1);
@@ -572,15 +463,16 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 \path[name path=qx] (Q) -- +($(Z)-(R)$);
 \path [name intersections = {of = qx and fromF1p, by = {X} }];
 \path [name intersections = {of = qx and pc, by = {V} }];
-\draw (Q) -- (X) node[left,xshift=-4pt,yshift=4] {$X$} -- 
-  (V) node[below,xshift=7pt] {$V$};
+\draw (Q) -- (X) node[above,xshift=0pt,yshift=0] {$X$} -- 
+  (V) node[below,xshift=0pt] {$V$};
 \vertexsmcolor{X}{red};
 \vertexsmcolor{V}{blue};
 
 % Draw arrows to clipped points
-\draw[->] (2.7,1.5) -- +(195:10pt) node[left] {$S$};
-\draw[->] (3.1,1.3) -- +(210:10pt) node[left,yshift=-1pt] {$C$};
-\draw[->] (3.64,1.38) -- +(235:10pt) node[below] {$H$};
+\draw[->] (2.7,1.7) -- +(195:10pt) node[left] {$S$};
+\draw[->] (2.7,1.4) -- +(210:10pt) node[left,yshift=-4pt] {$C$};
+\draw[->] (3.08,1.4) -- +(235:10pt) node[below] {$H$};
+\draw[->] (P) -- +(235:3);
 
 \end{tikzpicture}
 \caption{Geometry of an elliptical orbit (3)}\label{f.elliptical-orbit-3}
@@ -589,19 +481,20 @@ Next we show that $CD\cdot FP = CA \cdot CB$. Theorem~\ref{thm.conj-diam-para} p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-
 \subsection{Approaching the limit}
 
-Figure~\ref{f.elliptical-orbit-3} is an enlarged diagram of part of Figure~\ref{f.conj-diam}. Compare the two diagrams and you will see that as the time interval $\Delta t$ gets smaller, $Q\rightarrow P$ which implies that
+Figure~\ref{f.elliptical-orbit-3} is an enlarged diagram of part of Figure~\ref{f.elliptical-orbit-2}. As the time interval $\Delta t$ gets smaller, $Q\rightarrow P$ which implies that
 \begin{itemize}
 \item $X\rightarrow V$ so that $QX\rightarrow QV$.
 \item $V\rightarrow P$ so that $CV\rightarrow CP$ and hence $GV\rightarrow 2CP$.
-\item In the limit $QX=QV$ and $GV= 2CP$. Substituting into Equation~\ref{eqn.two-labels} gives
-\begin{eqn}
-\frac{QR}{QT^2}&=&\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}
-=\frac{CP\cdot CA}{CB^2}\cdot \frac{QX^2}{2CP\cdot QX^2}=\frac{CA}{2CB^2}=\frac{a}{2b^2}=\frac{1}{L}\,,
-\end{eqn}
+\item In the limit $QX=QV$ and $GV= 2CP$. Substituting into Equation~\ref{eqn.three-multiplications} gives
+\[
+\lim_{Q\rightarrow P}\frac{QR}{QT^2}=
+%\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}
+\lim_{Q\rightarrow P}\frac{CP\cdot CA}{CB^2}\cdot \frac{QX^2}{2CP\cdot QX^2}=
+\frac{CA}{2CB^2}=
+\frac{a}{2b^2}=\frac{1}{L}\,,
+\]
 \end{itemize}
 using the result of Theorem~\ref{thm.ellipse-lr} for the length of the latus rectum.
 

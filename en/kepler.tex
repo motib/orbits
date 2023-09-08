@@ -8,13 +8,13 @@ Towards the end of the sixteenth century, the astronomer Tycho Brahe carried out
 
 \subsection{Determining the radius of the Earth's orbit}
 
-A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Earth years. We know when Mars reaches a new ``year'' by observing its projection on the celestial sphere, but each time the position of the Earth in its orbit will be different. Figure~\ref{f.kepler-mars} shows the orbit of the Earth---its center $O$ offset from the Sun $S$ as Copernicus showed---at four occasions when the position of Mars $M$ at its new year was observed. Four triangles are created $\triangle OE_iM$.
+A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Earth years. We know when Mars reaches a ``new year'' by observing its projection on the celestial sphere, but each time the position of the Earth in its orbit will be different. Figure~\ref{f.kepler-mars} shows the orbit of the Earth---its center $O$ offset from the Sun $S$ as Copernicus showed---at four occasions when the position of Mars $M$ at its new year was observed. Four triangles are created $\triangle OE_iM$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below left] at (O) {$O$};
@@ -63,7 +63,7 @@ Figure~\ref{f.kepler-one-triangle} shows one of the triangles with the angles la
 \begin{eqn}
 \frac{OE_i}{\sin \beta} &=& \frac{OM}{\sin \alpha}\\[4pt]
 OE_i &=& OM\,\frac{\sin \beta}{\sin \alpha}\,.
-\end{eqn}
+\end{eqn}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -84,7 +84,7 @@ OE_i &=& OM\,\frac{\sin \beta}{\sin \alpha}\,.
 \node[right] at (M) {$M$};
 
 % Draw one triangle
-\coordinate (E2) at (70:1.75);
+\coordinate (E2) at (70:2);
 \node[above] at (E2) {$E_i$};
 \draw[thick] (O) -- (E2) -- (M) -- cycle;
 
@@ -92,9 +92,9 @@ OE_i &=& OM\,\frac{\sin \beta}{\sin \alpha}\,.
 \vertexsm{O};
 \vertexsm{E2};
 \vertexsm{M};
-\node[right,xshift=4pt,yshift=3pt] at (O) {$\alpha$};
-\node[above left,xshift=-24pt,yshift=14pt] at (M) {$\beta$};
-\node[below,xshift=1pt,yshift=-6pt] at (E2) {$\gamma$};
+\node[right,xshift=4pt,yshift=4pt] at (O) {$\alpha$};
+\node[above left,xshift=-20pt,yshift=14pt] at (M) {$\beta$};
+\node[below,xshift=2pt,yshift=-8pt] at (E2) {$\gamma$};
 
 \end{tikzpicture}
 \caption{One triangle Earth-Sun-Moon}\label{f.kepler-one-triangle}
@@ -108,33 +108,28 @@ Tycho Brahe was able to measure all three angles:\footnote{The values are rounde
 \begin{array}{rrrrr}
 \hline
 & \multicolumn{1}{c}{\alpha} & \multicolumn{1}{c}{\beta} &
-  \multicolumn{1}{c}{\gamma} & \multicolumn{1}{c}{OE_i \,\scriptstyle(\times OM)} \\\hline
-E_1 & 127.1 & 20.8  & 32.1 & 0.6682\\
-E_2 & 84.2 & 35.8 & 60.5 & 0.6721\\
-E_3 & 41.3 & 42.4 &96.4 & 0.6785\\
-E_4 & 1.6& 3.4& 175.0 & 0.6805\\
+  \multicolumn{1}{c}{\gamma} & \multicolumn{1}{c}{OE_i} \\\hline
+E_1 & 127.1 & 20.8  & 32.1 & \;\; 0.6682\cdot OM\\
+E_2 & 84.2 & 35.8 & 60.5 & \;\;0.6721\cdot OM\\
+E_3 & 41.3 & 42.4 &96.4 & \;\;0.6785\cdot OM\\
+E_4 & 1.6& 3.4& 175.0 & \;\;0.6805\cdot OM\\
 \hline
 \end{array}
 \]
-The values of $OE$ are given in the fourth column of the table and they are not equal. Assuming (as everyone did at that time) that the Earth' orbit is circular, the only solution was to move the center of the orbit so that $\{E_1,E_2,E_3,E_4\}$ were all on the circle.
+The values of $OE_i$ given in the fourth column of the table are not equal. Assuming (as everyone did at that time) that the Earth' orbit is circular, the only solution was to move the center of the orbit so that $\{E_1,E_2,E_3,E_4\}$ were all on the circle.
 
 \subsection{Measuring the angles in the triangle Sun-Earth-Mars}
 
 How can the angles $\alpha, \beta, \gamma$ be measured? Since $\triangle E_iOM$ is a triangle, it is sufficient to measure two of the angles. $\gamma$ is easily measured by observing Mars and the Sun at the same time. However, neither $\alpha$ nor $\beta$ can be measured directly since they are not accessible to an observer on Earth.
 
-Tycho's measurement used the known periods of the orbits to compute the angles. The Earth moves counterclockwise around Sun. Given any point $E$, after $t$ days the Earth will eventually move to $E'$ and Mars will move to $M'$ so that they are in \emph{opposition}, that is, Mars will be in the continuation of the Earth-Sun line (Figure~\ref{f.kepler-opposition}). Since the Earth completes an orbit in close to half the time that Mars takes, this will occur before either has completed a full orbit. The angles $\theta_E$ and $\theta_M$ are fractions of a circular orbit of $360^\circ$, so
+Tycho's measurement used the known periods of the orbits to compute the angles. The Earth moves counterclockwise around Sun. Given any point $E$, for some $t$, $t$ days later the Earth will have moved to $E'$ and Mars will have moved to $M'$, so that they are in \emph{opposition}, that is, Mars will be on the continuation of the Earth-Sun line (Figure~\ref{f.kepler-opposition}). Since the Earth completes an orbit in about half the time that Mars takes to complete an orbit, $t$ will be such that neither the Earth nor Mars has completed a full orbit. The angles $\theta_E$ and $\theta_M$ are fractions of a circular orbit of $360^\circ$, so
 \begin{eqn}
 \frac{t}{365.25} &=& \frac{\theta_E}{360}\\[4pt]
-\theta_E &=& \frac{360\,t}{365.35}\\[4pt]
+\theta_E &=& \frac{360}{365.35}\,t\\[4pt]
 \frac{t}{687} &=& \frac{\theta_M}{360}\\[4pt]
-\theta_M &=& \frac{360\,t}{687}\,.
-\end{eqn}
-This gives values for $\theta_E$ and $\theta_M$. From geometry we have
-\begin{eqn}
-\alpha' &=& 180-\theta_E = \alpha-\theta_M\\
-\alpha &=& 180 - \theta_E + \theta_M\,,
-\end{eqn}
-and the values of $OE_i$ can be computed.
+\theta_M &=& \frac{360}{687}\,t\,.
+\end{eqn}%
+This gives values for $\theta_E$ and $\theta_M$. Since $E'M'$ is a straight line, we have that $\alpha-\theta_M = 180^\circ -\theta_E$, so that $\alpha = 180 - \theta_E + \theta_M$, and the values of $OE_i$ can be computed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -155,18 +150,16 @@ and the values of $OE_i$ can be computed.
 \node[right] at (M) {$M$};
 
 % Draw one triangle
-\coordinate (E2) at (70:1.75);
+\coordinate (E2) at (70:2);
 \node[above] at (E2) {$E$};
 \draw (O) -- (E2) -- (M) -- cycle;
 
-%\vertexsm{O};
-\vertexsm{E2};
-%\vertexsm{M};
+% Label angles of the triangle
+\node[right,xshift=6pt,yshift=16pt] at (O) {\sm{\alpha\!-\!\theta_M}};
+\node[above left,xshift=-20pt,yshift=14pt] at (M) {$\beta$};
+\node[below,xshift=2pt,yshift=-8pt] at (E2) {$\gamma$};
 
-\node[right,xshift=8pt,yshift=20pt] at (O) {$\alpha'$};
-\node[above left,xshift=-24pt,yshift=14pt] at (M) {$\beta$};
-\node[below,xshift=1pt,yshift=-6pt] at (E2) {$\gamma$};
-
+% Label angles at the center of the Earth's orbit
 \draw ($(O)+(-25:.5)$) arc[start angle=-25,end angle=20,radius=.5cm];
 \node[right,xshift=12pt,yshift=-1pt] at (O) {$\theta_M$};
 \draw ($(O)+(20:.5)$) arc[start angle=20,end angle=70,radius=.5cm];
@@ -174,14 +167,17 @@ and the values of $OE_i$ can be computed.
 \draw ($(O)+(70:.5)$) arc[start angle=70,end angle=200,radius=.5cm];
 \node[above left,xshift=-4pt,yshift=10pt] at (O) {$\theta_E$};
 
-
+% Locate E'
 \coordinate (E2P) at (200:2);
-%\vertexsm{E2P};
 \node[left] at (E2P) {$E'$};
 \coordinate (MPP) at (20:4);
 \vertexsm{MPP};
 \node[above right] at (MPP) {$M'$};
 \draw[thick] (E2P) -- (MPP);
+
+% Draw arc for t from E to E'
+\draw[->,dashed,thick] (70:2.7) arc[start angle=70,end angle=200,radius=2.7]
+   node[above,midway] {$t$};
 
 \end{tikzpicture}
 \caption{The Earth and Mars in opposition}\label{f.kepler-opposition}
@@ -261,10 +257,10 @@ While Kepler was able to modify the center of the orbit of the Earth to be consi
 
 Kepler's computed that $\displaystyle\frac{a-t}{t} = 0.00429$ and $\displaystyle\frac{s}{t} = 1.00429$, so that
 \begin{eqn}
-\frac{a-t}{t} &=& \frac{s}{t}-1\\
-a-t &=& s=t\,,
-\end{eqn}
-and therefore $SM=s=a=AO=CO$. If the dashed oval is, in fact, an ellipse, because in an ellipse $SM=AO$ (by Theorem~\ref{thm.ellipses-features}). Kepler then computed the projections of the observations of Mars on the $x$-axis (Figure~\ref{f.kepler-ellipse}) and obtained for all of them that
+\frac{a-t}{t} &=& \frac{s}{t}-1\\[4pt]
+a-t &=& s-t\,,
+\end{eqn}%%
+and therefore $SM=s=a=AO=CO$. The dashed oval is likely an ellipse, because in an ellipse $SM=AO$ (by Theorem~\ref{thm.ellipses-features}). Kepler then computed the projections of the observations of Mars on the $x$-axis (Figure~\ref{f.kepler-ellipse}) and obtained for all of them that
 \[
 \frac{M_iO_i}{C_iO_i} = \frac{1}{1.00429}=0.99573\,.
 \]

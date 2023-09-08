@@ -83,7 +83,7 @@ Winter & $90\frac{1}{8}$ & 24.7\\\hline
 \end{sffamily}
 \end{center}
 
-In his Earth-centered solar system, Hipparchus proposed that the center of the Earth's orbit be offset from the center of the Sun. Copernicus used the same idea in his Sun-centered solar system (Figure~\ref{f.seasons}). If the center of the Earth's orbit is in the upper-left quadrant of the coordinate system defined by the equinoxes and the solstices, the angles for spring and summer are obtuse, so the seasons are longer than one-fourth of a year, whereas the angles for the autumn and winter are acute, so the they are shorter than one-fourth of a year.
+In his Earth-centered solar system, Hipparchus proposed that the center of the Earth's orbit is offset from the center of the Sun. Copernicus used the same idea in his Sun-centered solar system (Figure~\ref{f.seasons}). If the center of the Earth's orbit is in the upper-left quadrant of the coordinate system defined by the equinoxes and the solstices, the angles for spring and summer are obtuse, so the seasons are longer than one-fourth of a year, whereas the angles for the autumn and winter are acute, so they are shorter than one-fourth of a year.
 
 \begin{figure}[t]
 \begin{center}
@@ -137,7 +137,7 @@ In his Earth-centered solar system, Hipparchus proposed that the center of the E
 \end{center}
 \end{figure}
 
-Figure~\ref{f.seasons-details} shows a magnified and distorted view of Figure~\ref{f.seasons}. It has been annotated with additional lines and labels that will facilitate the demonstration of Copernicus' computation. The axes $A'C'$ and $B'D'$ have their origin $O$ at the center of the Earth's orbit and are parallel to the axes in the ecliptic. The dashed lines from $O$ are all radii of the Earth's orbit that will be denoted $r$. The dotted lines form two right triangles which will be used in the computation.
+Figure~\ref{f.seasons-details} shows a magnified and distorted view of Figure~\ref{f.seasons}. It has been annotated with additional lines and labels that will facilitate the demonstration of Copernicus's computation. The axes $A'C'$ and $B'D'$ have their origin $O$ at the center of the Earth's orbit and are parallel to the axes in the ecliptic. The dashed lines from $O$ are all radii of the Earth's orbit that will be denoted $r$. The dotted right triangles will be used in the computation.
 
 \subsection{The location of the center of the Earth's orbit}
 
@@ -248,7 +248,7 @@ Figure~\ref{f.seasons-details} shows a magnified and distorted view of Figure~\r
 \end{center}
 \end{figure}
 
-Copernicus' task was to locate the position of the center of the Earth's orbit $O$ relative to the center of the Sun $S$. This will be given in polar coordinates $OS=c$ and $\angle FSB = \lambda$ (the label is on the large circle of the ecliptic). The strategy of the computation is as follows:
+Copernicus's task was to locate the position of the center of the Earth's orbit $O$ relative to the center of the Sun $S$. This will be given in polar coordinates $OS=c$ and $\angle FSB = \lambda$ (the label is on the large circle of the ecliptic). The strategy of the computation is as follows:
 \begin{itemize}
 \item Initially, we compute the angles of the arcs in radians; the lengths of the arc can then be obtained by multiplying by the radius $r$.
 \item We use the lengths of the seasons that Copernicus used: summer is $93\frac{14.5}{60}$ days and spring is $92\frac{51}{60}$.
@@ -269,7 +269,7 @@ The arcs $\widehat{AB}, \widehat{AC}$ are sectors of the Earth's orbit and their
   2\pi \cdot \frac{ 92\frac{51}{60}+ 93\frac{14.5}{60} }{365.25} =
   2\pi\cdot\frac{186.09}{365.25}=
   3.2012 \;\textsf{radians}\,.
-\end{eqn}
+\end{eqn}%
 
 \subsubsection*{Computing the angles of the arcs $\widehat{AA'}, \widehat{BB'}$}
 
@@ -277,12 +277,12 @@ Let us express the arcs $\widehat{AC}$ and $\widehat{AB}$ in terms of the arcs t
 \begin{eqn}
 \widehat{AC} &=& \widehat{AA'} + \widehat{A'C'} + \widehat{C'C}= 2\widehat{AA'} + \pi\\[4pt]
 \widehat{AA'} &=& \frac{1}{2}(3.2012-\pi) = 0.0298\;\textsf{radians}\,.
-\end{eqn}
+\end{eqn}%
 Now that we have computed $\widehat{AB}$ and $\widehat{AA'}$ we can compute $\widehat{BB'}$:
 \begin{eqn}
 \widehat{AB} &=& \widehat{AA'} + \widehat{A'B'} - \widehat{BB'}\\[4pt]
 \widehat{BB'} &=& 0.0298 + \frac{\pi}{2} - 1.5927 = 0.0034\;\textsf{radians}\,.
-\end{eqn}
+\end{eqn}%
 
 \subsubsection*{Computing the lengths of the arcs $\widehat{AA'}, \widehat{BB'}$}
 
@@ -292,8 +292,8 @@ $OA$ and $OB$ are radii of the Earth's orbit so
 a &\approx& r\alpha = r\widehat{AA'} = 0.0298r\\[4pt]
 \sin \beta &=& \frac{b}{r} \approx \beta\\[4pt]
 b &\approx& r\beta = r\widehat{BB'} = 0.0034r\,,
-\end{eqn}
-where we have used the assumption that $O$, the center of the Earth's orbit, is very close to the Sun  $S$ so that $\displaystyle\lim_{x\rightarrow 0} \frac{\sin x}{x} = 1$.
+\end{eqn}%
+where we have used the assumption that $O$, the center of the Earth's orbit, is very close to the Sun  $S$ so that $\lim_{\alpha\rightarrow 0} \frac{\sin \alpha}{\alpha} = \lim_{\beta\rightarrow 0} \frac{\sin \beta}{\beta} =1$.
 
 \subsubsection*{Computing the position of $O$ relative to $S$}
 
