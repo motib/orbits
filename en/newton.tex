@@ -82,11 +82,11 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 \begin{figure}[tb]
 \begin{minipage}{.48\textwidth}
 \begin{center}
-\begin{tikzpicture}[scale=.75]
+\begin{tikzpicture}
 
 % Size and center of the ellipse
-\def\a{4}
-\def\b{3}
+\def\a{3}
+\def\b{2}
 \coordinate (O) at (0,0);
 
 % Draw axis/axes through O
@@ -130,11 +130,11 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 %%%%%%%%%%%%%%
 \begin{minipage}{.5\textwidth}
 \begin{center}
-\begin{tikzpicture}[scale=.75]
+\begin{tikzpicture}
 
 % Size and center of the ellipse
-\def\a{4}
-\def\b{3}
+\def\a{3}
+\def\b{2}
 \coordinate (O) at (0,0);
 
 % Draw axis/axes through O
@@ -172,10 +172,8 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 %\vertexsm{P4};
 
 % Label the times and areas
-\node at (3.6,2) {$t$};
-\node at (-3.8,-1.6) {$t$};
-%\node at (2.8,1.2) {$A_{12}$};
-%\node at (-1.7,-1) {$A_{34}$};
+\node at (3,1) {$t$};
+\node at (-2.8,-1.1) {$t$};
 \end{tikzpicture}
 \caption{Equal areas in equal times}\label{f.grav-second}
 \end{center}
@@ -197,41 +195,38 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
 
-% Align captions
+% Padding to align captions
+\path (3,3.6) rectangle +(2,.5);
 
-\path (4,4.1) -- +(1,0);
+\clip (2,-.4) rectangle +(3.5,4);
 
 % Size and center of the ellipse
-\def\a{5}
-\def\b{4}
+\def\a{5.25}
+\def\b{3.5}
 \coordinate (O) at (0,0);
 
 % The Sun is at a focus
-\coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
+\coordinate (S) at (2.5,0);
 \node[below] at (S) {$S$};
-%\vertexsm{S};
 
 % Construct the ellipse
 \draw[name path=ellipse] (5,0) arc(0:60:5cm and 4cm);
 
 % Locate and label three arbitrary points on the list
-\path [name path=a] (S) -- ($(S)+(10:3)$);
+\path [name path=a] (S) -- ($(S)+(10:4)$);
 \path [name intersections = {of = ellipse and a, by = {A} }];
 \draw (S) -- (A) node[right] {$A$};
-%\vertexsm{A};
-\path [name path=b] (S) -- ($(S)+(50:3)$);
+\path [name path=b] (S) -- ($(S)+(50:4)$);
 \path [name intersections = {of = ellipse and b, by = {B} }];
 \draw (S) -- (B) node[above right] {$B$};
-%\vertexsm{B};
-\path [name path=c] (S) -- ($(S)+(82:3)$);
+\path [name path=c] (S) -- ($(S)+(82:4)$);
 \path [name intersections = {of = ellipse and c, by = {C} }];
-\draw (S) -- (C) node[above] {$C$};
-%\vertexsm{C};
+\draw (S) -- (C) node[above right] {$C$};
 
 % Label A, B, C
 \path (A) --
-  node[right,xshift=8pt,yshift=2pt] {$\Delta t$} (B) -- 
-  node[above right,xshift=4pt] {$\Delta t$} (C);
+  node[right,xshift=6pt,yshift=2pt] {$\Delta t$} (B) -- 
+  node[above right,xshift=2pt] {$\Delta t$} (C);
 
 \end{tikzpicture}
 \caption{``Small'' sectors of an orbit}\label{f.grav-very-small}
@@ -241,36 +236,34 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
+\clip (2,-.4) rectangle +(3.6,4.5);
 
 % Size and center of the ellipse
-\def\a{5}
-\def\b{4}
+\def\a{5.25}
+\def\b{3.5}
 \coordinate (O) at (0,0);
 
 % The Sun is at a focus
-\coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
+\coordinate (S) at (2.5,0);
 \node[below] at (S) {$S$};
-%\vertexsm{S};
 
 % Construct the ellipse
 \draw[name path=ellipse] (5,0) arc(0:60:5cm and 4cm);
 
-% Locate and label four arbitrary points on the list
-\coordinate (A) at +(5:{\a} and {\b});
+% Locate and label three arbitrary points on the list
+\path [name path=a] (S) -- ($(S)+(10:4)$);
+\path [name intersections = {of = ellipse and a, by = {A} }];
 \draw (S) -- (A) node[right] {$A$};
-%\vertexsm{A};
-\coordinate (B) at +(30:{\a} and {\b});
-\draw (B) node[above right] {$B$} -- (S);
-%\vertexsm{B};
+\path [name path=b] (S) -- ($(S)+(50:4)$);
+\path [name intersections = {of = ellipse and b, by = {B} }];
+\draw (S) -- (B) node[above right] {$B$};
 
-% Draw the force arrow
-\coordinate (BX) at ($(B)+(.2,0)$);
-\coordinate (SX) at ($(S)+(.2,0)$);
-\draw[->] ($(BX)!.3!(SX)$) -- node[right,near end,xshift=2pt] {$F_B$} ($(BX)!.6!(SX)$);
+% Label A, B, C
+\path (A) --
+  node[right,xshift=6pt,yshift=2pt] {$\Delta t$} (B) -- (C);
 
 % Draw AB
-\draw (A) --
-  node[right,xshift=8pt,yshift=2pt] {$\Delta t$} (B);
+\draw (A) -- (B);
 
 % Locate C' twice the length AB from A
 \path (A) -- ($(A) ! 2 ! (B)$) coordinate (CP);
@@ -283,15 +276,14 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 % Locate Cnew as the correct location of C
 \path[name path=cp] (CP) -- +(230:2);
 \path [name intersections = {of = cp and ellipse, by = {Cnew} }];
-%\vertexsm{Cnew};
 \draw[very thick,dashed,->] (CP) -- 
-  (Cnew) node[above,xshift=-2pt,yshift=2pt] {$C$};
+  (Cnew) node[above,xshift=-2pt,yshift=4pt] {$C$};
 \draw (Cnew) -- (S);
 
 % Draw the force arrow
 \path (CP) -- ($(CP)!1.5!(Cnew)$) coordinate (CX) --
   ($(CP)!2.5!(Cnew)$) coordinate (CY);
-\draw[->] (CX) -- node[left,near start,xshift=-2pt] {$F_B$} (CY);
+\draw[->,thick] (CX) -- node[left,near start,xshift=-2pt] {$F_B$} (CY);
 
 \end{tikzpicture}
 \caption{Exerting force at discrete times}\label{f.grav-small}
@@ -312,23 +304,27 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
 
+\clip (2,-.4) rectangle +(3.5,4.5);
+
 % Size and center of the ellipse
-\def\a{5}
-\def\b{4}
+\def\a{5.25}
+\def\b{3.5}
 \coordinate (O) at (0,0);
 
 % The Sun is at a focus
-\coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
+\coordinate (S) at (2.5,0);
 \node[below] at (S) {$S$};
 
 % Construct the ellipse
 \draw[name path=ellipse] (5,0) arc(0:60:5cm and 4cm);
 
-% Locate and label four arbitrary points on the list
-\coordinate (A) at +(5:{\a} and {\b});
-\node[right] at (A) {$A$};
-\coordinate (B) at +(30:{\a} and {\b});
-\node[above right] at (B) {$B$};
+% Locate and label three arbitrary points on the list
+\path [name path=a] (S) -- ($(S)+(10:4)$);
+\path [name intersections = {of = ellipse and a, by = {A} }];
+\draw (S) -- (A) node[right] {$A$};
+\path [name path=b] (S) -- ($(S)+(50:4)$);
+\path [name intersections = {of = ellipse and b, by = {B} }];
+\draw (S) -- (B) node[above right] {$B$};
 
 % Draw triangle SAB
 \draw[blue] (S) -- (A) -- (B);
@@ -346,6 +342,7 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \draw[red] (B) -- (CP) -- (S) -- cycle;
 \node[above,xshift=-2pt,yshift=2pt] at (Cnew) {$C$};
 \draw (S) -- (Cnew);
+\vertexsm{CP};
 
 % Draw altitude to ABC'
 \coordinate (H) at ($(A)!(S)!(CP)$);
@@ -353,14 +350,6 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \draw[thick,dashed,red] (H) -- (S);
 \draw[thick,dashed,blue] ($(H)+(1pt,-1pt)$) -- ($(S)+(1pt,-1pt)$);
 \draw[rotate=115] (H) rectangle +(4pt,4pt);
-
-% Place dots are vertices
-%\vertexsm{S};
-%\vertexsm{A};
-%\vertexsm{B};
-\vertexsm{CP};
-%\vertexsm{Cnew};
-%\vertexsm{H};
 
 \end{tikzpicture}
 \caption{$\triangle ASB=\triangle BSC'$}\label{f.grav-areas1}
@@ -372,16 +361,17 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 \begin{tikzpicture}[scale=1.3]
 
 % Align captions
+\path (4,4.3) -- +(1,0);
 
-\path (4,4.4) -- +(1,0);
+\clip (2,-.4) rectangle +(3.2,4.2);
 
 % Size and center of the ellipse
-\def\a{5}
-\def\b{4}
+\def\a{5.25}
+\def\b{3.5}
 \coordinate (O) at (0,0);
 
 % The Sun is at a focus
-\coordinate (S) at ({+sqrt(\a*\a-\b*\b)},0);
+\coordinate (S) at (2.5,0);
 \node[below] at (S) {$S$};
 
 % Construct the ellipse
@@ -414,23 +404,13 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 
 % Draw dashed line H1C
 \coordinate (H1) at ($(S)!(Cnew)!(B)$);
-%\node[right,yshift=-2pt] at (H1) {$H_1$};
-\draw[thick,dashed,blue] (H1) -- node[above,black] {$h$} (Cnew);
-\draw[rotate=140] (H1) rectangle +(4pt,4pt);
+\draw[thick,dashed,blue] (H1) -- node[xshift=-2pt,below,black] {$h$} (Cnew);
+\draw[rotate=130] (H1) rectangle +(4pt,4pt);
 
 % Draw dashed line H2C
 \coordinate (H2) at ($(S)!(CP)!(B)$);
-%\node[right,yshift=-2pt] at (H2) {$H_2$};
-\draw[thick,dashed,red] (H2) -- node[above,black] {$h$} (CP);
-\draw[rotate=140] (H2) rectangle +(4pt,4pt);
-
-% Dots are vertices
-%\vertexsm{S};
-%\vertexsm{B};
-%\vertexsm{CP};
-%\vertexsm{Cnew};
-%\vertexsm{H1};
-%\vertexsm{H2};
+\draw[thick,dashed,red] (H2) -- node[xshift=2pt,above,black] {$h$} (CP);
+\draw[rotate=130] (H2) rectangle +(4pt,4pt);
 
 \end{tikzpicture}
 \caption{$\triangle BSC'=\triangle BSC$}\label{f.grav-areas2}
@@ -473,81 +453,57 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}
+
+\clip (-4.6,-.6) rectangle +(9.5,4.3);
 
 % Size and center of the ellipse
 \def\a{4.5}
 \def\b{3}
-\coordinate (O) at (0,0);
+\def\angle{10}
 
-% Draw half of the ellipse
-%\draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
-\draw[name path=ellipse] ({\a},0) 
-  arc[start angle=0,end angle=180,x radius={\a}, y radius={\b}];
-
-% The Sun is at a focus
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+\pic{semi-ellipse={\a}/{\b}};
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\pic{tangent={\a}/{\b}/{\angle}};
 \node[below] at (F1) {$S$};
-%\vertexsm{F1};
-
-% Draw axes whose center is O
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (O) -- (Top);
-
-% Select an arbitrary point P on the ellipse and draw a line to the Sun
-\path[name path=fromF1p] (F1) -- +(5:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\draw (F1) -- node[below,xshift=32pt,yshift=3pt] {$r_p$} (P);
-%\vertexsm{P};
-\node[right] at (P) {$P$};
+\draw (F1) -- node[above,xshift=32pt,yshift=3pt] {$r_p$} (P);
 
 % Select an arbitrary point Q on the ellipse and draw a line to the Sun
 \path[name path=fromF1q] (F1) -- +(20:8);
 \path [name intersections = {of = ellipse and fromF1q, by = {Q} }];
 \draw (F1) -- (Q);
-%\vertexsm{Q};
 \node[above] at (Q) {$Q$};
 
 % Draw PQ
 \draw[thick,dashed] (P) -- (Q);
 
-% Draw tangent at P
-\path (F1) -- ($(F1)!1.1!(P)$);
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan}
-\draw[name path=t] ($(Tan)!.9!(P)$) -- ($(Tan)!1.35!(P)$);
-
 % Draw QR
-\path[name path=qr] (Q) -- +(10:2);
+\path[name path=qr] (Q) -- +(7:2);
 \path [name intersections = {of = t and qr, by = {R} }];
 %\vertexsm{R};
 \node[above right] at (R) {$R$};
 \draw (Q) -- node[above] {$q$} (R);
 
 % Draw QX
-\path[name path=qx] (Q) -- +($(P)-(R)$);
+\path[name path=qx] (Q) -- +({\angle-90}:{1.5*\a} and {1.5*\b});
 \path [name intersections = {of = qx and fromF1p, by = {X} }];
 \draw (Q) -- (X);
 
 % Draw the force arrows
 \coordinate (PX) at ($(P)+(0,-11pt)$);
 \coordinate (SX) at ($(F1)+(0,-11pt)$);
-\draw[->] ($(PX)!.01!(SX)$) --
-  node[below,yshift=-6pt] {$F_P$} ($(PX)!.16!(SX)$);
+%\draw[->] ($(PX)!.01!(SX)$) --
+%  node[below,yshift=-6pt] {$F_P$} ($(PX)!.16!(SX)$);
 
 % Draw force arrow from Q
 \path (R) -- ($(R)!1.7!(Q)$) coordinate (RX) --
   ($(R)!3!(Q)$) coordinate (RY);
-\draw[->] (RX) -- node[above] {$F_P$} (RY);
+\draw[->,thick] (RX) -- node[above] {$F_P$} (RY);
 
 % Draw force arrow from P
 \draw (Q) -- node[left] {$h$} ($(F1)!(Q)!(P)$) coordinate (T);
 \node[below] at (T) {$T$};
 \draw[rotate=96] (T) rectangle +(6pt,6pt);
-%\vertexsm{T};
 
 \end{tikzpicture}
 \caption{The derivation of the inverse square law}\label{f.grav-inverse1}

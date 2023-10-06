@@ -23,7 +23,7 @@
 \bigskip
 \bigskip
 
-Version $0.11$
+Version $0.12$
 
 \bigskip
 
@@ -94,61 +94,50 @@ The following shortcuts facilitate a less verbose presentation:
 \end{center}
 \item The notation in the following diagram will be used consistently to refer to elements of an ellipse. The diagram is for reference since the terms will only be defined when needed.
 \begin{itemize}
-\item $C$ is the center of the ellipse and $a,b$ are the semi-major and semi-minor axes of an ellipse. $A,A'$ are the vertices on the major axis and $B,B'$ are the vertices on the minor axes.
+\item $O$ is the center of the ellipse and $a,b$ are the semi-major and semi-minor axes of an ellipse. $A,A'$ are the vertices on the major axis and $B,B'$ are the vertices on the minor axes.
 \item $S$ and $H$ are the foci and $c$ is the distance from a focus to the center.
 \item $X$ is the intersection of the major axis with the directrix $d$. (There is a second directrix on the right side of the ellipse.)
 \end{itemize}
 \end{itemize}
 
+
 \begin{center}
-\begin{tikzpicture}[scale=1]
+\begin{tikzpicture}
+\clip (-6.5,-3) rectangle +(11,6);
 
-\coordinate (X) at (0,0);
-\coordinate (A) at (3,0);
-\coordinate (S) at (4,0);
-\coordinate (H) at (9,0);
-\coordinate (AP) at (10,0);
-\coordinate (C) at (6.5,0);
-\coordinate (B) at (6.5,2);
-\coordinate (BP) at (6.5,-2);
+% Draw ellipse
+\def\a{3.75}
+\def\b{2.5}
+\def\angle{30}
+\pic{ellipse={{\a}/{\b}}};
 
-\node[below left] at (C) {$C$};
-\node[below] at (S) {$S$};
-\node[below] at (S) {$S$};
-\node[below] at (H) {$H$};
-\node[below left] at (A) {$A$};
-\node[below right] at (AP) {$A'$};
+% Label points
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[below left] at (Left) {$A'$};
+\node[below right] at (Right) {$A$};
+\node[below left] at (O) {$O$};
+\node[below] at (F1) {$S$};
+\node[below] at (F2) {$H$};
+
+% Select point P in the ellipse
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\draw (F1) -- (P) -- (F2);
+
+% Label line segments
+\draw[<->] ($(Right)+(0,-20pt)$) -- node[fill=white] {$a$} ($(O)+(0,-20pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
+\path (F1) -- node[below] {$c$} (O);
+\path (O) -- node[below] {$c$} (F2);
+\path (Top) -- node[left] {$b$} (O);
+\path (O) -- node[left] {$b$} (Bot);
+
+% Draw directrix
+\coordinate (X) at ({-\a-2.25},0);
 \node[left] at (X) {$X$};
-\node[above] at (B) {$B$};
-\node[below] at (BP) {$B'$};
-
-\draw[name path=minor] (X) -- (AP);
-\draw[name path=major] (B) -- (BP);
-\draw[name path=directrix] (0,-2) -- node[left, near end] {$d$} (0,2);
-
-% Size and center of the ellipse
-\def\a{3.5}
-\def\b{2}
-
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
-
-% Select an arbitrary point P on the ellipse and draw lines to the focis
-\path[name path=fromF1p] (S) -- +(15:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\draw (S) -- (P) -- (H);
-\path (P) -- (H);
-\path (P) -- (C);
-\node[above right] at (P) {$P$};
-
-\draw[<->] ($(A)+(0,-20pt)$) -- node[fill=white] {$a$} ($(C)+(0,-20pt)$);
-\draw[<->] ($(C)+(0,-20pt)$) -- node[fill=white] {$a$} ($(AP)+(0,-20pt)$);
-\path (S) -- node[below] {$c$} (C);
-\path (C) -- node[below] {$c$} (H);
-\path (B) -- node[left] {$b$} (C);
-\path (C) -- node[left] {$b$} (BP);
-
+\draw (X) -- (Left);
+\draw ($(X)+(0,-2.25)$) -- (X) -- node[left, near end] {$d$} ($(X)+(0,2.25)$);
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Acknowledgments}
-
+%\subsection*{Acknowledgments}

@@ -15,6 +15,9 @@ A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Ear
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+
+\clip (-2.8,-3) rectangle +(8,6);
+
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below left] at (O) {$O$};
@@ -70,6 +73,8 @@ OE_i &=& OM\,\frac{\sin \beta}{\sin \alpha}\,.
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
+
+\clip (-2.5,-2.5) rectangle +(6.5,5);
 
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
@@ -137,6 +142,8 @@ This gives values for $\theta_E$ and $\theta_M$. Since $E'M'$ is a straight line
 \begin{center}
 \begin{tikzpicture}
 
+\clip (-2.8,-2.5) rectangle +(7.2,5.5);
+
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below] at (O) {$O$};
@@ -195,6 +202,8 @@ Kepler's next task was to obtain a new value $O'$ for the center of the Earth's 
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+
+\clip (-2.8,-3) rectangle +(8,6.2);
 
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
@@ -271,19 +280,22 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=.9]
+
+\clip (-6,-.5) rectangle +(12,6);
+
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below] at (O) {$O$};
 %\vertexsm{O};
-\coordinate (C) at (0,4);
-\coordinate (A) at (4,0);
+\coordinate (C) at (0,4.5);
+\coordinate (A) at (4.5,0);
 
 % The circular orbit of the Earth and an elliptical orbit of Mars
-\draw[thick,dashed] (A) arc(0:180:4cm and 3cm);
-\draw (4,0) arc(0:180:4cm);
+\draw[thick,dashed] (A) arc(0:180:4.5cm and 3cm);
+\draw (4.5,0) arc(0:180:4.5cm);
 \draw (0,0) -- (C) node[above] {$C$};
-\draw (-4,0) -- node[below] {$a$} (O) -- 
-  node[below,xshift=-6pt] {$a$} (A) node[right] {$A$};
+\draw (-4.5,0) -- node[below] {$a$} (O) -- 
+  node[below,xshift=0pt] {$a$} (A) node[right] {$A$};
 
 % Locate Mars
 \coordinate (M) at (0,3);
@@ -291,7 +303,7 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 %\vertexsm{M};
 
 % Locate the Sun
-\coordinate (S) at (2.3,0);
+\coordinate (S) at (3,0);
 %\vertexsm{S};
 \node[below] at (S) {$S$};
 
@@ -308,27 +320,24 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
+\clip (-6,-.5) rectangle +(12,6);
+
 % The center of the Earth's orbit
 \coordinate (O) at (0,0);
 \node[below] at (O) {$O$};
-%\vertexsm{O};
+\coordinate (C) at (0,4.5);
+\coordinate (A) at (4.5,0);
 
 % The circular orbit of the Earth and an elliptical orbit of Mars
-\draw[thick,dashed,name path=ellipse] (4,0) arc(0:180:4cm and 3cm);
-\draw[name path=circle] (4,0) arc(0:180:4cm);
-\draw (0,0) -- (0,4) node[above] {$C$};
-\draw (-4,0) -- (4,0); % node[right] {$A$};
+\draw[name path=ellipse,thick,dashed] (A) arc(0:180:4.5cm and 3cm);
+\draw[name path=circle] (4.5,0) arc(0:180:4.5cm);
+\draw (0,0) -- (C) node[above] {$C$};
+\draw (-4.5,0) --  (O) -- (A);
 
 % Locate Mars
 \coordinate (M) at (0,3);
 \node[below left] at (M) {$M$};
-%\vertexsm{M};
-
-% Locate the Sun
-\coordinate (S) at (2.8,0);
-\vertexsm{S};
-\node[below] at (S) {$S$};
 
 % Locate the projections
 \coordinate (O1) at (-3,0);
@@ -339,9 +348,9 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 \node[below] at (O3) {$O_3$};
 
 % Get intersections with the circle
-\path[name path=P1] (O1) -- +(0,4.2);
-\path[name path=P2] (O2) -- +(0,4.2);
-\path[name path=P3] (O3) -- +(0,4.2);
+\path[name path=P1] (O1) -- +(0,4.5);
+\path[name path=P2] (O2) -- +(0,4.5);
+\path[name path=P3] (O3) -- +(0,4.5);
 
 \path [name intersections = {of = circle and P1, by = {C1} }];
 \path [name intersections = {of = circle and P2, by = {C2} }];
@@ -363,7 +372,6 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 \node[below left,yshift=-4pt,xshift=1pt] at (M2) {$M_2$};
 %\vertexsm{M3};
 \node[below left] at (M3) {$M_3$};
-
 \end{tikzpicture}
 \caption{The orbit of Mars as an ellipse}\label{f.kepler-ellipse}
 \end{center}

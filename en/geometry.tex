@@ -22,6 +22,7 @@ Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ 
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+\clip (-.5,-2) rectangle +(7,4);
 
 % Construct the directrix and the focus
 \coordinate (X) at (0,0);
@@ -78,22 +79,16 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}
 
-\clip (-1,-2) rectangle +(9,4.5);
+\clip (-1,-2.2) rectangle +(9.5,4.5);
 
 % Construct the directrix, the focus and the major axis
-\coordinate (X) at (0,0);
-\node[left] at (X) {$X$};
-\draw[name path=directrix] ($(X)+(0,2.2)$) --
-  node[left,near start] {$d$} ($(X)+(0,-2.2)$);
-\coordinate (S) at (3,0);
-\node[below right] at (S) {$S$};
-\draw (X) -| ($(X)!2.4!(S)$) node[right] {$N$};
+\pic{directrix={8}};
 
 % Locate a vertex
-\coordinate (A) at (2,0);
 \node[above left] at (A) {$A$};
+\node[right] at ($(AP)+(1,0)$) {$N$};
 
 % Find a convenient E and draw _paths_ to A and S
 \path[name path=findE] (S) -- +(210:4);
@@ -121,13 +116,14 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 
 % Label the angles
 \node[right,xshift=12pt,yshift=5pt] at (S) {$\alpha$};
-\node[above right,xshift=6pt,yshift=6pt] at (S) {$\alpha$};
-\node[below left,xshift=-12pt,yshift=2pt] at (L) {$\alpha$};
+\node[above right,xshift=6pt,yshift=8pt] at (S) {$\alpha$};
+\node[below left,xshift=-12pt,yshift=1pt] at (L) {$\alpha$};
 
 % Draw the colored triangles
 \draw[red,very thick] (P) -- (L) -- (E) -- cycle;
 \draw[blue,very thick] (E) -- (K) -- ($(P)+(-3pt,0)$) -- ($(E)+(0,3pt)$);
 
+\draw (X) -- ($(AP)+(1,0)$);
 \end{tikzpicture}
 \end{center}
 \caption{Constructing points on the ellipse}\label{f.construct}
@@ -150,236 +146,61 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\begin{figure}[b]
-%\begin{center}
-%\begin{tikzpicture}[scale=1.1]
-%
-%\clip (-1,-2) rectangle +(9,4.5);
-%
-%% Construct directrix, focus and major axis
-%\coordinate (X) at (0,0);
-%\node[left] at (X) {$X$};
-%\draw[name path=directrix] ($(X)+(0,2.2)$) -- ($(X)+(0,-2.2)$);
-%\coordinate (S) at (3,0);
-%\node[below right] at (S) {$S$};
-%\draw (X) -| ($(X)!2.3!(S)$) node[right] {$N$};
-%
-%% Locate O
-%\draw[name path=SP] (S) -- +(60:2) coordinate (P);
-%\node[above left] at (P) {$P$};
-%
-%% Find a convenient F (but called E)
-%\path[name path=findE] (S) -- +(210:4);
-%\path [name intersections = {of = findE and directrix, by = {E} }];
-%\node[left] at (E) {$F$};
-%
-%% Construct perpendicular through P from the directrix
-%\path[name path=PK] (P) -- +(180:4.5);
-%\path [name intersections = {of = PK and directrix, by = {K} }];
-%\node[left] at (K) {$K$};
-%\path[name path=PL] (K) -- ($(K)!2!(P)$);
-%\draw[name path=ES] (E) -- ($(E)!2!(S)$);
-%\path [name intersections = {of = PL and ES, by = {PP} }];
-%\node[above] at (PP) {$P'$};
-%
-%% Draw triangles
-%\draw[blue,thick] (K) -- (S);
-%\draw[red,thick] (PP) -- (S) -- (P) -- cycle;
-%\draw[thick,dashed,red] (K) -- (P);
-%
-%% Label angles
-%\draw[thick] ($(S)+(60:10pt)$)
-%  arc[start angle=60,end angle=210,radius=10pt];
-%\node[above,xshift=-4pt,yshift=8pt] at (S) {$\beta$};
-%\node[left,xshift=-18pt,yshift=6pt] at (S) {$\beta$};
-%
-%\end{tikzpicture}
-%\end{center}
-%\caption{Constructing another vertex on $KP$}\label{f.other-vertex}
-%\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%We now construct another point on $KP$. Construct a line from $F$ on the directrix through $S$ such that $\angle FSK = \angle KSP=\beta$ and let $P'$ be the intersection of $FS$ with $KP$ (Figure~\ref{f.other-vertex}).
-%\begin{theorem}
-%$P'$ is on the ellipse.
-%\end{theorem}
-%
-%\enlargethispage{\baselineskip}
-%\begin{proof}
-%Since $KS$ bisects $\angle PSF$, by the exterior angle bisector theorem 
-%\begin{eqn}
-%\frac{SP'}{SP}&=&\frac{P'K}{PK}\\[4pt]
-%\frac{SP'}{P'K}&=&\frac{SP}{PK}=e\,,
-%\end{eqn}%
-%and therefore $P$ is on the ellipse.\hqed
-%\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subsection{Constructing a focal chord}
-%
-%\begin{definition}
-%Let $P,P'$ be points on an ellipse. $PP'$ is a \emph{focal chord} of the ellipse if $PP'$ is a chord through a focus (Figure~\ref{f.focal-chord}).
-%\end{definition}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\begin{figure}
-%\begin{center}
-%\begin{tikzpicture}[scale=1.4]
-%
-%\clip (-.5,-2) rectangle +(8,4.2);
-%
-%% Construct directrix, focus and major axis
-%\coordinate (X) at (0,0);
-%\node[left] at (X) {$X$};
-%\coordinate (S) at (3,0);
-%\node[below right] at (S) {$S$};
-%\path[name path=directrix] ($(X)+(0,2.2)$) -- ($(X)+(0,-2.2)$);
-%\draw (X) -| ($(X)!2.3!(S)$) node[right] {$N$};
-%
-%% Locate a vertex
-%\coordinate (A) at (2,0);
-%\node[above left] at (A) {$A$};
-%
-%% Find a convenient E and construct lines through A and S
-%\path[name path=findE] (S) -- +(210:4);
-%\path [name intersections = {of = findE and directrix, by = {E} }];
-%\node[left] at (E) {$E$};
-%\path[name path=EA] (E) -- ($(E)!2.3!(A)$);
-%\path[name path=ES] (E) -- ($(E)!2.3!(S)$);
-%
-%% Locate P
-%\path[name path=SP] (S) -- +(60:3.5) coordinate (Q);
-%\path [name intersections = {of = EA and SP, by = {P} }];
-%\node[above] at (P) {$P$};
-%
-%% Construct a perpendicular through P to the directrix
-%\path[name path=PK] (P) -- +(180:4.5);
-%\path [name intersections = {of = PK and directrix, by = {K} }];
-%\node[left] at (K) {$K$};
-%
-%% Locate L
-%\draw[name path=PL] (K) -- ($(K)!1.8!(P)$);
-%\path [name intersections = {of = PL and ES, by = {L} }];
-%\node[above] at (L) {$L$};
-%
-%% Draw triangle PLE and directrix
-%\draw (P) -- (L) -- (E) -- cycle;
-%\draw (E) -- (K);
-%
-%% Locate A', P' and construct lines
-%\coordinate (AP) at (6,0);
-%\node[above] at (AP) {$A'$};
-%\draw[name path=EAP,very thick] (E) -- (AP);
-%\path[name path=SPP] (P) -- ($(P)!2!(S)$);
-%\path [name intersections = {of = SPP and EAP, by = {PP} }];
-%\draw[very thick] (P) -- (PP);
-%\node[below] at (PP) {$P'$};
-%
-%% Locate K', L' and construct lines
-%\path[name path=PKP] (PP) -- +(-2.6,0);
-%\path [name intersections = {of = PKP and directrix, by = {KP} }];
-%\node[left] at (KP) {$K'$};
-%\draw[very thick] (PP) -- (KP);
-%\path [name intersections = {of = PKP and ES, by = {LP} }];
-%%\node[above,xshift=4pt,yshift=2pt] at (LP) {$L'$};
-%
-%\node[above,xshift=-14pt,yshift=10pt] at (LP) {$L'$};
-%
-%\draw[->] ($(LP)+(-10pt,8pt)$) -- +(-40:10pt);
-%
-%% Label angles
-%\node[above right,xshift=13pt,yshift=-1pt] at (LP) {$\alpha$};
-%\node[below left,xshift=-7pt,yshift=-7pt] at (S) {$\alpha$};
-%\node[right,xshift=14pt,yshift=5pt] at (S) {$\alpha$};
-%\node[above right,xshift=8pt,yshift=8pt] at (S) {$\alpha$};
-%\node[below left,xshift=-14pt,yshift=1pt] at (L) {$\alpha$};
-%
-%% Draw red and blue triangles
-%\draw[thick,red] (X) -- (S) -- (E);
-%\draw[thick,red] (KP) -- (LP);
-%\draw[thick,red] ($(E)+(-3pt,0)$) -- ($(S)+(-3pt,0)$);
-%\draw[thick,blue] (S) -- (AP) -- (E) -- cycle;
-%\draw[thick,blue] (LP) -- (PP);
-%
-%\end{tikzpicture}
-%\end{center}
-%\caption{Constructing a focal chord}\label{f.focal-chord}
-%\end{figure}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%Let us continue with the construction of Figure~\ref{f.construct} as shown in Figure~\ref{f.focal-chord}. Construct the second vertex $A'$. Construct $EA'$ and label its intersection with $SP$ by $P'$. Construct a perpendicular from $P'$ to the directrix and label its intersection with the directrix by $K'$. Label the intersection of $P'K'$ and $EL$ by $L'$.
-%\begin{theorem}
-%The point $P'$ is on the ellipse and since $PP'$ intersects $S$ it is a focal chord.
-%\end{theorem}
-%\begin{proof}
-%$\triangle SEA' \sim \triangle L'EP'$ and $\triangle XES\sim K'EL'$ are adjacent similar triangles, so
-%\[
-%\frac{P'L'}{P'K'}=\frac{SA'}{A'X}\;.
-%\]
-%By alternate interior angles and vertical angles we have $\angle SL'P'=\angle L'SP'$ so triangle $\triangle SL'P'$ is isosceles and $P'L'=SP'$. Therefore,
-%\[
-%\frac{SP'}{P'K'}=\frac{SA'}{A'X}=e\,,
-%\]
-%and $P'$ is a point on the ellipse.\hqed
-%\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
 
-\clip (-1,-3.2) rectangle +(10.1,6.5);
+\clip (-4.1,-3) rectangle +(7.2,5.7);
 
-% Construct ellipse
-\draw[dashed,name path=ellipse] (5,0) ellipse[x radius=4,y radius={sqrt(8)}];
+\def\a{3}
+\def\b{2}
 
-% Compute locations of P, P' on the ellipse 
-\def\x{.5}
-\def\y{sqrt((16-\x*\x)/2)}
-\coordinate (P) at ({5+\x},{\y});
+\coordinate (O) at (0,0);
+% Draw the ellipse
+\draw[name path global=ellipse,thick,dashed] (O) 
+  ellipse[x radius={\a},y radius= {\b}];
+
+% Locate the foci
+\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+\node[right] at (F1) {$S$};
+
+\def\x{.7}
+\def\y{(\b/\a)*sqrt(\a*\a-\x*\x)}
+\coordinate (P) at ({\x},{\y});
 \node[above] at (P) {$P$};
-\def\xp{-3.5}
-\def\yp{-sqrt((16-\xp*\xp)/2)}
-\coordinate (PP) at ({5+\xp},{\yp});
-\node[right] at (PP) {$P'$};
+\def\xp{-2.2}
+\def\yp{-(\b/\a)*sqrt(\a*\a-\xp*\xp)}
+\coordinate (PP) at ({\xp},{\yp});
+\node[right,yshift=2pt] at (PP) {$P'$};
 
 % Construct focus and directrix
-\coordinate (X) at (0,0);
+\coordinate (X) at (-3.5,0);
 \node[left] at (X) {$X$};
-\path[name path=directrix] ($(X)+(0,3.3)$) -- ($(X)+(0,-3.3)$);
-\coordinate (S) at ({5-sqrt(8)},0);
-\node[right] at (S) {$S$};
+\path[name path=directrix] ($(X)+(0,4)$) -- ($(X)+(0,-5)$);
 
 % Locate F as extension of PP' to the directrix
-\path[name path=PPP] (P) -- ($(P)!1.5!(PP)$);
+\path[name path=PPP] (P) -- ($(P)!1.6!(PP)$);
 \path[name intersections = {of = PPP and directrix, by = {F} }];
 \node[left] at (F) {$F$};
 \draw (PP) -- (F);
 
 % Construct perpendiculars through K, K' to the directrix
-\draw (P) -- (0,{\y}) coordinate (K);
+\draw (P) -- (P-|X) coordinate (K);
 \node[left] at (K) {$K$};
-\draw[rotate=-90] (K) rectangle +(6pt,6pt);
-\draw (PP) -- (0,{\yp}) coordinate (KP);
+\draw[rotate=-90] (K) rectangle +(5pt,5pt);
+\draw (PP) -- (PP-|X) coordinate (KP);
 \node[left] at (KP) {$K'$};
-\draw[rotate=-90] (KP) rectangle +(6pt,6pt);
+\draw[rotate=-90] (KP) rectangle +(5pt,5pt);
 
 % Draw triangles
-\draw (S) -- (X) -- (F) -- (K);
-\draw[thick,blue] (F) -- (S);
-\draw[thick,red] (P) -- (S) -- (PP) -- cycle;
-\draw[thick,red,dashed] (P) -- ($(P)!2!(S)$);
+\draw (F1) -- (X) -- (F) -- (K);
+\draw[thick,blue] (F) -- (F1);
+\draw[thick,red] (P) -- (F1) -- (PP) -- cycle;
+\draw[thick,red,dashed] (P) -- ($(P)!2!(F1)$);
 
 % Label angles
-\node[xshift=20pt,yshift=-26pt] at (S) {$\beta$};
-\node[xshift=-40pt,yshift=-26pt] at (S) {$\beta$};
-\draw[->] ($(S)+(16pt,-26pt)$) -- +(180:32pt);
-\draw[->] ($(S)+(-36pt,-26pt)$) -- +(0:14pt);
+\node[below,xshift=-3pt,yshift=-10pt] at (F1) {\sm{\beta}};
+\node[below left,xshift=-6pt,yshift=-8pt] at (F1) {\sm{\beta}};
 
 \end{tikzpicture}
 \end{center}
@@ -390,9 +211,9 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=1.1]
+\begin{tikzpicture}
 
-\clip (-1,-2) rectangle +(10,5.7);
+\clip (-.6,-2.1) rectangle +(10.2,6.2);
 
 % Construct the directrix and the focus
 \coordinate (X) at (0,0);
@@ -404,11 +225,11 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 % Locate the vertices
 \coordinate (A) at (2,0);
 \node[above left] at (A) {$A$};
-\coordinate (AP) at (8,0);
+\coordinate (AP) at (9,0);
 \node[right] at (AP) {$A'$};
 
 % Find a convenient E and construct paths through A, A', S
-\path[name path=findE] (S) -- +(210:4);
+\path[name path=findE] (S) -- +(212:5);
 \path[name intersections = {of = findE and directrix, by = {E} }];
 \node[left] at (E) {$E$};
 \path[name path=EA] (E) -- ($(E)!2.3!(A)$);
@@ -441,7 +262,7 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 \node[below left,xshift=-16pt,yshift=1pt] at (S) {$\delta$};
 \node[below,xshift=-16pt,yshift=-10pt] at (S) {$\delta$};
 
-\draw[thick,blue,rotate=124] (S) rectangle +(5pt,5pt);
+\draw[thick,blue,rotate=127] (S) rectangle +(5pt,5pt);
 
 \end{tikzpicture}
 \end{center}
@@ -449,8 +270,6 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
 
 \subsection{A right angle at the focus of an ellipse}
 
@@ -540,64 +359,50 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 
 \begin{figure}
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
 
-\clip (-7,-2.5) rectangle +(12,7);
-
-% Draw an hemi-ellipse with center C
-\coordinate (C) at (0,0);
-\node[below right] at (C) {$C$};
-\def\a{4.33}
+\clip (-7,-2) rectangle +(12,6.3);
+\def\a{4.5}
 \def\b{3}
-\draw[name path=ellipse] (\a,0) 
-  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
 
-% Locate a focus
-\coordinate (S) at ({-sqrt(\a*\a-\b*\b)},0);
-
-% Draw axes
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\node[below] at (R) {$A'$};
-\node[above left] at (L) {$A$};
-\coordinate (Top) at +(90:{\a} and {\b});
-\node[above] at (Top) {$B$};
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (C) -- (Top);
-\draw[thick,dashed] (C) -- +(0,{-\b/3}) node[below] {$B'$};
+\pic{semi-ellipse={{\a}/{\b}}};
+\draw[thick,dashed] (O) -- +(0,{-\b/3}) node[below] {$B'$};
+\node[below] at (F1) {$S$};
 
 % Construct directrix and focus
 \coordinate (X) at (-6,0);
 \node[left] at (X) {$X$};
-\node[below right] at (S) {$S$};
 \path[name path=directrix] ($(X)+(0,4.5)$) -- ($(X)+(0,-2.5)$);
 
+\node[above left] at (Left) {$A$};
+\node[below] at (Right) {$A'$};
+\node[below left] at (O) {$O$};
+
 % Locate P and E and draw lines
-\path[name path=fromL] (L) -- +(50:4) -- +(230:3);
-\path [name intersections = {of = ellipse and fromL, by = {P} }];
+\path[name path=fromL,red] (Left) -- +(50:4) -- +(230:3);
+\path [name intersections = {of = ellipse and fromL, by = {dummy,P} }];
 \node[above] at (P) {$P$};
 \path [name intersections = {of = directrix and fromL, by = {E} }];
 \node[left] at (E) {$E$};
-\draw (P) -- (E);
 
 % Locate F and draw lines
-\path[name path=fromR] (R) -- ($(R)!1.7!(P)$);
+\path[name path=fromR] (Right) -- ($(Right)!1.7!(P)$);
 \path [name intersections = {of = directrix and fromR, by = {F} }];
 \node[left] at (F) {$F$};
-\draw (R) -- (F);
-\draw (F) -- (S) -- (E) -- cycle;
-\draw[rotate=125] (S) rectangle +(7pt,7pt);
+\draw (Right) -- (F);
+\draw (F) -- (F1) -- (E) -- cycle;
+\draw[rotate=125] (F1) rectangle +(7pt,7pt);
 
 % Construct perpendiculars from P
-\path (P) -- ($(L)!(P)!(C)$) coordinate (N) node[below] {$N$};
-\draw (P) -- ($(Top)!(P)!(C)$) coordinate (M) node[right] {$M$};
-\draw[rotate=180] (M) rectangle +(7pt,7pt);
-\draw[rotate=90] (N) rectangle +(7pt,7pt);
+\path (P) -- ($(Left)!(P)!(O)$) coordinate (N) node[below] {$N$};
+\draw (P) -- ($(Top)!(P)!(O)$) coordinate (M) node[right] {$M$};
+\draw[rotate=180] (M) rectangle +(6pt,6pt);
+\draw[rotate=90] (N) rectangle +(6pt,6pt);
 
 % Draw red and blue similar triangles
 \draw[thick,red] (X) -- (E) -- (P) -- (N) -- cycle;
-\draw[thick,blue] ($(R)+(-4pt,2pt)$) -- ($(X)+(0,2pt)$) --
-  (F) -- ($(F)!.99!(R)$);
+\draw[thick,blue] ($(Right)+(-4pt,2pt)$) -- ($(X)+(0,2pt)$) --
+  (F) -- ($(F)!.99!(Right)$);
 \draw[thick,blue] ($(P)+(2pt,0)$) -- ($(P)!.98!($(N)+(2pt,0)$)$);
 
 \end{tikzpicture}
@@ -609,27 +414,21 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.75]
-\def\a{4.33}
-\def\b{3}
+\begin{tikzpicture}
 
-% Draw a hemi-ellipse and a circumscribing hemi-circle
-\coordinate (O) at (0,0);
-\node[below] at (O) {$C$};
+\clip (-4,-.5) rectangle +(8,3.6);
+
+\def\a{3}
+\def\b{2}
+
+% Semi-ellipse and semi-circle
+\pic{semi-ellipse={\a}/{\b}};
 \draw[name path=circle] (\a,0)
   arc[start angle=0,end angle=180,radius=\a];
-\draw[name path=ellipse] (\a,0)
-  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
 
-% Draw axes through O
-\coordinate (L) at (-\a,0);
-\coordinate (R) at (\a,0);
-\coordinate (T) at (0,\a);
-\draw[name path=major] (L) node[below] {$A$} -- (O) -- 
-  (R) node[below] {$A'$};
-\draw[name path=minor] (O) -- (T);
-\path [name intersections = {of = minor and ellipse, by = {B} }];
-\node[above right] at (B) {$B$};
+\node[below] at (Left) {$A$};
+\node[below] at (Right) {$A'$};
+\node[below] at (O) {$O$};
 
 % Choose arbitrary point on major-axis, raise a perpendicular
 %   and label its intersections with the ellipse and the circle
@@ -642,9 +441,9 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 \node[below] at (N) {$N$};
 \node[above] at (Q) {$Q$};
 \path [name intersections = {of = atN and ellipse, by = {P} }];
-\node[above right] at (P) {$P$};
-\draw (N) rectangle +(7pt,7pt);
-\draw (C) rectangle +(7pt,7pt);
+\node[below right] at (P) {$P$};
+\draw (N) rectangle +(6pt,6pt);
+\draw (O) rectangle +(6pt,6pt);
 
 \end{tikzpicture}
 \caption{A circle circumscribing an ellipse}\label{f.ellipse-circle-besant}
@@ -675,36 +474,26 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.75]
+\begin{tikzpicture}
+
+\clip (-3.5,-2.2) rectangle +(7,4.8);
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3}
+\def\a{3}
+\def\b{2}
 
-% Draw an ellipse with center C
-\coordinate (C) at (0,0);
-\node[below] at (C) {$C$};
-\draw[name path=ellipse] (0,0) ellipse[x radius=\a, y radius=\b];
+\pic{ellipse={{\a}/{\b}}};
+\draw (F1) -- node[above] {$a$} (Top);
+\draw (O) -- node[right] {$b$} (Top);
+\node[below right] at (F1) {$S$};
 
-% The Sun is at a focus
-\coordinate (S) at ({-sqrt(\a*\a-\b*\b)},0);
-\node[below right] at (S) {$S$};
-
-% Draw axes
-\coordinate (L) at (-\a,0);
-\coordinate (R) at (\a,0);
-\coordinate (B) at (0,-\b);
-\coordinate (T) at (0,\b);
-\node[above] at (T) {$B$};
-\node[left] at (L) {$A$};
-\node[right] at (R) {$A'$};
-\draw (S) -- node[left] {$a$} (T);
-\path (C) -- node[above] {$a$} (R);
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (T) -- node[right] {$b$} (C);
+\node[left] at (Left) {$A$};
+\node[right] at (Right) {$A'$};
+\node[below right] at (O) {$O$};
+\node[above] at (Top) {$B$};
 
 % Locate intersections of LR with the ellipse and draw it
-\path[name path=atS] (S) -- ($(S)+(0,3)$) -- ($(S)+(0,-3)$);
+\path[name path=atS] (F1) -- ($(F1)+(0,3)$) -- ($(F1)+(0,-3)$);
 \path [name intersections = {of = atS and ellipse, by = {L,LP} }];
 \node[above,yshift=2pt] at (L) {$L_1$};
 \node[below] at (LP) {$L_2$};
@@ -770,77 +559,61 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
 \begin{center}
 \begin{tikzpicture}
 
-% Size and center of the ellipse
-\def\a{4.33}
-\def\b{3}
-\coordinate (C) at (0,0);
-\node[below] at (C) {$C$};
+\clip (-5,-.5) rectangle +(13,5.3);
 
-% Draw the ellipse and the circle
-\draw[name path=ellipse] (\a,0) 
-  arc[start angle=0,end angle=180,x radius=\a,y radius=\b];
-\draw[very thick,dotted] (\a,0) 
+% Size and center of the ellipse
+\def\a{4.5}
+\def\b{3}
+\def\angle{55}
+
+\pic{semi-ellipse={{\a}/{\b}}};
+\draw[thick,dotted] (\a,0) 
   arc[start angle=0,end angle=180,radius=\a];
 
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F1) {$S'$};
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F2) {$S$};
+\pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
 
-% Draw axes AA' and BB'
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\node[below] at (L) {$A'$};
-\node[below] at (R) {$A$};
-\draw[name path=major] (L) -- (R);
-\draw (Top) -- (C);
-
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(25:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
-
-% Draw tangent at P and locate its intersections with the axes
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\path[name path=t1] ($(Tan1)!-.5!(P)$) coordinate (Z) -- 
-  ($(Tan1)!1.75!(P)$) coordinate (TP);
-\path[name path=ct] (C) -- ($(C)!2!(R)$);
-\path[name path=bt] (C) -- ($(C)!1.5!(Top)$);
-\path [name intersections = {of = t1 and bt, by = {TP} }];
-\path [name intersections = {of = t1 and ct, by = {T} }];
+\pic{tangent-path={1.5*\a}/{1.5*\b}/{\angle}};
+\path[name path=ct] (O) -- ($(O)!2!(Right)$);
+\path[name path=bt] (O) -- ($(O)!1.5!(Top)$);
+\path [name intersections = {of = t and bt, by = {TP} }];
+\path [name intersections = {of = t and ct, by = {T} }];
 \node[below] at (T) {$T$};
-\node[above] at (TP) {$T'$};
-\draw (C) -- (T) -- (TP) -- cycle;
+\node[above,yshift=2pt] at (TP) {$T'$};
+\draw (O) -- (T) -- (TP) -- cycle;
 
 % Construct the perpendicular through S to the tangent at Y
 \draw (F2) -- ($(T)!(F2)!(TP)$) coordinate (Y);
-\node[above] at (Y) {$Y$};
-\draw[thick,dashed] (C) -- (Y);
+\node[right,xshift=3pt,yshift=2pt] at (Y) {$Y$};
+\draw[thick,dashed] (O) -- (Y);
 
 % Construct lines through P and Y that meet in L
 \path[name path=spp] (F1) -- ($(F1)!1.5!(P)$);
 \path[name path=sy] (F2) -- ($(F2)!2.3!(Y)$);
 \path [name intersections = {of = spp and sy, by = {LL} }];
-\node[above left] at (LL) {$L$};
+\node[above right] at (LL) {$L$};
 \draw (F1) -- (P) -- node[above] {$d$} (LL) -- 
   (F2) -- node[near start,left] {$d$} (P);
 
 % Lable angles
 \node[left,xshift=-3pt] at (P) {\sm{\alpha}};
 \node[right,xshift=3pt] at (P) {\sm{\alpha}};
-\node[below right,xshift=2pt,yshift=-2pt] at (P) {\sm{\alpha}};
-\node[below right,xshift=2pt,yshift=-2pt] at (TP) {\sm{\beta}};
-\node[above right,xshift=2pt,yshift=-2pt] at (F2) {\sm{\beta}};
+\node[below right,xshift=1pt,yshift=-3pt] at (P) {\sm{\alpha}};
+\node[below right,xshift=-1pt,yshift=-2pt] at (TP) {\sm{\beta}};
+\node[above right,xshift=2pt,yshift=0pt] at (F2) {\sm{\beta}};
 
-\draw[rotate=-115]  (Y) rectangle +(7pt,7pt);
-\draw  (C) rectangle +(7pt,7pt);
+\draw[rotate=-115]  (Y) rectangle +(5pt,5pt);
+\draw  (O) rectangle +(5pt,5pt);
 
 \draw[thick,red] ($(F2)+(0,2pt)$) -- ($(T)+(-10pt,2pt)$);
 \draw[thick,red] ($(Y)+(0,-2pt)$) -- ($(T)+(-9pt,2pt)$);
 \draw[thick,red] (Y) -- (F2);
-\draw[thick,blue] (C) -- (TP) -- (T) -- cycle;
+\draw[thick,blue] (O) -- (TP) -- (T) -- cycle;
+
+\node[below] at (Left) {$A'$};
+\node[below] at (Right) {$A$};
+\node[below] at (O) {$O$};
+\node[below] at (F1) {$S'$};
+\node[below] at (F2) {$S$};
 
 \end{tikzpicture}
 \caption{The perpendicular from a focus to a tangent}\label{f.perp-focus-tangent}
@@ -853,61 +626,49 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
 Let $N$ be the intersection of the perpendicular through $P$ to the major axis (Figure~\ref{f.segments-major}). Then $CN\cdot NT = AC^2=AN\cdot NA'$.
 \end{theorem}
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
 
+\clip (-4.8,-.5) rectangle +(14.2,5.1);
+
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3}
-\coordinate (C) at (0,0);
-\node[below] at (C) {$C$};
+\def\a{4.5}
+\def\b{3.5}
+\def\angle{60}
 
-% Draw the ellipse
-\draw[name path=ellipse] (\a,0) 
-  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
+\pic{semi-ellipse={{\a}/{\b}}};
+\pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
 
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
 \node[below] at (F1) {$S'$};
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
 \node[below] at (F2) {$S$};
 
-% Draw axes AA' and BB'
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\node[below] at (L) {$A'$};
-\node[below] at (R) {$A$};
-\draw[name path=major] (L) -- (R);
-\draw (Top) -- (C);
-
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(25:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
-\draw (F1) -- (P) -- (F2);
-
-% Draw tangent at P and find its intersections with the axes
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\path[name path=t1] ($(Tan1)!-.5!(P)$) coordinate (Z) -- 
-  ($(Tan1)!1.75!(P)$) coordinate (TP);
-\path[name path=ct] (C) -- ($(C)!2!(R)$);
-\path[name path=bt] (C) -- ($(C)!1.5!(Top)$);
-\path [name intersections = {of = t1 and bt, by = {TP} }];
-\path [name intersections = {of = t1 and ct, by = {T} }];
+\pic{tangent-path={3*\a}/{3*\b}/{\angle}};
+\path[name path=ct] (O) -- ($(O)!2!(Right)$);
+\path[name path=bt] (O) -- ($(O)!1.5!(Top)$);
+\path [name intersections = {of = t and bt, by = {TP} }];
+\path [name intersections = {of = t and ct, by = {T} }];
 \node[below] at (T) {$T$};
 \node[above] at (TP) {$T'$};
-\draw (C) -- (T) -- (TP) -- cycle;
+\draw (O) -- (T) -- (TP) -- cycle;
+
+\draw (F1) -- (P) -- (F2);
+
+\path[name path=ct] (O) -- ($(O)!2!(Right)$);
+\path[name path=bt] (O) -- ($(O)!1.5!(Top)$);
+\path [name intersections = {of = t and bt, by = {TP} }];
+\path [name intersections = {of = t and ct, by = {T} }];
+\node[below] at (T) {$T$};
+\node[above] at (TP) {$T'$};
 
 % Locate perpendicular through focus to the tangent at Y
 \draw (F2) -- ($(T)!(F2)!(TP)$) coordinate (Y);
 \node[above] at (Y) {$Y$};
 
 % Locate perpendicular through P to the major axis
-\draw (P) --  ($(L)!(P)!(R)$) coordinate (N);
+\draw (P) --  ($(Left)!(P)!(Right)$) coordinate (N);
 \node[below] at (N) {$N$};
-\draw (N) -- (Y) -- (C);
+\draw (N) -- (Y) -- (O);
 
 % Label the angles
 \node[left,xshift=-3pt] at (Y) {\sm{\alpha}};
@@ -917,11 +678,15 @@ Let $N$ be the intersection of the perpendicular through $P$ to the major axis (
 
 % Draw the triangles
 \draw[thick,red] ($(Y)+(-1pt,-2pt)$) -- 
-  ($(C)+(8pt,2pt)$) -- ($(T)+(-4pt,2pt)$) -- (Y);
-\draw[thick,blue] (C) -- (N) -- (Y) -- cycle;
+  ($(O)+(8pt,2pt)$) -- ($(T)+(-4pt,2pt)$) -- (Y);
+\draw[thick,blue] (O) -- (N) -- (Y) -- cycle;
 
-\draw[rotate=-115]  (Y) rectangle +(7pt,7pt);
-\draw[rotate=90]  (N) rectangle +(7pt,7pt);
+\draw[rotate=-115]  (Y) rectangle +(5pt,5pt);
+\draw[rotate=90]  (N) rectangle +(5pt,5pt);
+
+\node[below] at (Left) {$A'$};
+\node[below] at (Right) {$A$};
+\node[below] at (O) {$O$};
 
 \end{tikzpicture}
 \caption{Ratios of segments of the major axis}\label{f.segments-major}
@@ -951,49 +716,26 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
+
+\clip (-5,-3.2) rectangle +(12.4,7.4);
 
 % Size and center of the ellipse
-\def\a{4.33}
+\def\a{4.5}
 \def\b{3}
-\coordinate (C) at (0,0);
-\node[below left,xshift=2pt] at (C) {$C$};
+\def\angle{50}
 
-% Draw the ellipse
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
+\pic{ellipse={{\a}/{\b}}};
+\pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
+\pic{tangent-path={{1.5*\a}/{1.5*\b}/{\angle}}};
 
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-
-% Draw axes
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\coordinate (Bot) at +(-90:{\a} and {\b});
-\draw[name path=major] (L) -- 
-  (R) node[below right] {$A$};
-\draw[name path=minor] (Bot) --
-  (Top) node[above left] {$B$};
-
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(20:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
-\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
-
-% Draw tangent at P and locate its intersections with the minor axis
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\path[name path=t1] ($(Tan1)!.1!(P)$) coordinate (Z) -- 
-  ($(Tan1)!1.75!(P)$) coordinate (TP);
-\path[name path=bt] (C) -- ($(C)!1.5!(Top)$);
-\path [name intersections = {of = t1 and bt, by = {T} }];
+\path[name path=bt] (O) -- ($(O)!1.7!(Top)$);
+\path [name intersections = {of = t and bt, by = {T} }];
 \node[left] at (T) {$T$};
 
 % Conjugate diameters from D through C
-\path[name path=cd] (C) -- +($(P)-(Z)$);
-\path[name path=dk] (C) -- +($(Z)-(P)$);
+\path[name path=cd] (O) -- +({\angle+90}:{1.5*\a} and {1.5*\b});
+\path[name path=dk] (O) -- +({\angle+90}:{-1.5*\a} and {-1.5*\b});
 \path [name intersections = {of = cd and ellipse, by = {D} }];
 \path [name intersections = {of = dk and ellipse, by = {K} }];
 \node[above left,xshift=3pt,yshift=-2pt] at (D) {$D$};
@@ -1002,7 +744,7 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 
 % Perpendicular through P on major axis and 
 %   intersection with the conjugate diameter
-\draw (P) -- ($(C)!(P)!(R)$) coordinate (N);
+\draw (P) -- ($(O)!(P)!(Right)$) coordinate (N);
 \node[below right] at (N) {$N$};
 \path[name path=pk] (P) -- ($(P)!2!(N)$);
 \path [name intersections = {of = pk and dk, by = {J} }];
@@ -1014,36 +756,40 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 \draw[name path=pf] (P) -- ($(D)!(P)!(K)$) coordinate (F);
 \node[below left] at (F) {$F$};
 \path [name intersections = {of = pf and major, by = {G} }];
-\node[above left] at (G) {$G$};
+\node[above,xshift=-3pt,yshift=2pt] at (G) {$G$};
 
 % Find intersection of tangent with the major axis
-\path[name path=semimajor] (C) -- ($(C)!1.6!(R)$);
-\path [name intersections = {of = t1 and semimajor, by = {TP} }];
+\path[name path=semimajor] (O) -- ($(O)!1.6!(Right)$);
+\path [name intersections = {of = t and semimajor, by = {TP} }];
 \node[below] at (TP) {$T'$};
-\draw (Top) -- (T) -- (TP) -- (R);
+\draw (Top) -- (T) -- (TP) -- (Right);
 
 % Draw colored triangles and quadrilateral
 \path[fill,black!10!white] (N) -- (G) -- (F) -- (J) -- cycle;
 \draw[thick,red] (P) -- (N) -- (G) -- cycle;
-\draw[thick,red] (C) -- (G) -- (F) -- cycle;
-\draw[thick,blue] (C) -- (T) -- ($(TP)+(-3pt,2pt)$);
-\draw[thick,blue] ($(TP)+(-3pt,2pt)$) -- ($(C)+(0,2pt)$);
+\draw[thick,red] (O) -- (G) -- (F) -- cycle;
+\draw[thick,blue] (O) -- (T) -- ($(TP)+(-3pt,2pt)$);
+\draw[thick,blue] ($(TP)+(-3pt,2pt)$) -- ($(O)+(0,2pt)$);
 \draw[thick,blue] ($(P)+(2pt,0)$) -- ($(N)+(2pt,0)$);
 
 % Label angles
-\node[above right,xshift=2pt,yshift=-1pt] at (G) {\sm{\alpha}};
+\node[above right,xshift=2pt,yshift=1pt] at (G) {\sm{\alpha}};
 \node[below left,xshift=-1pt,yshift=1pt] at (G) {\sm{\alpha}};
 \node[below right,xshift=-4pt,yshift=0pt] at (G) {\sm{180^\circ\!-\!\alpha}};
-\node[below right,xshift=10pt,yshift=3pt] at (C) {\sm{\beta}};
-\node[above left,xshift=0pt,yshift=4pt] at (C) {\sm{\alpha}};
-\node[below,xshift=-4pt,yshift=-6pt] at (P) {\sm{\beta}};
+\node[below right,xshift=12pt,yshift=2pt] at (O) {\sm{\beta}};
+\node[above left,xshift=0pt,yshift=4pt] at (O) {\sm{\alpha}};
+\node[below,xshift=-4pt,yshift=-8pt] at (P) {\sm{\beta}};
 \node[below right,xshift=-2pt,yshift=-4pt] at (T) {\sm{\alpha}};
 \node[above left,xshift=2pt,yshift=2pt] at (J) {\sm{\alpha}};
 
 \draw[rotate=-32]  (F) rectangle +(7pt,7pt);
 \draw[rotate=180]   (N) rectangle +(7pt,7pt);
 \draw[rotate=-212] (P) rectangle +(7pt,7pt);
-\draw[rotate=0]    (C) rectangle +(7pt,7pt);
+\draw[rotate=0]    (O) rectangle +(7pt,7pt);
+
+\node[above left] at (Top) {$B$};
+\node[below right] at (Right) {$A$};
+\node[below left] at (O) {$O$};
 
 \end{tikzpicture}
 \caption{Parallelograms formed by conjugate diameters}\label{f.parallelogram-conjugate-diameters}
@@ -1093,8 +839,6 @@ CT\cdot PN&=&BC^2\,.\label{eqn.ctpn}\fqed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-
 \begin{theorem}\label{thm.cmpnacbc}
 In Figure~\ref{f.parallelogram3},
 \begin{eqn}
@@ -1108,75 +852,60 @@ CN^2&=&AM\cdot MA',\quad CM^2=AN\cdot NA'\\[6pt]
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.8]
+\begin{tikzpicture}
 
-\clip (-8,-4) rectangle +(14,8);
+\clip (-5,-2.6) rectangle +(9.5,5.3);
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3}
-\coordinate (C) at (0,0);
-\node[below left,xshift=2pt,yshift=-4pt] at (C) {$C$};
+\def\a{3}
+\def\b{2}
+\def\angle{40}
 
-% Draw the ellipse
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
-
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-
-% Draw axes
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\coordinate (Bot) at +(-90:{\a} and {\b});
-\draw[name path=major] (L) node[below left] {$A'$} --
-  (R) node[below right] {$A$};
-\draw[name path=minor] (Bot) node[below] {$B'$} --
-  (Top) node[above] {$B$};
-
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(15:9);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\path[name path=ph] (P) -- (F2);
-\draw[name path=pc] (P) -- (C);
-\node[above right] at (P) {$P$};
+\pic{ellipse={\a}/{\b}};
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\path[name path global=t] 
+  (P) -- ++ ({-2*\a*sin(\angle)},{2*\b*cos(\angle)})
+  (P) -- ++ ({\a*sin(\angle)},{-\b*cos(\angle)});
 
 % Draw tangent at P and locate intersection
 %  with the extension of the major axis
-\path[name path=tans] ($(L)+(-4,0)$) -- ($(R)+(2,0)$);
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\path[name path=t1] (P) -- ($(Tan1)!.2!(P)$) coordinate (Z);
-\path [name intersections = {of = t1 and tans, by = {T} }];
-\node[below] at (T) {$T$};
+\path[name path=tans] ($(Left)+(-4,0)$) -- ($(Right)+(2,0)$);
+\path [name intersections = {of = t and tans, by = {T} }];
+\node[right] at (T) {$T$};
 \draw (P) -- (T);
 
 % Diameter from P through C
-\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G);
+\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
 \node[below left] at (G) {$P'$};
 
 % Conjugate diameter from D through C
-\path[name path=cd] (C) -- +($(P)-(Z)$);
-\path[name path=dk] (C) -- +($(Z)-(P)$);
+\path[name path=cd] (O) -- +({\angle+90}:{1.5*\a} and {1.5*\b});
+\path[name path=dk] (O) -- +({\angle+90}:{-1.5*\a} and {-1.5*\b});
 \path [name intersections = {of = cd and ellipse, by = {D} }];
 \path [name intersections = {of = dk and ellipse, by = {K} }];
 \node[above left] at (D) {$D$};
 \node[below right] at (K) {$K$};
 \draw (D) -- (K);
 
-% Draw tangent at D and locate intersection with the major axis
-\tkzDefLine[bisector out](F1,D,F2) \tkzGetPoint{Tan3}
-\path[name path=t3] (D) --  ($(Tan3)!4.3!(D)$);
+\path[name path global=t3] 
+  (D) -- ++ ({3*\a*sin(\angle+90)},{-3*\b*cos(\angle+90)})
+  (D) -- ++ ({-2*\a*sin(\angle+90)},{2*\b*cos(\angle+90)});
 \path [name intersections = {of = tans and t3, by = {TP} }];
 \draw (D) -- (TP) node[below] {$T'$};
 \draw (T) -- (TP);
 
 % Construct perpendiculars from P, D to the major axis
-\draw (P) -- ($(L)!(P)!(R)$) coordinate (N) node[below] {$N$};
-\draw (D) -- ($(L)!(D)!(R)$) coordinate (MM) node[below] {$M$};
+\draw (P) -- ($(Left)!(P)!(Right)$) coordinate (N) node[below] {$N$};
+\draw (D) -- ($(Left)!(D)!(Right)$) coordinate (MM) node[below] {$M$};
 
-\draw[rotate=90]   (N) rectangle +(8pt,8pt);
-\draw[rotate=0]    (MM) rectangle +(8pt,8pt);
+\draw[rotate=90]   (N) rectangle +(5pt,5pt);
+\draw[rotate=0]    (MM) rectangle +(5pt,5pt);
+
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[below left] at (Left) {$A'$};
+\node[below right] at (Right) {$A$};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
 
 \end{tikzpicture}
 \caption{Ratios of perpendiculars to the major axis}\label{f.parallelogram3}
@@ -1221,86 +950,59 @@ CM^2&=& AN\cdot NA'\\[6pt]
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+\clip (-5.2,-3.5) rectangle +(10.4,7.5);
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3}
-\coordinate (C) at (0,0);
-\node[below left,xshift=2pt,yshift=-4pt] at (C) {$C$};
+\def\a{3.75}
+\def\b{2.5}
+\def\angle{30}
 
-% Draw the ellipse
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
-
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-
-% Draw axes AA' and BB'
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\coordinate (Bot) at +(-90:{\a} and {\b});
-\draw[name path=major] (L) node[left] {$A'$} --
-  (R) node[right] {$A$};
-\draw[name path=minor] (Bot) node[below] {$B'$} --
-  (Top) node[above] {$B$};
-
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(20:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
-\node[above,xshift=0pt,yshift=0pt] at (P) {$P$};
-
-% Draw tangent at P
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\path[name path=t1] ($(Tan1)!.15!(P)$) -- ($(Tan1)!2!(P)$);
+\pic{ellipse={\a}/{\b}};
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\pic{tangent={\a}/{\b}/{\angle}};
 
 % Conjugate diameter from P through C
-\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G);
-\node[below left] at (G) {$P'$};
-
-% Find a point Z on tangent for drawing the tangent
-\path[name path=f1q] (F1) -- +(60:6);
-\path [name intersections = {of = f1q and t1, by = {Z} }];
+\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
+\node[below,xshift=-4pt,yshift=2pt] at (G) {$P'$};
 
 % Conjugate diameters from D through C
-\path[name path=cd] (C) -- +($(Z)-(P)$);
-\path[name path=dk] (C) -- +($(P)-(Z)$);
+\path[name path=cd] (O) -- +({\angle+90}:{1.5*\a} and {1.5*\b});
+\path[name path=dk] (O) -- +({\angle+90}:{-1.5*\a} and {-1.5*\b});
 \path [name intersections = {of = cd and ellipse, by = {D} }];
 \path [name intersections = {of = dk and ellipse, by = {K} }];
 \node[above left,xshift=1pt,yshift=-5pt] at (D) {$D$};
-\node[below right,xshift=0pt,yshift=0pt] at (K) {$K$};
+\node[below right,xshift=1pt,yshift=3pt] at (K) {$K$};
 \draw (D) -- (K);
 
 % Draw tangent at G (continuation of PC)
-\tkzDefLine[bisector out](F2,G,F1) \tkzGetPoint{Tan2}
-\path[name path=t2] ($(Tan2)!.1!(G)$) -- ($(Tan2)!1.9!(G)$);
-
+\draw[name path global=t2] 
+  (G) -- ++ ({-\a*sin(\angle)},{\b*cos(\angle)})
+  (G) -- ++ ({\a*sin(\angle)},{-\b*cos(\angle)});
 % Draw tangent at D
-\tkzDefLine[bisector out](F1,D,F2) \tkzGetPoint{Tan3}
-\path[name path=t3] ($(Tan3)!-1.7!(D)$) -- ($(Tan3)!3.6!(D)$);
-
+\draw[name path global=t3] 
+  (D) -- ++ ({-\a*sin(90+\angle)},{\b*cos(90+\angle)})
+  (D) -- ++ ({\a*sin(90+\angle)},{-\b*cos(90+\angle)});
 % Draw tangent at K (continuation of DC)
-\tkzDefLine[bisector out](F1,K,F2) \tkzGetPoint{Tan4}
-\path[name path=t4] ($(Tan4)!.2!(K)$)  -- ($(Tan4)!1.8!(K)$);
+\draw[name path global=t4] 
+  (K) -- ++ ({-\a*sin(90+\angle)},{\b*cos(90+\angle)})
+  (K) -- ++ ({\a*sin(90+\angle)},{-\b*cos(90+\angle)});
 
 % Draw large dashed rectangle
-\draw[thick,dashed] (\a,\b) -- (-\a,\b) -- 
-  (-\a,-\b) -- (\a,-\b) -- cycle;
+\draw[thick,dashed] (\a,\b) -- (-\a,\b) -- (-\a,-\b) -- (\a,-\b) -- cycle;
 
 % Get the intersections of the tangents
-\path [name intersections = {of = t1 and t3, by = {J} }];
+\path [name intersections = {of = t  and t3, by = {J} }];
 \path [name intersections = {of = t2 and t3, by = {KK} }];
-\path [name intersections = {of = t1 and t4, by = {M} }];
+\path [name intersections = {of = t  and t4, by = {M} }];
 \path [name intersections = {of = t2 and t4, by = {LL} }];
 
 % Draw the parallelogram
-\draw (J) node[above] {$L$} -- (KK) -- (LL) -- (M) -- cycle;
+\draw (J) -- (KK) -- (LL) -- (M) -- cycle;
+\node[above right] at (J) {$L$};
 
 % Locate perpendiculars of P, D with major axes
-\draw (P) -- ($(L)!(P)!(R)$) coordinate (N) node[below] {$N$};
-\draw (D) -- ($(L)!(D)!(R)$) coordinate (M) node[below] {$M$};
+\draw (P) -- ($(Left)!(P)!(Right)$) coordinate (N) node[below] {$N$};
+\draw (D) -- ($(Left)!(D)!(Right)$) coordinate (M) node[below] {$M$};
 
 % Locate normal from P to the conjugate diameter
 %   and its intersection with the major axes
@@ -1310,24 +1012,30 @@ CM^2&=& AN\cdot NA'\\[6pt]
 \node[above left] at (GG) {$G$};
 
 % Draw colored triangles
-\draw[thick,red]  (C) -- (M) --  (D) -- cycle;
+\draw[thick,red]  (O) -- (M) --  (D) -- cycle;
 \draw[thick,red] (GG) -- (N) --  (P) -- cycle;
-\draw[thick,red] (C) -- (F) --  (GG) -- cycle;
+\draw[thick,red] (O) -- (F) --  (GG) -- cycle;
 
-\draw[rotate=-32]  (F) rectangle +(7pt,7pt);
-\draw[rotate=90]   (N) rectangle +(7pt,7pt);
-\draw[rotate=-212] (P) rectangle +(7pt,7pt);
-\draw[rotate=0]    (M) rectangle +(7pt,7pt);
+\draw[rotate=-49]  (F) rectangle +(6pt,6pt);
+\draw[rotate=90]   (N) rectangle +(6pt,6pt);
+\draw[rotate=128] (P) rectangle +(6pt,6pt);
+\draw[rotate=0]    (M) rectangle +(6pt,6pt);
 
 % Draw angles
-\node[below right,xshift=0pt,yshift=-6pt] at (D) {$\alpha'$};
-\node[above left,xshift=-12pt,yshift=-1pt] at (C)  {$\alpha$};
+\node[below right,xshift=-2pt,yshift=-8pt] at (D) {\sm{\alpha'}};
+\node[above left,xshift=-4pt,yshift=-1pt] at (O)  {\sm{\alpha}};
 
-\node[below right,xshift=10pt,yshift=2pt] at (C) {$\alpha$};
-\node[below left,xshift=-4pt,yshift=2pt] at (GG) {$\alpha'$};
+\node[below right,xshift=10pt,yshift=0pt] at (O) {\sm{\alpha}};
+\node[below left,xshift=-4pt,yshift=2pt] at (GG) {\sm{\alpha'}};
 
-\node[above right,xshift=4pt,yshift=0pt] at (GG) {$\alpha'$};
-\node[below left,xshift=3pt,yshift=-9pt] at (P) {$\alpha'$};
+\node[above right,xshift=5pt,yshift=-2pt] at (GG) {\sm{\alpha'}};
+\node[below left,xshift=0pt,yshift=-9pt] at (P) {\sm{\alpha}};
+
+\node[above right] at (Top) {$B$};
+\node[below left] at (Bot) {$B'$};
+\node[above left] at (Left) {$A'$};
+\node[below right] at (Right) {$A$};
+\node[below left] at (O) {$O$};
 
 \end{tikzpicture}
 \caption{Areas of parallelograms ($\alpha'=90^\circ\!-\!\alpha$)}\label{f.parallelogram2}

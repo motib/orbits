@@ -15,45 +15,30 @@ Let us assume that the Earth orbits the Sun in a circle, such that the center of
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+\clip (-6,-3.5) rectangle +(12,7);
 
 % Draw the orbit of the Earth and the celestial sphere
 \coordinate (S) at (0,0) node[above right,xshift=-2pt,yshift=-2pt] {$O,S$};
-%\vertexsm{S};
 \node[draw,circle,minimum size=2.2cm,name path=Eorbit] at (S) {};
 \node[draw,circle,minimum size=6cm,name path=Csphere] at (S) {};
 
 % Locate the solstices and the equinoxes
 \coordinate (SS) at (90:3cm);
 \node[above] at (SS) {\textsf{summer solstice}};
-%\vertexsm{SS};
 \coordinate (WS) at (-90:3cm);
 \node[below] at (WS) {\textsf{winter solstice}};
-%\vertexsm{WS};
 \coordinate (SE) at (0:3cm);
 \node[right,xshift=5pt] at (SE) {\textsf{spring equinox}};
-%\vertexsm{SE};
 \coordinate (AE) at (180:3cm);
 \node[left,xshift=-5pt] at (AE) {\textsf{autumn equinox}};
-%\vertexsm{AE};
 
 % Draw axes between  the solstices and the equinoxes
 \draw[name path = Equi] (AE) -- (SE);
 \draw[name path = Sols] (WS) -- (SS);
 
 % Draw vertices at intersections with the Earth's orbit
-\path [name intersections = {%
-    of = Eorbit and Equi,
-    by = {Sp,Au}
-    }];
-%\vertexsm{Sp};
-%\vertexsm{Au};
-
-\path [name intersections = {%
-    of = Eorbit and Sols,
-    by = {Su,Wi}
-    }];
-%\vertexsm{Su};
-%\vertexsm{Wi};
+\path [name intersections={of=Eorbit and Equi, by={Sp,Au}}];
+\path [name intersections={of=Eorbit and Sols, by={Su,Wi}}];
 
 % Names of the seasons
 \node at (45:2) {\textsf{spring}};
@@ -65,8 +50,6 @@ Let us assume that the Earth orbits the Sun in a circle, such that the center of
 \caption{The orbit of the Earth and the seasons}\label{f.circle}
 \end{center}
 \end{figure}
-
-\pagebreak[3]
 
 The length of a year is approximately $365 \frac{1}{4}$ days. The extra $\frac{1}{4}$ day is accounted for by adding a day in leap years.\footnote{The length of a year is actually $365.2425$. In the sixteenth century, the \emph{Gregorian calendar} accounted for the difference by removing three leap years in every four hundred years.} The length of each season as determined by the equinoxes and the solstices is $365.25/4=91.3125$ days. However, measurements by the Greek astronomer Hipparchus showed that the actual lengths of the seasons differed from this number and a model of the solar system must be able to explain these differences:
 \begin{center}
@@ -88,42 +71,34 @@ In his Earth-centered solar system, Hipparchus proposed that the center of the E
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
+\clip (-6,-3.5) rectangle +(12,7);
 
 % Draw the orbit the Earth (offset) and the celestial sphere
 \coordinate (S) at (0,0);
 \node[below right] at (S) {$S$};
-%\vertexsm{S};
 \coordinate (O) at (-.3,.5);
 \node[above left] at (O) {$O$};
-%\vertexsm{O};
 \node[draw,circle,minimum size=2.2cm,name path=Eorbit] at (O) {};
 \node[draw,circle,minimum size=6cm,name path=Csphere] at (S) {};
 
 % Locate the solstices and the equinoxes
 \coordinate (SS) at (90:3cm);
 \node[above] at (SS) {\textsf{summer solstice}};
-%\vertexsm{SS};
 \coordinate (WS) at (-90:3cm);
 \node[below] at (WS) {\textsf{winter solstice}};
-%\vertexsm{WS};
 \coordinate (SE) at (0:3cm);
 \node[right,xshift=5pt] at (SE) {\textsf{spring equinox}};
-%\vertexsm{SE};
 \coordinate (AE) at (180:3cm);
 \node[left,xshift=-5pt] at (AE) {\textsf{autumn equinox}};
-%\vertexsm{AE};
 
 % Draw axes between  the solstices and the equinoxes
 \draw[name path = Equi] (AE) -- (SE);
 \draw[name path = Sols] (WS) -- (SS);
 
 % Draw axes from center of Earth's orbit (colored)
-\draw[red,thick] (SE) -- 
-  (O) -- (SS);
-\draw[blue,thick] ($(SS)+(-2pt,0)$) -- 
-  ($(O)+(-2pt,0)$) -- (AE);
-\draw[purple,thick] ($(AE)+(0,-2pt)$) -- 
-  ($(O)+(0,-2pt)$) -- (WS);
+\draw[red,thick] (SE) -- (O) -- (SS);
+\draw[blue,thick] ($(SS)+(-2pt,0)$) -- ($(O)+(-2pt,0)$) -- (AE);
+\draw[purple,thick] ($(AE)+(0,-2pt)$) -- ($(O)+(0,-2pt)$) -- (WS);
 \draw[green!70!black,thick] ($(WS)+(2pt,0)$) -- 
   ($(O)+(2pt,-2pt)$) -- ($(SE)+(0,-2pt)$);
 
@@ -144,6 +119,7 @@ Figure~\ref{f.seasons-details} shows a magnified and distorted view of Figure~\r
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
+
 \clip (-7,-2) rectangle (7,5.5);
 
 % Draw the orbit the Earth (offset) and the celestial sphere
@@ -309,6 +285,8 @@ $\lambda$ can be obtained from trigonometry:
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}
+
+\clip (-6,-2) rectangle +(9,7.5);
 
 % Locate the center of the Sun but not the celestial sphere
 \coordinate (S) at (0,0);

@@ -12,6 +12,8 @@ The ancient Greeks knew that the Earth is round and Eratosthenes was able to mea
 \begin{center}
 \begin{tikzpicture}[scale=.8]
 
+\clip (-4,-.7) rectangle +(12,4.6);
+
 % Draw the earth as an arc
 \coordinate (E) at (0,0);
 \draw (3.5,0) arc[start angle=0,end angle=180,radius=3.5cm];
@@ -86,6 +88,8 @@ An observer on Earth can follow the phases of the Moon as it revolves around the
 \begin{center}
 \begin{tikzpicture}
 
+\clip (-2.2,-2) rectangle +(14,6.2);
+
 % Draw the moon half-dark with right angle
 \coordinate (M) at (0,0);
 \node at ($(M)+(-1.2,0)$) {\textsf{Moon}};
@@ -130,6 +134,8 @@ The Moon is much, much smaller than the Sun, but it is also much, much closer to
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+
+\clip (-4,-1.6) rectangle +(14.2,3.2);
 
 % Draw the sun and two radii
 \coordinate (S) at (8.5,0);
@@ -197,6 +203,8 @@ Figure~\ref{f.lunar-eclipse} shows a lunar eclipse. Unlike a solar eclipse where
 \begin{center}
 \begin{tikzpicture}
 
+\clip (-4,-1.6) rectangle +(14.2,3.2);
+
 % Draw the sun and two radii
 \coordinate (S) at (8.5,0);
 \node[below] at ($(S)+(0,-1.5)$) {\textsf{Sun}};
@@ -249,6 +257,8 @@ d_s&=&19d_m \approx 2,320,660 \;\textrm{km}\,.
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}
+
+\clip (-1,-2.5) rectangle +(13.1,4.6);
 
 % Draw Sun
 \coordinate (S) at (10,0);
@@ -314,8 +324,6 @@ d_s&=&19d_m \approx 2,320,660 \;\textrm{km}\,.
 \caption{Detail of a lunar eclipse}\label{f.lunar-eclipse-detail}
 \end{center}
 \end{figure}
-
-\newpage
 
 The following table summarizes these data together with the modern values \cite[Table~1.3]{hahn-cic}. While the computed values for the radii of the Earth and the Moon are not far off from the modern values, the other computed values are not anywhere near the modern values. Nevertheless, they do show that the Greeks understood the immense size of the solar system.\label{p.table1}
 \begin{center}

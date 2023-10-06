@@ -10,61 +10,31 @@
 \mbox{}
 \begin{itemize}
 \item Let $S$ and $H$ be two points in the plane such that $SH=2c\geq 0$ and choose $a$ such that $2a> 2c$ (Figure~\ref{f.ellipse-features1}). An \emph{ellipse} is the geometric locus of all points $P$ such that $SP+PH=2a$. If $c=0$ the geometric locus is a \emph{circle}.
-\item Construct $AB$ through $SH$, where $A,B$ are the intersections of the line with the ellipse. $AB$ is  the \emph{major axis} of the ellipse. Let $O$ be the midpoint of $SH$. $AO,OB$ are the \emph{semi-major axes} of the ellipse.
-\item Construct the perpendicular to $AB$ at $O$ and let $C,D$ be its intersections with the ellipse. $CD$ is the \emph{minor axis} of the ellipse and $CO,OD$ are the \emph{semi-minor axes} of the ellipse.
+\item Construct $AA'$ through $SH$, where $A,B$ are the intersections of the line with the ellipse. $AA'$ is  the \emph{major axis} of the ellipse. Let $O$ be the midpoint of $SH$. $AO,OA'$ are the \emph{semi-major axes} of the ellipse.
+\item Construct the perpendicular to $AA'$ at $O$ and let $B,B'$ be its intersections with the ellipse. $BB'$ is the \emph{minor axis} of the ellipse and $BO,OB'$ are the \emph{semi-minor axes} of the ellipse.
 \end{itemize}
 \end{definition}
-
-\vspace{-3ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.7]
-
+\begin{tikzpicture}
 % Size and center of the ellipse
-\def\a{4.5}
-\def\b{2.7}
-
-% Draw an ellipse with center O
-\coordinate (O) at (0,0);
-%\vertexsm{O};
-\node[below left] at (O) {$O$};
-\draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
-
-% Draw the two foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-\node[below] at (F1) {$S$};
-\node[below] at (F2) {$H$};
-%\vertexsm{F1};
-%\vertexsm{F2};
-
-% Draw axes whose center is O
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (B) at +(-90:{\a} and {\b});
-\coordinate (T) at +(90:{\a} and {\b});
-\node[left]  at (L) {$A$};
-\node[right] at (R) {$B$};
-\node[above] at (T) {$C$};
-\node[below] at (B) {$D$};
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (B) -- (O) -- (T);
-\draw (O) rectangle +(9pt,9pt);
-
+\def\a{3}
+\def\b{2}
+\def\angle{70}
+\pic{ellipse={{\a}/{\b}}};
 % Label distances from center to foci by c
 \path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
-
 % Select an arbitrary point on the ellipse and draw lines to the foci
-\path[name path=fromF1] (F1) -- +(50:5);
-\path [name intersections = {of = ellipse and fromF1, by = {P} }];
+\pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
 \draw (F1) -- (P) -- (F2);
-
-% Label P
-\node[above] at (P) {$P$};
-%\vertexsm{P};
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[right] at (Right) {$A$};
+\node[left] at (Left) {$A'$};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
 
 \end{tikzpicture}
 \caption{The definition of an ellipse}\label{f.ellipse-features1}
@@ -75,21 +45,21 @@
 
 \begin{theorem}(Figure~\ref{f.ellipse-features2})\label{thm.ellipses-features}
 \begin{enumerate}
-\item $SC=HC=a$.
-\item $AO=OB=a$.
-\item $CO=OD$. (Label $CO=OD$ by $b$.)
+\item $SB=HB=a$.
+\item $AO=OA'=a$.
+\item $BO=OB'$. (Label $BO=OB'$ by $b$.)
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 \begin{enumerate}
-\item $\triangle SCO\cong\triangle HCO$ by side-angle-side  so $SC=HC$. Since $C$ is on the ellipse, $SC+HC=2a$ and $SC=HC=a$ follows. 
+\item $\triangle SBO\cong\triangle HBO$ by side-angle-side  so $SB=HB$. Since $B$ is on the ellipse, $SB+HB=2a$ and $SB=HB=a$ follows. 
 \item Since $A$ is on the ellipse,
 \[
 2a = AS+HA = (AO-c)+(AO+c)=2AO\,,
 \]
-so $AO=a$. $OB=a=AO$ follows by symmetry.
-\item $CO=OD$ follows from $\triangle SCO\cong\triangle SDO$.\hqed
+so $AO=a$. $OA'=a=AO$ follows by symmetry.
+\item $BO=OB'$ follows from $\triangle SBO\cong\triangle SB'O$.\hqed
 \end{enumerate}
 \end{proof}
 
@@ -97,51 +67,32 @@ so $AO=a$. $OB=a=AO$ follows by symmetry.
 
 \begin{figure}[tb]
 \begin{center}
-\begin{tikzpicture}[scale=.7]
+\begin{tikzpicture}
+% Ellipse
+\def\a{3}
+\def\b{2}
+\pic{ellipse={{\a}/{\b}}};
 
-% Size and center of the ellipse
-\def\a{4.5}
-\def\b{2.7}
-
-% Draw an ellipse with center O
-\coordinate (O) at (0,0);
-%\vertexsm{O};
-\node[below left] at (O) {$O$};
-\draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
-
-% Locate the two foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+% Label nodes
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[right] at (Right) {$A$};
+\node[left] at (Left) {$A'$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
-%\vertexsm{F1};
-%\vertexsm{F2};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
 
-% Draw axes whose center is O
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (B) at +(-90:{\a} and {\b});
-\coordinate (T) at +(90:{\a} and {\b});
-\node[left]  at (L) {$A$};
-\node[right] at (R) {$B$};
-\node[above] at (T) {$C$};
-\node[below] at (B) {$D$};
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (B) --  
-  node[left,yshift=-8pt] {$b$} (O) -- node[left] {$b$} (T);
-\draw (O) rectangle +(9pt,9pt);
+% Label segments
+\path (Bot) --  
+  node[left,yshift=-8pt] {$b$} (O) -- node[left] {$b$} (Top);
+\path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
+\draw (F1) -- node[above] {$a$} (Top) -- node[above] {$a$} (F2);
 
 % Indicates distances along the major axis
-\draw[<->] ($(O)+(0,-27pt)$) -- node[fill=white] {$a$} ($(R)+(0,-27pt)$);
-\draw[<->] ($(O)+(0,-27pt)$) -- node[fill=white] {$a$} ($(L)+(0,-27pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
 
-% Label distances from center to foci by c
-\path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
-
-% Draw and label lines from foci to intersection of semi-minor
-%   axis and the ellipse
-\draw (F1) -- node[above] {$a$} (T) -- node[above] {$a$} (F2);
-
+\draw (O) rectangle +(6pt,6pt);
 \end{tikzpicture}
 \caption{The semi-major and semi-minor axes of an ellipse}
 \label{f.ellipse-features2}
@@ -191,24 +142,20 @@ y_e= \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\fqed
 
 \begin{figure}[tb]
 \begin{center}
-\begin{tikzpicture}[scale=.8]
+\begin{tikzpicture}
+\clip (-5,-.5) rectangle +(10,5.5);
 
-% Draw a hemi-ellipse and a circumscribing hemi-circle
-\coordinate (O) at (0,0);
-%\vertexsm{O};
-\node[below] at (O) {$O$};
-\draw[name path=ellipse] (4.5,0) arc(0:180:4.5cm and 2cm);
-\draw[name path=circle] (4.5,0) arc(0:180:4.5cm);
+\def\a{3.75}
+\def\b{2.5}
+\pic{semi-ellipse={{\a}/{\b}}};
+\draw[name path=circle] ({\a},0) arc(0:180:{\a});
 
 % Draw axes through O
-\coordinate (L) at (-4.5,0);
-\coordinate (R) at (4.5,0);
-\coordinate (T) at (0,4.5);
-\draw[name path=major] (L) -- 
-  node[below] {$a$} (O) -- node[below] {$a$}(R);
-\draw[name path=minor] (O) -- (T);
+\draw[name path=major] (Left) -- 
+  node[below] {$a$} (O) -- node[below] {$a$}(Right);
+\draw[name path=minor] (O) -- (Top);
 \draw[<->] ($(O)+(-10pt,1pt)$) --
-  node[near end,fill=white] {$a$} ($(T)+(-10pt,-1pt)$);
+  node[near end,fill=white] {$a$} ($(Top)+(-10pt,-1pt)$);
 
 % Choose arbitrary point on major-axis, raise a perpendicular
 %   and label its intersections with the ellipse and the circle
@@ -220,11 +167,11 @@ y_e= \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\fqed
 
 % Label X and the intersections
 \node[below] at (X) {$X$};
-\node[above right] at (C1) {$P_c\!=\!(x,y_c)$};
-\node[above right] at (E1) {$P_e\!=\!(x,y_e)$};
+\node[above right] at (C1) {$P_c$};
+\node[above right] at (E1) {$P_e$};
 
-\draw (O) rectangle +(8pt,8pt);
-\draw (X) rectangle +(8pt,8pt);
+\draw (O) rectangle +(6pt,6pt);
+\draw (X) rectangle +(6pt,6pt);
 
 \end{tikzpicture}
 \caption{A circle circumscribing an ellipse}\label{f.ellipse-circle}
@@ -251,48 +198,33 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.\fqed
 
 \begin{figure}[tb]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
+\clip (-4.5,-3) rectangle +(9,7);
 
-% Size and center of the ellipse
-\def\a{4}
-\def\b{2}
-
-% Draw an ellipse with center O
-\coordinate (O) at (0,0);
-%\vertexsm{O};
-\node[below left] at (O) {$O$};
-\draw[name path=ellipse] (0,0) ellipse[x radius=\a,y radius=\b];
-\draw[name path=circle] (4,0) arc(0:180:4cm);
-
-\coordinate (O) at (0,0);
-
-% The Sun is at a focus
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+\def\a{3.75}
+\def\b{2.5}
+\pic{ellipse={{\a}/{\b}}};
+\draw[name path=circle] ({\a},0) arc(0:180:{\a});
 \node[below] at (F1) {$S$};
-\node[below left] at (F2) {$H$};
-%\vertexsm{F1};
-%\vertexsm{F2};
+\node[below right] at (F2) {$H$};
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[right] at (Right) {$A$};
+\node[left] at (Left) {$A'$};
 
-% Draw axes whose center is O
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (B) at +(-90:{\a} and {\b});
-\coordinate (T) at +(90:{\a} and {\b});
-\node[above] at (T) {$C$};
-\node[below] at (B) {$D$};
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (B) -- (O) -- node[left] {$b$} (T);
-\draw (O) rectangle +(7pt,7pt);
-
-\path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
+% Draw axes through O
+\draw (F1) -- node[below] {$c$} (O) -- node[below,xshift=-6pt] {$c$} (F2);
+\draw[name path=minor] (O) -- node[left] {$b$} (Top);
+\draw (O) rectangle +(6pt,6pt);
+\vertexsm{F1};
+\vertexsm{F2};
 
 % Draw latus rectum as intersections of perpendicular at H
 %  with the ellipse
 \path[name path=LR] ($(F2)+(0,-2.5)$) -- ($(F2)+(0,2.5)$);
 \path [name intersections = {of = ellipse and LR, by = {LR1,LR2} }];
 \path [name intersections = {of = circle and LR, by = {LR1c,LR2c} }];
-\draw[very thick] (LR1) -- (LR2);
+\draw[very thick,red] (LR1) -- (LR2);
 
 % Label endpoint of the LR
 %\vertexsm{LR1};
@@ -303,8 +235,8 @@ L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.\fqed
 \draw (F2) rectangle +(7pt,7pt);
 
 % Length of LR
-\draw[<->] ($(LR1)+(1,0)$) -- node[right] {$L$} ($(LR2)+(1,0)$);
-
+\draw[<->] ($(LR1)+(-.5,0)$) --
+  node[left,xshift=2pt,yshift=8pt] {$L$} ($(LR2)+(-.5,0)$);
 \end{tikzpicture}
 \caption{The latus rectum of an ellipse}\label{f.ellipse-latus-rectum}
 \end{center}
@@ -357,71 +289,57 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=1.1]
+\begin{tikzpicture}
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3.5}
-\coordinate (C) at (0,0);
+\clip (-5,-.7) rectangle +(11.5,4.7);
 
-% Draw an ellipse with center C
-\draw[name path=ellipse] (\a,0) 
-  arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
+\def\a{4.5}
+\def\b{3}
 
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+\def\angle{45}
+
+\pic{semi-ellipse={\a}/{\b}};
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\pic{tangent={0.7*\a}/{0.7*\b}/{\angle}};
+
+\node[below] at (Right) {$A$};
+\node[below] at (Left) {$A'$};
+\node[below] at (O) {$O$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
 
-% Draw axes whose center is C
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\draw[name path=major] (L) node[below] {$A'$} -- (R) node[below] {$A$};
-\draw[name path=minor] (C) -- (Top);
-
-% Select an arbitrary point P on the ellipse and
-%   draw lines to foci
-% Extend line SP to U
-\draw[name path=fromF1p] (F1) -- +(15:{2*\a}) coordinate (U);
-\node[right] at (U) {$U$};
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\draw[name path=ph] (P) -- (F2);
-\node[above right,xshift=-4pt,yshift=2pt] at (P) {$P$};
-%\vertexsm{P};
-
-% Locate tangent at P
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan}
+\draw (F2) -- (P) -- (F1);
 
 % Locate another point Q on the tangent
-\coordinate (Q) at ($(Tan)!.75!(P)$);
-\node[right] at (Q) {$Q$};
-\draw (Q) -- (F1);
-%\vertexsm{Q};
+\coordinate (Q) at ($(P)!.9!(Z)$);
+\node[right,xshift=2pt,yshift=2pt] at (Q) {$Q$};
+\node[right,xshift=2pt] at (R) {$R$};
 
-% Draw the tangent from Q to R
-\draw[name path=tan] ($(Tan)!.60!(P)$) coordinate (Z) --
-  ($(Tan)!1.3!(P)$) coordinate (R);
-\node[right] at (R) {$R$};
+% Extend line SP to U
+\draw[name path=fromF1p] (F1) -- ($(F1)!1.4!(P)$) coordinate (U);
+\node[right] at (U) {$U$};
 
 % Draw HQ and QU
 \draw (F2) -- 
   node[below right,xshift=6pt,yshift=6pt] {$d$} (Q) -- 
   node[right] {$d$} (U);
 \draw[name path=F2U] (F2) -- (U);
+\draw (F1) -- (Q);
 
 % Draw dashed line to local W
-\path [name intersections = {of = tan and F2U, by = {W} }];
+\path [name intersections = {of = t and F2U, by = {W} }];
 \node[right,xshift=1pt,yshift=-2pt] at (W) {$W$};
 
 % Label angles
-\node[below,yshift=-4pt] at (P) {$\alpha$};
-\node[right,xshift=4pt,yshift=-5pt] at (P) {$\alpha$};
-\node[left,xshift=-4pt,yshift=6pt] at (P) {$\alpha$};
+\node[below right,xshift=-1pt,yshift=-4pt] at (P) {$\alpha$};
+\node[right,xshift=5pt,yshift=-1pt] at (P) {$\alpha$};
+\node[left,xshift=-7pt,yshift=3pt] at (P) {$\alpha$};
 
 % Indicate lengths of SU
-\draw [<->,thick,dashed] ($(F1)+(0,3pt)$) -- node[above] {$2a$} ($(U)+(0,3pt)$);
+\draw [<-,thick,dashed] ($(F1)+(0,3pt)$) --
+   node[above,near end] {$2a$} ($(P)+(3pt,4pt)$);
+\draw [->,thick,dashed] ($(P)+(12pt,7pt)$) --($(U)+(0,3pt)$);
 
 \end{tikzpicture}
 \caption{Angles at the tangent}\label{f.tangent-angles}
@@ -453,78 +371,59 @@ There are two equivalent definitions of conjugate diameters.
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.6]
+\begin{tikzpicture}
 
-% Size and center of the ellipse
-\def\a{4.33}
-\def\b{3.5}
-\coordinate (C) at (0,0);
-\node[below right,xshift=3pt,yshift=2pt] at (C) {$C$};
+\clip (-3.5,-2.5) rectangle +(8,5);
 
-% Draw the ellipse
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
+\def\a{3}
+\def\b{2}
+\def\angle{29}
 
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+\pic{ellipse={\a}/{\b}};
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\pic{tangent={\a}/{\b}/{\angle}};
 
-% Draw axes AA' and BB'
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\coordinate (Bot) at +(-90:{\a} and {\b});
-\draw[name path=major] (L) node[left] {$A'$} --
-  (R) node[right,xshift=-2pt] {$A$};
-\draw[name path=minor] (Bot) node[below,yshift=2pt] {$B'$} --
-  (Top) node[above,yshift=-1pt] {$B$};
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[right,xshift=-2pt] at (Right) {$A$};
+\node[left] at (Left) {$A'$};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
 
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(15:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
-\node[right,xshift=-2pt,yshift=3pt] at (P) {$P$};
-
-% Draw tangent at P
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\draw[name path=t1] ($(Tan1)!.25!(P)$) -- 
-  node[right,near end] {$t$} ($(Tan1)!1.75!(P)$);
-
-% Conjugate diameter from P through C
-\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G);
+% Diameter from P through O
+\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
 \node[left,yshift=-2pt] at (G) {$G$};
 
-% Find a point Z on tangent for drawing the tangent
-\path[name path=f1q] (F1) -- +(55:8);
-\path [name intersections = {of = f1q and t1, by = {Z} }];
-
-% Conjugate diameters from D through C
-\path[name path=cd] (C) -- +($(Z)-(P)$);
-\path[name path=dk] (C) -- +($(P)-(Z)$);
+% Conjugate diameters from D through O
+\draw[name path=cd] (O) -- +({90+\angle}:{\a} and {\b});
+\path[name path=dk] (O) -- +({-90+\angle}:{\a} and {\b});
 \path [name intersections = {of = cd and ellipse, by = {D} }];
 \path [name intersections = {of = dk and ellipse, by = {K} }];
-\node[above left,xshift=3pt,yshift=-2pt] at (D) {$D$};
-\node[below right,xshift=-1pt,yshift=2pt] at (K) {$K$};
+\node[above left] at (D) {$D$};
+\node[below right] at (K) {$K$};
 \draw (D) -- (K);
 
-% Draw parallel to the tangent
-\path (C) -- +(24:-1.6) coordinate(PP);
-%\vertexsm{PP};
-\path[name path=pp1] (PP) -- +($(Z)-(P)$);
-\path[name path=pp2] (PP) -- +($(P)-(Z)$);
+% Draw parallels to the tangent
+\coordinate (PP) at ($(O)!.35!(G)$);
+\path[name path=pp1] (PP) -- ++ ({-\a*3*sin(\angle)},{\b*3*cos(\angle)});
 \path [name intersections = {of = pp1 and ellipse, by = {DP} }];
+\path[name path=pp2] (PP) -- ++ ({\a*3*sin(\angle)},{-\b*3*cos(\angle)});
 \path [name intersections = {of = pp2 and ellipse, by = {KP} }];
-\draw[thick,dashed] (DP) node[above,xshift=-4pt,yshift=-1pt] {$D'$} -- 
-  (KP) node[below,xshift=5pt,yshift=2pt] {$K'$};
+\draw[thick,dashed,name path=center1] (DP) node[above] {$D'$} -- 
+  (KP) node[below right] {$K'$};
 
-\path (C) -- +(24:2.9) coordinate(PPP);
-%\vertexsm{PPP};
-\path[name path=ppp1] (PPP) -- +($(Z)-(P)$);
-\path[name path=ppp2] (PPP) -- +($(P)-(Z)$);
+\coordinate (PPP) at ($(O)!.6!(P)$);
+\path[name path=ppp1] (PPP) -- ++ ({-\a*3*sin(\angle)},{\b*3*cos(\angle)});
 \path [name intersections = {of = ppp1 and ellipse, by = {DPP} }];
+\path[name path=ppp2] (PPP) -- ++ ({\a*3*sin(\angle)},{-\b*3*cos(\angle)});
 \path [name intersections = {of = ppp2 and ellipse, by = {KPP} }];
-\draw[thick,dashed] (DPP) node[above,xshift=0pt,yshift=-1pt] {$D''$} -- 
-  (KPP) node[below,xshift=6pt,yshift=2pt] {$K''$};
+\draw[thick,dashed,name path=center2] (DPP) node[above] {$D''$} --
+  (KPP) node[below right] {$K''$};
+
+\path [name intersections = {of = center1 and pc, by = {C1} }];
+\path [name intersections = {of = center2 and pc, by = {C2} }];
+\vertexsmcolor{O}{red};
+\vertexsmcolor{C1}{red};
+\vertexsmcolor{C2}{red};
 
 \end{tikzpicture}
 \caption{Conjugate diameters}\label{f.ellipse-conj}
@@ -554,13 +453,13 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.7]
+\begin{tikzpicture}
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3}
-\coordinate (C) at (0,0);
-\node[below] at (C) {$C$};
+\def\a{3.75}
+\def\b{2.5}
+\coordinate (O) at (0,0);
+\node[below] at (O) {$O$};
 
 % Draw an ellipse with center C
 \draw[name path=ellipse] (\a,0) 
@@ -577,7 +476,7 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 \node[below left] at (L) {$A'$};
 \coordinate (Top) at +(90:{\a} and {\b});
 \draw[name path=major] (L) -- (R);
-\draw[name path=minor] (C) -- (Top);
+\draw[name path=minor] (O) -- (Top);
 
 % Select an arbitrary point P on the ellipse and draw lines to the major axes
 \path[name path=fromF1p] (F1) -- +(30:6);
@@ -607,84 +506,42 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.7]
+\begin{tikzpicture}
+
+\clip (-3.8,-2.5) rectangle +(7.5,5.4);
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3.5}
+\def\a{3}
+\def\b{2}
+\def\angle{24}
 
-% A bit of padding to center
-\path ({-\a},0) -- +(-30pt,0);
-
-% Draw an ellipse with center C
-\coordinate (C) at (0,0);
-\node[below,xshift=-1pt,yshift=-1pt] at (C) {$C$};
-\draw[name path=ellipse1] (C) ellipse[x radius=\a,y radius= \b];
-\draw[name path=ellipse,thick,dashed] (C) ellipse[rotate=15,x radius=\a,y radius= \b];
-
-% The Sun is at a focus
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-
-% Draw axes whose center is C
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\draw[name path=major] (L) -- (R);
-\draw[name path=minor] (C) -- (Top);
-
-% Select an arbitrary point P on the ellipse and draw a line to the Sun
-\path[name path=fromF1p] (F1) -- +(20:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
-\node[right,yshift=3pt] at (P) {$P$};
+\pic{ellipse={\a}/{\b}};
+\node[below left,xshift=2pt] at (O) {$O$};
+\begin{scope}[rotate=24]
+\draw[name path=ellipse1,thick,dashed] (O) 
+  ellipse[x radius={\a},y radius= {\b}];
+\path ({-\a},0) coordinate (G) node[left] {$G$} -- 
+  ({\a},0) coordinate (P) node[right] {$P$};
+\draw (0,{-\b}) coordinate (K) node[below,yshift=-2pt] {$K$} -- 
+  (0,{\b}) coordinate (D) node[above] {$D$};
 
 % Select an arbitrary point Q on the ellipse and draw a line to the Sun
-\path[name path=fromF1q] (F1) -- +(40:7);
-\path [name intersections = {of = ellipse and fromF1q, by = {Q} }];
+\path [name path=oq] (O) -- +(40:7);
+\path [name intersections = {of = ellipse1 and oq, by = {Q} }];
 \node[above] at (Q) {$Q$};
 
-% Draw tangent at P
-\path (F1) -- ($(F1)!1.1!(P)$);
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan}
-\path[name path=t] ($(Tan)!.65!(P)$) 
-  coordinate (Z) -- ($(Tan)!1.5!(P)$);
-
-% Draw QR
-\path[name path=qr,red] (Q) -- +(10:2);
-\path [name intersections = {of = t and qr, by = {R} }];
-
-% Draw QX
-\path[name path=qx] (Q) -- +($(Z)-(R)$);
-\path [name intersections = {of = qx and fromF1p, by = {X} }];
-\path [name intersections = {of = qx and pc, by = {V} }];
-\draw (X) -- (V) node[below right,xshift=-2pt,yshift=-4pt] {$V$};
-
-% Conjugate diameter
-\path[name path=cd] (C) -- +($(R)-(Z)$);
-\path[name path=dk] (C) -- +($(Z)-(R)$);
-\path [name intersections = {of = cd and ellipse, by = {D} }];
-\path [name intersections = {of = dk and ellipse, by = {K} }];
-\node[above left,yshift=2pt] at (D) {$D$};
-\node[below right,yshift=0pt] at (K) {$K$};
-\draw (D) -- (K);
-
-% Conjugate diameter
-\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G) node[left,xshift=-2pt,yshift=-2pt] {$G$};
-
+% Draw QV
+\draw[green!80!black,thick] (Q) -- 
+  ($(G)!(Q)!(P)$) coordinate (V) node[black,below] {$V$};
 \draw[red,thick] (G) -- (V);
 \draw[blue,thick] (V) -- (P);
-\draw[green!80!black,thick] (Q) -- (V);
 
-%\vertexsm{V};
 \vertexsm{G};
-%\vertexsm{C};
 \vertexsm{P};
 \vertexsm{D};
 \vertexsm{Q};
 \vertexsm{K};
-
+\end{scope}
 \end{tikzpicture}
 \caption{Ratios on conjugate diameters}\label{f.conj-ratios}
 \end{center}
@@ -700,14 +557,14 @@ PV = \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
 \end{theorem}
 
 \begin{proof}
-Figure~\ref{f.conj-ratios} shows a dashed ellipse which is the original ellipse rotated about the same center $C$, so that $CP$ is the semi-major axis and $CD$ is the semi-minor axis. By Theorem~\ref{thm.ratios},
+Figure~\ref{f.conj-ratios} shows a dashed ellipse which is the original ellipse rotated about the same center $O$, so that $OP$ is the semi-major axis and $OD$ is the semi-minor axis. By Theorem~\ref{thm.ratios},
 \[
 \frac{GV\cdot PV}{QV^2}=\frac{a'^2}{b'^2}\,,
 \]
-where $a',b'$ are the lengths of the semi-major and semi-minor axes of the rotated ellipse. By construction $a'=CP$ and $b'=CD$ so
+where $a',b'$ are the lengths of the semi-major and semi-minor axes of the rotated ellipse. By construction $a'=OP$ and $b'=OD$ so
 \begin{eqn}
-\frac{GV\cdot PV}{QV^2} &=& \frac{CP^2}{CD^2}\\
-PV &=& \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.\fqed
+\frac{GV\cdot PV}{QV^2} &=& \frac{CP^2}{OD^2}\\
+PV &=& \frac{QV^2\cdot CP^2}{GV \cdot OD^2}\,.\fqed
 \end{eqn}%
 \end{proof}
 
@@ -723,15 +580,15 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
-
+\clip (-3.1,-3.3) rectangle +(6.2,6.6);
 % Size and center of the ellipse
 \def\a{3}
-\def\b{1.5}
+\def\b{2}
 \coordinate (C) at (0,0);
-\node[below left,xshift=2pt] at (C) {$C$};
+\node[below left,xshift=2pt] at (C) {$O$};
 
 % Draw an ellipse and the inner and outer circles
 \draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
@@ -743,7 +600,7 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \path [name intersections = {of = ellipse and toP, by = {P} }];
 
 % Label the angle of CP
-\node[above right,xshift=6pt,yshift=-2pt] at (C) {$t$};
+\node[above right,xshift=8pt,yshift=-2pt] at (C) {$t$};
 
 % Draw major and minor axes
 \draw[name path=yplus] (C) -- +(0,\a);
@@ -752,15 +609,16 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \draw (C) -- +(-\a,0);
 
 % Find intersection PI of line from center to P and the inner circle
-\node[above right] at (P) {$P$};
+\node[above] at (P) {$P$};
+\vertexsm{P};
 \path[name path=horiz] (P) -- +(-\a,0);
 \path [name intersections = {of = inner and horiz, by = {PI} }];
 
 % Extend ray C->PI to outer circle and label intersection PO
-\draw[name path=ray] (C) -- ($(C) !2! (PI)$) coordinate (PO);
+\draw[name path=ray] (C) -- ($(C) !1.7! (PI)$) coordinate (PO);
 
 % Project PO on x axis
-\path[name path=horizPO] (PO) -- +(0,-\a);
+\path[thick,name path=horizPO] (PO) -- +(0,-\a);
 \path [name intersections = {of = xplus and horizPO, by = {xint} }];
 \draw (PO) -- (xint);
 \draw[<->,style={shorten <= 2pt}] ($(C)+(0,-5pt)$) --
@@ -780,7 +638,7 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \vertexsmcolor{PI}{blue};
 \vertexsmcolor{PO}{red};
 \node[below,yshift=-4pt] at (PI) {$P_I$};
-\node[above right] at (PO) {$P_O$};
+\node[above] at (PO) {$P_O$};
 %\vertexsm{C};
 %\vertexsm{P};
 
@@ -801,77 +659,56 @@ The areas of the parallelograms formed by tangents to the intersections of and p
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.67]
+\begin{tikzpicture}
+\clip (-5,-3.3) rectangle +(10,6.6);
 
 % Size and center of the ellipse
-\def\a{4.33}
-\def\b{3.5}
-\coordinate (C) at (0,0);
-\node[below left,xshift=2pt] at (C) {$C$};
+\def\a{3}
+\def\b{2}
+\def\angle{35}
 
-% Draw the ellipse
-\draw[name path=ellipse] (C) ellipse[x radius=\a,y radius= \b];
-
-% Locate the foci
-\coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
-
-% Draw axes AA' and BB'
-\coordinate (L) at +(180:{\a} and {\b});
-\coordinate (R) at +(0:{\a} and {\b});
-\coordinate (Top) at +(90:{\a} and {\b});
-\coordinate (Bot) at +(-90:{\a} and {\b});
-\draw[name path=major] (L) node[left,xshift=3pt,yshift=6pt] {$A'$} --
-  (R) node[right,xshift=-2pt] {$A$};
-\draw[name path=minor] (Bot) node[below,xshift=-3pt,yshift=2pt] {$B'$} --
-  (Top) node[above,xshift=5pt,yshift=-1pt] {$B$};
-
-% Select an arbitrary point P on the ellipse
-\path[name path=fromF1p] (F1) -- +(15:8);
-\path [name intersections = {of = ellipse and fromF1p, by = {P} }];
-\path[name path=ph] (P) -- (F2);
-\path[name path=pc] (P) -- (C);
-\node[right,xshift=-2pt,yshift=3pt] at (P) {$P$};
-
-% Draw tangent at P
-\tkzDefLine[bisector out](F1,P,F2) \tkzGetPoint{Tan1}
-\path[name path=t1] ($(Tan1)!.25!(P)$) -- ($(Tan1)!1.75!(P)$);
+\pic{ellipse={\a}/{\b}};
+\pic{point-on-ellipse={\a}/{\b}/{\angle}};
+\pic{tangent={\a}/{\b}/{\angle}};
 
 % Conjugate diameter from P through C
-\draw[name path=pc] (P) -- ($(P)!2!(C)$) coordinate (G);
+\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
 
-% Find a point Z on tangent for drawing the tangent
-\path[name path=f1q] (F1) -- +(55:8);
-\path [name intersections = {of = f1q and t1, by = {Z} }];
+\node[above,yshift=-1pt] at (Top) {$B$};
+\node[below,yshift=1pt] at (Bot) {$B'$};
+\node[right,xshift=1pt] at (Right) {$A$};
+\node[left] at (Left) {$A'$};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+
 
 % Conjugate diameters from D through C
-\path[name path=cd] (C) -- +($(Z)-(P)$);
-\path[name path=dk] (C) -- +($(P)-(Z)$);
+\path[name path=cd] (O) -- +({\angle+90}:{1.5*\a} and {1.5*\b});
+\path[name path=dk] (O) -- +({\angle+90}:{-1.5*\a} and {-1.5*\b});
 \path [name intersections = {of = cd and ellipse, by = {D} }];
 \path [name intersections = {of = dk and ellipse, by = {K} }];
 \node[above left,xshift=1pt,yshift=-5pt] at (D) {$D$};
 \draw (D) -- (K);
 
-%% Draw tangent at G (continuation of PC)
-\tkzDefLine[bisector out](F2,G,F1) \tkzGetPoint{Tan2}
-\path[name path=t2] ($(Tan2)!.2!(G)$) -- ($(Tan2)!1.7!(G)$);
-
-%% Draw tangent at D
-\tkzDefLine[bisector out](F1,D,F2) \tkzGetPoint{Tan3}
-\path[name path=t3] ($(Tan3)!-1!(D)$) -- ($(Tan3)!2.8!(D)$);
-
+% Draw tangent at G (continuation of PC)
+\draw[name path global=t2] 
+  (G) -- ++ ({-\a*sin(\angle)},{\b*cos(\angle)})
+  (G) -- ++ ({\a*sin(\angle)},{-\b*cos(\angle)});
+% Draw tangent at D
+\draw[name path global=t3] 
+  (D) -- ++ ({-\a*sin(90+\angle)},{\b*cos(90+\angle)})
+  (D) -- ++ ({\a*sin(90+\angle)},{-\b*cos(90+\angle)});
 % Draw tangent at K (continuation of DC)
-\tkzDefLine[bisector out](F1,K,F2) \tkzGetPoint{Tan4}
-\path[name path=t4] ($(Tan4)!-.1!(K)$)  -- ($(Tan4)!2!(K)$);
+\draw[name path global=t4] 
+  (K) -- ++ ({-\a*sin(90+\angle)},{\b*cos(90+\angle)})
+  (K) -- ++ ({\a*sin(90+\angle)},{-\b*cos(90+\angle)});
 
 % Draw large dashed rectangle
-\draw[thick,dashed] (\a,\b) node[above right] {$C'$} -- (-\a,\b) -- 
-  (-\a,-\b) -- (\a,-\b) -- cycle;
+\draw[thick,dashed] (\a,\b) -- (-\a,\b) -- (-\a,-\b) -- (\a,-\b) -- cycle;
 
 % Get the intersections of the tangents
-\path [name intersections = {of = t1 and t3, by = {J} }];
+\path [name intersections = {of = t  and t3, by = {J} }];
 \path [name intersections = {of = t2 and t3, by = {KK} }];
-\path [name intersections = {of = t1 and t4, by = {M} }];
+\path [name intersections = {of = t  and t4, by = {M} }];
 \path [name intersections = {of = t2 and t4, by = {LL} }];
 
 % Draw the parallelogram
@@ -879,12 +716,14 @@ The areas of the parallelograms formed by tangents to the intersections of and p
   (LL) node[below] {$L$} -- (M) node[right] {$M$} -- cycle;
 
 % Draw triangles
-\draw[very thick,blue] (C) -- (D) -- (P) -- cycle;
-\draw[very thick,red] (C) -- (Top) -- (R) -- cycle;
+\draw[thick,blue] (O) -- (D) -- (P) -- cycle;
+\draw[thick,red] (O) -- (Top) -- (Right) -- cycle;
 
 % Draw perpeciculars to major axis
-\draw[very thick,dashed,blue] (D) -- ($(L)!(D)!(R)$) node[below] {$D'$};
-\draw[very thick,dashed,blue] (P) -- ($(L)!(P)!(R)$) node[below] {$P'$};
+\draw[very thick,dashed,blue] (D) -- 
+  ($(Left)!(D)!(Right)$) node[below] {$D'$};
+\draw[very thick,dashed,blue] (P) -- 
+  ($(Left)!(P)!(Right)$) node[below] {$P'$};
 
 \end{tikzpicture}
 \caption{Parallelograms formed by conjugate diameters}\label{f.ellipse-conj-diam-proof}

@@ -6,19 +6,13 @@
 \usepackage{microtype}
 \usepackage{verbatim}
 \usepackage{url}
-\usepackage{bm}
 
 % TikZ package
 \usepackage{tikz}
-\usepackage{tkz-euclide}
 \usetikzlibrary{calc,arrows.meta,shapes,intersections,through}
 \tikzset {>=Stealth}
 
-% Display vertex not affected by tikz scale
-\newcommand*{\vertex}[1]
-  {\fill[shift only] (#1) circle (2.5pt)}
-\newcommand*{\vertexcolor}[2]
-  {\fill[shift only,#2] (#1) circle (2.5pt)}
+% Display small vertex not affected by tikz scale
 \newcommand*{\vertexsm}[1]
   {\fill[shift only] (#1) circle (1.5pt)}
 \newcommand*{\vertexsmcolor}[2]
@@ -38,15 +32,14 @@
   {\addtolength{\arraycolsep}{-3pt}
    \begin{eqnarray}}
   {\end{eqnarray}}
-  
+
+% Environments for theorems and proofs  
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}[theorem]{Definition}
-
-\newcommand*{\hqed}{$\quad$\rule{4pt}{10pt}}
-\newcommand*{\fqed}{\quad\rule{4pt}{10pt}}
-
 \newenvironment{proof}
 {\textbf{Proof}}{}
+\newcommand*{\hqed}{$\quad$\rule{4pt}{10pt}}
+\newcommand*{\fqed}{\quad\rule{4pt}{10pt}}
 
 % Change LaTeX defaults for figures
 \renewcommand{\topfraction}{0.9}
@@ -72,3 +65,103 @@
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 \setlength{\fboxrule}{1pt}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TikZ pics
+% Eccentricity of the ellipses is \sqrt{5}/3 \approx 0.754
+% (a,b) = (3,2), (3.75,2.5), (4.5,3), (5.25,3.5), (6,4)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Draw an ellipse
+\tikzset{
+  pics/ellipse/.style args={#1/#2}{
+    code={
+      % Center of the ellipse
+      \coordinate (O) at (0,0);
+      % Draw the ellipse
+      \draw[name path global=ellipse] (O)
+        ellipse[x radius=#1,y radius= #2];
+      % Locate the foci
+      \coordinate (F1) at ({-sqrt(#1*#1-#2*#2)},0);
+      \coordinate (F2) at ({+sqrt(#1*#1-#2*#2)},0);
+      % Draw axes AA' and BB'
+      \coordinate (Left)  at +(180:{#1} and {#2});
+      \coordinate (Right) at +(0:{#1} and {#2});
+      \coordinate (Top)   at +(90:{#1} and {#2});
+      \coordinate (Bot)   at +(-90:{#1} and {#2});
+      \draw[name path global=major] (Left) -- (Right);
+      \draw[name path global=minor] (Bot)  -- (Top);
+    }
+  }
+}
+
+% Draw a semi-ellipse
+\tikzset {
+  pics/semi-ellipse/.style args={#1/#2}{
+    code={
+      \coordinate (O) at (0,0);
+      % Draw the semi-ellipse
+      \draw[name path global=ellipse] (\a,0) 
+        arc[start angle=0,end angle=180, x radius=\a,y radius=\b];
+      % Locate the foci
+      \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
+      \coordinate (F2) at ({+sqrt(\a*\a-\b*\b)},0);
+      % Draw axes AA' and BB'
+      \coordinate (Left)  at +(180:{\a} and {\b});
+      \coordinate (Right) at +(0:{\a} and {\b});
+      \coordinate (Top)   at +(90:{\a} and {\b});
+      \coordinate (Bot)   at +(-90:{#1} and {#2});
+      \draw[name path global=major] (Left) -- (Right);
+      \path[name path global=minor] (Bot)  -- (Top);
+	  \draw (O) -- (Top);
+    }
+  }
+}
+
+% Select an arbitrary point P on the ellipse
+\tikzset {
+  pics/point-on-ellipse/.style args={#1/#2/#3}{
+    code={
+      \coordinate (P) at ({#3}:{#1} and {#2});
+      \path[name path global=fromF1p] (P) -- (F1);
+      \path[name path=ph] (P) -- (F2);
+      \path[name path global=pc] (P) -- (O);
+      \node[above right] at (P) {$P$};
+    }
+  }
+}
+
+% Draw a tangent
+\tikzset {
+  pics/tangent/.style args={#1/#2/#3}{
+    code={
+      \draw[name path global=t] 
+        (P) -- ++ ({-#1*sin(#3)},{#2*cos(#3)}) coordinate (R)
+        (P) -- ++ ({#1*sin(#3)},{-#2*cos(#3)}) coordinate (Z);
+    }
+  }
+}
+
+% Construct the path of a tangent
+\tikzset {
+  pics/tangent-path/.style args={#1/#2/#3}{
+    code={
+      \path[name path global=t] 
+        (P) -- ++ ({-#1*sin(#3)},{#2*cos(#3)}) coordinate (R)
+        (P) -- ++ ({#1*sin(#3)},{-#2*cos(#3)}) coordinate (Z);
+    }
+  }
+}
+
+% Draw a directrix
+\tikzset {
+  pics/directrix/.style args = {#1}{
+    code={
+      \coordinate (X) at (0,0);
+      \node[left] at (X) {$X$};
+      \draw[name path global=directrix] ($(X)+(0,2)$) --
+        node[left,near start] {$d$} ($(X)+(0,-2)$);
+      \coordinate (S) at (3,0);
+      \node[below] at (S) {$S$};
+    }
+  }
+}
