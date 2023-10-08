@@ -609,13 +609,14 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \draw (C) -- +(-\a,0);
 
 % Find intersection PI of line from center to P and the inner circle
-\node[above] at (P) {$P$};
+\node[below right,xshift=-3pt,yshift=-4pt] at (P) {$P$};
 \vertexsm{P};
 \path[name path=horiz] (P) -- +(-\a,0);
 \path [name intersections = {of = inner and horiz, by = {PI} }];
 
 % Extend ray C->PI to outer circle and label intersection PO
-\draw[name path=ray] (C) -- ($(C) !1.7! (PI)$) coordinate (PO);
+\path[name path=ray] (C) -- ($(C) !1.7! (PI)$);
+\path [name intersections = {of = outer and ray, by = {PO} }];
 
 % Project PO on x axis
 \path[thick,name path=horizPO] (PO) -- +(0,-\a);
@@ -638,7 +639,7 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \vertexsmcolor{PI}{blue};
 \vertexsmcolor{PO}{red};
 \node[below,yshift=-4pt] at (PI) {$P_I$};
-\node[above] at (PO) {$P_O$};
+\node[above right] at (PO) {$P_O$};
 %\vertexsm{C};
 %\vertexsm{P};
 
