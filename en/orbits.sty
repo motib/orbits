@@ -7,6 +7,16 @@
 \usepackage{verbatim}
 \usepackage{url}
 
+% Use natbib for bibliography as section, not chapter
+\usepackage[sectionbib,square,numbers]{natbib}
+
+% Less space before titles
+\usepackage{titlesec}
+\titleformat{\chapter}[display] 
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{5pt}{\huge}
+\titlespacing{\chapter}{0pt}{-4\parskip}{4\parskip}
+\titlespacing{\section}{0pt}{\parskip}{\parskip}
+
 % TikZ package
 \usepackage{tikz}
 \usetikzlibrary{calc,arrows.meta,shapes,intersections,through}
@@ -18,16 +28,16 @@
 \newcommand*{\vertexsmcolor}[2]
   {\fill[shift only,#2] (#1) circle (1.5pt)}
 
-% Very small math, used in drawings
+% Very small math
 \newcommand*{\sm}[1]{$\scriptstyle #1$}
 
-% Reduce space around c column in eqnarray*
+% Reduce space in eqnarray*
 \newenvironment{eqn}
   {\addtolength{\arraycolsep}{-3pt}
    \begin{eqnarray*}}
   {\end{eqnarray*}}
 
-% Reduce space around c column in eqnarray with labels
+% Reduce space in eqnarray
 \newenvironment{eqnlabels}
   {\addtolength{\arraycolsep}{-3pt}
    \begin{eqnarray}}
@@ -38,10 +48,12 @@
 \newtheorem{definition}[theorem]{Definition}
 \newenvironment{proof}
 {\textbf{Proof}}{}
+
+% QED sign in text and math
 \newcommand*{\hqed}{$\quad$\rule{4pt}{10pt}}
 \newcommand*{\fqed}{\quad\rule{4pt}{10pt}}
 
-% Change LaTeX defaults for figures
+% LaTeX defaults for figures
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.9}
 \setcounter{topnumber}{2}

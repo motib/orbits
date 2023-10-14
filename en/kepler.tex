@@ -2,11 +2,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Elliptical orbits}\label{s.kepler}
+\chapter{Elliptical orbits}\label{s.kepler}
 
 Towards the end of the sixteenth century, the astronomer Tycho Brahe carried out extremely precise observations. In 1600 he hired Johannes Kepler as his assistant and when Tycho died soon afterwards, Kepler was appointed to his position. Here we explain how Kepler was able to establish that planetary orbits are ellipses.
 
-\subsection{Determining the radius of the Earth's orbit}
+\section{Determining the radius of the Earth's orbit}
 
 A Martian year is $687$ days, that is, it equals $\frac{687}{365.25} = 1.88$ Earth years. We know when Mars reaches a ``new year'' by observing its projection on the celestial sphere, but each time the position of the Earth in its orbit will be different. Figure~\ref{f.kepler-mars} shows the orbit of the Earth---its center $O$ offset from the Sun $S$ as Copernicus showed---at four occasions when the position of Mars $M$ at its new year was observed. Four triangles are created $\triangle OE_iM$.
 
@@ -123,7 +123,7 @@ E_4 & 1.6& 3.4& 175.0 & \;\;0.6805\cdot OM\\
 \]
 The values of $OE_i$ given in the fourth column of the table are not equal. Assuming (as everyone did at that time) that the Earth' orbit is circular, the only solution was to move the center of the orbit so that $\{E_1,E_2,E_3,E_4\}$ were all on the circle.
 
-\subsection{Measuring the angles in the triangle Sun-Earth-Mars}
+\section{Measuring the angles in the triangle Sun-Earth-Mars}
 
 How can the angles $\alpha, \beta, \gamma$ be measured? Since $\triangle E_iOM$ is a triangle, it is sufficient to measure two of the angles. $\gamma$ is easily measured by observing Mars and the Sun at the same time. However, neither $\alpha$ nor $\beta$ can be measured directly since they are not accessible to an observer on Earth.
 
@@ -193,7 +193,7 @@ This gives values for $\theta_E$ and $\theta_M$. Since $E'M'$ is a straight line
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{A new location for the center of the Earth's orbit}
+\section{A new location for the center of the Earth's orbit}
 
 Kepler's next task was to obtain a new value $O'$ for the center of the Earth's orbit such that the $E_i$'s are on the orbit. Given the new locations of the Earth $\{E_1,E_2,E_3,E_4\}$, by Theorem~\ref{thm.three-points} a circle centered at $O'$ can be constructed that goes through $\{E_1,E_2,E_3\}$ (Figure~\ref{f.kepler-earth-new}). To verify that this is the correct orbit, check that $E_4$ is on the circle.
 
@@ -260,7 +260,7 @@ Kepler's next task was to obtain a new value $O'$ for the center of the Earth's 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Orbits are ellipses}
+\section{Orbits are ellipses}
 
 While Kepler was able to modify the center of the orbit of the Earth to be consistent with the observations, he was not able to adequately describe the orbit of Mars. After years of work, he came to the conclusion that the orbit must be oval like an egg. Oval, perhaps, but certainly not an ellipse, because he was certain that it would have been discovered by Archimedes! Figure~\ref{f.kepler-egg} shows $C$, a position on a circular orbit, and an oval orbit (dashed), where $M$ is the position of Mars on the oval corresponding to $C$. The radius of the circular orbit is labeled $a$ and the unknown distances to $M$ are labeled $s=SM$ and $t=OM$.
 
@@ -318,7 +318,9 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\newpage
+
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
 \clip (-6,-.5) rectangle +(12,6);
@@ -376,3 +378,5 @@ By Theorem~\ref{thm.ellipse-b-over-a}, since the ratio $MO/CO=b/a$ is constant f
 \caption{The orbit of Mars as an ellipse}\label{f.kepler-ellipse}
 \end{center}
 \end{figure}
+
+\mbox{\ \ \ \ \ \ }

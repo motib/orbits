@@ -1,12 +1,12 @@
 % !TeX root = orbits.tex
 
-\section{Ellipses in Euclidean geometry}\label{s.geometry}
+\chapter{Ellipses in Euclidean geometry}\label{s.geometry}
 
-The proofs of theorems about planetary freely used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. In this section, I present proofs in Euclidean geometry of theorems that appeared in Section~\ref{s.ellipse}.\footnote{Theorems~\ref{thm.tangent-angles}, \ref{thm.conj-diag} were already proved using Euclidean geometry and Theorem~\ref{thm.ellipse-area} requires taking limits.} The proofs are based on the definition of ellipses in terms of the geometric concepts of focus and directrix instead of the familiar analytic definition (Equation~\ref{eqn.ellipse-formula}).
+The proofs of theorems about planetary freely used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. In this section, I present proofs in Euclidean geometry of theorems that appeared in Chapter~\ref{s.ellipse}.\footnote{Theorems~\ref{thm.tangent-angles}, \ref{thm.conj-diag} were already proved using Euclidean geometry and Theorem~\ref{thm.ellipse-area} requires taking limits.} The proofs are based on the definition of ellipses in terms of the geometric concepts of focus and directrix instead of the familiar analytic definition (Equation~\ref{eqn.ellipse-formula}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{The definition of an ellipse using the focus and the directrix}
+\section{The definition of an ellipse using the focus and the directrix}
 
 \begin{definition}\label{def.ellipse}
 Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix. Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the locus of points $P$ such that the ratio of  $PS$ to the distance of $P$ to the directrix is $e$.
@@ -271,7 +271,7 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{A right angle at the focus of an ellipse}
+\section{A right angle at the focus of an ellipse}
 
 \begin{theorem}\label{thm.bisect}
 Let $P,P'$ be points on the ellipse and let $F$ be the intersection of $PP'$ with the directrix. Then $FS$ bisects the exterior angle of $\angle P'SP$(Figure~\ref{f.bisect-angle}).
@@ -298,7 +298,7 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Ratios of perpendiculars to the axes}
+\section{Ratios of perpendiculars to the axes}
 
 This theorem proves Theorem~\ref{thm.ratios} using Euclidean geometry.
 
@@ -452,7 +452,7 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{A circle circumscribing an ellipse}
+\section{A circle circumscribing an ellipse}
 
 This theorem proves Theorem~\ref{thm.ellipse-b-over-a} in Euclidean geometry.
 
@@ -506,7 +506,7 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{The latus rectum of an ellipse}
+\section{The latus rectum of an ellipse}
 
 This theorem proves Theorem~\ref{thm.ellipse-lr} in Euclidean geometry.
 
@@ -532,7 +532,7 @@ SL_1&=&\frac{BC^2}{AC}=\frac{b^2}{a}\,.\fqed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Areas of parallelograms}
+\section{Areas of parallelograms}
 
 \begin{theorem}\label{thm.perp-tangent}
 Let $Y$ be the intersection the perpendicular through the focus $S$ to the tangent $TT'$ at $P$, and let $L$ be the intersection of $S'P$ and $SY$ (Figure~\ref{f.perp-focus-tangent}). Then $Y$ is on the circumscribing circle and $CY\parallel S'L$.
@@ -947,7 +947,7 @@ CM^2&=& AN\cdot NA'\\[6pt]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
 \clip (-5.2,-3.5) rectangle +(10.4,7.5);
