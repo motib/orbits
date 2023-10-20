@@ -163,17 +163,3 @@
     }
   }
 }
-
-% Draw a directrix
-\tikzset {
-  pics/directrix/.style args = {#1}{
-    code={
-      \coordinate (X) at (0,0);
-      \node[left] at (X) {$X$};
-      \draw[name path global=directrix] ($(X)+(0,2)$) --
-        node[left,near start] {$d$} ($(X)+(0,-2)$);
-      \coordinate (S) at (3,0);
-      \node[below] at (S) {$S$};
-    }
-  }
-}

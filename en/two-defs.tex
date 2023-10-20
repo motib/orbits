@@ -1,0 +1,128 @@
+% !TeX root = orbits.tex
+
+\chapter{The Two Definitions of an Ellipse}\label{s.two-defs}
+
+Ellipses were defined in two ways (refer to Figure~\ref{f.two-defs}).
+
+\textbf{Definition~\ref{def.ellipse1}:} 
+Given $S$ and $H$, two points (the \emph{foci}) such that $SH=2c>0$, and $2a>2c>0$, an \emph{ellipse} is the locus of points $P$ such that $SP+PH=2a$ (red). The \emph{eccentricity} is $c/a$.
+
+\textbf{Definition~\ref{def.ellipse2}:} 
+Given a line (the \emph{directrix}), a point $S$ (a \emph{focus}) at distance $SX=d>0$ from the directrix and $0<e<1$ (the \emph{eccentricity}), an \emph{ellipse} is the locus of points $P$ such that $SP/PK=e$ (blue). $A$ on $SX$ is a \emph{vertex} of the ellipse if $SA/AX=e$.
+
+In this appendix we show how to compute the parameters of Definition~\ref{def.ellipse1} from those of Definition~\ref{def.ellipse2} and conversely. First, we compute $a$ and $c$ from $d$ and $e$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}
+% Ellipse
+\def\a{3.75}
+\def\b{2.5}
+\pic{ellipse={{\a}/{\b}}};
+
+% Label nodes
+\node[above] at (Top) {$B$};
+
+\node[below right] at (Right) {$A'$};
+\node[below left] at (Left) {$A$};
+\node[below] at (F1) {$S$};
+\node[below] at (F2) {$H$};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+
+% Label segments
+\path (Top) --  node[left] {$b$} (O);
+\path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
+\draw (F1) -- node[above] {$a$} (Top);
+
+
+\draw (O) rectangle +(6pt,6pt);
+
+\def\x{3.75+sqrt(5)}
+\coordinate (X) at ({-(\x)},0);
+\node[below left] at (X) {$X$};
+\draw (Left) -- (X) -- +(0,{\b});
+\draw (X) -- +(0,{-\b});
+
+% Indicates distances along the major axis
+\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
+\draw[<->] ($(X)+(0,-40pt)$) -- node[fill=white] {$d$} ($(F1)+(0,-40pt)$);
+
+\def\angle{150}
+\coordinate (P) at ({\angle}:{\a} and {\b});
+\path[name path global=fromF1p] (P) -- (F1);
+\path[name path=ph] (P) -- (F2);
+\path[name path global=pc] (P) -- (O);
+\node[above left] at (P) {$P$};
+\draw[thick,red] (F1) -- (P) -- (F2);
+
+\draw[thick,blue] ($(F1)+(-2pt,0)$) -- ($(P)+(-2pt,0)$);
+\draw[thick,blue] ($(P)+(-2pt,0)$)  -- (P -| X) coordinate (K);
+\node[left] at (K) {$K$};
+
+\end{tikzpicture}
+\caption{Two definitions of an ellipse}
+\label{f.two-defs}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$AX$ and $A'X$ can be computed from $d$ and $e$:
+\begin{eqnlabels}
+SA+AX&=&SX=d\nonumber\\
+SA&=&d-\frac{SA}{e}=d\cdot \frac{e}{1+e}\label{eqn.sa}\\
+AX&=&d\cdot \frac{1}{1+e}\nonumber\\
+A'X-SA'&=&d\nonumber\\
+SA'&=&\frac{SA'}{e}-d=d\cdot \frac{e}{1-e}\nonumber\\
+A'X&=&d\cdot \frac{1}{1-e}\nonumber\,.
+\end{eqnlabels}%
+$a=AA'/2$ can now be computed from $A'X-AX$:
+\begin{eqnlabels}
+a=\frac{AA'}{2}&=&
+\frac{1}{2}( A'X-AX)=
+\frac{d}{2}\left(\frac{1}{1-e}-\frac{1}{1+e}\right)\nonumber\\
+&=&\frac{d}{2}\cdot\frac{2e}{1-e^2}=d\cdot\frac{e}{1-e^2}\,.\label{eqn.a}
+\end{eqnlabels}%
+$c=OS$ is $a-SA$ so by Equations~\ref{eqn.sa}, \ref{eqn.a},
+\[
+c=OS=a-SA=
+d\cdot\frac{e}{1-e^2} - d\cdot \frac{e}{1+e}=d\cdot \frac{e^2}{1-e^2}\,.
+\]%
+Finally, $b$ can be computed from $b=\sqrt{a^2-c^2}$:
+\[
+b=d\cdot \frac{e}{\sqrt{1-e^2}}\,.
+\]
+Conversely, by Equation~\ref{eqn.a}, $d$ can be computed from $a$ and $e$:
+\[
+d=a\cdot\frac{1-e^2}{e}\,.
+\]
+
+As an example, we compute the $e$-factors for $e=\sqrt{5}/3$ and then multiply it by various values of $d$:
+\begin{eqn}
+a/d&=&\frac{e}{1-e^2}=\frac{\sqrt{5}/3}{4/9}=\frac{3\sqrt{5}}{4}\\
+c/d&=&\frac{e^2}{1-e^2}=\frac{5/9}{4/9}=\frac{5}{4}\\
+b/d&=&\frac{e}{\sqrt{1-e^2}}=\frac{\sqrt{5}/3}{2/3}=\frac{\sqrt{5}}{2}\,.
+\end{eqn}%
+For $d=4/\sqrt{5}$ we have:
+\[
+a=3,\qquad b = 2,\qquad c = \sqrt{5}\,.
+\]
+Conversely,
+\[
+d=a\cdot\frac{1-e^2}{e}=3\cdot \frac{4/9}{\sqrt{5}/3}=\frac{4}{\sqrt{5}}\,.
+\]
+
+Figure~\ref{f.two-defs} was drawn with $d=\sqrt{5}$ giving:
+\[
+a=15/4=3.75,\qquad b=5/2 = 2.5,\qquad c = 5\sqrt{5}/4\approx 2.8\,.
+\]
+
+
+%By Theorem~\ref{thm.ellipse-equation} $P=(x,y)$ satisfies 
+%\begin{equation}
+%\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\,.\label{eqn.ellipse-formula}
+%\end{equation}
+

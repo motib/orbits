@@ -2,20 +2,20 @@
 
 \chapter{Ellipses in Euclidean geometry}\label{s.geometry}
 
-The proofs of theorems about planetary freely used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. In this section, I present proofs in Euclidean geometry of theorems that appeared in Chapter~\ref{s.ellipse}.\footnote{Theorems~\ref{thm.tangent-angles}, \ref{thm.conj-diag} were already proved using Euclidean geometry and Theorem~\ref{thm.ellipse-area} requires taking limits.} The proofs are based on the definition of ellipses in terms of the geometric concepts of focus and directrix instead of the familiar analytic definition (Equation~\ref{eqn.ellipse-formula}).
+The proofs of theorems about planetary freely used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. In this section, I present proofs in Euclidean geometry of theorems that appeared in Chapter~\ref{s.ellipse}.\footnote{Theorems~\ref{thm.tangent-angles}, \ref{thm.conj-diag} were proved using Euclidean geometry and Theorem~\ref{thm.ellipse-area} requires taking limits.} The proofs are based on the definition of ellipses in terms of the geometric concepts of focus and directrix instead of the familiar analytic definition (Equation~\ref{eqn.ellipse-formula}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The definition of an ellipse using the focus and the directrix}
+\section{The definition of an ellipse using the focus and the directrix}\label{s.def2}
 
-\begin{definition}\label{def.ellipse}
+\begin{definition}\label{def.ellipse2}
 Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix. Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the locus of points $P$ such that the ratio of  $PS$ to the distance of $P$ to the directrix is $e$.
 \end{definition}
-
 All the conic sections (parabolas, ellipses and hyperbolas) are defined the same way and are distinguished by their eccentricity.
-\begin{definition}
+\begin{definition}\label{def.vertex}
 Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ on $SX$ is a \emph{vertex} of the ellipse if $SA/AX=e$ (in Figure~\ref{f.def-ellipse}, $e=1/2$).
 \end{definition}
+The computation of $AX$ and $A'X$ from the given $SX$ is presented in Appendix~\ref{s.two-defs}, along with an explanation how to obtain $a,b,c$ of Definition~\ref{def.ellipse1} from $e$ and $SX$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -51,27 +51,7 @@ Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ 
 \caption{The elements of the definition of an ellipse}\label{f.def-ellipse}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Given $e=SA/AX$ we can locate $A$ as follows:
-\begin{eqn}
-SA+AX&=&SX\\[4pt]
-SA&=&SX-\frac{SA}{e}=SX\cdot \frac{e}{1+e}\\[4pt]
-AX&=&SX\cdot \frac{1}{1+e}\,.
-\end{eqn}
-
-\pagebreak[3]
-
-Similarly, there is a second vertex $A'$ where
-\begin{eqn}
-A'X-SA'&=&SX\\[4pt]
-SA'&=&SX+\frac{SA'}{e}=SX\cdot \frac{e}{1-e}\\[4pt]
-A'X&=&SX\cdot \frac{1}{1-e}\,.
-\end{eqn}%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Definition~\ref{def.ellipse} is non-constructive. It states that the ellipse is the locus of points satisfying a certain property, but aside from the vertices we have not constructed any such points. Here we show how to construct any of the points on the ellipse.
+Definition~\ref{def.ellipse2} is non-constructive. It states that the ellipse is the locus of points satisfying a certain property, but aside from the vertices we have not constructed any such points. Here we show how to construct any of the points on the ellipse.
 
 Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $SX$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Construct the perpendicular from $P$ to the directrix and let $K$ be its intersection with the directrix. Let $L$ be the intersection of $KP$ with $ES$ (Figure~\ref{f.construct}). 
 
@@ -84,7 +64,12 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 \clip (-1,-2.2) rectangle +(9.5,4.5);
 
 % Construct the directrix, the focus and the major axis
-\pic{directrix={8}};
+\coordinate (X) at (0,0);
+\node[left] at (X) {$X$};
+\draw[name path global=directrix] ($(X)+(0,2)$) --
+  node[left,near start] {$d$} ($(X)+(0,-2)$);
+\coordinate (S) at (3,0);
+\node[below] at (S) {$S$};
 
 % Locate a vertex
 \node[above left] at (A) {$A$};
@@ -143,6 +128,23 @@ Therefore, $P$ is on the ellipse.\hqed
 \end{proof}
 
 By choosing different points $E$ on the directrix, any point on the ellipse can be constructed.
+
+\section{A right angle at the focus of an ellipse}
+
+\begin{theorem}\label{thm.bisect}
+Let $P,P'$ be points on the ellipse and let $F$ be the intersection of $PP'$ with the directrix. Then $FS$ bisects the exterior angle of $\angle P'SP$(Figure~\ref{f.bisect-angle}).
+\end{theorem}
+\begin{proof}
+Since $P,P'$ are on the ellipse 
+\[
+\frac{SP}{PK}=\frac{SP'}{P'K'}=e\,,
+\]
+and since $\triangle PFK\sim P'FK'$,
+\[
+\frac{SP}{SP'}=\frac{PK}{P'K'}=\frac{PF}{P'F}\,.
+\]
+By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector}), $FS$ bisects the exterior angle of $\angle P'SP$.\hqed
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -271,23 +273,6 @@ By choosing different points $E$ on the directrix, any point on the ellipse can 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{A right angle at the focus of an ellipse}
-
-\begin{theorem}\label{thm.bisect}
-Let $P,P'$ be points on the ellipse and let $F$ be the intersection of $PP'$ with the directrix. Then $FS$ bisects the exterior angle of $\angle P'SP$(Figure~\ref{f.bisect-angle}).
-\end{theorem}
-\begin{proof}
-Since $P,P'$ are on the ellipse 
-\[
-\frac{SP}{PK}=\frac{SP'}{P'K'}=e\,,
-\]
-and since $\triangle PFK\sim P'FK'$,
-\[
-\frac{SP}{SP'}=\frac{PK}{P'K'}=\frac{PF}{P'F}\,.
-\]
-By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector}), $FS$ bisects the exterior angle of $\angle P'SP$.\hqed
-\end{proof}
-
 \begin{theorem}\label{thm.right-angle}
 Let $P$ be a point on the ellipse and construct lines $PA,PA'$. Label their intersections with the directrix by $E$ and $F$, respectively. Then $\angle FSE$ is a right angle (Figure~\ref{f.right-angle}).
 \end{theorem}
@@ -300,7 +285,7 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 
 \section{Ratios of perpendiculars to the axes}
 
-This theorem proves Theorem~\ref{thm.ratios} using Euclidean geometry.
+The following theorem proves Theorem~\ref{thm.ratios} using Euclidean geometry.
 
 \begin{theorem}\label{thm.ratios-besant}
 Let $P$ be a point on an ellipse not on the major axis and construct perpendiculars $PN,PM$ from $P$ to the major and minor axes, respectively (Figure~\ref{f.besant-ratios}). Then
@@ -309,51 +294,6 @@ Let $P$ be a point on an ellipse not on the major axis and construct perpendicul
 \frac{PM^2}{B'N\cdot NA}&=&\frac{AC^2}{BC^2} = \frac{a^2}{b^2}\label{eqn.pmbn}\,.
 \end{eqnlabels}
 \end{theorem}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{proof} (Equation \ref{eqn.pnan})
-$\triangle AXE\sim \triangle ANP$ since they are right triangles and the vertical angles at $A$ are equal (red). Therefore,
-\begin{equation}
-\frac{PN}{AN}=\frac{EX}{AX}\,.\label{eqn.triangle1}
-\end{equation}%
-$\triangle PA'N\sim \triangle FA'X$ (blue) so
-\begin{equation}
-\frac{PN}{A'N}=\frac{FX}{A'X}\,.\label{eqn.triangle2}
-\end{equation}%
-Multiplying Equations~\ref{eqn.triangle1} and \ref{eqn.triangle2} gives
-\[
-\frac{PN^2}{AN\cdot A'N}=\frac{EX\cdot FX}{AX\cdot A'X}\,.
-\]
-By Theorem~\ref{thm.right-angle} $\triangle FSE$ is a right triangle so by Theorem~\ref{thm.alt-hypo},
-\[
-\frac{PN^2}{AN\cdot A'N}=\frac{SX^2}{AX\cdot A'X}\,.
-\]
-Since $P$ was arbitrary this holds for any point on the ellipse, in particular, for $B$ on the minor axis, where $PN=BC$ and $AN=AN'=AC$. Therefore,
-\begin{eqn}
-\frac{BC^2}{AC^2}&=&\frac{SX^2}{AX\cdot A'X}\\[6pt]
-\frac{PN^2}{AN\cdot A'N}&=&\frac{SX^2}{AX\cdot A'X}=\frac{BC^2}{AC^2}=\frac{b^2}{a^2}\,.\fqed
-\end{eqn}%
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{proof} (Equation \ref{eqn.pmbn})
-Since $CM=PN, PM=CN$, by Theorem~\ref{thm.dividing}, Equation~\ref{eqn.pnan} becomes 
-\begin{eqnlabels}
-\frac{CM^2}{AC^2-PM^2}&=&\frac{BC^2}{AC^2}\nonumber\\[6pt]
-\frac{AC^2}{AC^2-PM^2}&=&\frac{BC^2}{CM^2}\label{eqn.acbc1}\,.
-\end{eqnlabels}%
-It follows that
-\begin{equation}
-\frac{AC^2}{PM^2}=\frac{BC^2}{BC^2-CM^2},\label{eqn.acbc2}
-\end{equation}
-
-By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theorem~\ref{thm.dividing}, Equation~\ref{eqn.acbc2} implies
-\[
-\frac{PM^2}{BM\cdot MB'}=\frac{AC^2}{BC^2}\,.\fqed
-\]
-\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -410,9 +350,55 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 \caption{Ratio of an ordinate}\label{f.besant-ratios}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{proof} (Equation \ref{eqn.pnan})
+$\triangle AXE\sim \triangle ANP$ since they are right triangles and the vertical angles at $A$ are equal (red). Therefore,
+\begin{equation}
+\frac{PN}{AN}=\frac{EX}{AX}\,.\label{eqn.triangle1}
+\end{equation}%
+$\triangle PA'N\sim \triangle FA'X$ (blue) so
+\begin{equation}
+\frac{PN}{A'N}=\frac{FX}{A'X}\,.\label{eqn.triangle2}
+\end{equation}%
+Multiplying Equations~\ref{eqn.triangle1} and \ref{eqn.triangle2} gives
+\[
+\frac{PN^2}{AN\cdot A'N}=\frac{EX\cdot FX}{AX\cdot A'X}\,.
+\]
+By Theorem~\ref{thm.right-angle} $\triangle FSE$ is a right triangle so by Theorem~\ref{thm.alt-hypo},
+\[
+\frac{PN^2}{AN\cdot A'N}=\frac{SX^2}{AX\cdot A'X}\,.
+\]
+Since $P$ was arbitrary this holds for any point on the ellipse, in particular, for $B$ on the minor axis, where $PN=BC$ and $AN=AN'=AC$. Therefore,
+\begin{eqn}
+\frac{BC^2}{AC^2}&=&\frac{SX^2}{AX\cdot A'X}\\[6pt]
+\frac{PN^2}{AN\cdot A'N}&=&\frac{SX^2}{AX\cdot A'X}=\frac{BC^2}{AC^2}=\frac{b^2}{a^2}\,.\fqed
+\end{eqn}%
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof} (Equation \ref{eqn.pmbn})
+Since $CM=PN, PM=CN$, by Theorem~\ref{thm.dividing}, Equation~\ref{eqn.pnan} becomes 
+\begin{eqnlabels}
+\frac{CM^2}{AC^2-PM^2}&=&\frac{BC^2}{AC^2}\nonumber\\[6pt]
+\frac{AC^2}{AC^2-PM^2}&=&\frac{BC^2}{CM^2}\label{eqn.acbc1}\,.
+\end{eqnlabels}%
+It follows that
+\begin{equation}
+\frac{AC^2}{PM^2}=\frac{BC^2}{BC^2-CM^2},\label{eqn.acbc2}
+\end{equation}
+
+By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theorem~\ref{thm.dividing}, Equation~\ref{eqn.acbc2} implies
+\[
+\frac{PM^2}{BM\cdot MB'}=\frac{AC^2}{BC^2}\,.\fqed
+\]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
 
@@ -454,10 +440,9 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 
 \section{A circle circumscribing an ellipse}
 
-This theorem proves Theorem~\ref{thm.ellipse-b-over-a} in Euclidean geometry.
-
-Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-circle-besant}). Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively.
+The following theorem proves Theorem~\ref{thm.ellipse-b-over-a} in Euclidean geometry.
 \begin{theorem}\label{thm.ellipse-b-over-a-besant}
+Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-circle-besant}). Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively. Then
 \[
 \frac{PN}{QN}=\frac{BC}{AC}=\frac{b}{a}\,.
 \]
@@ -508,11 +493,10 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 
 \section{The latus rectum of an ellipse}
 
-This theorem proves Theorem~\ref{thm.ellipse-lr} in Euclidean geometry.
-
+The following theorem proves Theorem~\ref{thm.ellipse-lr} in Euclidean geometry.
 \begin{theorem}\label{thm.ellipse-lr-besant}
-$L$, the length of the latus rectum of an ellipse (Definition~\ref{def.ellipse-lr}), is 
-$\displaystyle\frac{2b^2}{a}$.
+$L$, the length of the latus rectum of an ellipse, is 
+$\displaystyle\frac{2b^2}{a}$ (Figure~\ref{f.ellipse-latus-rectum-besant}).
 \end{theorem}
 \begin{proof}
 By Theorem~\ref{thm.ratios-besant},
@@ -836,9 +820,7 @@ Multiplying by $PN^2/PN^2$ and using Theorem~\ref{thm.ratios-besant} gives
 CT\cdot PN&=&BC^2\,.\label{eqn.ctpn}\fqed
 \end{eqnlabels}
 \end{proof}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{theorem}\label{thm.cmpnacbc}
 In Figure~\ref{f.parallelogram3},
 \begin{eqn}
@@ -947,7 +929,15 @@ CM^2&=& AN\cdot NA'\\[6pt]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+This theorem proves Theorem~\ref{thm.conj-diam-para} in Euclidean geometry.
+
+\begin{theorem}\label{thm.area-parallelogram}
+The area of the parallelogram formed by the tangents at the ends of the conjugate diameters $PP',DK$ is equal to the area of the rectangle enclosing the ellipse at the ends of the axes (Figure~\ref{f.parallelogram2}).
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
 \clip (-5.2,-3.5) rectangle +(10.4,7.5);
@@ -1042,13 +1032,7 @@ CM^2&=& AN\cdot NA'\\[6pt]
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-This theorem proves Theorem~\ref{thm.conj-diam-para} in Euclidean geometry.
-
-\begin{theorem}\label{thm.area-parallelogram}
-The area of the parallelogram formed by the tangents at the ends of the conjugate diameters $PP',DK$ is equal to the area of the rectangle enclosing the ellipse at the ends of the axes (Figure~\ref{f.parallelogram2}).
-\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
 By the definition of conjugate diameters, it is sufficient to show that the area of $PCDL$ is $AC\cdot BC$. The area of a parallelogram is width times height so it is $CD\cdot PF$. 
