@@ -1,4 +1,10 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
+
+
+\part{Planetary orbits}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{The sizes of the Earth, Moon and Sun}\label{s.aristarchus}
 
@@ -6,13 +12,13 @@
 
 \section{Eratosthenes's measurement of the radius of the earth}\label{s.eratosthenes}
 
-The ancient Greeks knew that the Earth is round and Eratosthenes was able to measure the radius of the Earth (Figure~\ref{f.eratosthenes}). Choose two points $A,B$ on the same longitude and measure the distance $d$ between them. Plant a vertical stick (red) in the ground at $A$ and another (blue) at $B$. On a day in the year when the stick at $A$ produces no shadow at noon, at the same time the stick at $B$ produces a shadow whose angle is $\alpha$. The sun is so far away from the Earth that over the relatively short distance $d$, the rays of the Sun are essentially parallel. By alternate interior angles, the angle between the two sticks as measured from the center of the Earth is also $\alpha$.
+The ancient Greeks knew that the Earth is round and Eratosthenes was able to measure the radius of the Earth (Figure~\ref{f.eratosthenes}). Choose two points $A,B$ on the \emph{same longitude} and measure the distance $d$ between them. Plant a vertical stick (red) in the ground at $A$ and another (blue) at $B$. On a day in the year when the stick at $A$ produces no shadow at noon, at the same time the stick at $B$ produces a shadow whose angle is $\alpha$. The sun is so far away from the Earth that over the relatively short distance $d$, the rays of the Sun are essentially parallel. By alternate interior angles, the angle between the two sticks as measured from the center of the Earth is also $\alpha$.
 
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
 
-\clip (-4,-.7) rectangle +(12,4.6);
+\clip[draw] (-4,-.7) rectangle +(12,4.6);
 
 % Draw the earth as an arc
 \coordinate (E) at (0,0);
@@ -65,7 +71,7 @@ This value is quite close to the modern measurement of $6370$ km.
 
 \section{Aristarchus's measurements}
 
-Using $r_e$,  Eratosthenes's measurement of the radius of the Earth, Aristarchus was able to measure and compute the following values:
+Using $r_e$ Aristarchus was able to measure and compute the following values.
 \begin{itemize}
 \item $r_m$: the radius of the Moon,
 \item $r_s$: the radius of the Sun,
@@ -78,24 +84,27 @@ Using $r_e$,  Eratosthenes's measurement of the radius of the Earth, Aristarchus
 
 \subsubsection*{Computing $d_s/d_m$}
 
-An observer on Earth can follow the phases of the Moon as it revolves around the Earth. At one point in the month the phase will be first quarter, meaning that the one half of the moon is illuminated while the other half is not (Figure~\ref{f.moon-fq}). The angle between the Sun and the Moon will be $87^\circ$. Since exactly half of the moon is illuminated, we know that the angle $\angle$ Earth-Moon-Sun is a right-angle so
-\begin{eqnlabels}
+An observer on Earth can follow the phases of the Moon as it revolves around the Earth. At one point in the month the phase will be first quarter, meaning that the one half of the moon is illuminated while the other half is not (Figure~\ref{f.moon-fq}). The angle between the Sun and the Moon will be $87^\circ$. Since exactly half of the moon is illuminated, we know that the angle Earth-Moon-Sun is a right-angle so
+\begin{eqnlabels}%
 \cos 87^\circ &=& \frac{d_m}{d_s}\nonumber\\[4pt]
 \frac{d_s}{d_m}&=& \frac{1}{\cos 87^\circ} \approx 19\,.\label{eq.dm-ds}
 \end{eqnlabels}
+\subsubsection*{Computing $r_s/r_m$ and $d_m/r_m$}
+
+The Moon is much, much smaller than the Sun, but it is also much, much closer to the Earth. When the Moon is precisely positioned between the Earth and the Sun, its ``disk'' exactly covers the ``disk'' of the Sun, causing a total solar eclipse (Figure~\ref{f.solar-eclipse}).
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.8]
 
-\clip (-2.2,-1.8) rectangle +(14,6);
+\clip[draw] (-2.4,-2) rectangle +(14.5,6.5);
 
 % Draw the moon half-dark with right angle
 \coordinate (M) at (0,0);
 \node at ($(M)+(-1.2,0)$) {\textsf{Moon}};
 \node[draw,circle split,rotate=90,minimum size=.5cm] at (M) {};
 \fill[gray!90!black] ($(M)+(0,.28)$) arc[start angle=90,end angle=270,radius=.29cm];
-\draw (M) rectangle +(4pt,4pt);
+\draw (M) rectangle +(6pt,6pt);
 \vertexsm{M};
 
 % Draw the sun
@@ -124,18 +133,11 @@ An observer on Earth can follow the phases of the Moon as it revolves around the
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace{-2ex}
-
-\subsubsection*{Computing $r_s/r_m$ and $d_m/r_m$}
-
-
-The Moon is much, much smaller than the Sun, but it is also much, much closer to the Earth. When the Moon is precisely positioned between the Earth and the Sun, its ``disk'' exactly covers the ``disk'' of the Sun, causing a total solar eclipse (Figure~\ref{f.solar-eclipse}).
-
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-4,-1.6) rectangle +(14.2,3.2);
+\clip[draw] (-4,-1.6) rectangle +(14.2,3.2);
 
 % Draw the sun and two radii
 \coordinate (S) at (8.5,0);
@@ -187,7 +189,8 @@ The Moon is much, much smaller than the Sun, but it is also much, much closer to
 \end{center}
 \end{figure}
 
-The angle subtended by the Moon is $2^\circ$ degrees. Bisecting the angle creates two right triangles with an acute angle of $1^\circ$, where the right angles are the tangents to Moon and the Sun. By similar triangles,  Equation~\ref{eq.dm-ds} and Figure~\ref{f.solar-eclipse},
+The angle subtended by the Moon is $2^\circ$ degrees. Bisecting the angle creates two right triangles with an angle of $1^\circ$ and the right angle at the tangents. By similar triangles,
+%  Equation~\ref{eq.dm-ds} and Figure~\ref{f.solar-eclipse},
 \begin{eqnlabels}
 \frac{r_s}{r_m} &=& \frac{d_s}{d_m} = 19\label{eq.rs-rm}\\
 \frac{d_m}{r_m} &=&\frac{1}{r_m/d_m}=\frac{1}{\sin 1^\circ} \approx 57\,.\label{eq.dm-rm}
@@ -199,23 +202,23 @@ The angle subtended by the Moon is $2^\circ$ degrees. Bisecting the angle create
 
 Figure~\ref{f.lunar-eclipse} shows a lunar eclipse. Unlike a solar eclipse where the Moon exactly covers the Sun, the Earth more than covers the Moon and its shadow is four times the Moon's radius.
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.8]
 
-\clip (-4,-1.6) rectangle +(14.2,3.2);
+\clip[draw] (-4,-1.4) rectangle +(14.2,2.8);
 
 % Draw the sun and two radii
 \coordinate (S) at (8.5,0);
 \node[below] at ($(S)+(0,-1.5)$) {\textsf{Sun}};
-\node[draw,circle,minimum size=2.5cm] at (S) {};
+\draw (S) circle[radius=1.25cm];
 \coordinate (Stop) at ($(S)+(100:1.25cm)$);
 \coordinate (Sbot) at ($(S)+(-100:1.25cm)$);
 
 % Draw the Earth half-black
 \coordinate (E) at (1,0);
 \node[below] at ($(E)+(0,-1.5)$) {\textsf{Earth}};
-\node[draw,circle split,rotate=90,minimum size=1.5cm] at (E) {};
+\draw (E) circle[radius=.75cm];
 \fill[gray!90!black] ($(E)+(0,.75)$) arc[start angle=90,end angle=270,radius=.75cm];
 
 \coordinate (Etop) at ($(E)+(90:.75cm)$);
@@ -225,56 +228,38 @@ Figure~\ref{f.lunar-eclipse} shows a lunar eclipse. Unlike a solar eclipse where
 
 %% Draw the moon black
 \coordinate (M) at (-2,0);
-\node[draw,fill=gray!90!black,circle,minimum size=.55cm] at (M) {};
+\draw[fill=gray!90!black] (M) circle[radius=.3cm];
 \node[below] at ($(M)+(0,-1.5)$) {\textsf{Moon}};
 
 % Indicate moon radii
 \draw[<->] ($(M)+(-.75,.5)$) -- node[left] {$4r_m$} +(0,-1);
-
 \end{tikzpicture}
 \caption{A lunar eclipse}\label{f.lunar-eclipse}
 \end{center}
 \end{figure}
 
-Figure~\ref{f.lunar-eclipse-detail} show a lunar eclipse annotated with the distances $d_m,d_s$ and the radii $r_m, r_e, r_s$. The ray from the top of the Sun is tangent to both the Sun and the Earth, so it forms right angles with their radii, as well as with the extension of the Moon's radius. The thick horizontal lines are constructed parallel to the line connecting the centers, forming two similar right triangles, so using Equation~\ref{eq.rs-rm},
-\begin{eqn}
-%\frac{r_e-2r_m}{d_m} &=& \frac{r_s-r_e}{d_s}\\
-\frac{r_s-r_e}{r_e-2r_m}&=&\frac{d_s}{d_m}=\frac{r_s}{r_m}\\[6pt]
-r_sr_e+r_mr_e&=&3r_sr_m\,.
-\end{eqn}%
-Again from Equation~\ref{eq.rs-rm}, $r_s=19r_m$, so
-\[
-r_m=\frac{20}{57}r_e\,.
-\]
-By Equation~\ref{eq.re}, $r_e\approx 6107$ km, by Equation~\ref{eq.dm-rm}, $d_m=57r_m$, and by Equation~\ref{eq.dm-ds}, $d_s=19d_m$, so we can compute the radii and distances:
-\begin{eqn}
-r_m&=&\frac{20}{57}r_e\approx 2143 \;\textrm{km}\\[4pt]
-r_s&=&19r_m \approx 40,713 \;\textrm{km}\\
-d_m&=&57r_m \approx 122,140 \;\textrm{km}\\
-d_s&=&19d_m \approx 2,320,660 \;\textrm{km}\,.
-\end{eqn}%
 
-\begin{figure}
+\begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.9]
 
-\clip (-1,-2.5) rectangle +(13.1,4.6);
+\clip[draw] (-1,-2.5) rectangle +(13.1,4.6);
 
 % Draw Sun
 \coordinate (S) at (10,0);
-\node[draw,circle,minimum size=4cm] at (S) {};
+\draw (S) circle[radius=2cm];
 \vertexsm{S};
 \node[below] at ($(S)+(0,-2)$) {\textsf{Sun}};
 
 % Draw earth
 \coordinate (E) at (4,0);
-\node[draw,circle,minimum size=2.5cm] at (E) {};
+\draw (E) circle[radius=1.25cm];
 \vertexsm{E};
 \node[below] at ($(E)+(0,-2)$) {\textsf{Earth}};
 
 % Draw moon
 \coordinate (M) at (1,0);
-\node[draw,circle,minimum size=.9cm] at (M) {};
+\draw (M) circle[radius=.45cm];
 \vertexsm{M};
 \node[below] at ($(M)+(0,-2)$) {\textsf{Moon}};
 
@@ -325,17 +310,29 @@ d_s&=&19d_m \approx 2,320,660 \;\textrm{km}\,.
 \end{center}
 \end{figure}
 
-The following table summarizes these data together with the modern values \cite[Table~1.3]{hahn-cic}. While the computed values for the radii of the Earth and the Moon are not far off from the modern values, the other computed values are not anywhere near the modern values. Nevertheless, they do show that the Greeks understood the immense size of the solar system.\label{p.table1}
+Figure~\ref{f.lunar-eclipse-detail} show a lunar eclipse annotated with the distances $d_m,d_s$ and the radii $r_m, r_e, r_s$. The ray from the top of the Sun is tangent to both the Sun and the Earth, so it forms right angles with their radii, as well as with the extension of the Moon's radius. The thick horizontal lines are constructed parallel to the line connecting the centers, forming two similar right triangles, so using Equation~\ref{eq.rs-rm},
+\begin{eqn}
+%\frac{r_e-2r_m}{d_m} &=& \frac{r_s-r_e}{d_s}\\
+\frac{r_s-r_e}{r_e-2r_m}&=&\frac{d_s}{d_m}=\frac{r_s}{r_m}\\[6pt]
+r_sr_e+r_mr_e&=&3r_sr_m\,.
+\end{eqn}%
+Again from Equation~\ref{eq.rs-rm}, $r_s=19r_m$, so
+\[
+r_m=\frac{20}{57}r_e\,.
+\]
+By Equation~\ref{eq.re}, $r_e\approx 6107$ km, by Equation~\ref{eq.dm-rm}, $d_m=57r_m$, and by Equation~\ref{eq.dm-ds}, $d_s=19d_m$, so we can compute the radii and distances.
+
+While the computed values for the radii of the Earth and the Moon are not far off from the modern values \cite[Table~1.3]{hahn-cic}, the other computed values are not near the modern values. Nevertheless, they do show that the Greeks understood the immense size of the solar system.\label{p.table1}
 \begin{center}
-\begin{tabular}{|cl|r|r|}
+\begin{tabular}{|cl|c|r|r|}
 \hline
-\multicolumn{2}{|c|}{}&Computed (km)&Modern (km)\\
+\multicolumn{2}{|c|}{}&Formula&Computed (km)&Modern (km)\\
 \hline\hline
-$r_e$&radius of Earth& $6107$   & $6370$\\
-$r_m$&radius of Moon&  $2143$   & $1740$\\
-$r_s$&radius of Sun&   $40,713$ & $695,500$\\
-$d_m$&distance Earth-Moon& $122,140$   & $384,570$\\
-$d_s$&distance Earth-Sun&  $2,320,660$ & $150,000,000$\\
+$r_e$&radius of Earth&& $6107$   & $6370$\\
+$r_m$&radius of Moon& $(20/57)r_e$& $2143$   & $1740$\\
+$r_s$&radius of Sun& $19r_m$ &$40,713$ & $695,500$\\
+$d_m$&distance Earth-Moon&$57r_m$& $122,140$   & $384,570$\\
+$d_s$&distance Earth-Sun&$19 d_m$ &$2,320,660$ & $150,000,000$\\
 \hline
 \end{tabular}
 \end{center}

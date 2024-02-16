@@ -1,14 +1,26 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{mathpazo}
+\usepackage{times}
 \usepackage{microtype}
 \usepackage{verbatim}
 \usepackage{url}
+\usepackage{wrapfig}
+
+% Fancy header: chapter and page number in header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\fancyhead[C]{}
+\fancyfoot[L,C,R]{}
 
 % Use natbib for bibliography as section, not chapter
 \usepackage[sectionbib,square,numbers]{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Less space before titles
 \usepackage{titlesec}
@@ -16,17 +28,6 @@
   {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{5pt}{\huge}
 \titlespacing{\chapter}{0pt}{-4\parskip}{4\parskip}
 \titlespacing{\section}{0pt}{\parskip}{\parskip}
-
-% TikZ package
-\usepackage{tikz}
-\usetikzlibrary{calc,arrows.meta,shapes,intersections,through}
-\tikzset {>=Stealth}
-
-% Display small vertex not affected by tikz scale
-\newcommand*{\vertexsm}[1]
-  {\fill[shift only] (#1) circle (1.5pt)}
-\newcommand*{\vertexsmcolor}[2]
-  {\fill[shift only,#2] (#1) circle (1.5pt)}
 
 % Very small math
 \newcommand*{\sm}[1]{$\scriptstyle #1$}
@@ -43,6 +44,8 @@
    \begin{eqnarray}}
   {\end{eqnarray}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Environments for theorems and proofs  
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}[theorem]{Definition}
@@ -53,7 +56,25 @@
 \newcommand*{\hqed}{$\quad$\rule{4pt}{10pt}}
 \newcommand*{\fqed}{\quad\rule{4pt}{10pt}}
 
-% LaTeX defaults for figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page layout
+\textwidth=145mm
+\headwidth=\textwidth
+\textheight=225mm
+\topmargin=0pt
+\headheight=25pt
+\oddsidemargin=2em
+\evensidemargin=0mm
+\headsep=15pt
+\parindent=0pt
+%\renewcommand{\baselinestretch}{1}
+\setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
+\setlength{\fboxrule}{1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Change LaTeX defaults for figures to allow more figures on a page
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.9}
 \setcounter{topnumber}{2}
@@ -64,18 +85,18 @@
 \setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
 \setlength{\belowcaptionskip}{0pt plus 1pt minus 1pt}
 
-% Layout
-\textwidth=150mm
-\textheight=225mm
-\topmargin=0pt
-\headheight=11pt
-\oddsidemargin=1em
-\evensidemargin=0mm
-\headsep=0pt
-\parindent=0pt
-\renewcommand{\baselinestretch}{1.1}
-\setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
-\setlength{\fboxrule}{1pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TikZ package
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,shapes,intersections,through}
+\tikzset {>=Stealth}
+
+% Display small vertex not affected by tikz scale
+\newcommand*{\vertexsm}[1]
+  {\fill[shift only] (#1) circle (1.5pt)}
+\newcommand*{\vertexsmcolor}[2]
+  {\fill[shift only,#2] (#1) circle (1.5pt)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TikZ pics

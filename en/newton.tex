@@ -1,4 +1,5 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,7 +28,7 @@ Forces are denoted by vectors, where the direction of the vector represents the 
 \begin{minipage}{.45\textwidth}
 \begin{center}
 \begin{tikzpicture}
-
+\clip[draw] (-1,-.5) rectangle +(6,3.2);
 % Define center point
 \coordinate (O) at (0,0);
 \node[above right,xshift=20pt] at (O) {$\theta$};
@@ -47,11 +48,10 @@ Forces are denoted by vectors, where the direction of the vector represents the 
 \end{center}
 \end{minipage}
 %%%%%%%%%%%%%%
-\hfill
 \begin{minipage}{.45\textwidth}
 \begin{center}
 \begin{tikzpicture}
-
+\clip[draw] (-1,-.5) rectangle +(6,3.2);
 % Define center piont
 \coordinate (O) at (0,0);
 
@@ -68,7 +68,7 @@ Forces are denoted by vectors, where the direction of the vector represents the 
 \draw[->,style={shorten >= 6pt},dashed] (F2) -- (F);
 \draw[->] (O) --  node[left,xshift=-3pt,yshift=2pt] {$F_2$} (F2);
 \end{tikzpicture}
-\caption{Arbitrary components of a force}\label{f.grav-forces2}
+\caption{The parallelogram formed by two forces}\label{f.grav-forces2}
 \end{center}
 \end{minipage}
 \end{figure}
@@ -79,11 +79,11 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[tb]
+\begin{figure}[t]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}
-
+\clip[draw] (-3.5,-2.2) rectangle +(7,5);
 % Size and center of the ellipse
 \def\a{3}
 \def\b{2}
@@ -131,7 +131,7 @@ Newton was interested in \emph{centripetal force} which is a force exerted by a 
 \begin{minipage}{.5\textwidth}
 \begin{center}
 \begin{tikzpicture}
-
+\clip[draw] (-3.5,-2.2) rectangle +(7,5);
 % Size and center of the ellipse
 \def\a{3}
 \def\b{2}
@@ -190,15 +190,15 @@ The proof is based on dividing an area into very small sectors and then taking t
 
 Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The planet moves from $A$ to $B$ and we expect that the centripetal force at $B$ will cause an acceleration that moves the planet to $C$, the next point on the orbit. Instead, we ``pretend'' that the force is not applied at $B$, but, in the absence of an applied force, planet continues to move in the same direction and at the same speed. After another period of $\Delta t$ as passed and the planet has reached point $C'$, the force is now applied \emph{in the same direction} as it would have been applied at $B$, moving the planet to $C$. 
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
-
+\clip[draw] (2,-.4) rectangle +(3.3,4.5);
 % Padding to align captions
 \path (3,3.6) rectangle +(2,.5);
 
-\clip (2,-.4) rectangle +(3.5,4);
+\clip[draw] (2,-.4) rectangle +(3.5,4);
 
 % Size and center of the ellipse
 \def\a{5.25}
@@ -236,7 +236,7 @@ Figure~\ref{f.grav-small} shows how the force is exerted in discrete steps. The 
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
-\clip (2,-.4) rectangle +(3.6,4.5);
+\clip[draw] (2,-.4) rectangle +(3.3,4.5);
 
 % Size and center of the ellipse
 \def\a{5.25}
@@ -299,12 +299,12 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=1.4]
 
-\clip (2,-.4) rectangle +(3.5,4.5);
+\clip[draw] (2,-.4) rectangle +(3.5,4.5);
 
 % Size and center of the ellipse
 \def\a{5.25}
@@ -358,12 +358,9 @@ The area of $\triangle ASB$ is equal to the area of $\triangle BSC$.
 %%%%%%%%%%%
 \begin{minipage}{.48\textwidth}
 \begin{center}
-\begin{tikzpicture}[scale=1.3]
+\begin{tikzpicture}[scale=1.4]
 
-% Align captions
-\path (4,4.3) -- +(1,0);
-
-\clip (2,-.4) rectangle +(3.2,4.2);
+\clip[draw] (2,-.4) rectangle +(3.5,4.5);
 
 % Size and center of the ellipse
 \def\a{5.25}
@@ -455,7 +452,7 @@ Newton's next step was to show that if the orbit of a planet is elliptical, the 
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-4.6,-.6) rectangle +(9.5,4.3);
+\clip[draw] (-4.6,-.6) rectangle +(9.5,4.3);
 
 % Size and center of the ellipse
 \def\a{4.5}

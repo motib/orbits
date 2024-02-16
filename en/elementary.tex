@@ -1,20 +1,23 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
 
 \chapter{Theorems of Euclidean Geometry}\label{s.elementary}
 
 \section{Constructing a circle from three points}
 
 \begin{theorem}\label{thm.three-points}
-Given three non-collinear points,\footnote{\emph{Collinear} means that the points all on the same line.} a circle can be constructed that goes through all three points.
+Given three non-collinear points a circle can be constructed that goes through all three points.
 \end{theorem}
 
 \begin{proof}
-Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\ref{f.kepler-circumscribed}). Construct the perpendicular bisectors of any two of its three sides, say, $AC$ and $BC$. By definition the perpendicular bisector is the geometric locus of points equidistant from the endpoints of the segment. Let $O$ be the intersection of the two bisectors. Then the $AO=CO=BO$ is the radius of a circle centered at $O$ that goes through $A,B,C$.\hqed
+Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\ref{f.kepler-circumscribed}). Construct the perpendicular bisectors of any two of its three sides, say, $AC$ and $BC$. By definition the perpendicular bisector is the locus of points equidistant from the endpoints of the segment. Let $O$ be the intersection of the two bisectors. Then the $AO=CO=BO$ is the radius of a circle centered at $O$ that goes through $A,B,C$.\hqed
 \end{proof}
 
 \begin{figure}[b]
+\begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.8]
+  \clip[draw] (-1,-1.8) rectangle +(7,6.5);
   % Define the coordinates of an arbitrary triangle,
   %   label the vertices and draw dots at each vertex
   \coordinate[label = left:$A$]  (A) at ( 0, 0);
@@ -46,8 +49,49 @@ Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\re
   \draw[rotate=200] (BC) rectangle +(7pt,7pt);
 
 \end{tikzpicture}
-\caption{A circle through three arbitrary points}\label{f.kepler-circumscribed}
+\caption{A circle through three points}\label{f.kepler-circumscribed}
 \end{center}
+\end{minipage}
+\begin{minipage}{.50\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+  \clip[draw] (-4.6,-1.8) rectangle +(9.2,6.5);
+\def\a{4.33}
+\def\b{3}
+
+% Draw a hemi-ellipse and a circumscribing hemi-circle
+\coordinate (O) at (0,0);
+\draw[name path=circle] (\a,0) arc(0:180:\a);
+
+% Draw axes through O
+\coordinate (L) at (-\a,0);
+\coordinate (R) at (\a,0);
+\draw[name path=major] (L) node[below] {$A$} -- (O) -- (R) node[below] {$A'$};
+
+% Choose arbitrary point on major-axis, raise a perpendicular
+%   and label its intersections with the ellipse and the circle
+\coordinate (N) at (-2,0);
+\path[name path=atN] (N) -- ($(N)+(0,\a)$);
+\path [name intersections = {of = atN and circle, by = {Q} }];
+\draw (N) -- (Q);
+\draw (L) -- (Q) -- (R);
+
+\draw[rotate=-120] (Q) rectangle +(8pt,8pt);
+\draw (N) rectangle +(8pt,8pt);
+
+% Label X and the intersections
+\node[below] at (N) {$N$};
+\node[above] at (Q) {$Q$};
+
+\node[above right,xshift=6pt] at (L) {$90^\circ\!-\!\alpha$};
+\node[below right,yshift=-16pt] at (Q) {$90^\circ\!-\!\alpha$};
+\node[above left,xshift=-14pt] at (R) {$\alpha$};
+\node[below left,yshift=-18pt] at (Q) {$\alpha$};
+
+\end{tikzpicture}
+\caption{Right triangle in a circle}\label{f.circle-besant}
+\end{center}
+\end{minipage}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,45 +146,45 @@ An angle that subtends a diameter is a right angle. Since the sum of the angles 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
-\begin{center}
-\begin{tikzpicture}[scale=.7]
-\def\a{4.33}
-\def\b{3}
-
+%\begin{figure}[t]
+%\begin{center}
+%\begin{tikzpicture}[scale=.7]
+%\def\a{4.33}
+%\def\b{3}
+%
 % Draw a hemi-ellipse and a circumscribing hemi-circle
-\coordinate (O) at (0,0);
-\draw[name path=circle] (\a,0) arc(0:180:\a);
-
+%\coordinate (O) at (0,0);
+%\draw[name path=circle] (\a,0) arc(0:180:\a);
+%
 % Draw axes through O
-\coordinate (L) at (-\a,0);
-\coordinate (R) at (\a,0);
-\draw[name path=major] (L) node[below] {$A$} -- (O) -- (R) node[below] {$A'$};
-
+%\coordinate (L) at (-\a,0);
+%\coordinate (R) at (\a,0);
+%\draw[name path=major] (L) node[below] {$A$} -- (O) -- (R) node[below] {$A'$};
+%
 % Choose arbitrary point on major-axis, raise a perpendicular
 %   and label its intersections with the ellipse and the circle
-\coordinate (N) at (-2,0);
-\path[name path=atN] (N) -- ($(N)+(0,\a)$);
-\path [name intersections = {of = atN and circle, by = {Q} }];
-\draw (N) -- (Q);
-\draw (L) -- (Q) -- (R);
-
-\draw[rotate=-120] (Q) rectangle +(8pt,8pt);
-\draw (N) rectangle +(8pt,8pt);
-
+%\coordinate (N) at (-2,0);
+%\path[name path=atN] (N) -- ($(N)+(0,\a)$);
+%\path [name intersections = {of = atN and circle, by = {Q} }];
+%\draw (N) -- (Q);
+%\draw (L) -- (Q) -- (R);
+%
+%\draw[rotate=-120] (Q) rectangle +(8pt,8pt);
+%\draw (N) rectangle +(8pt,8pt);
+%
 % Label X and the intersections
-\node[below] at (N) {$N$};
-\node[above] at (Q) {$Q$};
-
-\node[above right,xshift=6pt] at (L) {$90^\circ\!-\!\alpha$};
-\node[below right,yshift=-16pt] at (Q) {$90^\circ\!-\!\alpha$};
-\node[above left,xshift=-14pt] at (R) {$\alpha$};
-\node[below left,yshift=-18pt] at (Q) {$\alpha$};
-
-\end{tikzpicture}
-\caption{Right triangle in a circle at the diameter}\label{f.circle-besant}
-\end{center}
-\end{figure}
+%\node[below] at (N) {$N$};
+%\node[above] at (Q) {$Q$};
+%
+%\node[above right,xshift=6pt] at (L) {$90^\circ\!-\!\alpha$};
+%\node[below right,yshift=-16pt] at (Q) {$90^\circ\!-\!\alpha$};
+%\node[above left,xshift=-14pt] at (R) {$\alpha$};
+%\node[below left,yshift=-18pt] at (Q) {$\alpha$};
+%
+%\end{tikzpicture}
+%\caption{Right triangle in a circle at the diameter}\label{f.circle-besant}
+%\end{center}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -220,9 +264,10 @@ For the adjacent pair of similar triangles in Figure~\ref{f.adjacent},
 
 Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ by using an intermediate step with $AC$. We will use the term \emph{by an adjacent pair of similar triangles} and leave it to the reader to make the intermediate step.
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
+\clip[draw] (-1,-2.5) rectangle +(8.7,5.5);
 
 % Construct a vertical line and locate three points
 \coordinate (A) at (0,-2);
@@ -275,9 +320,10 @@ In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bise
 \end{theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
+\clip[draw] (-.6,-2.5) rectangle +(9.2,6);
 
 % Draw base and paths of two lines at known angles
 \draw (0,0) coordinate (b) node[left] {$B$} -- 
@@ -342,9 +388,10 @@ In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the trian
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
+\clip[draw] (-2.5,-.8) rectangle +(11,3);
 
 % Draw base and paths of two lines at known angles
 \path (0,0) coordinate (b) node[below] {$B$} -- 

@@ -1,4 +1,5 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
 
 \chapter{Lagrange points}\label{s.lagrange}
 
@@ -9,7 +10,7 @@ In this section we present an approximate derivation of the locations of $L1, L2
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
-\clip (-4.1,-4.3) rectangle +(8.7,8.4);
+\clip[draw] (-4.1,-4.3) rectangle +(8.7,8.4);
 \def\rone{2}
 \def\re{3}
 \def\rtwo{4}
@@ -35,12 +36,12 @@ In this section we present an approximate derivation of the locations of $L1, L2
 \coordinate (L3) at ({-\re},0);
 \node[left] at (L3) {$L3$};
 \vertexsm{L3};
-\draw[dotted,thick] (S) -- +(60:{\re}) coordinate (L4);
-\draw[dotted,thick] (E) -- (L4);
+\draw[dashed,thick] (S) -- +(60:{\re}) coordinate (L4);
+\draw[dashed,thick] (E) -- (L4);
 \node[above,yshift=2pt] at (L4) {$L4$};
 \vertexsm{L4};
-\draw[dotted,thick] (S) -- +(-60:{\re}) coordinate (L5);
-\draw[dotted,thick] (E) -- (L5);
+\draw[dashed,thick] (S) -- +(-60:{\re}) coordinate (L5);
+\draw[dashed,thick] (E) -- (L5);
 \node[below,yshift=-2pt] at (L5) {$L5$};
 \vertexsm{L5};
 \draw (L3) -- (L2);
@@ -55,14 +56,14 @@ In this section we present an approximate derivation of the locations of $L1, L2
 
 \section{Lagrange point $L1$}
 
-\enlargethispage{\baselineskip}
-
 We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun and that the masses of the two satisfy $m_E \ll m_S$. Let us suppose that we wish to place a space telescope $T$ of mass $m_T \ll m_E$ in a circular orbit at distance $r_1\ll r_E$ from the Earth (Figure~\ref{f.lagrange1}), such that $T$ has the same orbital period as the Earth (one year). Is this possible?
 
 \begin{figure}
+\begin{minipage}{.5\textwidth}
 \begin{center}
-\begin{tikzpicture}
-\clip (-.5,-1) rectangle +(7,2);
+\begin{tikzpicture}[scale=.9]
+\clip[draw] (-.5,-.5) rectangle +(7.1,5.2);
+\begin{scope}[yshift=2cm]
 \def\re{6}
 \def\rone{4}
 \coordinate (S) at (0,0);
@@ -80,32 +81,15 @@ We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun a
   node[fill=white] {$r_1$} (E);
 \draw[<->] ($(S)+(0,-16pt)$) --
   node[fill=white] {$r_E$} ($(E)+(0,-16pt)$);
+\end{scope}
 \end{tikzpicture}
-\end{center}
 \caption{Lagrange point $L1$}\label{f.lagrange1}
-\end{figure}
-If we ignore the gravitational force exerted by $E$ on $T$ at $L1$, obviously not, because by Kepler's third law
-\[
-\frac{A_E^3}{T_E^2} = \frac{A_1^3}{T_E^2}\,,
-\]
-so $A_1=A_E$ and $T$ must be located at the center of the Earth. Can the gravitational force exerted by $E$ on $T$ cause $T_1=T_E$ while $r_1$ is greater than the radius of the Earth?
-
-You might think that $T$ should be placed so that the gravitational force exerted by the Sun is exactly balanced by the gravitational force exerted by the Earth, but, of course, if there is no net force on $T$, by Newton's first law $T$ would simply move in a straight line off into space. Instead, we want the net centripetal force on $T$ to be
-\begin{equation}
-F = \frac{Gm_Sm_T}{r'^2}-\frac{Gm_Em_T}{r_1^2}\,,\label{eqn.force-diff}
-\end{equation}
-so that it moves in an orbit with period $T_E$. To simplify notation we let $r'=r_E-r_1$.
-
-Since the length of the orbit of $T$ at $L1$ is $2\pi r'$, $T$'s velocity is
-\begin{equation}
-v_1 = \frac{2\pi r'}{T_1}\,.\label{eqn.velocity}
-\end{equation}
-As Newton did in his investigation of elliptical orbits, the motion from $A$ to $D$ is separated into a tangential motion $AC$ where there is no force on $T$, followed by motion towards the center with a centripetal force from $C$ to $S$ (Figure~\ref{f.grav-lagrange}). The distances indicated are those of the non-accelerated motion $v_t\Delta t$ and the accelerated motion $\frac{1}{2} a (\Delta t)^2$ during a very small time period $\Delta t$. We need to find the acceleration $a$ that will cause $T$ to reach $D$.
-\begin{figure}[t]
+\end{center}
+\end{minipage}
+\begin{minipage}{.46\textwidth}
 \begin{center}
-\begin{tikzpicture}
-\clip (-5.5,-.5) rectangle +(6,5);
-
+\begin{tikzpicture}[scale=.9]
+\clip[draw] (-5.5,-.5) rectangle +(6,5.2);
 \def\r{4}
 \coordinate (S) at (0,0);
 \node[below] at (S) {$S$};
@@ -125,9 +109,57 @@ As Newton did in his investigation of elliptical orbits, the motion from $A$ to 
 \draw (S) -- node[left,xshift=-4pt] {$r'$} (D);
 \draw[->] (A) arc (90:120:{\r});
 \end{tikzpicture}
-\caption{Non-accelerated and accelerated motion}\label{f.grav-lagrange}
+\caption{Tangential and central motion}\label{f.grav-lagrange}
 \end{center}
+\end{minipage}
 \end{figure}
+
+\newpage
+
+If we ignore the gravitational force exerted by $E$ on $T$ at $L1$, obviously not, because by Kepler's third law
+\[
+\frac{A_E^3}{T_E^2} = \frac{A_1^3}{T_E^2}\,,
+\]
+so $A_1=A_E$ and $T$ must be located at the center of the Earth. Can the gravitational force exerted by $E$ on $T$ cause $T_1=T_E$ while $r_1$ is greater than the radius of the Earth?
+
+You might think that $T$ should be placed so that the gravitational force exerted by the Sun is exactly balanced by the gravitational force exerted by the Earth, but, of course, if there is no net force on $T$, by Newton's first law $T$ would simply move in a straight line off into space. Instead, we want the net centripetal force on $T$ to be
+\begin{equation}
+F = \frac{Gm_Sm_T}{r'^2}-\frac{Gm_Em_T}{r_1^2}\,,\label{eqn.force-diff}
+\end{equation}
+so that it moves in an orbit with period $T_E$. To simplify notation we let $r'=r_E-r_1$.
+
+Since the length of the orbit of $T$ at $L1$ is $2\pi r'$, $T$'s velocity is
+\begin{equation}
+v_1 = \frac{2\pi r'}{T_1}\,.\label{eqn.velocity}
+\end{equation}
+As Newton did in his investigation of elliptical orbits, the motion from $A$ to $D$ is separated into a tangential motion $AC$ where there is no force on $T$, followed by motion towards the center with a centripetal force from $C$ to $S$ (Figure~\ref{f.grav-lagrange}). The distances indicated are those of the non-accelerated motion $v_t\Delta t$ and the accelerated motion $\frac{1}{2} a (\Delta t)^2$ during a very small time period $\Delta t$. We need to find the acceleration $a$ that will cause $T$ to reach $D$.
+%\begin{figure}[t]
+%\begin{center}
+%\begin{tikzpicture}
+%\clip[draw] (-5.5,-.5) rectangle +(6,5);
+%
+%\def\r{4}
+%\coordinate (S) at (0,0);
+%\node[below] at (S) {$S$};
+%\coordinate (A) at (0,{\r});
+%\node[above] at (A) {$A$};
+%\draw (0,{\r}) arc(90:180:{\r});
+%\draw (S) -- node[right] {$r'$} (A);
+%\coordinate (D) at (140:{\r});
+%\node[below,yshift=-4pt] at (D) {$D$};
+%\path[name path=radius] (S) -- (140:{2*\r});
+%\path[name path=ac] (A) -- +({-1.5*\r},0);
+%\path [name intersections = {of = radius and ac, by = {C} }];
+%\node[above] at (C) {$C$};
+%\draw[->] (A) -- node[above] {$v_1\Delta t$} (C);
+%\draw[->] (C) -- node[right,xshift=2pt] {$x$} 
+%  node[left,xshift=-4pt,yshift=-2pt] {$\frac{1}{2} a (\Delta t)^2$} (D);
+%\draw (S) -- node[left,xshift=-4pt] {$r'$} (D);
+%\draw[->] (A) arc (90:120:{\r});
+%\end{tikzpicture}
+%\caption{Non-accelerated and accelerated motion}\label{f.grav-lagrange}
+%\end{center}
+%\end{figure}
 By Pythagoras's theorem ,
 \begin{eqn}
 r'^2 + (v_1\Delta t)^2 &=& (r'+x)^2 =r'^2 + 2r'x + x^2\\
@@ -190,7 +222,7 @@ The approximations based on the Taylor series are $(1+z)^{-3}\approx 1-3z$ and $
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
-\clip (-.5,-1) rectangle +(9,2);
+\clip[draw] (-.5,-1) rectangle +(9,2);
 \def\re{6}
 \def\rtwo{8}
 \coordinate (S) at (0,0);
@@ -216,7 +248,7 @@ The approximations based on the Taylor series are $(1+z)^{-3}\approx 1-3z$ and $
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
-\clip (-7,-1) rectangle +(14,2);
+\clip[draw] (-7,-1) rectangle +(14,2);
 \def\re{6}
 \coordinate (S) at (0,0);
 \node[above left] at (S) {$S$};

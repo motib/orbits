@@ -1,4 +1,5 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
 
 \chapter{The Two Definitions of an Ellipse}\label{s.two-defs}
 
@@ -21,6 +22,7 @@ Section~\ref{s.2a} proves in Euclidean geometry that $SP+PS'$ is equal to $AA'$,
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+\clip[draw] (-6.5,-3) rectangle +(11,6);
 % Ellipse
 \def\a{3.75}
 \def\b{2.5}
@@ -121,21 +123,14 @@ Conversely,
 d=a\cdot\frac{1-e^2}{e}=3\cdot \frac{4/9}{\sqrt{5}/3}=\frac{4}{\sqrt{5}}\,.
 \]
 
-Figure~\ref{f.two-defs} was drawn with $d=\sqrt{5}$ giving:
+Figure~\ref{f.two-defs} was drawn with $d=\sqrt{5}$ giving
 \[
 a=15/4=3.75,\qquad b=5/2 = 2.5,\qquad c = 5\sqrt{5}/4\approx 2.8\,.
 \]
 
 \section{The sum of the distances to the foci equals the major axis}\label{s.2a}
 
-\begin{theorem}
-In Figure~\ref{f.cacx}, which shows the points on the major axis of an ellipse,
-\begin{equation}
-\frac{SA}{AX}=\frac{AA'}{XX'}\,.\label{eqn.cacx}
-\end{equation}
-\end{theorem}
-
-\begin{figure}[ht]
+The following Figure shows the points on the major axis of an ellipse.
 \begin{center}
 \begin{tikzpicture}[scale=1.25]
 
@@ -164,10 +159,14 @@ In Figure~\ref{f.cacx}, which shows the points on the major axis of an ellipse,
 \draw (X) -- (XP);
 
 \end{tikzpicture}
-\caption{The major axis of an ellipse}
-\label{f.cacx}
 \end{center}
-\end{figure}
+
+\begin{theorem}
+In the Figure, 
+\begin{equation}
+\frac{SA}{AX}=\frac{AA'}{XX'}\,.\label{eqn.cacx}
+\end{equation}
+\end{theorem}
 
 \begin{proof}
 From the Figure we see that
@@ -192,6 +191,7 @@ $SP+S'P = AA'$.
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
+\clip[draw] (-4.6,-2.2) rectangle +(9.2,4.6);
 % Ellipse
 \def\a{3}
 \def\b{2}

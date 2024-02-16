@@ -1,4 +1,5 @@
 % !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
 
 \chapter{Ellipses in Euclidean geometry}\label{s.geometry}
 
@@ -22,7 +23,7 @@ The computation of $AX$ and $A'X$ from the given $SX$ is presented in Appendix~\
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
-\clip (-.5,-2) rectangle +(7,4);
+\clip[draw] (-.5,-2) rectangle +(7,4);
 
 % Construct the directrix and the focus
 \coordinate (X) at (0,0);
@@ -61,7 +62,7 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-1,-2.2) rectangle +(9.5,4.5);
+\clip[draw] (-1,-2.2) rectangle +(9.5,4.5);
 
 % Construct the directrix, the focus and the major axis
 \coordinate (X) at (0,0);
@@ -152,7 +153,7 @@ By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-4.1,-3) rectangle +(7.2,5.7);
+\clip[draw] (-4.1,-3) rectangle +(7.2,5.7);
 
 \def\a{3}
 \def\b{2}
@@ -215,7 +216,7 @@ By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-.6,-2.1) rectangle +(10.2,6.2);
+\clip[draw] (-.6,-2.1) rectangle +(10.2,6.2);
 
 % Construct the directrix and the focus
 \coordinate (X) at (0,0);
@@ -301,7 +302,7 @@ Let $P$ be a point on an ellipse not on the major axis and construct perpendicul
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-7,-2) rectangle +(12,6.3);
+\clip[draw] (-7,-2) rectangle +(12,6.3);
 \def\a{4.5}
 \def\b{3}
 
@@ -401,48 +402,109 @@ By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theor
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
+\clip[draw] (-3.8,-3.5) rectangle +(7.6,7.2);
 
-\clip (-4,-.5) rectangle +(8,3.6);
-
-\def\a{3}
+\def\a{3.2}
 \def\b{2}
+\pic{ellipse={{\a}/{\b}}};
 
-% Semi-ellipse and semi-circle
-\pic{semi-ellipse={\a}/{\b}};
-\draw[name path=circle] (\a,0)
-  arc[start angle=0,end angle=180,radius=\a];
+\draw[name path=circle] circle[radius={\a}];
+\node[below] at (F1) {$S$};
+\node[below right] at (F2) {$H$};
+\node[above] at (Top) {$B$};
+\node[below] at (Bot) {$B'$};
+\node[right] at (Right) {$A$};
+\node[left] at (Left) {$A'$};
 
-\node[below] at (Left) {$A$};
-\node[below] at (Right) {$A'$};
-\node[below] at (O) {$O$};
+% Draw axes through O
+\draw (F1) -- (O) -- (F2);
+\draw[name path=minor] (O) -- node[right] {$b$} (Top);
 
-% Choose arbitrary point on major-axis, raise a perpendicular
-%   and label its intersections with the ellipse and the circle
-\coordinate (N) at (-2,0);
-\path[name path=atN] (N) -- ($(N)+(0,\a)$);
-\path [name intersections = {of = atN and circle, by = {Q} }];
-\draw (N) -- (Q);
+\coordinate (X) at (-1,0);
+\path[name path=atX] (X) -- ($(X)+(0,4.5)$);
+\path [name intersections = {of = atX and ellipse, by = {E1} }];
+\path [name intersections = {of = atX and circle, by = {C1} }];
+\draw (X) -- (C1);
 
 % Label X and the intersections
-\node[below] at (N) {$N$};
-\node[above] at (Q) {$Q$};
-\path [name intersections = {of = atN and ellipse, by = {P} }];
-\node[below right] at (P) {$P$};
-\draw (N) rectangle +(6pt,6pt);
+%\node[below] at (X) {$X$};
+%\node[above] at (C1) {$P_c$};
+%\node[above left,xshift=2pt,yshift=-2pt] at (E1) {$P_e$};
+\node[below] at (X) {$N$};
+\node[above] at (C1) {$Q$};
+\node[above left,xshift=2pt,yshift=-2pt] at (E1) {$P$};
+
 \draw (O) rectangle +(6pt,6pt);
+\draw (X) rectangle +(6pt,6pt);
+
+% Draw latus rectum as intersections of perpendicular at H
+%  with the ellipse
+\path[name path=LR] ($(F2)+(0,-2.5)$) -- ($(F2)+(0,2.5)$);
+\path [name intersections = {of = ellipse and LR, by = {LR1,LR2} }];
+\path [name intersections = {of = circle and LR, by = {LR1c,LR2c} }];
+\draw[very thick,red] (LR1) -- (LR2);
+
+% Label endpoint of the LR
+\node[above] at (LR1) {$L_1$};
+\node[below] at (LR2) {$L_2$};
+\draw (F2) rectangle +(5pt,5pt);
+\draw (F1) -- node[near start,above] {$a$} (Top) -- node[above] {$a$} (F2);
+
+% Length of LR
+\draw[<->,dashed,thick] ($(LR1)+(-.3,0)$) --
+  node[left,xshift=2pt,yshift=-8pt] {$L$} ($(LR2)+(-.3,0)$);
 
 \end{tikzpicture}
-\caption{A circle circumscribing an ellipse}\label{f.ellipse-circle-besant}
+\caption{The circumscribed circle and the latus rectum of an ellipse}\label{f.ellipse-latus-rectum-geometry}
 \end{center}
 \end{figure}
 
+
+%\begin{figure}[t]
+%\begin{center}
+%\begin{tikzpicture}
+%
+%\clip[draw] (-4,-.5) rectangle +(8,3.6);
+%
+%\def\a{3}
+%\def\b{2}
+%
+%% Semi-ellipse and semi-circle
+%\pic{semi-ellipse={\a}/{\b}};
+%\draw[name path=circle] (\a,0)
+%  arc[start angle=0,end angle=180,radius=\a];
+%
+%\node[below] at (Left) {$A$};
+%\node[below] at (Right) {$A'$};
+%\node[below] at (O) {$O$};
+%
+%% Choose arbitrary point on major-axis, raise a perpendicular
+%%   and label its intersections with the ellipse and the circle
+%\coordinate (N) at (-2,0);
+%\path[name path=atN] (N) -- ($(N)+(0,\a)$);
+%\path [name intersections = {of = atN and circle, by = {Q} }];
+%\draw (N) -- (Q);
+%
+%% Label X and the intersections
+%\node[below] at (N) {$N$};
+%\node[above] at (Q) {$Q$};
+%\path [name intersections = {of = atN and ellipse, by = {P} }];
+%\node[below right] at (P) {$P$};
+%\draw (N) rectangle +(6pt,6pt);
+%\draw (O) rectangle +(6pt,6pt);
+%
+%\end{tikzpicture}
+%\caption{A circle circumscribing an ellipse}\label{f.ellipse-circle-besant}
+%\end{center}
+%\end{figure}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{A circle circumscribing an ellipse}
 
 The following theorem proves Theorem~\ref{thm.ellipse-b-over-a} in Euclidean geometry.
 \begin{theorem}\label{thm.ellipse-b-over-a-besant}
-Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-circle-besant}). Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively. Then
+Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-latus-rectum-geometry}).\footnote{The figure is the same as Figure~\ref{f.ellipse-latus-rectum} with a change of notation.} Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively. Then
 \[
 \frac{PN}{QN}=\frac{BC}{AC}=\frac{b}{a}\,.
 \]
@@ -457,37 +519,37 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
-\begin{center}
-\begin{tikzpicture}
-
-\clip (-3.5,-2.2) rectangle +(7,4.8);
-
-% Size and center of the ellipse
-\def\a{3}
-\def\b{2}
-
-\pic{ellipse={{\a}/{\b}}};
-\draw (F1) -- node[above] {$a$} (Top);
-\draw (O) -- node[right] {$b$} (Top);
-\node[below right] at (F1) {$S$};
-
-\node[left] at (Left) {$A$};
-\node[right] at (Right) {$A'$};
-\node[below right] at (O) {$O$};
-\node[above] at (Top) {$B$};
-
-% Locate intersections of LR with the ellipse and draw it
-\path[name path=atS] (F1) -- ($(F1)+(0,3)$) -- ($(F1)+(0,-3)$);
-\path [name intersections = {of = atS and ellipse, by = {L,LP} }];
-\node[above,yshift=2pt] at (L) {$L_1$};
-\node[below] at (LP) {$L_2$};
-\draw[thick,red] (L) -- (LP);
-
-\end{tikzpicture}
-\caption{The latus rectum of an ellipse}\label{f.ellipse-latus-rectum-besant}
-\end{center}
-\end{figure}
+%\begin{figure}[t]
+%\begin{center}
+%\begin{tikzpicture}
+%
+%\clip[draw] (-3.5,-2.2) rectangle +(7,4.8);
+%
+%% Size and center of the ellipse
+%\def\a{3}
+%\def\b{2}
+%
+%\pic{ellipse={{\a}/{\b}}};
+%\draw (F1) -- node[above] {$a$} (Top);
+%\draw (O) -- node[right] {$b$} (Top);
+%\node[below right] at (F1) {$S$};
+%
+%\node[left] at (Left) {$A$};
+%\node[right] at (Right) {$A'$};
+%\node[below right] at (O) {$O$};
+%\node[above] at (Top) {$B$};
+%
+%% Locate intersections of LR with the ellipse and draw it
+%\path[name path=atS] (F1) -- ($(F1)+(0,3)$) -- ($(F1)+(0,-3)$);
+%\path [name intersections = {of = atS and ellipse, by = {L,LP} }];
+%\node[above,yshift=2pt] at (L) {$L_1$};
+%\node[below] at (LP) {$L_2$};
+%\draw[thick,red] (L) -- (LP);
+%
+%\end{tikzpicture}
+%\caption{The latus rectum of an ellipse}\label{f.ellipse-latus-rectum-besant}
+%\end{center}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -496,7 +558,7 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 The following theorem proves Theorem~\ref{thm.ellipse-lr} in Euclidean geometry.
 \begin{theorem}\label{thm.ellipse-lr-besant}
 $L$, the length of the latus rectum of an ellipse, is 
-$\displaystyle\frac{2b^2}{a}$ (Figure~\ref{f.ellipse-latus-rectum-besant}).
+$\displaystyle\frac{2b^2}{a}$ (Figure~\ref{f.ellipse-latus-rectum-geometry}).
 \end{theorem}
 \begin{proof}
 By Theorem~\ref{thm.ratios-besant},
@@ -543,7 +605,7 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-5,-.5) rectangle +(13,5.3);
+\clip[draw] (-5,-.5) rectangle +(13,5.3);
 
 % Size and center of the ellipse
 \def\a{4.5}
@@ -614,7 +676,7 @@ Let $N$ be the intersection of the perpendicular through $P$ to the major axis (
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-4.8,-.5) rectangle +(14.2,5.1);
+\clip[draw] (-4.8,-.5) rectangle +(14.2,5.1);
 
 % Size and center of the ellipse
 \def\a{4.5}
@@ -702,7 +764,7 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-5,-3.2) rectangle +(12.4,7.4);
+\clip[draw] (-5,-3.2) rectangle +(12.4,7.4);
 
 % Size and center of the ellipse
 \def\a{4.5}
@@ -836,7 +898,7 @@ CN^2&=&AM\cdot MA',\quad CM^2=AN\cdot NA'\\[6pt]
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-5,-2.6) rectangle +(9.5,5.3);
+\clip[draw] (-5,-2.6) rectangle +(9.5,5.3);
 
 % Size and center of the ellipse
 \def\a{3}
@@ -940,7 +1002,7 @@ The area of the parallelogram formed by the tangents at the ends of the conjugat
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
-\clip (-5.2,-3.5) rectangle +(10.4,7.5);
+\clip[draw] (-5.2,-3.5) rectangle +(10.4,7.5);
 
 % Size and center of the ellipse
 \def\a{3.75}
