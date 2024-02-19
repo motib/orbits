@@ -22,13 +22,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Less space before titles
-\usepackage{titlesec}
-\titleformat{\chapter}[display] 
-  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{5pt}{\huge}
-\titlespacing{\chapter}{0pt}{-4\parskip}{4\parskip}
-\titlespacing{\section}{0pt}{\parskip}{\parskip}
-
 % Very small math
 \newcommand*{\sm}[1]{$\scriptstyle #1$}
 
@@ -47,7 +40,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Environments for theorems and proofs  
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{definition}[theorem]{Definition}
 \newenvironment{proof}
 {\textbf{Proof}}{}
@@ -68,7 +61,7 @@
 \evensidemargin=0mm
 \headsep=15pt
 \parindent=0pt
-%\renewcommand{\baselinestretch}{1}
+\renewcommand{\baselinestretch}{1.05}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 \setlength{\fboxrule}{1pt}
 
@@ -82,7 +75,7 @@
 \setcounter{totalnumber}{3}
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.8}
-\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{0pt plus 1pt minus 1pt}
 \setlength{\belowcaptionskip}{0pt plus 1pt minus 1pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

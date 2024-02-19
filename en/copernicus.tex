@@ -13,7 +13,7 @@ Today we know that the universe is immensely large and that the stars are moving
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.67]
-\clip[draw] (-5.1,-5.7) rectangle +(10.2,11.5);
+\clip (-5.1,-5.7) rectangle +(10.2,11.5);
 
 % Draw the orbit of the Earth and the celestial sphere
 \coordinate (S) at (0,0) node[above right,xshift=-2pt,yshift=-2pt] {$O,S$};
@@ -55,7 +55,7 @@ Today we know that the universe is immensely large and that the stars are moving
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.67]
-\clip[draw] (-5.1,-5.7) rectangle +(10.2,11.5);
+\clip (-5.1,-5.7) rectangle +(10.2,11.5);
 
 % Draw the orbit of the Earth and the celestial sphere
 \coordinate (S) at (0,0) node[above right,xshift=-2pt,yshift=-2pt] {$S$};
@@ -108,7 +108,7 @@ Let us assume that the Earth orbits the Sun in a circle such that the center of 
 %\begin{figure}[b]
 %\begin{center}
 %\begin{tikzpicture}
-%\clip[draw] (-6,-3.5) rectangle +(12,7);
+%\clip (-6,-3.5) rectangle +(12,7);
 %
 %% Draw the orbit of the Earth and the celestial sphere
 %\coordinate (S) at (0,0) node[above right,xshift=-2pt,yshift=-2pt] {$O,S$};
@@ -165,7 +165,7 @@ In his Earth-centered solar system, Hipparchus proposed that the center of the E
 %\begin{figure}[t]
 %\begin{center}
 %\begin{tikzpicture}
-%\clip[draw] (-6,-3.5) rectangle +(12,7);
+%\clip (-6,-3.5) rectangle +(12,7);
 %
 %% Draw the orbit the Earth (offset) and the celestial sphere
 %\coordinate (S) at (0,0);
@@ -214,7 +214,7 @@ Figure~\ref{f.seasons-details} shows a magnified view of Figure~\ref{f.seasons} 
 \begin{center}
 \begin{tikzpicture}
 
-\clip[draw] (-6.8,-2) rectangle (6.8,5.5);
+\clip (-6.8,-2) rectangle (6.8,5.5);
 
 % Draw the orbit the Earth (offset) and the celestial sphere
 \coordinate (S) at (0,0);
@@ -375,12 +375,26 @@ $\lambda$ can be obtained from trigonometry.
 \[
 \lambda = \tan^{-1} \frac{b}{a} = \tan^{-1} \frac{0.0034}{0.03} = 0.1129\;\textsf{radians} \approx 6.47^\circ\,.
 \]
+The distance $0.03r$ is shown in the following table using the values of $r$ from the table on page~\pageref{p.table1}.
 
-\begin{figure}[tb]
 \begin{center}
-\begin{tikzpicture}
+\begin{tabular}{|l|r|r|r|}
+\hline
+&\multicolumn{1}{|c|}{Aristarchus (km)}&
+\multicolumn{1}{|c|}{Copernicus (km)} & \multicolumn{1}{|c|}{Modern (km)}\\
+\hline\hline
+radius of Earth's orbit & $2,320,660$ & $8,000,000$ & $150,000,000$\\\hline
+distance of $O$ from $S$ & $69,620$ & $240,000$ & $4,500,000$ \\
+\hline
+\end{tabular}
+\end{center}
 
-\clip[draw] (-5.8,-1.8) rectangle +(8,7.2);
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+\clip (-5.8,-1.8) rectangle +(8,7.2);
 
 % Locate the center of the Sun but not the celestial sphere
 \coordinate (S) at (0,0);
@@ -453,16 +467,3 @@ $\lambda$ can be obtained from trigonometry.
 \end{center}
 \end{figure}
 
-The distance $0.03r$ is shown in the following table using the values of $r$ from the table on page~\pageref{p.table1}.
-
-\begin{center}
-\begin{tabular}{|l|r|r|r|}
-\hline
-&\multicolumn{1}{|c|}{Aristarchus (km)}&
-\multicolumn{1}{|c|}{Copernicus (km)} & \multicolumn{1}{|c|}{Modern (km)}\\
-\hline\hline
-radius of Earth's orbit & $2,320,660$ & $8,000,000$ & $150,000,000$\\\hline
-distance of $O$ from $S$ & $69,620$ & $240,000$ & $4,500,000$ \\
-\hline
-\end{tabular}
-\end{center}

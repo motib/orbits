@@ -13,11 +13,11 @@ Given three non-collinear points a circle can be constructed that goes through a
 Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\ref{f.kepler-circumscribed}). Construct the perpendicular bisectors of any two of its three sides, say, $AC$ and $BC$. By definition the perpendicular bisector is the locus of points equidistant from the endpoints of the segment. Let $O$ be the intersection of the two bisectors. Then the $AO=CO=BO$ is the radius of a circle centered at $O$ that goes through $A,B,C$.\hqed
 \end{proof}
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-  \clip[draw] (-1,-1.8) rectangle +(7,6.5);
+  \clip (-1,-1.8) rectangle +(7,6.5);
   % Define the coordinates of an arbitrary triangle,
   %   label the vertices and draw dots at each vertex
   \coordinate[label = left:$A$]  (A) at ( 0, 0);
@@ -55,7 +55,7 @@ Three non-collinear points $A,B,C$ define a triangle $\triangle ABC$ (Figure~\re
 \begin{minipage}{.50\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-  \clip[draw] (-4.6,-1.8) rectangle +(9.2,6.5);
+  \clip (-4.6,-1.8) rectangle +(9.2,6.5);
 \def\a{4.33}
 \def\b{3}
 
@@ -248,26 +248,10 @@ I have not encountered the following definition before but it explicitly express
 An \emph{adjacent pair of similar triangles} is a pair of (a pair of) similar triangles that share sides. In Figure~\ref{f.adjacent}, $\triangle BAC\sim \triangle EAF$ and $\triangle CAD\sim \triangle FAG$ are an adjacent pair of similar triangles.
 \end{definition}
 
-\begin{theorem}
-For the adjacent pair of similar triangles in Figure~\ref{f.adjacent},
-\[
-\frac{AB}{AE}=\frac{AD}{AG}\,.
-\]
-\end{theorem}
-\begin{proof} By similar triangles,
-\begin{eqn}
-\frac{AB}{AE}&=&\frac{AC}{AF}\\[6pt]
-\frac{AC}{AF}&=&\frac{AD}{AG}\\[6pt]
-\frac{AB}{AE}&=&\frac{AD}{AG}\,.\fqed
-\end{eqn}%
-\end{proof}
-
-Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ by using an intermediate step with $AC$. We will use the term \emph{by an adjacent pair of similar triangles} and leave it to the reader to make the intermediate step.
-
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-\clip[draw] (-1,-2.5) rectangle +(8.7,5.5);
+\clip (-1,-2.5) rectangle +(8.7,5.5);
 
 % Construct a vertical line and locate three points
 \coordinate (A) at (0,-2);
@@ -308,6 +292,22 @@ Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ b
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{theorem}
+For the adjacent pair of similar triangles in Figure~\ref{f.adjacent},
+\[
+\frac{AB}{AE}=\frac{AD}{AG}\,.
+\]
+\end{theorem}
+\begin{proof} By similar triangles,
+\begin{eqn}
+\frac{AB}{AE}&=&\frac{AC}{AF}\\[6pt]
+\frac{AC}{AF}&=&\frac{AD}{AG}\\[6pt]
+\frac{AB}{AE}&=&\frac{AD}{AG}\,.\fqed
+\end{eqn}%
+\end{proof}
+
+Similar ratios hold between other sides of $\triangle BAC$ and $\triangle CAD$ by using an intermediate step with $AC$. We will use the term \emph{by an adjacent pair of similar triangles} and leave it to the reader to make the intermediate step.
+
 
 \section{The angle bisector theorems}
 
@@ -323,7 +323,7 @@ In $\triangle ABC$ let $D$ be a point on $BC$ (Figure~\ref{f.interior-angle-bise
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-\clip[draw] (-.6,-2.5) rectangle +(9.2,6);
+\clip (-.6,-2.5) rectangle +(9.2,6);
 
 % Draw base and paths of two lines at known angles
 \draw (0,0) coordinate (b) node[left] {$B$} -- 
@@ -391,7 +391,7 @@ In $\triangle ABC$ let $D$ be a point on the extension of $CB$ outside the trian
 \begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
-\clip[draw] (-2.5,-.8) rectangle +(11,3);
+\clip (-2.5,-.8) rectangle +(11,3);
 
 % Draw base and paths of two lines at known angles
 \path (0,0) coordinate (b) node[below] {$B$} -- 

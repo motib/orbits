@@ -10,7 +10,7 @@ In this section we present an approximate derivation of the locations of $L1, L2
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
-\clip[draw] (-4.1,-4.3) rectangle +(8.7,8.4);
+\clip (-4.1,-4.3) rectangle +(8.7,8.4);
 \def\rone{2}
 \def\re{3}
 \def\rtwo{4}
@@ -62,7 +62,7 @@ We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun a
 \begin{minipage}{.5\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.9]
-\clip[draw] (-.5,-.5) rectangle +(7.1,5.2);
+\clip (-.5,-.5) rectangle +(7.1,5.2);
 \begin{scope}[yshift=2cm]
 \def\re{6}
 \def\rone{4}
@@ -89,7 +89,7 @@ We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun a
 \begin{minipage}{.46\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.9]
-\clip[draw] (-5.5,-.5) rectangle +(6,5.2);
+\clip (-5.5,-.5) rectangle +(6,5.2);
 \def\r{4}
 \coordinate (S) at (0,0);
 \node[below] at (S) {$S$};
@@ -136,7 +136,7 @@ As Newton did in his investigation of elliptical orbits, the motion from $A$ to 
 %\begin{figure}[t]
 %\begin{center}
 %\begin{tikzpicture}
-%\clip[draw] (-5.5,-.5) rectangle +(6,5);
+%\clip (-5.5,-.5) rectangle +(6,5);
 %
 %\def\r{4}
 %\coordinate (S) at (0,0);
@@ -211,7 +211,7 @@ If an object is placed $1.5$ million km from the Earth, the period of its orbit 
 
 \section{Lagrange point $L2$}
 
-The computation for $L2$ is similar using $r'=r_E+r_2$ (Figure~\ref{f.lagrange2}). With the appropriate modifications to Equation~\ref{eqn.force-diff} we get
+The computation for $L2$ is similar using $r'=r_E+r_2$ (Figure~\ref{f.lagrange3}). With the appropriate modifications to Equation~\ref{eqn.force-diff} we get
 \begin{eqn}
 F &=& \frac{Gm_Sm_T}{r'^2}+\frac{Gm_Em_T}{r_2^2}\\
 \frac{1}{r_E^3}&=&\frac{1}{r'^3}+\frac{m_E/m_S}{r'r_2^2}\\
@@ -219,19 +219,19 @@ F &=& \frac{Gm_Sm_T}{r'^2}+\frac{Gm_Em_T}{r_2^2}\\
 \end{eqn}%
 The approximations based on the Taylor series are $(1+z)^{-3}\approx 1-3z$ and $(1+z)^{-1}\approx 1-z$, leading to the same equation $3z^3\approx y$. Therefore, $L2$ is the same distance from the Earth as $L1$ but on the opposite side of the Earth.
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
-\clip[draw] (-.5,-1) rectangle +(9,2);
+\clip (-6.6,-2.8) rectangle +(14.8,3.8);
 \def\re{6}
 \def\rtwo{8}
 \coordinate (S) at (0,0);
-\node[above left] at (S) {$S$};
+\node[above] at (S) {$S$};
 \vertexsm{S};
 \draw[red] (S) circle[radius=\re];
 \draw[green!70!black] (S) circle[radius=\rtwo];
 \coordinate (E) at ({\re},0);
-\node[above right] at (E) {$E$};
+\node[above left] at (E) {$E$};
 \vertexsm{E};
 \coordinate (L2) at ({\rtwo},0);
 \node[above left] at (L2) {$L2$};
@@ -240,33 +240,16 @@ The approximations based on the Taylor series are $(1+z)^{-3}\approx 1-3z$ and $
   node[fill=white] {$r_2$} (E);
 \draw[<->] ($(S)+(0,-16pt)$) --
   node[fill=white] {$r'=r_E+r_2$} ($(L2)+(0,-16pt)$);
-\end{tikzpicture}
-\end{center}
-\caption{Lagrange point $L2$}\label{f.lagrange2}
-\end{figure}
-
-\begin{figure}[t]
-\begin{center}
-\begin{tikzpicture}
-\clip[draw] (-7,-1) rectangle +(14,2);
-\def\re{6}
-\coordinate (S) at (0,0);
-\node[above left] at (S) {$S$};
-\vertexsm{S};
 \draw[red] (S) circle[radius=\re];
-\coordinate (E) at ({\re},0);
-\node[above right] at (E) {$E$};
-\vertexsm{E};
-\coordinate (L3) at ({-\re},0);
-\node[above left] at (L3) {$L3$};
+\coordinate (L3) at ($({-\re},0)+(-10pt,0)$);
+\node[above] at (L3) {$L3$};
 \vertexsm{L3};
-\draw (L3) -- node[fill=white] {$r_3$} (S) --
-  node[fill=white] {$r_E$} (E);
-\draw[<->] ($(L3)+(0,-16pt)$) --
-  node[fill=white] {$r'=r_E+r_3$} ($(E)+(0,-16pt)$);
+\draw (L3) -- node[fill=white] {$r_3$} (S); 
+\draw[<->] ($(L3)+(0,-30pt)$) --
+  node[fill=white] {$r'=r_E+r_3$} ($(E)+(0,-30pt)$);
 \end{tikzpicture}
 \end{center}
-\caption{Lagrange point $L3$}\label{f.lagrange3}
+\caption{Lagrange points $L2$ and $L3$}\label{f.lagrange3}
 \end{figure}
 
 \section{Lagrange point $L3$}

@@ -69,17 +69,38 @@ Everyone ``knows'' that Kepler discovered that the orbits of the planets are ell
 
 \textit{Calculus in Context} \cite{hahn-cic} by Alexander J. Hahn is a comprehensive textbook on introductory calculus that augments theory with  applications in physics and astronomy, such as the work of Kepler, Newton and Galileo, as well as applications in engineering such as building bridges and domed structures. These are not just historical anecdotes but detailed computations.
 
-Part~I of this document contains a detailed explanation of one topic from Hahn's book: the determination of orbits by Aristarchus, Copernicus, Kepler and Newton. The presentation is mathematical, since the historical and astronomical aspects are thoroughly described in \cite{hahn-cic}, as well as in other works. The document is intended to enrich the learning of mathematics by secondary-school students and students in introductory university courses. The prerequisites are a good knowledge of Euclidean geometry along with some trigonometry, a bit calculus and Newton's laws of motions.
+\section{Overview}
 
-Chapter~\ref{s.aristarchus} presents the measurements of the radii and distances of the Earth, Moon and Sun by Eratosthenes and Aristarchus. Chapter~\ref{s.copernicus} describes the construction of a model of a Sun-centered system by Nicolaus Copernicus. Chapter~\ref{s.kepler} shows how Johannes Kepler developed his three laws of planetary motion. Chapter~\ref{s.newton} presents Isaac Newton's derivation of the inverse-square law of gravitation from of Kepler's laws. One step of Newton's derivation requires a theorem whose proof is very long, so it is split off into Chapter~\ref{s.centripetal}. Chapter~\ref{s.lagrange} describes Lagrange points, points in the solar system where spacecraft can be placed so that the periods of their orbits are the same as the Earth's.
+Part~I of this document contains an explanation of the determination of orbits by Aristarchus, Copernicus, Kepler and Newton. The presentation is mathematical, since the historical and astronomical aspects are thoroughly described in \cite{hahn-cic}, as well as in other works. The document is intended to enrich the learning of mathematics by secondary-school students and students in introductory university courses. The prerequisites are a good knowledge of Euclidean geometry along with some trigonometry, a bit calculus and Newton's laws of motions.
 
-BUT, although Newton invented the calculus and used it to study motion, from the time of the Greeks, \emph{proof} meant proof by geometry. Newton's proof requires a depth of knowledge of Euclidean geometry and conic sections that is no longer studied today to the extent that even Nobel laureate Richard Feynman declined to make the effort to learn the required material. (Instead, he developed his own proof!)
+Chapter~\ref{s.aristarchus} presents the measurements of the radii of the Earth, Moon and Sun, and of the distances between them, as determined by Eratosthenes and Aristarchus. Chapter~\ref{s.copernicus} describes the construction of a model of a Sun-centered system by Nicolaus Copernicus. Chapter~\ref{s.kepler} shows how Johannes Kepler developed his three laws of planetary motion. Chapter~\ref{s.newton} presents Isaac Newton's derivation of the inverse-square law of gravitation from of Kepler's laws. One step of Newton's derivation requires a theorem whose proof is very long, so it is split off into Chapter~\ref{s.centripetal}. Chapter~\ref{s.lagrange} describes Lagrange points, points in the solar system where spacecraft can be placed so that the periods of their orbits are the same as the Earth's.
 
-Part~II brings all the required definitions and theorems (and their proofs) required to understand Newton's proof. These theorems are used in Part~I but you can take them on trust. Should you wish to learn more about ellipses than you ever wanted to know, you are invited to study this material.
+Although Newton invented the calculus and used it to study motion, from the time of the Greeks, ``proof'' meant proof by geometry. Newton's proof requires a depth of knowledge of Euclidean geometry and conic sections that is no longer studied today to the extent that even Nobel laureate Richard Feynman declined to make the effort to learn it. (Instead, he developed his own proof!)
 
-Chapter~\ref{s.ellipse} contains more than you ever wanted to know about the mathematics of ellipses, but these theorems are necessary. I suggest that you look up each theorem (and its proof) as needed, rather than trying to study them all at once. Chapter~\ref{s.geometry} gives a different definition of ellipses and different proofs of the theorems, as explained in the next paragraph. The relationship between the two definitions of ellipses is shown in Chapter~\ref{s.two-defs}.
+Part~II brings the definitions and theorems (and their proofs) required to understand Newton's proof. Chapter~\ref{s.definitions} contains \emph{four} definitions of ellipses and shows that the definitions are equivalent. Do not read this chapter straight through! Instead, refer to it as needed. The theorems you need to prove Newton's theorem appear in Chapter~\ref{s.ellipse}, but the proofs are in most cases modernized using analytic geometry.  Chapter~\ref{s.geometry} contains proofs of these theorems in Euclidean geometry.
 
 Theorems of Euclidean geometry that may be unfamiliar but do not concern ellipses are collected in Appendix~\ref{s.elementary}. 
+
+\section{Euclidean Geometry and W.H. Besant}
+
+Consider the application of Euclidean geometry in practice. It is easy to measure angles. We are familiar with the use of a protractor in school and these can be scaled-up to obtain more accurate measurements. Measuring long distances was impossible until the recent inventions of radar and lasers. At most one could pace-off distances with low accuracy. The only \emph{measured} distance used in this document is the estimate of $800$ km by Eratosthenes for the distance between two places in Egypt. 
+
+The fundamental importance of Euclidean geometry (and conic sections) in mathematics continued until relatively recently, as shown by this amazing quote.
+\begin{quote}
+In book 1, prop[osition] 10 (and notably in prop[osition] 11), Newton made use of a property of conics which he presents without proof, merely saying that the result in question comes from ``the \textit{Conics}.'' Here, as elsewhere in the \textit{Principia}, Newton assumes the reader to be familiar with the principles of conics and of Euclid. In the eighteenth and nineteenth centuries, when Newton's treatise was still being read in British universities, authors of books on ``conic sections''---for example, W. H. Besant, W. H. Drew, Isaac Milnes---supplied the proof of this theorem in order to help readers of the \textit{Principia} who might be baffled by the problem of finding a proof. They even chose letters to designate points on the diagrams so that the final result would appear in exactly the same form as in the \textit{Principia} \cite[p.~330]{newton-cohen}.
+\end{quote}
+
+William H. Besant, FRS (1828--1917) was a British mathematician who studied at Cambridge University, where he was Senior Wrangler, the student with the highest grade on the Cambridge Mathematical Tripos examination. In addition to his mathematical achievements, he was well-known as a coach for students taking the Tripos. This led to the publication of \textit{Conic Sections Treated Geometrically} in nine editions from 1869--1895.
+
+The book has fifteen chapters, starting with a general chapter on conic sections followed by chapters on the parabola, the ellipse and the hyperbola. The chapter on ellipses has 31 propositions (theorems), 21 corollaries and 110 examples (exercises), more than you ever wanted to know about ellipses. I studied the chapter in detail and was struck by his deep knowledge of Euclidean geometry of the sort one learns in secondary school.
+
+Project Gutenberg has published a PDF which is a transcription of the ninth edition \cite{besant}. Words like ``trigonometry,'' ``coordinate'' and ``equation'' simply do not appear.
+
+While detailed proofs are given, Besant's style is terse, indicating that he expected his students to have an intimate familiarity with Euclidean geometry. He simply writes an equality of two ratios without specifying which triangles are similar and he uses lesser-known theorems like the exterior angle bisector theorem. Besant's book has numerous figures (reproduced as-is in the transcription), but even the most complicated ones do not have angles and line segments labeled.
+
+\section{Newton's \textit{Principia}}
+
+The final steps in Newton's derivation requires the use of limits, which had been used already by Archimedes to compute the circumference and area of a circle by approximating the circle. Newton (along with his contemporary Gottfried Wilhelm Leibniz) developed the calculus from the concept of limits. However, the \textit{Principia} uses Euclidean geometry almost exclusively, although analytic geometry had already been developed by René Descartes and Pierre de Fermat.
 
 To give the reader a taste of Newton's terse style, I am reproducing Newton's presentation of the infamous Book~I, Section~III, Proposition~XI, Problem~VI of the \emph{Principia}. Should you wish to attempt to understand it, a detailed explanation is given in \cite[pp.~324--329]{newton-cohen}.
 
@@ -87,18 +108,11 @@ To give the reader a taste of Newton's terse style, I am reproducing Newton's pr
 \includegraphics[width=.5\textwidth,keepaspectratio=true]{54-a.jpg}
 \includegraphics[width=.5\textwidth,keepaspectratio=true]{55-a.jpg}
 
-\section*{Euclidean geometry}
 
-It is easy to measure angles. We are familiar with the use of a protractor in school and these can be scaled-up to obtain more accurate measurements. Measuring long distances was impossible until the recent inventions of radar and lasers. At most one could pace-off distances with low accuracy. The only \emph{measured} distance used here is the estimate of $800$ km by Eratosthenes for the distance between two places in Egypt (Chapter~\ref{s.eratosthenes}). For this reason, the mathematics used is primarily Euclidean geometry, in particular, similar triangles and ratios of their sides.
+Isaac Newton published \textit{Philosophi\ae{} Naturalis Principia Mathematica} in Latin in 1687. Subsequent editions appeared in 1723 and 1726. The third edition was translated into English as \textit{The Mathematical Principles of Natural Philosophy} by Andrew Motte in 1729. This translation has been modernized several times, but truly new translations have only appeared recently. The translation by I. Bernard Cohen is very useful because of his extensive \textit{Guide} that precedes the translation \cite{newton-cohen}. Should you wish to study Newton's proof of Proposition~XI, Problem~VI, I recommend Section~10.9 of the \textit{Guide} \cite[pp.~324--329]{newton-cohen}. A comprehensive list of links to editions of the \textit{Principia} can be found in the Wikipedia entry for \textit{Philosophi\ae{} Naturalis Principia Mathematica}.
 
-The final steps in Newton's derivation requires the use of limits, which had been used already by Archimedes to compute the circumference and area of a circle by approximating the circle. Newton (along with his contemporary Gottfried Wilhelm Leibniz) developed the calculus from the concept of limits. However, the \textit{Principia} uses Euclidean geometry almost exclusively, although analytic geometry had already been developed by René Descartes and Pierre de Fermat.
 
-This expectation that students should acquire deep knowledge of Euclidean geometry and conic sections continued until relatively recently, as shown by this amazing quote.
-\begin{quote}
-In book 1, prop[osition] 10 (and notably in prop[osition] 11), Newton made use of a property of conics which he presents without proof, merely saying that the result in question comes from ``the \textit{Conics}.'' Here, as elsewhere in the \textit{Principia}, Newton assumes the reader to be familiar with the principles of conics and of Euclid. In the eighteenth and nineteenth centuries, when Newton's treatise was still being read in British universities, authors of books on ``conic sections''---for example, W. H. Besant, W. H. Drew, Isaac Milnes---supplied the proof of this theorem in order to help readers of the \textit{Principia} who might be baffled by the problem of finding a proof. They even chose letters to designate points on the diagrams so that the final result would appear in exactly the same form as in the \textit{Principia} \cite[p.~330]{newton-cohen}.
-\end{quote}
-
-\section*{Style and notation}
+\section{Style and notation}
 
 The computations in Hahn's book are faithful to the historical record, for example, measuring distances in units such as the stadia of the Greeks. Here,  the computations are fully modernized and use modern units such as kilometers. 
 
@@ -118,7 +132,7 @@ The following shortcuts facilitate a less verbose presentation.
 \vertexsm{E};
 \end{tikzpicture}
 \end{center}
-\item The notation in the following diagram will be used to refer elements of an ellipse, which are defined in Part~II.
+\item The notation in the following diagram will be used to refer elements of an ellipse, which are formally defined in Chapter~\ref{s.definitions}.
 \begin{itemize}
 \item $O$ is the \emph{center} of the ellipse and $a,b$ are its \emph{semi-major} and \emph{semi-minor} axes. $A,A'$ are the \emph{vertices} on the major axis and $B,B'$ are the vertices on the minor axes.
 \item $S$ and $H$ are the \emph{foci} and $c$ is the distance from a focus to the center.
@@ -128,7 +142,7 @@ The following shortcuts facilitate a less verbose presentation.
 
 \begin{center}
 \begin{tikzpicture}
-\clip[draw] (-6,-2.5) rectangle +(10,5);
+\clip (-6,-2.5) rectangle +(10,5);
 
 % Draw ellipse
 \def\a{3}
@@ -165,4 +179,4 @@ The following shortcuts facilitate a less verbose presentation.
 \end{tikzpicture}
 \end{center}
 
-%\section*{Acknowledgments}
+%\section{Acknowledgments}
