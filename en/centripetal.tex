@@ -6,30 +6,38 @@
 \chapter{A proof Proposition~XI, Problem~VI}
 \label{s.centripetal}
 
-Theorem~\ref{thm.lr-limit} is Book~I, Section~III, Proposition~XI, Problem~VI of the \emph{Principia}.
 
-Study Figure~\ref{f.elliptical-orbit-1}:\footnote{The bottom half of the ellipse is not shown, but we still refer to lines $DC,PC$ as diameters.}
+Theorem~\ref{thm.lr-limit} (repeated here) is Book~I, Section~III, Proposition~XI, Problem~VI of the \emph{Principia}.
+\begin{theorem}
+In an elliptical orbit
+\[
+\lim_{\Delta t \rightarrow 0} \frac{q}{h^2} = \frac{1}{L}\,,
+\]
+where $L$ is the length of the latus rectum of the ellipse.
+\end{theorem}
+
+The construction of the diagram in Figure~\ref{f.elliptical-orbit-1} is as follows.\footnote{The bottom half of the ellipse is not shown, but we still refer to lines $DC,PC$ as diameters.}
 \begin{itemize}
-\item Let $P,Q$ be two points on the ellipse that represent the movement of a body in an elliptical orbit separated by a time interval $\Delta t$. Construct lines from $P$ to the center $C$ and the foci $S,H$.
+\item Let $P,Q$ be two points on the elliptical orbit separated by a time interval $\Delta t$. Construct lines from $P$ to the center $C$ and the foci $S,H$.
 
 \item Construct the tangent at $P$ and choose $R$ on the tangent such that the body would move from $P$ to $R$ if it continued for time $\Delta t$ not subject to any force. Construct the parallelogram $PRQX$ and extend $QX$ until it intersects $PC$ at $V$.
 
 \item Construct a line parallel to $RP$ through $H$ and let $I$ be its intersection with $PS$. 
 
-\item Construct $DC$ the conjugate diameter to $PC$ (Definition~\ref{def.conjugate}), and let $E$ be its intersection with $PS$.
+\item Construct $DC$, the conjugate diameter to $PC$ (Definition~\ref{def.conjugate}), and let $E$ be its intersection with $PS$.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-4.5,-.5) rectangle +(10,4.5);
+\clip (-5.2,-.5) rectangle +(11.3,5);
 
 % Size and center of the ellipse
-\def\a{4.375}
-\def\b{3.5}
+\def\a{5}
+\def\b{4}
 \def\angle{30}
 
 \pic{semi-ellipse={\a}/{\b}};
@@ -38,7 +46,7 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{The bottom half of the ellipse
 
 \node[above] at (Top) {$B$};
 \node[below] at (Right) {$A$};
-\node[below] at (O) {$O$};
+\node[below] at (O) {$C$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
 
@@ -62,8 +70,10 @@ Study Figure~\ref{f.elliptical-orbit-1}:\footnote{The bottom half of the ellipse
 \path[name path=qx] (Q) -- +({\angle-90}:{1.5*\a} and {1.5*\b});
 \path [name intersections = {of = qx and fromF1p, by = {X} }];
 \path [name intersections = {of = qx and pc, by = {V} }];
-\draw (Q) -- (X) node[above right,xshift=-3pt] {$X$} -- 
-  (V) node[below] {$V$};
+\vertexsm{V};
+\draw (Q) -- (X) node[above left,xshift=-2pt,yshift=-4pt] {$X$} -- (V); \coordinate (VV) at ($(P)+(25pt,-6pt)$);
+\vertexsm{VV};
+\node[right] at (VV) {$=V$};
 
 % Conjugate diameter
 \draw[name path=cd] (O) -- +({\angle+90}:{\a} and {\b}) coordinate (D);
@@ -108,11 +118,11 @@ $QR = PV\cdot \displaystyle\frac{CA}{CP}$.
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm.tangent-angles}, $\angle RPX = \angle ZPH=\alpha$ and by alternate interior angles,
+By Theorem~\ref{thm.tangent-angles}, $\angle RPX = \angle ZPH=\alpha$ and $IH\parallel RZ$, so by alternate interior angles
 \[
-\angle PHI = \angle ZPH = \alpha = \angle RPX = \angle PIH\,,
+\angle PHI = \angle ZPH = \alpha = \angle RPX = \angle PIH\,.
 \]
-so $\triangle IPH$ (red) is isosceles and $PI=PH=d$.
+Therefore, $\triangle IPH$ (red) is isosceles and $PI=PH=d$.
 
 $SC=CH=c$ are equal because they are the distances of the foci from the center of the ellipse. Let $SE=e$. By construction $EC\parallel IH$ so $\triangle ESC \sim \triangle ISH$ (blue) and
 \begin{eqn}
@@ -126,10 +136,8 @@ $QV \parallel EC$ so  $\triangle EPC \sim \triangle XPV$ and
 \frac{PX}{PV} &=& \frac{EP}{PC} =\frac{CA}{PC}\\[4pt]
 PX &=& PV\cdot \frac{CA}{PC}\,.
 \end{eqn}%
-Since $PRQX$ is a parallelogram $QR=PX$, $QR= PV\cdot\displaystyle\frac{AC}{PC}$.\hqed
+Since $PRQX$ is a parallelogram $QR=PX$ and $QR= PV\cdot\displaystyle\frac{AC}{PC}$.\hqed
 \end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{A formula for $QT$}
 
@@ -146,11 +154,11 @@ QT=QX\cdot \frac{FP}{CA}\,.
 \begin{center}
 \begin{tikzpicture}
 
-\clip (-4.5,-1) rectangle +(10,5);
+\clip (-5.2,-1) rectangle +(11.3,5.5);
 
 % Size and center of the ellipse
-\def\a{4.375}
-\def\b{3.5}
+\def\a{5}
+\def\b{4}
 \def\angle{30}
 
 \pic{ellipse={\a}/{\b}};
@@ -159,7 +167,7 @@ QT=QX\cdot \frac{FP}{CA}\,.
 
 \node[above] at (Top) {$B$};
 \node[right,xshift=-1pt] at (Right) {$A$};
-\node[below left] at (O) {$O$};
+\node[below left,xshift=2pt,yshift=-2pt] at (O) {$C$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
 
@@ -181,12 +189,21 @@ QT=QX\cdot \frac{FP}{CA}\,.
 % Draw QX
 \path[name path=qx] (Q) -- +({\angle-90}:{1.5*\a} and {1.5*\b});
 \path [name intersections = {of = qx and fromF1p, by = {X} }];
-\draw (Q) -- (X) node[above right,xshift=-3pt] {$X$};
+\path [name intersections = {of = qx and pc, by = {V} }];
+\draw (Q) -- (V);
+\node[above right,xshift=-4pt] at (X) {$X$};
+\vertexsm{V};
+\coordinate (VV) at ($(P)+(25pt,-6pt)$);
+\vertexsm{VV};
+\node[right] at (VV) {$=V$};
+
+\path (P) -- ($(P)!2!(O)$) coordinate (G);
+\draw[->,thick,dashed] (O) -- ($(O)!.25!(G)$) node[left,yshift=-2pt] {$G$};
 
 % Draw T
 \path (Q) -- ($(F1)!(Q)!(P)$) coordinate (T);
 \node[above left,yshift=-3pt] at (T) {$T$};
-\draw[rotate=13] ($(T)+(0pt,1pt)$) rectangle +(5pt,5pt);
+\draw[rotate=13] ($(T)+(0pt,1pt)$) rectangle +(6pt,6pt);
 
 % Conjugate diameter
 \draw[name path=cd] (O) -- +({\angle+90}:{\a} and {\b}) coordinate (D);
@@ -200,7 +217,7 @@ QT=QX\cdot \frac{FP}{CA}\,.
 % Draw PF
 \draw (P) -- ($(O)!(P)!(K)$) coordinate (F)
   node[right,xshift=2pt,yshift=-1pt] {$F$};
-\draw[rotate=33] (F) rectangle +(5pt,5pt);
+\draw[rotate=33] (F) rectangle +(6pt,6pt);
 
 \draw[blue,thick] (E) -- (P) -- (F) -- cycle;
 \draw[red,thick] ($(T)+(0pt,1pt)$) -- 
@@ -208,9 +225,9 @@ QT=QX\cdot \frac{FP}{CA}\,.
 \draw[red,thick] ($(T)+(0pt,1pt)$) -- ($(X)+(-.2pt,1pt)$);
 
 % Label angles
-\node[below right,xshift=6pt,yshift=7pt]   at (Q)  {\sm{\beta}};
-\node[left,xshift=-3pt,yshift=3pt] at (P)  {\sm{\beta}};
-\node[right,xshift=2pt,yshift=-4pt] at (E)  {\sm{\beta}};
+\node[below right,xshift=6pt,yshift=8pt]   at (Q)  {\sm{\beta}};
+\node[left,xshift=-2pt,yshift=2pt] at (P)  {\sm{\beta}};
+\node[right,xshift=2pt,yshift=-3pt] at (E)  {\sm{\beta}};
 \node[left,xshift=-1pt,yshift=3pt] at (X)  {\sm{\beta}};
 
 \end{tikzpicture}
@@ -218,17 +235,17 @@ QT=QX\cdot \frac{FP}{CA}\,.
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-By construction, $QR \parallel PX$, so by alternate interior angles $\angle RQX =\angle QXT=\beta$. By construction, $QX \parallel DC$, so by alternate interior angles $\angle QXT =\angle PEF=\beta$. Since $\triangle PFE$ and $\triangle QTX$ are right triangles with an equal acute angle $\beta$, $\triangle PFE\sim\triangle QTX$. In the proof of Theorem~\ref{thm.qr} we showed that $EP=CA$ so
+By construction, $QR \parallel PX$, so by alternate interior angles $\angle RQX =\angle QXT=\beta$. By construction, $RP \parallel QX \parallel DC$, so by alternate interior angles $\angle QXT =\angle PEF=\beta$. Since $\triangle PFE$ and $\triangle QTX$ are right triangles with an equal acute angle $\beta$, $\triangle PFE\sim\triangle QTX$. In the proof of Theorem~\ref{thm.qr} we showed that $EP=CA$ so
 \begin{eqn}
 \frac{QT}{QX}&=& \frac{FP}{EP}\\
 QT&=&QX\cdot \frac{FP}{EP}= QX\cdot\frac{FP}{CA}\,.\fqed
 \end{eqn}%
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[b]
 \begin{center}
@@ -246,7 +263,7 @@ QT&=&QX\cdot \frac{FP}{EP}= QX\cdot\frac{FP}{CA}\,.\fqed
 
 \node[above,yshift=-1pt] at (Top) {$B$};
 \node[right] at (Right) {$A$};
-\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+\node[below left,xshift=3pt,yshift=-2pt] at (O) {$C$};
 
 % Conjugate diameter from P through C
 \draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
@@ -310,8 +327,6 @@ QT&=&QX\cdot \frac{FP}{EP}= QX\cdot\frac{FP}{CA}\,.\fqed
 \end{equation}
 \end{theorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{proof}
 Let use combine the equations in Theorems~\ref{thm.qr} and ~\ref{thm.qt} to get $QR/QT^2$.
 \begin{equation}
@@ -328,17 +343,14 @@ $DC$ and $PC$ are conjugate diameters so Theorem~\ref{thm.conj-diag} gives a for
 {QX^2\cdot CP\cdot FP^2}=\frac{CP\cdot CA^3}{CD^2\cdot FP^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\label{eqn.qr-qt}
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Next we show that $CD\cdot FP = CA \cdot CB$. By Theorem~\ref{thm.conj-diam-para} the areas of the parallelograms formed by the tangents to conjugate diameters are equal. By symmetry the areas of the four small parallelograms are equal, as are the triangles formed by constructing diagonals. In Figure~\ref{f.conj-diam-para} the area of the $\triangle ABC$ (red), which is $(1/2)CA\cdot CB$, is equal to the area of $\triangle PCD$ (blue), which is $(1/2)CD\cdot FP$. Substituting for $CD\cdot FP$ in Equation~\ref{eqn.qr-qt} gives
+Next we show that $CD\cdot FP = CA \cdot CB$. By Theorem~\ref{thm.conj-diam-para} the areas of the parallelograms formed by the tangents to conjugate diameters are equal. By symmetry the areas of the four small parallelograms are equal, as are the triangles formed by constructing diagonals. In Figure~\ref{f.conj-diam-para} the area of the $\triangle ABC$ (red), which is $(1/2)CA\cdot CB$, is equal to the area of $\triangle PCD$ (blue), which is $(1/2)CD\cdot FP$. Substituting $CA \cdot CB$ for $CD\cdot FP$ in Equation~\ref{eqn.qr-qt} gives
 \begin{eqn}
 \frac{QR}{QT^2}&=&\frac{CP\cdot CA^3}{CB^2\cdot CA^2}\cdot \frac{QV^2}{GV\cdot QX^2}
 =\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}\,.\fqed
 \end{eqn}
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
 \begin{center}
@@ -348,7 +360,7 @@ Next we show that $CD\cdot FP = CA \cdot CB$. By Theorem~\ref{thm.conj-diam-para
 \clip (-5.5,-.5) rectangle +(11.5,4.7);
 
 \def\a{5.25}
-\def\b{3.5}
+\def\b{4}
 
 \def\angle{30}
 
@@ -358,7 +370,7 @@ Next we show that $CD\cdot FP = CA \cdot CB$. By Theorem~\ref{thm.conj-diam-para
 
 \draw (F1) -- (P) -- (F2);
 \draw (P) -- (O);
-\node[below right] (O) {$O$};
+\node[below right] (O) {$C$};
 \node[below] at (F2) {$H$};
 \node[below] at (F1) {$S$};
 
@@ -387,21 +399,16 @@ Next we show that $CD\cdot FP = CA \cdot CB$. By Theorem~\ref{thm.conj-diam-para
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Approaching the limit}
+\subsection*{Approaching the limit}
 
 Figure~\ref{f.elliptical-orbit-3} is an enlarged diagram of part of Figure~\ref{f.elliptical-orbit-2}. As the time interval $\Delta t$ gets smaller, $Q\rightarrow P$ which implies that
-\begin{itemize}
-\item $X\rightarrow V$ so that $QX\rightarrow QV$.
-\item $V\rightarrow P$ so that $CV\rightarrow CP$ and hence $GV\rightarrow 2CP$.
-\item In the limit $QX=QV$ and $GV= 2CP$. Substituting into Equation~\ref{eqn.three-multiplications} gives
+(a) $X\rightarrow V$ so that $QX\rightarrow QV$, (b)
+$V\rightarrow P$ so that $CV\rightarrow CP$, and (c) $GV\rightarrow 2CP$.
+Substituting into Equation~\ref{eqn.three-multiplications} and using  Theorem~\ref{thm.ellipse-lr} gives
 \[
 \lim_{Q\rightarrow P}\frac{QR}{QT^2}=
 %\frac{CP\cdot CA}{CB^2}\cdot \frac{QV^2}{GV\cdot QX^2}
 \lim_{Q\rightarrow P}\frac{CP\cdot CA}{CB^2}\cdot \frac{QX^2}{2CP\cdot QX^2}=
 \frac{CA}{2CB^2}=
-\frac{a}{2b^2}=\frac{1}{L}\,,
+\frac{a}{2b^2}=\frac{1}{L}\,.
 \]
-\end{itemize}
-using the result of Theorem~\ref{thm.ellipse-lr} for the length of the latus rectum.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

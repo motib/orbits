@@ -7,6 +7,7 @@
 \usepackage{microtype}
 \usepackage{verbatim}
 \usepackage{url}
+\usepackage{bm}
 \usepackage{wrapfig}
 
 % Fancy header: chapter and page number in header
@@ -16,6 +17,31 @@
 \fancyhead[R]{\thepage}
 \fancyhead[C]{}
 \fancyfoot[L,C,R]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Reduce size of headings
+\usepackage{titlesec}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\LARGE} % format
+{Chapter \ \thechapter} % label
+{0.1ex} % sep
+{\vspace{0.5ex}} % before-code
+[\vspace{-1ex}] % after-code
+
+\titleformat
+{\section} % command
+%[display] % shape
+{\bfseries\large} % format
+{\thesection} % label
+{0.1ex} % sep
+{\vspace{1ex}\hspace{.5em}} % before-code
+[\vspace{-0.5ex}] % after-code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Use natbib for bibliography as section, not chapter
 \usepackage[sectionbib,square,numbers]{natbib}
@@ -61,7 +87,7 @@
 \evensidemargin=0mm
 \headsep=15pt
 \parindent=0pt
-\renewcommand{\baselinestretch}{1.05}
+%\renewcommand{\baselinestretch}{1.05}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 \setlength{\fboxrule}{1pt}
 
@@ -75,8 +101,8 @@
 \setcounter{totalnumber}{3}
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.8}
-\setlength{\abovecaptionskip}{0pt plus 1pt minus 1pt}
-\setlength{\belowcaptionskip}{0pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{1pt plus 1pt minus 1pt}
+\setlength{\belowcaptionskip}{1pt plus 1pt minus 1pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

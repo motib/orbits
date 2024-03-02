@@ -10,7 +10,7 @@
 
 \section{Four definitions of an ellipse}
 
-Ellipses can be defined analytically as the locus of points in the Cartesian plane satisfying a certain equation. Geometrically, an ellipse is defined by selecting two points, the foci, and defining the curve as the locus of points such that the sum of the distances to the foci is constant. Less well-known is the definition in terms of a focus and a directrix, but this was fundamental to the study of conic sections. Finally, we give the parametric representation of an ellipse that will be used in one of the proofs.
+Ellipses can be defined analytically as the locus of points in the Cartesian plane satisfying a certain equation. Geometrically, an ellipse is defined by selecting two points, the foci, and defining the curve as the locus of points such that the sum of the distances to the foci is constant. Less well-known is the definition in terms of a focus and a directrix, but this was fundamental to the study of conic sections. The parametric representation of an ellipse that will be used in one of the proofs.
 
 \subsection*{Analytic geometry}
 
@@ -25,12 +25,20 @@ Let $a,b$ be positive real numbers. An \emph{ellipse} is the locus of the points
 
 \subsection*{Two foci}
 \begin{definition}\label{def.two-foci}
-Let $S$ and $H$ be two points in the Cartesian plane such that $SH=2c\geq 0$ and choose $a$ such that $2a> 2c$ (Figure~\ref{f.two-foci}). An \emph{ellipse} is the locus of all points $P$ such that $SP+PH=2a$. If $c=0$ the locus is a \emph{circle}.
+Let $S$ and $H$ be two points in the Cartesian plane such that $SH=2c\geq 0$ and choose $a$ such that $2a> 2c$ (Figure~\ref{f.two-foci}). An \emph{ellipse} is the locus of points $P$ such that $SP+PH=2a$. If $c=0$ the locus is a \emph{circle}.
 \end{definition}
+\begin{definition}\label{def.features}
+Let $A,A'$ be the intersections of the line through the foci $S,H$ with the ellipse. $AA'$ is the \emph{major axis} of the ellipse. Let $O$ be the midpoint of $SH$. $AO,OA'$ are the \emph{semi-major axes} of the ellipse.
+
+Let $B,B'$ be the intersections of the perpendicular to $SH$ at $O$ with the ellipse. $BB'$ is the \emph{minor axis} of the ellipse and $BO,OB'$ are the \emph{semi-minor axes} of the ellipse.
+\end{definition}
+\begin{theorem}\label{thm.ellipses-features}
+Using the notation in Figure~\ref{f.ellipse-features}, (1) $SB=HB=a$, (2) $AO=OA'=a$, (3) $BO=OB'$. Label $BO=OB'$ by $b$.
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{minipage}{.48\textwidth}
 \begin{center}
 \begin{tikzpicture}
@@ -47,9 +55,9 @@ Let $S$ and $H$ be two points in the Cartesian plane such that $SH=2c\geq 0$ and
 \draw (F1) -- node[fill=white] {$a'$} (P) -- node[fill=white] {$a-a'$} (F2);
 \node[above] at (Top) {$B$};
 \node[below] at (Bot) {$B'$};
-\node[right] at (Right) {$A$};
-\node[left] at (Left) {$A'$};
-\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+\node[right] at (Right) {$A'$};
+\node[left] at (Left) {$A$};
+\node[below left,xshift=1pt,yshift=0pt] at (O) {$O$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
 \end{tikzpicture}
@@ -69,11 +77,11 @@ Let $S$ and $H$ be two points in the Cartesian plane such that $SH=2c\geq 0$ and
 % Label nodes
 \node[above] at (Top) {$B$};
 \node[below] at (Bot) {$B'$};
-\node[right] at (Right) {$A$};
-\node[left] at (Left) {$A'$};
+\node[right] at (Right) {$A'$};
+\node[left] at (Left) {$A$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
-\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+\node[below left,xshift=1pt,yshift=0pt] at (O) {$O$};
 
 % Label segments
 \path (Bot) --  
@@ -85,7 +93,7 @@ Let $S$ and $H$ be two points in the Cartesian plane such that $SH=2c\geq 0$ and
 \draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
 \draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
 
-\draw (O) rectangle +(6pt,6pt);
+%\draw (O) rectangle +(6pt,6pt);
 \end{tikzpicture}
 \caption{The axes of an ellipse}
 \label{f.ellipse-features}
@@ -95,60 +103,50 @@ Let $S$ and $H$ be two points in the Cartesian plane such that $SH=2c\geq 0$ and
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{definition}\label{def.features}
-Consider a line containing the segment $SH$ and $A,A'$ be the intersections of the line with the ellipse. $AA'$ is the \emph{major axis} of the ellipse. Let $O$ be the midpoint of $SH$. $AO,OA'$ are the \emph{semi-major axes} of the ellipse.
-
-Consider a line perpendicular to $SH$ at $O$ and let $B,B'$ be its intersections with the ellipse. $BB'$ is the \emph{minor axis} of the ellipse and $BO,OB'$ are the \emph{semi-minor axes} of the ellipse.
-\end{definition}
-
-\begin{theorem}(Figure~\ref{f.ellipse-features})\label{thm.ellipses-features}
-\begin{enumerate}
-\item $SB=HB=a$.
-\item $AO=OA'=a$.
-\item $BO=OB'$. (Label $BO=OB'$ by $b$.)
-\end{enumerate}
-\end{theorem}
+\newpage
 
 \begin{proof}
 \begin{enumerate}
 \item $\triangle SBO\cong\triangle HBO$ by side-angle-side  so $SB=HB$. Since $B$ is on the ellipse, $SB+HB=2a$ and $SB=HB=a$ follows. 
 \item Since $A$ is on the ellipse, $2a = AS+HA = (AO-c)+(AO+c)=2AO$,
-so $AO=a$. $OA'=a=AO$ follows by symmetry.
+so $AO=a$. Similarly, $OA'=a=AO$.
 \item $BO=OB'$ follows from $\triangle SBO\cong\triangle SB'O$.\hqed
 \end{enumerate}
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
-\clip (-.5,-2) rectangle +(7,4);
+\clip (-5.2,-2.5) rectangle +(8.4,5);
+% Size and center of the ellipse
+\def\a{3}
+\def\b{2}
+\def\angle{130}
+\pic{ellipse={{\a}/{\b}}};
+% Label distances from center to foci by c
+% Select an arbitrary point on the ellipse and draw lines to the foci
+\pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
+\draw (F1) -- (P);
+\node[below right] at (Right) {$A'$};
+\node[below left] at (Left) {$A$};
+\node[below left,xshift=1pt,yshift=0pt] at (O) {$O$};
+\node[below] at (F1) {$S$};
 
-% Construct the directrix and the focus
-\coordinate (X) at (0,0);
-\node[left] at (X) {$X$};
-\draw[name path=directrix] ($(X)+(0,2)$) --
-  node[left,near start] {$d$} ($(X)+(0,-2)$);
-\coordinate (S) at (3,0);
-\node[below] at (S) {$S$};
-
-% Locate the vertices with eccentricity 1/2
-\coordinate (A) at (2,0);
-\node[below] at (A) {$A$};
-\coordinate (AP) at (6,0);
-\node[below] at (AP) {$A'$};
-
-% draw the major axis
-\draw  (AP) -- node[above] {$3$} (S) -- 
-  node[above left] {$1$} (A) -- node[above] {$2$} (X);
-
-%\vertexsm{X};
-\vertexsm{S};
-\vertexsm{A};
-\vertexsm{AP};
+\draw (Left) -- ++($(Left)-(F1)$) -- ++($(Left)-(F1)$) 
+  coordinate (X) node[left] {$X$};
+\draw (X) -- +(0,2) 
+  node[above,yshift=0pt] {\textsf{\footnotesize directrix}};
+\draw (X) -- +(0,-2);
+\draw[blue,thick] (Left) -- (X);
+\draw[red,thick] (F1) -- (P);
+\draw[red,thick] (F1) -- (Left);
+\draw[blue,thick] (P) -- ($(X)!(P)!(X)$) node[black,left] {$K$};
+\draw[<->] ($(X)+(0,-20pt)$) -- 
+  node[fill=white] {$d$} ($(F1)+(0,-20pt)$);
 \end{tikzpicture}
+\caption{The focus and the directrix\\The eccentricity is the red segments divided by the blue segments}\label{f.ellipse-conic}
 \end{center}
-\caption{The elements of the definition of an ellipse}\label{f.ellipse-conic}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,35 +154,33 @@ so $AO=a$. $OA'=a=AO$ follows by symmetry.
 \subsection*{Conic sections}
 
 \begin{definition}\label{def.ellipse-conic}
-Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix. Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the locus of points $P$ such that the ratio of  $PS$ to the distance of $P$ to the directrix is $e$.
-\end{definition}
-All the conic sections  are defined the same way and are distinguished by their eccentricity: $e<1$ for an ellipse, $e=1$ for a parabola and $e>1$ for a hyperbola.
+Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix, where $d$ is the distance from $S$ to the directrix (Figure~\ref{f.ellipse-conic}). Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the locus of points $P$ such that the ratio of  $PS$ to the distance of $P$ to the directrix is $e$. 
 
-\begin{definition}\label{def.vertex}
-Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ on $SX$ is a \emph{vertex} of the ellipse if $SA/AX=e$ (in Figure~\ref{f.ellipse-conic}, $e=1/2$).
+Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ on $SX$ is a \emph{vertex} of the ellipse if $SA/AX=e$.
+
+For other conic sections: $e=1$ for a parabola and $e>1$ for a hyperbola.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Generating the conic-section ellipse}
 
-Definition~\ref{def.ellipse-conic} is non-constructive. It states that the ellipse is the locus of points satisfying a certain property, but aside from the vertices we have not constructed any such points. Here we show how to construct any of the points on the ellipse.
+Definition~\ref{def.ellipse-conic} is non-constructive. It states that the ellipse is the locus of points satisfying a certain property, but aside from the vertices we have not constructed any such points. The following construction shows how to construct arbitrary points on the ellipse.
 
-Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $SX$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Construct the perpendicular from $P$ to the directrix and let $K$ be its intersection with the directrix. Let $L$ be the intersection of $KP$ with $ES$ (Figure~\ref{f.construct}). 
+Let $E$ be a point on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $SX$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Construct the perpendicular from $P$ to the directrix and let $K$ be its intersection with the directrix. Let $L$ be the intersection of $KP$ with $ES$ (Figure~\ref{f.construct}). 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.1]
 
 \clip (-.8,-2.2) rectangle +(10,4.5);
 
 % Construct the directrix, the focus and the major axis
 \coordinate (X) at (0,0);
 \node[left] at (X) {$X$};
-\draw[name path global=directrix] ($(X)+(0,2)$) --
-  node[left,near start] {$d$} ($(X)+(0,-2)$);
+\draw[name path global=directrix] ($(X)+(0,2)$) -- ($(X)+(0,-2)$);
 \coordinate (S) at (3,0);
 \node[below] at (S) {$S$};
 
@@ -216,7 +212,8 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 % Locate L and label the segments
 \path [name intersections = {of = PL and ES, by = {L} }];
 \node[above] at (L) {$L$};
-\path (S) -- node[left] {$b$} (P) -- node[above] {$b$} (L);
+\path (S) -- node[right,xshift=2pt,yshift=4pt] {$b$} (P) --
+   node[above] {$b$} (L);
 
 % Label the angles
 \node[right,xshift=12pt,yshift=5pt] at (S) {$\alpha$};
@@ -239,15 +236,12 @@ Select an \emph{arbitrary} point $E$ on the directrix and construct lines from $
 The point $P$ is on the ellipse.
 \end{theorem}
 \begin{proof}
-$\angle PLS = \angle LSN=\alpha$ by alternate interior angles, so $\triangle LPS$ is isosceles and $PL=SP$. Since $PK\parallel SX$, $\triangle XEA\sim \triangle KEP$ and $\triangle AES\sim \triangle PEL$ are adjacent pairs of similar triangles, so
+By construction $PK\parallel SX$ so $\triangle XEA\sim \triangle KEP$ and $\triangle AES\sim \triangle PEL$ are adjacent pairs of similar triangles and
 \[
-\frac{PS}{PK}=\frac{PL}{PK}=\frac{SA}{AX}=e\,.
+\frac{PL}{PK}=\frac{SA}{AX}=e\,.
 \]
-Therefore, $P$ is on the ellipse.\hqed
+Now $\angle PLS = \angle LSN=\alpha$ by alternate interior angles, so $\triangle LPS$ is isosceles and $PL=SP$. Therefore, $SP/PK=PL/PK=$ and $P$ is on the ellipse. By choosing different points $E$ on the directrix, any point on the ellipse can be constructed.\hqed
 \end{proof}
-
-By choosing different points $E$ on the directrix, any point on the ellipse can be constructed.
-
 
 \begin{definition}[Parametric representation]
 Consider two concentric circles, one of radius $a$ (dashed blue) and one of radius $b$ (dotted red) (Figure~\ref{f.parametric}). An \emph{ellipse} is the locus of points $P=(x,y)$ such that
@@ -256,7 +250,7 @@ Consider two concentric circles, one of radius $a$ (dashed blue) and one of radi
 \]
 for $0\le t < 2\pi$.
 \end{definition}
-The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-axis. Construct the perpendicular through $P$ to the minor axis and let $P_I$ be its intersection with the inner circle so that $CP_I$ defines an angle $t$.  Extend $C_I$ until it intersects the outer circle at $P_O$. The parametric representation of $P$ is computed from the lengths of the axes and trigonometry functions of $t$.
+The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-axis. Construct the perpendicular through $P$ to the minor axis and let $P_I$ be its intersection with the inner circle so that $OP_I$ defines an angle $t$.  Extend $OP_I$ until it intersects the outer circle at $P_O$. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -366,27 +360,18 @@ The parameter $t$ is \emph{not} the angle of $P$ relative to the positive $x$-ax
 \end{center}
 \end{figure}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{The latus rectum and conjugate diameters}
 
-The following two definitions are at the heart of Newton's proof.
-
-\subsection*{The latus rectum}
-
 \begin{definition}\label{def.ellipse-lr}
-Consider a line through a focus of an ellipse that is perpendicular the major axis. Let its intersections with the ellipse be $L_1,L_2$. Then $L=L_1L_2$ is a \emph{latus rectum} of an ellipse (Figure~\ref{f.ellipse-latus-rectum-def}).\footnote{Usually, lines are denoted by lower-case letters, but $L$ for the latus rectum is the standard notation.}
+Consider a line through a focus of an ellipse that is perpendicular the major axis. Let its intersections with the ellipse be $L_1,L_2$. Then $L=L_1L_2$ is a \emph{latus rectum} of the ellipse (Figure~\ref{f.ellipse-latus-rectum-def}).
 \end{definition}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection*{Conjugate diameters}
-
 \begin{definition}\label{def.conjugate}
-There are two equivalent definitions of conjugate diameters.
+There are two equivalent definitions of conjugate diameters  (Figure~\ref{f.ellipse-conj}).
 \begin{itemize}
-\item Let $P$ be a point on an ellipse, $PG$ a diameter and let $t$ be the tangent to the ellipse at $P$. Diameter $DK$ is a \emph{conjugate diameter} if it is parallel to $t$ (Figure~\ref{f.ellipse-conj}).
+\item Let $P$ be a point on an ellipse, $PG$ a diameter and let $t$ be the tangent to the ellipse at $P$. Diameter $DK$ is a \emph{conjugate diameter} if it is parallel to $t$.
 \item Two diameters $PG$ and $DK$ are \emph{conjugate diameters} if the midpoints of chords ($D'K'$, $D''K''$) parallel to one diameter ($DK$) lie on another diameter ($PG$).
 \end{itemize}
 \end{definition}
@@ -395,22 +380,24 @@ There are two equivalent definitions of conjugate diameters.
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.1]
 
 \clip (-3.5,-2.5) rectangle +(8,5);
 
 \def\a{3}
 \def\b{2}
-\def\angle{29}
+\def\angle{35}
 
 \pic{ellipse={\a}/{\b}};
 \pic{point-on-ellipse={\a}/{\b}/{\angle}};
 \pic{tangent={\a}/{\b}/{\angle}};
 
+\node at ($(P)+(-16pt,24pt)$) {$t$};
+
 \node[above] at (Top) {$B$};
 \node[below] at (Bot) {$B'$};
-\node[right,xshift=-2pt] at (Right) {$A$};
-\node[left] at (Left) {$A'$};
+\node[right,xshift=-2pt] at (Right) {$A'$};
+\node[left] at (Left) {$A$};
 \node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
 
 % Diameter from P through O
@@ -435,7 +422,7 @@ There are two equivalent definitions of conjugate diameters.
 \draw[thick,dashed,name path=center1] (DP) node[above] {$D'$} -- 
   (KP) node[below right] {$K'$};
 
-\coordinate (PPP) at ($(O)!.6!(P)$);
+\coordinate (PPP) at ($(O)!.45!(P)$);
 \path[name path=ppp1] (PPP) -- ++ ({-\a*3*sin(\angle)},{\b*3*cos(\angle)});
 \path [name intersections = {of = ppp1 and ellipse, by = {DPP} }];
 \path[name path=ppp2] (PPP) -- ++ ({\a*3*sin(\angle)},{-\b*3*cos(\angle)});
@@ -456,12 +443,12 @@ There are two equivalent definitions of conjugate diameters.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Equivalence of the definitions}
+\newpage
 
+\section{Equivalence of the definitions}
 
 \subsection*{From the two-foci definition to the analytic equation}
 
-We prove that the locus of points in the two-foci definition satisfies Equation~\ref{eqn.ellipse-formula}.
 
 \begin{theorem}\label{thm.ellipse-equation}
 A point $P=(x,y)$ on an ellipse (Definition~\ref{def.two-foci}) satisfies Equation~\ref{eqn.ellipse-formula}
@@ -471,12 +458,15 @@ Since $S=(-c,0)$, $H=(c,0)$ and $SP+PH=2a$,
 \[
 PS+PH=\sqrt{(x-(-c))^2 + y^2}+\sqrt{(x-c)^2+y^2} = 2a\,.
 \]
-Squaring twice results in
+Move the second radical to the right-hand side of the equation and square the result.
 \begin{eqn}
-(x+c)^2+y^2 &=& \left(2a - \sqrt{(x-c)^2+y^2}\right)^2\\[4pt]
-4xc &=& 4a^2 -4a\sqrt{(x-c)^2+y^2}\\[4pt]
-a-\frac{c}{a}x &=& \sqrt{(x-c)^2+y^2}\\[4pt]
-a^2 +\frac{c^2}{a^2}x^2 &=& x^2+c^2+y^2\\[4pt]
+(x+c)^2+y^2 &=& \left(2a - \sqrt{(x-c)^2+y^2}\right)^2\\[2pt]
+4xc &=& 4a^2 -4a\sqrt{(x-c)^2+y^2}\\[2pt]
+a-\frac{c}{a}x &=& \sqrt{(x-c)^2+y^2}\,.
+\end{eqn}%
+Square again, simplify and divide by $a^2-c^2$ to get
+\begin{eqn}
+a^2 +\frac{c^2}{a^2}x^2 &=& x^2+c^2+y^2\\[2pt]
 	\frac{x^2}{a^2}+\frac{y^2}{a^2-c^2} &=& \frac{a^2-c^2}{a^2-c^2}=1\,.
 \end{eqn}%
 
@@ -486,14 +476,18 @@ By Theorem~\ref{thm.ellipses-features} and Pythagoras's theorem, $b^2=a^2-c^2$ s
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
+
 \subsection*{From the focus and directrix definition to the two-foci definition}
 
-We show how to compute the parameters $a$ and $c$ of Definition~\ref{def.two-foci} from $d$ and $e$ of Definition~\ref{def.ellipse-conic}. Computing $d$ from $a$ and $e$ follows immediately.
+\begin{theorem} (Figure~\ref{f.two-defs})
+The parameters $a$ and $c$ of Definition~\ref{def.two-foci} can be computed from $d$ and $e$ of Definition~\ref{def.ellipse-conic}. Conversely, $d$ can be computed from $a$ and $e$.
+\end{theorem}
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-\clip (-6.5,-3) rectangle +(11,6);
+\clip (-6.6,-3.4) rectangle +(12,7.4);
 % Ellipse
 \def\a{3.75}
 \def\b{2.5}
@@ -506,13 +500,13 @@ We show how to compute the parameters $a$ and $c$ of Definition~\ref{def.two-foc
 \node[below left] at (Left) {$A$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$S'$};
-\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+\node[below left,xshift=1pt,yshift=0pt] at (O) {$O$};
 
 % Label segments
 \path (Top) --  node[right,near start] {$b$} (O);
 \path (F1) -- node[below] {$c$} (O) -- node[below] {$c$} (F2);
 \draw (F1) -- node[below] {$a$} (Top);
-\draw (O) rectangle +(6pt,6pt);
+\draw (O) rectangle +(7pt,7pt);
 
 \def\x{3.75+sqrt(5)}
 \coordinate (X) at ({-(\x)},0);
@@ -521,9 +515,12 @@ We show how to compute the parameters $a$ and $c$ of Definition~\ref{def.two-foc
 \draw (X) -- +(0,{-\b});
 
 % Indicates distances along the major axis
-\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
-\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
-\draw[<->] ($(X)+(0,-40pt)$) -- node[fill=white] {$d$} ($(F1)+(0,-40pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) -- 
+  node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) -- 
+  node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
+\draw[<->] ($(X)+(0,-35pt)$) -- 
+  node[fill=white] {$d$} ($(F1)+(0,-35pt)$);
 
 \def\angle{120}
 \coordinate (P) at ({\angle}:{\a} and {\b});
@@ -536,7 +533,7 @@ We show how to compute the parameters $a$ and $c$ of Definition~\ref{def.two-foc
 \draw[thick,blue] ($(F1)+(-2pt,0)$) -- ($(P)+(-2pt,0)$);
 \draw[thick,blue] ($(P)+(-2pt,0)$)  -- (P -| X) coordinate (K);
 \node[left] at (K) {$K$};
-\draw[blue,rotate=-90] (K) rectangle +(6pt,6pt);
+\draw[rotate=-90] (K) rectangle +(7pt,7pt);
 
 \end{tikzpicture}
 \caption{Two definitions of an ellipse}
@@ -546,7 +543,10 @@ We show how to compute the parameters $a$ and $c$ of Definition~\ref{def.two-foc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-$AX$ and $A'X$ can be computed from $d$ and $e$.
+\begin{proof}
+The definition $e=SA/AX$ will be used implicitly in the proof.
+
+We start by computing $AX,A'X$ from $d,e$.
 \begin{eqnlabels}
 SA+AX&=&SX=d\nonumber\\[4pt]
 SA&=&d-\frac{SA}{e}=d\cdot \frac{e}{1+e}\label{eqn.sa}\\[4pt]
@@ -555,7 +555,7 @@ A'X-SA'&=&d\nonumber\\[4pt]
 SA'&=&\frac{SA'}{e}-d=d\cdot \frac{e}{1-e}\nonumber\\[4pt]
 A'X&=&d\cdot \frac{1}{1-e}\nonumber\,.
 \end{eqnlabels}%
-$a$ can now be computed from $A'X-AX$.
+$a$ can now be computed from $A'X,AX$.
 \begin{eqnlabels}
 a=\frac{AA'}{2}&=&
 \frac{1}{2}( A'X-AX)=
@@ -574,10 +574,11 @@ d\cdot\sqrt{\frac{e^2}{(1-e^2)^2}-\frac{e^4}{(1-e^2)^2}}=
 d\cdot\frac{e^2}{1-e^2}\cdot\sqrt{1-e^2}=
 d\cdot \frac{e}{\sqrt{1-e^2}}\,.
 \]
-Conversely, by Equation~\ref{eqn.a}, $d$ can be computed from $a$ and $e$:
+Conversely, by Equation~\ref{eqn.a}, $d$ can be computed from $a$ and $e$.
 \[
 d=a\cdot\frac{1-e^2}{e}\,.
-\]
+\fqed\]
+\end{proof}
 
 \textbf{Example:} Compute the factors for $e=\sqrt{5}/3$ and then multiply it by various values of $d$.
 \begin{eqn}
@@ -585,28 +586,21 @@ a/d&=&\frac{e}{1-e^2}=\frac{\sqrt{5}/3}{4/9}=\frac{3\sqrt{5}}{4}\\[4pt]
 c/d&=&\frac{e^2}{1-e^2}=\frac{5/9}{4/9}=\frac{5}{4}\\[4pt]
 b/d&=&\frac{e}{\sqrt{1-e^2}}=\frac{\sqrt{5}/3}{2/3}=\frac{\sqrt{5}}{2}\,.
 \end{eqn}%
-For $d=4/\sqrt{5}$ we have:
-\[
-a=3,\qquad b = 2,\qquad c = \sqrt{5}\,.
-\]
+For $d=4/\sqrt{5}$ we have $a=3, b = 2, c = \sqrt{5}$.
+
 Conversely,
 \[
 d=a\cdot\frac{1-e^2}{e}=3\cdot \frac{4/9}{\sqrt{5}/3}=\frac{4}{\sqrt{5}}\,.
 \]
 
 Figure~\ref{f.two-defs} was drawn with $d=\sqrt{5}$ giving
-\[
-a=15/4=3.75,\qquad b=5/2 = 2.5,\qquad c = 5\sqrt{5}/4\approx 2.8\,.
-\]
-
-
-Section~\ref{s.2a} proves in Euclidean geometry that $SP+PS'$ is equal to $AA'$, the major axis of length $2a$, when the directrix and $e$ are given according to Definition~\ref{def.two-foci}. 
+$a=15/4=3.75, b=5/2 = 2.5, c = 5\sqrt{5}/4\approx 2.8$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{From the conic-section definition to the major axis}\label{s.2a}
+\subsection*{From the conic-section definition to the major axis}\label{s.2a}
 
-We wish to deduce $SP+PH=2a$ (Figures~\ref{f.two-foci}) from the conic-section definition. The following proofs refer to the following diagram where the foci are named $S,S'$.
+We wish to deduce $SP+PH=2a$ from the conic-section definition. The proofs use the notation in the following diagram where the foci are named $S,S'$.
 \begin{center}
 \begin{tikzpicture}[scale=1.25]
 
@@ -639,7 +633,7 @@ We wish to deduce $SP+PH=2a$ (Figures~\ref{f.two-foci}) from the conic-section d
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{theorem}
+\begin{theorem} In an ellipse,
 \begin{equation}
 \frac{SA}{AX}=\frac{AA'}{XX'}\,.\label{eqn.cacx}
 \end{equation}
@@ -649,27 +643,27 @@ We wish to deduce $SP+PH=2a$ (Figures~\ref{f.two-foci}) from the conic-section d
 From the diagram we have
 \begin{eqn}
 \frac{AA'}{SA}-1&=&\frac{AA'}{SA}-\frac{SA}{SA}=
-\frac{AA'-SA}{SA}=\frac{SA'}{SA}\\[8pt]
+\frac{AA'-SA}{SA}=\frac{SA'}{SA}\\[4pt]
 \frac{XX'}{AX}-1&=&\frac{XX'}{AX}-\frac{AX}{AX}=
 \frac{XX'-AX}{AX}=\frac{AX'}{AX}\,.
 \end{eqn}
 But $A,A'$ are both points on the ellipse so
-\begin{eqn}
-\frac{SA'}{AX'}&=&\frac{SA}{AX}\\[4pt]
-\frac{SA'}{SA}&=&\frac{AX'}{AX}\\[4pt]
-\frac{AA'}{SA}&=&\frac{XX'}{AX}\,.\fqed
-\end{eqn}
+\[
+\frac{SA'}{AX'}=\frac{SA}{AX}=e\,,\qquad
+\frac{SA'}{SA}=\frac{AX'}{AX}\,,
+\]
+and Equation~\ref{eqn.cacx} follows from the previous two equation.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}
-$SP+S'P = AA'$.
+In an ellipse, $SP+S'P = AA'$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}
 \clip (-4.6,-2.2) rectangle +(9.2,4.6);
@@ -683,7 +677,7 @@ $SP+S'P = AA'$.
 \node[below left] at (Left) {$A$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$S'$};
-\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
+\node[below left,xshift=1pt,yshift=0pt] at (O) {$O$};
 
 \coordinate (X) at (-4,0);
 \node[below left] at (X) {$X$};
@@ -695,10 +689,12 @@ $SP+S'P = AA'$.
 \draw (XP) -- +(0,{-\b});
 
 % Indicates distances along the major axis
-\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
-\draw[<->] ($(O)+(0,-20pt)$) -- node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) --
+  node[fill=white] {$a$} ($(Right)+(0,-20pt)$);
+\draw[<->] ($(O)+(0,-20pt)$) --
+  node[fill=white] {$a$} ($(Left)+(0,-20pt)$);
 
-\def\angle{110}
+\def\angle{120}
 \coordinate (P) at ({\angle}:{\a} and {\b});
 \path[name path global=fromF1p] (P) -- (F1);
 \path[name path=ph] (P) -- (F2);
@@ -707,12 +703,12 @@ $SP+S'P = AA'$.
 \draw[thick,red] (F1) -- (P) -- (F2);
 \coordinate (N) at (P|-O);
 \draw[thick,blue] (P) -- (N) node[below,black] {$N$};
-\draw[blue,thick] (N) rectangle +(7pt,7pt);
+\draw (N) rectangle +(7pt,7pt);
 
 \draw[thick,dashed] (P-|X) node[left] {$K$} -- (P-|XP) node[right] {$K'$};
 
 \end{tikzpicture}
-\caption{$SP+SP'=AA'$}
+\caption{$SP+S'P=AA'$}
 \label{f.AAP}
 \end{center}
 \end{figure}
@@ -720,17 +716,16 @@ $SP+S'P = AA'$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-Let $N$ be the perpendicular from $P$ to the major axis (Figure~\ref{f.AAP}). $P$ is on the ellipse if $SP/PK=e$ or $SP'/PK'=e$, but since $PK=NX$ and $PK'=NX'$, $P$ is on the ellipse if $SP/NX=e$ or $SP'/NX'=e$.
+Let $N$ be the perpendicular from $P$ to the major axis (Figure~\ref{f.AAP}). Since $P$ is on the ellipse, $SP/PK=S'P/PK'=e$, but by construction $PK=NX$ and $PK'=NX'$, so $SP/NX=e$ or $S'P/NX'=e$.
 \begin{eqn}
-\frac{SP}{NX}&=&\frac{SP'}{NX'}\\[4pt]
-\frac{SP'}{SP}&=&\frac{NX'}{NX}\\[4pt]
-\frac{SP'+SP}{SP}&=&\frac{NX'+NX}{NX}\\[4pt]
-\frac{SP'+SP}{SP}&=&\frac{XX'}{NX}\,.
+\frac{SP}{NX}&=&\frac{S'P}{NX'}\\[2pt]
+\frac{S'P}{SP}&=&\frac{NX'}{NX}\\[2pt]
+\frac{S'P+SP}{SP}&=&\frac{NX'+NX}{NX}=\frac{XX'}{NX}\,.
 \end{eqn}
-Again since $P$ is on the ellipse and by Equation~\ref{eqn.cacx},
+By Equation~\ref{eqn.cacx},
 \begin{eqn}
-\frac{SP'+SP}{XX'}&=&\frac{SP}{NX}=\frac{SA}{AX}=\frac{AA'}{XX'}\\[4pt]
-SP'+SP&=&AA'\,.\fqed
+\frac{S'P+SP}{XX'}&=&\frac{SP}{NX}=\frac{SA}{AX}=\frac{AA'}{XX'}\\[4pt]
+S'P+SP&=&AA'\,.\fqed
 \end{eqn}
 \end{proof}
 

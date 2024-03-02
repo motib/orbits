@@ -5,10 +5,9 @@
 
 \chapter{Properties of ellipses}\label{s.ellipse}
 
+\section{Geometric properties of an ellipse}
 
-\section{A circle circumscribing an ellipse}
-
-Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-latus-rectum}). Choose a point $X$ on the major axis and construct a perpendicular through $X=(x,0)$. Let its intersections with the ellipse and the circle be $P_e=(x,y_e)$ and $P_c=(x,y_c)$, respectively.
+%%Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-latus-rectum}). Choose a point $X$ on the major axis and construct a perpendicular through $X=(x,0)$. Let its intersections with the ellipse and the circle be $P_e=(x,y_e)$ and $P_c=(x,y_c)$, respectively.
 \begin{theorem}\label{thm.ellipse-b-over-a}
 The perpendicular to the major axis through a point $P_c=(x,y_c)$ on the circle circumscribing an ellipse intersects the ellipse at $P_e=(x,y_e)=\left(x,\displaystyle\frac{b}{a}y_c\right)$.
 \end{theorem}
@@ -18,11 +17,12 @@ y_e= \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\fqed
 \end{equation}
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}
-\clip (-3.8,-3.5) rectangle +(7.6,7.2);
+\begin{tikzpicture}[scale=.9]
+\clip (-4.2,-3.5) rectangle +(8.4,7.2);
 
 \def\a{3.2}
 \def\b{2}
@@ -33,11 +33,11 @@ y_e= \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\fqed
 \node[below right] at (F2) {$H$};
 \node[above] at (Top) {$B$};
 \node[below] at (Bot) {$B'$};
-\node[right] at (Right) {$A$};
-\node[left] at (Left) {$A'$};
+\node[right] at (Right) {$A'$};
+\node[left] at (Left) {$A$};
 
 % Draw axes through O
-\draw (F1) -- (O) -- (F2);
+\draw (F1) -- (O) -- node[below] {$c$} (F2);
 \draw[name path=minor] (O) -- node[right] {$b$} (Top);
 
 \coordinate (X) at (-1,0);
@@ -64,7 +64,7 @@ y_e= \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\fqed
 % Label endpoint of the LR
 \node[above] at (LR1) {$L_1$};
 \node[below] at (LR2) {$L_2$};
-\draw (F2) rectangle +(5pt,5pt);
+\draw (F2) rectangle +(6pt,6pt);
 \draw (F1) -- node[near start,above] {$a$} (Top) -- node[above] {$a$} (F2);
 
 % Length of LR
@@ -76,92 +76,29 @@ y_e= \frac{b}{a} \,\sqrt{(a^2-x^2)}=\frac{b}{a}y_c\,.\label{eq.ye}\fqed
 \end{center}
 \end{figure}
 
-
-%\begin{figure}[tb]
-%\begin{center}
-%\begin{tikzpicture}
-%\clip (-5,-.5) rectangle +(10,5.5);
-%
-%\def\a{3.75}
-%\def\b{2.5}
-%\pic{semi-ellipse={{\a}/{\b}}};
-%\draw[name path=circle] ({\a},0) arc(0:180:{\a});
-%
-%% Draw axes through O
-%\draw[name path=major] (Left) -- 
-%  node[below] {$a$} (O) -- node[below] {$a$}(Right);
-%\draw[name path=minor] (O) -- (Top);
-%\draw[<->] ($(O)+(-10pt,1pt)$) --
-%  node[near end,fill=white] {$a$} ($(Top)+(-10pt,-1pt)$);
-%
-%% Choose arbitrary point on major-axis, raise a perpendicular
-%%   and label its intersections with the ellipse and the circle
-%\coordinate (X) at (1,0);
-%\path[name path=atX] (X) -- ($(X)+(0,4.5)$);
-%\path [name intersections = {of = atX and ellipse, by = {E1} }];
-%\path [name intersections = {of = atX and circle, by = {C1} }];
-%\draw (X) -- (C1);
-%
-%% Label X and the intersections
-%\node[below] at (X) {$X$};
-%\node[above right] at (C1) {$P_c$};
-%\node[above right] at (E1) {$P_e$};
-%
-%\draw (O) rectangle +(6pt,6pt);
-%\draw (X) rectangle +(6pt,6pt);
-%
-%\end{tikzpicture}
-%\caption{A circle circumscribing an ellipse}\label{f.ellipse-circle}
-%\end{center}
-%\end{figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{The latus rectum of an ellipse}
 
 \begin{theorem}\label{thm.ellipse-lr}
 $L$, the length of the latus rectum of an ellipse, is 
 $\displaystyle\frac{2b^2}{a}$.
 \end{theorem}
 \begin{proof}
-By Equation~\ref{eq.ye} and Pythagoras's theorem,
-\[
+The latus rectum is the perpendicular at the focus $(c,0)$. By Equation~\ref{eq.ye} and Pythagoras's theorem,
+\begin{equation}\label{eqn.lr}
 L=2L_1=2\cdot\frac{b}{a}\sqrt{a^2-c^2}=\displaystyle\frac{2b^2}{a}\,.\fqed
-\]
+\end{equation}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{The area of an ellipse}
 
 \begin{theorem}\label{thm.ellipse-area}
 The area of an ellipse is $\pi a b$.
 \end{theorem}
 \begin{proof}
 From Equation~\ref{eq.ye}
-\[
-y_e = \frac{b}{a}\sqrt{a^2-x^2}\,,
-\]
-so the area of an ellipse is
-\[
-A_e = 2\int_{-a}^{a}\frac{b}{a}\sqrt{a^2-x^2}\; dx = \frac{b}{a}\cdot 2\int_{-a}^{a}\sqrt{a^2-x^2}\; dx= \frac{b}{a}A_c\,.
-\]
-If we can show that the area of a circle is $\pi a^2$ the theorem follows.
-
-The proof uses polar coordinates, where $x=a\cos \theta$ and $y=a\sin \theta$. First, we derive the formula for the integral of $\sin^2 \theta$ using the double-angle identity.
 \begin{eqn}
-%\cos 2\theta &=& 1-2\sin^2 \theta \\[4pt]
-\sin^2 \theta &=& \frac{1-\cos 2\theta}{2}\\[6pt]
-\int \sin^2 \theta \;d\theta &=& \int\frac{1-\cos 2\theta}{2} \;d\theta
-=\frac{\theta}{2} - \frac{\sin 2\theta}{4}  + C\,.
-\end{eqn}%
-\noindent{}Now we can compute the area of a circle as twice the area of a semicircle by changing from Cartesian to polar coordinates and integrating.
-\begin{eqn}
-A_c &=& 2\int_{-a}^{a} \sqrt{a^2-x^2} \;dx= 2\int_{-\pi}^{0} \sqrt{a^2-(a \cos \theta)^2} \;\;d(a\cos\theta)\\[4pt]
-%&=& 2a^2 \int_{-\pi}^{0} \sqrt{1-\cos^2 \theta} \;\;d(\cos\theta)\\[4pt]
-&=& 2\cdot a\cdot a \int_{-\pi}^{0} \sin \theta (-\sin\theta)\;d\theta
-= -2a^2 \int_{-\pi}^{0} \sin^2 \theta \;d\theta\\[4pt]
-&=& -2a^2 \left.\left( \frac{\theta}{2} - \frac{\sin 2\theta}{4}+C\right)\right|_{-\pi}^{0}=\pi a^2\,.\fqed
+y_e &=& \frac{b}{a}\sqrt{a^2-x^2}\\
+A_{\mathit{ellipse}} &=& 2\int_{-a}^{a}\frac{b}{a}\sqrt{a^2-x^2}\; dx = \frac{b}{a}\cdot 2\int_{-a}^{a}\sqrt{a^2-x^2}\; dx= \frac{b}{a}A_{\mathit{circle}}=\pi a b\,.\fqed
 \end{eqn}%
 \end{proof}
 
@@ -170,7 +107,7 @@ A_c &=& 2\int_{-a}^{a} \sqrt{a^2-x^2} \;dx= 2\int_{-\pi}^{0} \sqrt{a^2-(a \cos \
 \section{The angles between a tangent and the lines to the foci}
 
 \begin{theorem}\label{thm.tangent-angles}
-Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extension of $SP$ such that $SU=AA'=2a$. Let $RQ$ be the bisector of $\angle HPU$. Then $\angle RPS = \angle QPH$ and $RQ$ is the tangent to the ellipse at $P$ (Figure~\ref{f.tangent-angles}).
+Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extension of $SP$ such that $SU=AA'=2a$. Then the tangent $RQ$ is the external angle bisector of $\angle HPU$ and $\angle RPS = \angle QPH$ (Figure~\ref{f.tangent-angles}).
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -180,19 +117,22 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 \begin{tikzpicture}
 
 % Size and center of the ellipse
-\clip (-5,-.7) rectangle +(11.5,4.7);
+\clip (-5,-.7) rectangle +(11.5,5.5);
 
 \def\a{4.5}
-\def\b{3}
+\def\b{3.5}
 
-\def\angle{45}
+\def\angle{50}
 
 \pic{semi-ellipse={\a}/{\b}};
 \pic{point-on-ellipse={\a}/{\b}/{\angle}};
 \pic{tangent={0.7*\a}/{0.7*\b}/{\angle}};
 
-\node[below] at (Right) {$A$};
-\node[below] at (Left) {$A'$};
+\node[above right,white,fill] at (P) {$P$};
+\node[above,yshift=3pt] at (P) {$P$};
+
+\node[below] at (Right) {$A'$};
+\node[below] at (Left) {$A$};
 \node[below] at (O) {$O$};
 \node[below] at (F1) {$S$};
 \node[below] at (F2) {$H$};
@@ -202,7 +142,7 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 % Locate another point Q on the tangent
 \coordinate (Q) at ($(P)!.9!(Z)$);
 \node[right,xshift=2pt,yshift=2pt] at (Q) {$Q$};
-\node[right,xshift=2pt] at (R) {$R$};
+\node[right,xshift=3pt] at (R) {$R$};
 
 % Extend line SP to U
 \draw[name path=fromF1p] (F1) -- ($(F1)!1.4!(P)$) coordinate (U);
@@ -210,25 +150,25 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 
 % Draw HQ and QU
 \draw (F2) -- 
-  node[below right,xshift=6pt,yshift=6pt] {$d$} (Q) -- 
+  node[below right,xshift=0pt,yshift=6pt] {$d$} (Q) -- 
   node[right] {$d$} (U);
 \draw[name path=F2U] (F2) -- (U);
 \draw (F1) -- (Q);
 
 % Draw dashed line to local W
 \path [name intersections = {of = t and F2U, by = {W} }];
-\node[right,xshift=1pt,yshift=-2pt] at (W) {$W$};
+\node[right,xshift=1pt,yshift=2pt] at (W) {$W$};
 
 % Label angles
 \node[below right,xshift=-1pt,yshift=-4pt] at (P) {$\alpha$};
 \node[right,xshift=5pt,yshift=-1pt] at (P) {$\alpha$};
-\node[left,xshift=-7pt,yshift=3pt] at (P) {$\alpha$};
+\node[left,xshift=-8pt,yshift=4pt] at (P) {$\alpha$};
 
 % Indicate lengths of SU
 \draw [<-,thick,dashed] ($(F1)+(0,3pt)$) --
-   node[above,near end] {$2a$} ($(P)+(3pt,4pt)$);
-\draw [->,thick,dashed] ($(P)+(12pt,7pt)$) --($(U)+(0,3pt)$);
-
+   node[above,near end] {$2a$} ($(P)+(0pt,3pt)$);
+\draw [->,thick,dashed] ($(P)+(0pt,3pt)$) --($(U)+(0,3pt)$);
+\draw[rotate=57] (W) rectangle +(6pt,6pt);
 \end{tikzpicture}
 \caption{Angles at the tangent}\label{f.tangent-angles}
 \end{center}
@@ -236,80 +176,15 @@ Let $P$ be a point on the ellipse whose foci are $S,H$. Let $PU$ be the extensio
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{proof} 
-We prove that any point $Q\neq P$ on the bisector is not on the ellipse, so the bisector $RQ$ has only one point of intersection with the ellipse and it must be the tangent at $P$. Since $RQ$ is the angle bisector of $\angle HPU$ (the exterior angle of $\angle SPH$), $\angle QPH =\angle QPU=\alpha$, and by vertical angles $\angle QPU=\angle RPS=\alpha$.
+\begin{proof}
+We prove that the external angle bisector must be the tangent by showing that any point $Q\neq P$ on the bisector is not on the ellipse, so the bisector $RQ$ has only one point of intersection with the ellipse and it must be the tangent at $P$. $\angle QPH =\angle QPU=\angle RPS=\alpha$ since $RQ$ is the bisector and by vertical angles.
 
-Construct the line $HU$ to form the triangle $\triangle HPU$ which intersects $PQ$ at $W$. By construction $PH=PU$ so $\triangle HPW\cong \triangle UPW$ by side-angle-side and $UW=HW$. But $HU$ is a straight line, therefore, if $\angle HWQ=\angle UWQ$, then they are both right angles and $\triangle HWQ=\triangle UWQ$ by side-angle-side, so $UQ=HQ=d$. Suppose that $Q$ is on the ellipse so that $2a=SQ+QH=SQ+QU$. By the triangle inequality $2a=SQ+QU>SU=2a$, contradicting that $Q$ is on the ellipse.\hqed
+Construct the line $HU$ to form the triangle $\triangle HPU$ which intersects $PQ$ at $W$. By construction $PH=PU$ so $\triangle HPW\cong \triangle UPW$ by side-angle-side. Therefore, $\angle HWP=\angle UWP$ and they are right angles, so $\triangle HWQ=\triangle UWQ$ by side-angle-side and $UQ=HQ$. If $Q$ is on the ellipse, $2a=SQ+QH=SQ+QU$, but by the triangle inequality $2a=SQ+QU>SU=2a$, contradicting that $Q$ is on the ellipse.\hqed
 \end{proof}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conjugate diameters}
-
-
-%\begin{figure}[t]
-%\begin{center}
-%\begin{tikzpicture}
-%
-%\clip (-3.5,-2.5) rectangle +(8,5);
-%
-%\def\a{3}
-%\def\b{2}
-%\def\angle{29}
-%
-%\pic{ellipse={\a}/{\b}};
-%\pic{point-on-ellipse={\a}/{\b}/{\angle}};
-%\pic{tangent={\a}/{\b}/{\angle}};
-%
-%\node[above] at (Top) {$B$};
-%\node[below] at (Bot) {$B'$};
-%\node[right,xshift=-2pt] at (Right) {$A$};
-%\node[left] at (Left) {$A'$};
-%\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
-%
-%% Diameter from P through O
-%\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
-%\node[left,yshift=-2pt] at (G) {$G$};
-%
-%% Conjugate diameters from D through O
-%\draw[name path=cd] (O) -- +({90+\angle}:{\a} and {\b});
-%\path[name path=dk] (O) -- +({-90+\angle}:{\a} and {\b});
-%\path [name intersections = {of = cd and ellipse, by = {D} }];
-%\path [name intersections = {of = dk and ellipse, by = {K} }];
-%\node[above left] at (D) {$D$};
-%\node[below right] at (K) {$K$};
-%\draw (D) -- (K);
-%
-%% Draw parallels to the tangent
-%\coordinate (PP) at ($(O)!.35!(G)$);
-%\path[name path=pp1] (PP) -- ++ ({-\a*3*sin(\angle)},{\b*3*cos(\angle)});
-%\path [name intersections = {of = pp1 and ellipse, by = {DP} }];
-%\path[name path=pp2] (PP) -- ++ ({\a*3*sin(\angle)},{-\b*3*cos(\angle)});
-%\path [name intersections = {of = pp2 and ellipse, by = {KP} }];
-%\draw[thick,dashed,name path=center1] (DP) node[above] {$D'$} -- 
-%  (KP) node[below right] {$K'$};
-%
-%\coordinate (PPP) at ($(O)!.6!(P)$);
-%\path[name path=ppp1] (PPP) -- ++ ({-\a*3*sin(\angle)},{\b*3*cos(\angle)});
-%\path [name intersections = {of = ppp1 and ellipse, by = {DPP} }];
-%\path[name path=ppp2] (PPP) -- ++ ({\a*3*sin(\angle)},{-\b*3*cos(\angle)});
-%\path [name intersections = {of = ppp2 and ellipse, by = {KPP} }];
-%\draw[thick,dashed,name path=center2] (DPP) node[above] {$D''$} --
-%  (KPP) node[below right] {$K''$};
-%
-%\path [name intersections = {of = center1 and pc, by = {C1} }];
-%\path [name intersections = {of = center2 and pc, by = {C2} }];
-%\vertexsmcolor{O}{red};
-%\vertexsmcolor{C1}{red};
-%\vertexsmcolor{C2}{red};
-%
-%\end{tikzpicture}
-%\caption{Conjugate diameters}\label{f.ellipse-conj}
-%\end{center}
-%\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}\label{thm.ratios}
 Let $P=(x,y)$ be a point on an ellipse (not on the major axis $AA'$) and construct a perpendicular $PV$ from $P$ to the major axis (Figure~\ref{f.ellipse-ratios}). Then
@@ -317,8 +192,6 @@ Let $P=(x,y)$ be a point on an ellipse (not on the major axis $AA'$) and constru
 \frac{A'V\cdot AV}{PV^2} = \frac{a^2}{b^2}\,.
 \]
 \end{theorem}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
 By Equation~\ref{eq.ye},
@@ -352,8 +225,8 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 % Draw axes whose center is C
 \coordinate (L) at +(180:{\a} and {\b});
 \coordinate (R) at +(0:{\a} and {\b});
-\node[below] at (R) {$A$};
-\node[below] at (L) {$A'$};
+\node[below] at (R) {$A'$};
+\node[below] at (L) {$A$};
 \coordinate (Top) at +(90:{\a} and {\b});
 \draw[name path=major] (L) -- (R);
 \draw[name path=minor] (O) -- (Top);
@@ -388,7 +261,7 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 \def\angle{24}
 
 \pic{ellipse={\a}/{\b}};
-\node[below left,xshift=2pt] at (O) {$O$};
+\node[below left,xshift=2pt,yshift=-3pt] at (O) {$O$};
 \begin{scope}[rotate=24]
 \draw[name path=ellipse1,thick,dashed] (O) 
   ellipse[x radius={\a},y radius= {\b}];
@@ -402,6 +275,8 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 \path [name intersections = {of = ellipse1 and oq, by = {Q} }];
 \node[above] at (Q) {$Q$};
 
+\draw (O) rectangle +(6pt,6pt);
+
 % Draw QV
 \draw[green!80!black,thick] (Q) -- 
   ($(G)!(Q)!(P)$) coordinate (V) node[black,below] {$V$};
@@ -413,6 +288,7 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 \vertexsm{D};
 \vertexsm{Q};
 \vertexsm{K};
+
 \end{scope}
 \end{tikzpicture}
 \caption{Rotating the ellipse}\label{f.conj-ratios}
@@ -425,19 +301,15 @@ y^2&=&b^2\cdot \left(1-\frac{x^2}{a^2}\right)=\frac{b^2(a^2-x^2)}{a^2}\\
 \begin{theorem}\label{thm.conj-diag}
 Let $PG,DK$ be conjugate diameters of an ellipse and let $Q$ be a point on the ellipse (Figure~\ref{f.conj-ratios}). Constrct the perpendicular $QV$ from $Q$ to the major axis, then
 \[
-PV = \frac{QV^2\cdot CP^2}{GV \cdot CD^2}\,.
+PV = \frac{QV^2\cdot OP^2}{GV \cdot OD^2}\,.
 \]
 \end{theorem}
 
 \begin{proof}
 Figure~\ref{f.conj-ratios} shows a dashed ellipse which is the original ellipse rotated about the same center $O$, so that $OP$ is the semi-major axis and $OD$ is the semi-minor axis. By Theorem~\ref{thm.ratios},
-\[
-\frac{GV\cdot PV}{QV^2}=\frac{a'^2}{b'^2}\,,
-\]
-where $a',b'$ are the lengths of the semi-major and semi-minor axes of the rotated ellipse. By construction $a'=OP$ and $b'=OD$ so
 \begin{eqn}
-\frac{GV\cdot PV}{QV^2} &=& \frac{CP^2}{OD^2}\\
-PV &=& \frac{QV^2\cdot CP^2}{GV \cdot OD^2}\,.\fqed
+\frac{GV\cdot PV}{QV^2}&=&\frac{a^2}{b^2}= \frac{OP^2}{OD^2}\\
+PV &=& \frac{QV^2\cdot OP^2}{GV \cdot OD^2}\,.\fqed
 \end{eqn}%
 \end{proof}
 
@@ -446,10 +318,10 @@ PV &=& \frac{QV^2\cdot CP^2}{GV \cdot OD^2}\,.\fqed
 \section{Areas of parallelograms}
 
 \begin{theorem}\label{thm.conj-diam-para}
-The areas of the parallelograms formed by tangents to the intersections of and pair of conjugate diameters with the ellipse are equal (Figure~\ref{f.ellipse-conj-diam-proof}).
+Let $PG, DK$ be conjugate diameters of an ellipse. The tangents to the ellipse at $P,G,D,K$ form a parallelogram $JKLM$ whose area is equal to the parallelogram (dashed rectangle) formed by the tangents to $A,A',B,B'$ (Figure~\ref{f.ellipse-conj-diam-proof}).
 \end{theorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[t]
 \begin{center}
@@ -466,14 +338,14 @@ The areas of the parallelograms formed by tangents to the intersections of and p
 \pic{tangent={\a}/{\b}/{\angle}};
 
 % Conjugate diameter from P through C
-\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G);
+\draw[name path=pc] (P) -- ($(P)!2!(O)$) coordinate (G)
+  node[below left,xshift=2pt,yshift=2pt] {$G$};
 
 \node[above,yshift=-1pt] at (Top) {$B$};
 \node[below,yshift=1pt] at (Bot) {$B'$};
-\node[right,xshift=1pt] at (Right) {$A$};
-\node[left,xshift=1pt] at (Left) {$A'$};
-\node[below left,xshift=3pt,yshift=-2pt] at (O) {$O$};
-
+\node[right,xshift=-1pt] at (Right) {$A'$};
+\node[left,xshift=1pt] at (Left) {$A$};
+\node[below left,xshift=2pt,yshift=-2pt] at (O) {$O$};
 
 % Conjugate diameters from D through C
 \path[name path=cd] (O) -- +({\angle+90}:{1.5*\a} and {1.5*\b});
@@ -481,6 +353,7 @@ The areas of the parallelograms formed by tangents to the intersections of and p
 \path [name intersections = {of = cd and ellipse, by = {D} }];
 \path [name intersections = {of = dk and ellipse, by = {K} }];
 \node[above left,xshift=1pt,yshift=-5pt] at (D) {$D$};
+\node[below right,xshift=-1pt,yshift=3pt] at (K) {$K$};
 \draw (D) -- (K);
 
 % Draw tangent at G (continuation of PC)
@@ -497,7 +370,8 @@ The areas of the parallelograms formed by tangents to the intersections of and p
   (K) -- ++ ({\a*sin(90+\angle)},{-\b*cos(90+\angle)});
 
 % Draw large dashed rectangle
-\draw[thick,dashed] (\a,\b) -- (-\a,\b) -- (-\a,-\b) -- (\a,-\b) -- cycle;
+\draw[thick,dashed] (\a,\b) node[above right,yshift=-4pt] {$Q$} -- 
+  (-\a,\b) -- (-\a,-\b) -- (\a,-\b) -- cycle;
 
 % Get the intersections of the tangents
 \path [name intersections = {of = t  and t3, by = {J} }];
@@ -515,9 +389,9 @@ The areas of the parallelograms formed by tangents to the intersections of and p
 
 % Draw perpeciculars to major axis
 \draw[very thick,dashed,blue] (D) -- 
-  ($(Left)!(D)!(Right)$) node[below] {$D'$};
+  ($(Left)!(D)!(Right)$) node[below,black] {$D'$};
 \draw[very thick,dashed,blue] (P) -- 
-  ($(Left)!(P)!(Right)$) node[below] {$P'$};
+  ($(Left)!(P)!(Right)$) node[below,black] {$P'$};
 
 \end{tikzpicture}
 \caption{Parallelograms formed by conjugate diameters}\label{f.ellipse-conj-diam-proof}
@@ -525,16 +399,17 @@ The areas of the parallelograms formed by tangents to the intersections of and p
 \end{figure}
 
 \begin{proof}
-We show that the area of the parallelogram $JKLM$ is equal to the area of the parallelogram formed by tangents to the major and minor axes (dashed). By symmetry it suffices to prove that the areas of one of the quadrants of those parallelograms are equal: $A_{ACBC'}=A_{PCDJ}$. Since the diagonals bisect a parallelogram, it suffices to prove that that the area of $\triangle ABC$ (red) equals the area of $\triangle PCD$ (blue).
+By symmetry it suffices to prove that the areas of one pair of quadrants of the parallelograms are equal: $A_{OA'QB}=A_{PODJ}$. Since diagonals bisect a parallelogram, it suffices to prove that that the area of $\triangle A'OB$ (red) equals the area of $\triangle POD$ (blue).
 
-Let $P=(x_p,y_p)=(a\cos t, b\sin t), D=(x_d,y_d)$ be the parametric representations of the points on the ellipse. Conjugate diameters are perpendicular so $\angle DCP$ is a right angle and
+Let $P=(x_p,y_p)=(a\cos t, b\sin t), D=(x_d,y_d)$ be the parametric representations of these points on the ellipse. Conjugate diameters are perpendicular so $\angle DOP$ is a right angle and
 \[
 D=(x_d,y_d)=(a\cos (t+\pi/2), b\sin (t+\pi/2))=(-a\sin t, b\cos t)\,.
 \]
-Construct $DD'=(x_d,0)$ and $PP'=(x_p,0)$ perpendicular to the major axis. The area of $\triangle PCD$ can be computed as the area of the trapezoid $P'PDD'$ minus the areas of the triangles $\triangle D'DC, \triangle P'PC$. Therefore,
+Construct $DD'=(x_d,0)$ and $PP'=(x_p,0)$ perpendicular to the major axis. The area of $\triangle POD$ can be computed as the area of the trapezoid $P'PDD'$ minus the areas of the triangles $\triangle D'DO, \triangle P'PO$. Therefore,\footnote{The \emph{length} between $O$ and $D'$ is $-x_d$.}
 \begin{eqn}
-\triangle PCD &=& \frac{y_p+y_d}{2} (x_p-x_d) - \frac{1}{2}x_dy_d - \frac{1}{2}x_py_p=\frac{1}{2}\left(x_py_d -x_dy_p\right)\\[6pt]
-&=&\frac{1}{2} \left( a\cos t \cdot b \cos t - (-a)\sin t\cdot b\sin t\right)=\frac{1}{2}ab=\triangle ABC\,.\fqed
+\triangle POD &=& \frac{y_p+y_d}{2} (x_p+(-x_d)) - \frac{1}{2}(-x_d)y_d - \frac{1}{2}x_py_p\\
+&=&\frac{1}{2}\left(x_py_d -x_dy_p\right)\\[6pt]
+&=&\frac{1}{2} \left( a\cos t \cdot b \cos t - (-a)\sin t\cdot b\sin t\right)=\frac{1}{2}ab=\triangle A'OB\,.\fqed
 \end{eqn}%
 \end{proof}
 

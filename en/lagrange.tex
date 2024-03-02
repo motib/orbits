@@ -9,7 +9,7 @@ In this section we present an approximate derivation of the locations of $L1, L2
 
 \begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.8]
 \clip (-4.1,-4.3) rectangle +(8.7,8.4);
 \def\rone{2}
 \def\re{3}
@@ -56,9 +56,9 @@ In this section we present an approximate derivation of the locations of $L1, L2
 
 \section{Lagrange point $L1$}
 
-We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun and that the masses of the two satisfy $m_E \ll m_S$. Let us suppose that we wish to place a space telescope $T$ of mass $m_T \ll m_E$ in a circular orbit at distance $r_1\ll r_E$ from the Earth (Figure~\ref{f.lagrange1}), such that $T$ has the same orbital period as the Earth (one year). Is this possible?
+We assume that the Earth is in a circular orbit of radius $r_E$ and period $T_E$ around the Sun and that the masses of the two satisfy $m_E \ll m_S$. Let us suppose that we wish to place a space telescope of mass $m_T \ll m_E$ in a circular orbit at $L_1$ which is at distance $r_1\ll r_E$ from the Earth, such that its orbital period $T_1=T_E$ (Figure~\ref{f.lagrange1}). Is this possible?
 
-\begin{figure}
+\begin{figure}[t]
 \begin{minipage}{.5\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.9]
@@ -89,7 +89,7 @@ We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun a
 \begin{minipage}{.46\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.9]
-\clip (-5.5,-.5) rectangle +(6,5.2);
+\clip (-6,-.5) rectangle +(6.5,5.2);
 \def\r{4}
 \coordinate (S) at (0,0);
 \node[below] at (S) {$S$};
@@ -114,67 +114,33 @@ We assume that the Earth is in a circular orbit of radius $r_E$ around the Sun a
 \end{minipage}
 \end{figure}
 
-\newpage
-
-If we ignore the gravitational force exerted by $E$ on $T$ at $L1$, obviously not, because by Kepler's third law
+If we ignore the gravitational force exerted by $E$ on the telescope at $L1$, by Kepler's third law
 \[
-\frac{A_E^3}{T_E^2} = \frac{A_1^3}{T_E^2}\,,
+\frac{A_E^3}{T_E^2} = \frac{A_1^3}{T_1^2}=\frac{A_1^3}{T_E^2}\,,
 \]
-so $A_1=A_E$ and $T$ must be located at the center of the Earth. Can the gravitational force exerted by $E$ on $T$ cause $T_1=T_E$ while $r_1$ is greater than the radius of the Earth?
+then $A_1=A_E$ and $L_1$ must be located at the center of the Earth.
 
-You might think that $T$ should be placed so that the gravitational force exerted by the Sun is exactly balanced by the gravitational force exerted by the Earth, but, of course, if there is no net force on $T$, by Newton's first law $T$ would simply move in a straight line off into space. Instead, we want the net centripetal force on $T$ to be
+You might think that $L_1$ should be chosen so that the gravitational force exerted by the Sun is exactly balanced by the gravitational force exerted by the Earth, but, of course, if there is no net force, by Newton's first law the telescope would simply move in a straight line off into space. Instead, we want the \emph{net} centripetal force at $L_1$ to be
 \begin{equation}
-F = \frac{Gm_Sm_T}{r'^2}-\frac{Gm_Em_T}{r_1^2}\,,\label{eqn.force-diff}
+F = \frac{Gm_Sm_T}{(r_e-r_1)^2}-\frac{Gm_Em_T}{r_1^2}\,,\label{eqn.force-diff}
 \end{equation}
-so that it moves in an orbit with period $T_E$. To simplify notation we let $r'=r_E-r_1$.
+so that the telescope moves in an orbit with period $T_E$. To simplify notation let $r'=r_E-r_1$.
 
-Since the length of the orbit of $T$ at $L1$ is $2\pi r'$, $T$'s velocity is
+Since the length of the orbit at $L1$ is $2\pi r'$, the telescope's velocity is
 \begin{equation}
 v_1 = \frac{2\pi r'}{T_1}\,.\label{eqn.velocity}
 \end{equation}
-As Newton did in his investigation of elliptical orbits, the motion from $A$ to $D$ is separated into a tangential motion $AC$ where there is no force on $T$, followed by motion towards the center with a centripetal force from $C$ to $S$ (Figure~\ref{f.grav-lagrange}). The distances indicated are those of the non-accelerated motion $v_t\Delta t$ and the accelerated motion $\frac{1}{2} a (\Delta t)^2$ during a very small time period $\Delta t$. We need to find the acceleration $a$ that will cause $T$ to reach $D$.
-%\begin{figure}[t]
-%\begin{center}
-%\begin{tikzpicture}
-%\clip (-5.5,-.5) rectangle +(6,5);
-%
-%\def\r{4}
-%\coordinate (S) at (0,0);
-%\node[below] at (S) {$S$};
-%\coordinate (A) at (0,{\r});
-%\node[above] at (A) {$A$};
-%\draw (0,{\r}) arc(90:180:{\r});
-%\draw (S) -- node[right] {$r'$} (A);
-%\coordinate (D) at (140:{\r});
-%\node[below,yshift=-4pt] at (D) {$D$};
-%\path[name path=radius] (S) -- (140:{2*\r});
-%\path[name path=ac] (A) -- +({-1.5*\r},0);
-%\path [name intersections = {of = radius and ac, by = {C} }];
-%\node[above] at (C) {$C$};
-%\draw[->] (A) -- node[above] {$v_1\Delta t$} (C);
-%\draw[->] (C) -- node[right,xshift=2pt] {$x$} 
-%  node[left,xshift=-4pt,yshift=-2pt] {$\frac{1}{2} a (\Delta t)^2$} (D);
-%\draw (S) -- node[left,xshift=-4pt] {$r'$} (D);
-%\draw[->] (A) arc (90:120:{\r});
-%\end{tikzpicture}
-%\caption{Non-accelerated and accelerated motion}\label{f.grav-lagrange}
-%\end{center}
-%\end{figure}
-By Pythagoras's theorem ,
+Consider Figure~\ref{f.grav-lagrange} where the motion from $A$ to $D$ along the orbit is separated into an unaccelerated tangential motion $v_1\Delta t$ from $A$ to $C$  followed by an accelerated centripetal motion $\frac{1}{2} a (\Delta t)^2$ from $C$ to $S$. By Pythagoras's theorem,
 \begin{eqn}
 r'^2 + (v_1\Delta t)^2 &=& (r'+x)^2 =r'^2 + 2r'x + x^2\\
-(v_1\Delta t)^2 &=& x(2r'+x)\,.
+(v_1\Delta t)^2 &=& x(2r'+x)\\
+x&\approx& \frac{v_1^2}{2r'}(\Delta t)^2\,,
 \end{eqn}%
-Since $\Delta t$ is assumed to be very small and since $r_T$ is close to $r_E$, $2r'+x \approx 2r'$, so by Newton's second law,
-\begin{eqn}
-\frac{1}{2} a (\Delta t)^2 &=& \frac{1}{2}\frac{v_1^2}{r'}(\Delta t)^2\\
-F &=& m_T a = \frac{m_Tv_1^2}{r'}\,.
-\end{eqn}%
-By Equation~\ref{eqn.force-diff} the force needed to keep $T$ in the desired orbit is
+since $\Delta t$ is assumed to be very small and since $r'$ is close to $r_E$, $2r'+x \approx 2r'$. Therefore, the acceleration must be $v_1^2/r'$ and from Equation~\ref{eqn.force-diff}, by Newton's second law the net centripetal force needed is
 \[
-F=\frac{m_Tv_T^2}{r'} = \frac{Gm_Sm_T}{r'^2}-\frac{Gm_Em_T}{r_1^2}\,,
+F=m_1\cdot \frac{v_T^2}{r'} = \frac{Gm_Sm_1}{r'^2}-\frac{Gm_Em_1}{r_1^2}\,.
 \]
-and the velocity of $T$ at $L1$ must satisfy
+Canceling $m_1$ gives
 \[
 v_1^2= \frac{Gm_S}{r'}-\frac{Gm_Er'}{r_1^2}\,.
 \]
@@ -183,37 +149,40 @@ The period of the desired orbit is $T_1=T_E$ so by Equation~\ref{eqn.velocity},
 \frac{4\pi^2 r'^2}{T_E^2}&=&\frac{Gm_S}{r'}-\frac{Gm_Er'}{r_t^2}\\
 \frac{4\pi^2}{T_E^2}&=&\frac{Gm_S}{r'^3}-\frac{Gm_E}{r'r_t^2}\,.
 \end{eqn}%
-But by Kepler's third law (Equation~\ref{eqn.third-law}), where the elliptical semi-major axis $a_i$ is the circular radius $r_E$,
+By Kepler's third law (Equation~\ref{eqn.third-law}), where the elliptical semi-major axis $a_i$ is the circular radius $r_E$,
 \begin{eqnlabels}
-\frac{4\pi^2 r_E^3 m}{T_E^2}\frac{1}{r_E^2}&=&\frac{GmM}{r_E^2}\nonumber\\
-\frac{Gm_S}{r_E^3}&=&\frac{Gm_S}{r'^3}-\frac{Gm_E}{r'r_1^2}\nonumber\\
+\frac{4\pi^2 r_E^3 m_E}{T_E^2}\frac{1}{r_E^2}&=&\frac{Gm_Em_S}{r_E^2}\nonumber\\
+\frac{Gm_S}{r'^3}-\frac{Gm_E}{r'r_1^2}&=&\frac{Gm_S}{r_E^3}\nonumber\\
 \frac{1}{r_E^3}&=&\frac{1}{r'^3}-\frac{m_E/m_S}{r'r_1^2}\,.\label{eqn.force-diff1}
 \end{eqnlabels}%
-Let $y=m_E/m_S$ and $z=r_1/r_E$ so $r'= r_E-r_1=r_E(1-z)$. Multiply by $r_E^3$ and make the substitutions.
+Let $y=m_E/m_S$ and $z=r_1/r_E$ so $r'= r_E-r_1=r_E(1-z)$. Multiply Equation~\ref{eqn.force-diff1} by $r_E^3$ and make the substitutions.
 \begin{eqn}
 \frac{r_E^3}{r'^3}-\frac{m_E/m_Sr_E^3}{r'r_1^2}&=&1\\
 \frac{1}{(1-z)^3}-\frac{yr_E^3}{r_E(1-z)z^2r_E^2}&=&1\\
 \frac{1}{(1-z)^3}-\frac{y}{z^2(1-z)}&=&1\,.
 \end{eqn}%
-Since $z=r_1/r_E$ is very small, we get the following approximations from the Taylor series \cite[Chapter~11.8]{hahn-cic}:
+Since $z=r_1/r_E$ is very small, we get the following approximations from the Taylor series \cite[Chapter~11.8]{hahn-cic}.
 \begin{eqn}
 \frac{1}{(1-z)}&=&1+z+z^2+\cdots \approx 1+z\\
-\frac{1}{(1-z)^3}&=&1+3z+6z^2+\cdots \approx 1+3z\\
-1+3z-\frac{y}{z^2}(1+z)&\approx&1\\
-3z^3 &\approx& y(1+z)\approx y\,.
+\frac{1}{(1-z)^3}&=&1+3z+6z^2+\cdots \approx 1+3z\,.
 \end{eqn}%
-Let us plug in the numbers $m_S\approx 2\times 10^{30}$ kg, $m_E \approx 6\times 10^{24}$ kg, $r_E\approx 1.5\times 10^8$ km.
+Substituting these approximations gives
+\[
+%1+3z-\frac{y}{z^2}(1+z)&\approx&1\\
+3z^3 \approx y(1+z)\approx y\,.
+\]%
+Let us plug in the numbers $m_S\approx 2\times 10^{30}$ kg, $m_E \approx 6\times 10^{24}$ kg and $r_E\approx 1.5\times 10^8$ km.
 \begin{eqn}
 \left(\frac{r_1}{1.5\times 10^8}\right)^3&\approx&\frac{6\times 10^{24}}{3\times 2\times 10^{30}}= 10^{-6}\\
 r_1&\approx& 1.5\times 10^8\cdot \sqrt[3]{10^{-6}}\approx 1.5\times 10^6\,.
 \end{eqn}%
-If an object is placed $1.5$ million km from the Earth, the period of its orbit around the Sun will be approximately one year. This is quite far---the Moon is less than $400,000$ km from the Earth---but still relatively far from the Sun which is $150$ million km away.
+If an object is placed $1.5$ million km from the Earth in the direction of the Sun, the period of its orbit around the Sun will be approximately one year. This is quite far---the Moon is less than $400,000$ km from the Earth---but still relatively far from the Sun which is $150$ million km away.
 
-\section{Lagrange point $L2$}
+\section{Lagrange points $L2$ and $L3$}
 
 The computation for $L2$ is similar using $r'=r_E+r_2$ (Figure~\ref{f.lagrange3}). With the appropriate modifications to Equation~\ref{eqn.force-diff} we get
 \begin{eqn}
-F &=& \frac{Gm_Sm_T}{r'^2}+\frac{Gm_Em_T}{r_2^2}\\
+F &=& \frac{Gm_Sm_1}{r'^2}+\frac{Gm_Em_1}{r_2^2}\\
 \frac{1}{r_E^3}&=&\frac{1}{r'^3}+\frac{m_E/m_S}{r'r_2^2}\\
 1&=&\frac{1}{(1+z)^3}+\frac{y}{z^2(1+z)}\,.
 \end{eqn}%
@@ -221,7 +190,7 @@ The approximations based on the Taylor series are $(1+z)^{-3}\approx 1-3z$ and $
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=.95]
 \clip (-6.6,-2.8) rectangle +(14.8,3.8);
 \def\re{6}
 \def\rtwo{8}
@@ -252,8 +221,6 @@ The approximations based on the Taylor series are $(1+z)^{-3}\approx 1-3z$ and $
 \caption{Lagrange points $L2$ and $L3$}\label{f.lagrange3}
 \end{figure}
 
-\section{Lagrange point $L3$}
-
 The Lagrange point $L3$ is on the other side of the Sun (Figure~\ref{f.lagrange3}). The modifications to Equation~\ref{eqn.force-diff1} give
 \begin{eqn}
 \frac{1}{r_E^3}&=&\frac{1}{r_3^3}+\frac{m_E/m_S}{r'^3}\\
@@ -265,8 +232,8 @@ since $z\ll 1$. But $y\approx 10^{-6}$ so $z^3\approx 1$, $r_3\approx r_E$ and $
 
 \section{Objects at the Lagrange points}
 
-Although the orbits objects at $L1$, $L2$ and $L3$ are not stable, they are relatively stable so a spacecraft can be placed into a small orbit around one of these points. Even when it drifts, the force required to return it to the Lagrange point is small, which means that the propellant in the spacecraft can maintain it on station for a long time.
+Although the orbits of objects at $L1$, $L2$ and $L3$ are not stable, they are relatively stable so that a spacecraft can be placed into a small orbit around one of these points. Even when it drifts, the force required to return it to the Lagrange point is small, which means that the propellant in the spacecraft can maintain it on station for a long time.
 
-The \emph{Deep Space Climate Observatory (DSCOVR)} was placed at Lagrange point $L1$. It continually observes the Sun and the sunlit side of the Earth. The \emph{James Webb Space Telescope} with its $6.5$ meter diameter infrared telescope was placed at $L2$ in 2022.  $L2$ is ideal for telescopes: if a sun shield is placed facing the Earth and the Sun, the spacecraft itself can remain at the very low temperature that its sensors require. Lagrange point $L3$ is not useful for spacecraft because the line-of-sight to the Earth is blocked by the Sun.
+The \emph{Deep Space Climate Observatory (DSCOVR)} was placed at Lagrange point $L1$. It continually observes the Sun and the sunlit side of the Earth. The \emph{James Webb Space Telescope} with its $6.5$ meter diameter infrared telescope was placed at $L2$ in 2022.  $L2$ is ideal for telescopes: if a sun shield is placed facing the Earth and the Sun, the spacecraft itself can remain at the very low temperature that its sensors require. Lagrange point $L3$ is not useful for spacecraft because the line-of-sight needed for communication with the Earth is blocked by the Sun.
 
 The orbits of objects at $L4$ and $L5$ are stable. Asteroids that are stable at a Lagrange point are called \emph{trojans} and most are located at the $L4$ and $L5$ points of Jupiter. There are two extremely small trojans at the Earth's $L4$ point.

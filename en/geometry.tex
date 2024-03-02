@@ -3,36 +3,27 @@
 
 \chapter{Ellipses in Euclidean geometry}\label{s.geometry}
 
-The proofs of theorems about planetary freely used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. In this section, I present proofs in Euclidean geometry of theorems that appeared in Chapter~\ref{s.ellipse}.\footnote{Theorems~\ref{thm.tangent-angles}, \ref{thm.conj-diag} were proved using Euclidean geometry and Theorem~\ref{thm.ellipse-area} requires taking limits.} The proofs are based on the definition of ellipses in terms of the geometric concepts of focus and directrix instead of the familiar analytic definition (Equation~\ref{eqn.ellipse-formula}).
+The proofs of theorems about planetary orbits used analytic geometry and trigonometry, but for many years after the invention of analytic geometry, mathematicians continued to limit themselves to Euclidean geometry. This section contains proofs in Euclidean geometry of theorems that appeared in Chapter~\ref{s.ellipse}.\footnote{Except for Theorems~\ref{thm.tangent-angles}, \ref{thm.conj-diag} which were proved using Euclidean geometry and Theorem~\ref{thm.ellipse-area} which requires taking limits.} The goal is to prove Theorem~\ref{thm.conj-diam-para} in Euclidean geometry.
 
+\begin{center}
+\fbox{\parbox{.8\textwidth}{To remain consistency with Besant, in this chapter the center of the ellipse will be denoted $C$ instead of $O$.}}
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \section{A right angle at the focus of an ellipse}
 
 \begin{theorem}\label{thm.bisect}
 Let $P,P'$ be points on the ellipse and let $F$ be the intersection of $PP'$ with the directrix. Then $FS$ bisects the exterior angle of $\angle P'SP$(Figure~\ref{f.bisect-angle}).
 \end{theorem}
-\begin{proof}
-Since $P,P'$ are on the ellipse 
-\[
-\frac{SP}{PK}=\frac{SP'}{P'K'}=e\,,
-\]
-and since $\triangle PFK\sim P'FK'$,
-\[
-\frac{SP}{SP'}=\frac{PK}{P'K'}=\frac{PF}{P'F}\,.
-\]
-By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector}), $FS$ bisects the exterior angle of $\angle P'SP$.\hqed
-\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.1]
 
-\clip (-4.1,-3) rectangle +(7.2,5.7);
+\clip (-4.1,-3) rectangle +(7.2,5.5);
 
 \def\a{3}
 \def\b{2}
@@ -44,7 +35,7 @@ By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector
 
 % Locate the foci
 \coordinate (F1) at ({-sqrt(\a*\a-\b*\b)},0);
-\node[right] at (F1) {$S$};
+\node[right,yshift=-2pt] at (F1) {$S$};
 
 \def\x{.7}
 \def\y{(\b/\a)*sqrt(\a*\a-\x*\x)}
@@ -53,7 +44,7 @@ By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector
 \def\xp{-2.2}
 \def\yp{-(\b/\a)*sqrt(\a*\a-\xp*\xp)}
 \coordinate (PP) at ({\xp},{\yp});
-\node[right,yshift=2pt] at (PP) {$P'$};
+\node[right,xshift=2pt,yshift=2pt] at (PP) {$P'$};
 
 % Construct focus and directrix
 \coordinate (X) at (-3.5,0);
@@ -69,10 +60,10 @@ By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector
 % Construct perpendiculars through K, K' to the directrix
 \draw (P) -- (P-|X) coordinate (K);
 \node[left] at (K) {$K$};
-\draw[rotate=-90] (K) rectangle +(5pt,5pt);
+\draw[rotate=-90] (K) rectangle +(6pt,6pt);
 \draw (PP) -- (PP-|X) coordinate (KP);
 \node[left] at (KP) {$K'$};
-\draw[rotate=-90] (KP) rectangle +(5pt,5pt);
+\draw[rotate=-90] (KP) rectangle +(6pt,6pt);
 
 % Draw triangles
 \draw (F1) -- (X) -- (F) -- (K);
@@ -91,6 +82,18 @@ By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{proof}
+Since $P,P'$ are on the ellipse 
+\[
+\frac{SP}{PK}=\frac{SP'}{P'K'}=e\,,
+\]
+and since $\triangle PFK\sim P'FK'$,
+\[
+\frac{SP}{SP'}=\frac{PK}{P'K'}=\frac{PF}{P'F}\,.
+\]
+By the exterior angle bisector theorem (Theorem~\ref{thm.exterior-angle-bisector}), $FS$ bisects the exterior angle of $\angle P'SP$.\hqed
+\end{proof}
+
 \begin{theorem}\label{thm.right-angle}
 Let $P$ be a point on the ellipse and construct lines $PA,PA'$. Label their intersections with the directrix by $E$ and $F$, respectively. Then $\angle FSE$ is a right angle (Figure~\ref{f.right-angle}).
 \end{theorem}
@@ -101,9 +104,9 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}
 
 \clip (-.6,-2.1) rectangle +(10.2,6.2);
 
@@ -154,7 +157,7 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 \node[below left,xshift=-16pt,yshift=1pt] at (S) {$\delta$};
 \node[below,xshift=-16pt,yshift=-10pt] at (S) {$\delta$};
 
-\draw[thick,blue,rotate=127] (S) rectangle +(5pt,5pt);
+\draw[thick,rotate=127] (S) rectangle +(6pt,6pt);
 
 \end{tikzpicture}
 \end{center}
@@ -165,13 +168,39 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 
 \section{Ratios of perpendiculars to the axes}
 
-The following theorem proves Theorem~\ref{thm.ratios} using Euclidean geometry.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{theorem}\label{thm.ratios-besant}
+We start with a preliminary theorem.
+\begin{theorem}\label{thm.dividing}
+Let $AA'$ be a line segment whose midpoint is $C$. Then 
+\[
+AC^2-CN^2=AN\cdot NA'\,.
+\]
+\end{theorem}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+
+\draw (0,0) coordinate (A) node[below] {$A$} -- 
+  (2.5,0) coordinate (N) node[below] {$N$} --
+  (4,0) coordinate (C) node[below] {$C$} -- 
+  (8,0) coordinate (AP) node[below] {$A'$};
+\vertexsm{A};
+\vertexsm{N};
+\vertexsm{C};
+\vertexsm{AP};
+
+\end{tikzpicture}
+\end{center}
+\begin{proof}
+$AN=AC-CN$ and $NA'=A'C+CN=AC+CN$ since $C$ is the midpoint of $AA'$. The result is obtaining by multiplying the two equations.\hqed
+\end{proof}
+
+\begin{theorem}(Theorem~\ref{thm.ratios})\label{thm.ratios-besant}
 Let $P$ be a point on an ellipse not on the major axis and construct perpendiculars $PN,PM$ from $P$ to the major and minor axes, respectively (Figure~\ref{f.besant-ratios}). Then
 \begin{eqnlabels}
-\frac{PN^2}{A'N\cdot NA}&=&\frac{BC^2}{AC^2} = \frac{b^2}{a^2}\label{eqn.pnan}\\[6pt]
-\frac{PM^2}{B'N\cdot NA}&=&\frac{AC^2}{BC^2} = \frac{a^2}{b^2}\label{eqn.pmbn}\,.
+\frac{PN^2}{A'N\cdot NA}&=&\frac{BC^2}{AC^2} \label{eqn.pnan}\\[4pt]
+\frac{PM^2}{B'N\cdot NA}&=&\frac{AC^2}{BC^2}\label{eqn.pmbn}\,.
 \end{eqnlabels}
 \end{theorem}
 
@@ -196,7 +225,8 @@ Let $P$ be a point on an ellipse not on the major axis and construct perpendicul
 
 \node[above left] at (Left) {$A$};
 \node[below] at (Right) {$A'$};
-\node[below left] at (O) {$O$};
+\node[below left] at (O) {$C$};
+\node[above] at (Top) {$B$};
 
 % Locate P and E and draw lines
 \path[name path=fromL,red] (Left) -- +(50:5) -- +(230:4);
@@ -230,11 +260,10 @@ Let $P$ be a point on an ellipse not on the major axis and construct perpendicul
 \caption{Ratio of an ordinate}\label{f.besant-ratios}
 \end{figure}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof} (Equation \ref{eqn.pnan})
-$\triangle AXE\sim \triangle ANP$ since they are right triangles and the vertical angles at $A$ are equal (red). Therefore,
+$\triangle AXE\sim \triangle ANP$ (red) since they are right triangles and the vertical angles at $A$ are equal. Therefore,
 \begin{equation}
 \frac{PN}{AN}=\frac{EX}{AX}\,.\label{eqn.triangle1}
 \end{equation}%
@@ -252,8 +281,8 @@ By Theorem~\ref{thm.right-angle} $\triangle FSE$ is a right triangle so by Theor
 \]
 Since $P$ was arbitrary this holds for any point on the ellipse, in particular, for $B$ on the minor axis, where $PN=BC$ and $AN=AN'=AC$. Therefore,
 \begin{eqn}
-\frac{BC^2}{AC^2}&=&\frac{SX^2}{AX\cdot A'X}\\[6pt]
-\frac{PN^2}{AN\cdot A'N}&=&\frac{SX^2}{AX\cdot A'X}=\frac{BC^2}{AC^2}=\frac{b^2}{a^2}\,.\fqed
+\frac{BC^2}{AC^2}&=&\frac{SX^2}{AX\cdot A'X}\\[4pt]
+\frac{PN^2}{AN\cdot A'N}&=&\frac{SX^2}{AX\cdot A'X}=\frac{BC^2}{AC^2}\,.\fqed
 \end{eqn}%
 \end{proof}
 
@@ -262,31 +291,27 @@ Since $P$ was arbitrary this holds for any point on the ellipse, in particular, 
 \begin{proof} (Equation \ref{eqn.pmbn})
 Since $CM=PN, PM=CN$, by Theorem~\ref{thm.dividing}, Equation~\ref{eqn.pnan} becomes 
 \begin{eqnlabels}
-\frac{CM^2}{AC^2-PM^2}&=&\frac{BC^2}{AC^2}\nonumber\\[6pt]
+\frac{CM^2}{AC^2-PM^2}&=&\frac{BC^2}{AC^2}\nonumber\\[4pt]
 \frac{AC^2}{AC^2-PM^2}&=&\frac{BC^2}{CM^2}\label{eqn.acbc1}\,.
 \end{eqnlabels}%
-It follows that
+By inverting the ratios it can be shown that
 \begin{equation}
 \frac{AC^2}{PM^2}=\frac{BC^2}{BC^2-CM^2},\label{eqn.acbc2}
 \end{equation}
-
-By cross-multiplying the Equations~\ref{eqn.acbc1} and \ref{eqn.acbc2}. By Theorem~\ref{thm.dividing}, Equation~\ref{eqn.acbc2} implies
+and then by Theorem~\ref{thm.dividing} we have
 \[
 \frac{PM^2}{BM\cdot MB'}=\frac{AC^2}{BC^2}\,.\fqed
-\]
+\]%
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The circle circumscribing an ellipse}
 
-\section{A circle circumscribing an ellipse}
-
-The following theorem proves Theorem~\ref{thm.ellipse-b-over-a} in Euclidean geometry.
-\begin{theorem}\label{thm.ellipse-b-over-a-besant}
-Consider a circle of radius $a$ with the same center as an ellipse (Figure~\ref{f.ellipse-latus-rectum-geometry}). Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively. Then
+\begin{theorem}(Theorem~\ref{thm.ellipse-b-over-a})\label{thm.ellipse-b-over-a-besant}
+Consider circle circumscribed about an ellipse (Figure~\ref{f.ellipse-latus-rectum-geometry}). Choose a point $N$ on the major axis and construct a perpendicular through $N$. Let its intersections with the ellipse and the circle be $P$ and $Q$, respectively. Then
 \[
-\frac{PN}{QN}=\frac{BC}{AC}=\frac{b}{a}\,.
+\frac{PN}{QN}=\frac{BC}{AC}\,.
 \]
 \end{theorem}
 \begin{proof} 
@@ -301,8 +326,8 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 
 \begin{figure}
 \begin{center}
-\begin{tikzpicture}
-\clip (-3.8,-3.5) rectangle +(7.6,7.2);
+\begin{tikzpicture}[scale=.9]
+\clip (-4.2,-3.5) rectangle +(8.4,7.2);
 
 \def\a{3.2}
 \def\b{2}
@@ -310,15 +335,15 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 
 \draw[name path=circle] circle[radius={\a}];
 \node[below] at (F1) {$S$};
-\node[below right] at (F2) {$H$};
+\node[below right,xshift=-3pt] at (F2) {$H$};
 \node[above] at (Top) {$B$};
 \node[below] at (Bot) {$B'$};
-\node[right] at (Right) {$A$};
-\node[left] at (Left) {$A'$};
+\node[right] at (Right) {$A'$};
+\node[left] at (Left) {$A$};
 
 % Draw axes through O
 \draw (F1) -- (O) -- (F2);
-\draw[name path=minor] (O) -- node[right] {$b$} (Top);
+\draw[name path=minor] (O) -- (Top);
 
 \coordinate (X) at (-1,0);
 \path[name path=atX] (X) -- ($(X)+(0,4.5)$);
@@ -327,9 +352,6 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 \draw (X) -- (C1);
 
 % Label X and the intersections
-%\node[below] at (X) {$X$};
-%\node[above] at (C1) {$P_c$};
-%\node[above left,xshift=2pt,yshift=-2pt] at (E1) {$P_e$};
 \node[below] at (X) {$N$};
 \node[above] at (C1) {$Q$};
 \node[above left,xshift=2pt,yshift=-2pt] at (E1) {$P$};
@@ -345,10 +367,10 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 \draw[very thick,red] (LR1) -- (LR2);
 
 % Label endpoint of the LR
-\node[above] at (LR1) {$L_1$};
-\node[below] at (LR2) {$L_2$};
-\draw (F2) rectangle +(5pt,5pt);
-\draw (F1) -- node[near start,above] {$a$} (Top) -- node[above] {$a$} (F2);
+\node[above right] at (LR1) {$L_1$};
+\node[below right] at (LR2) {$L_2$};
+\draw (F2) rectangle +(6pt,6pt);
+\draw (F1) -- (Top) -- (F2);
 
 % Length of LR
 \draw[<->,dashed,thick] ($(LR1)+(-.3,0)$) --
@@ -359,7 +381,6 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 \end{center}
 \end{figure}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{The latus rectum of an ellipse}
@@ -367,22 +388,21 @@ and by Theorem~\ref{thm.alt-hypo}, $AN\cdot NA=QN^2$.\hqed
 The following theorem proves Theorem~\ref{thm.ellipse-lr} in Euclidean geometry.
 \begin{theorem}\label{thm.ellipse-lr-besant}
 $L$, the length of the latus rectum of an ellipse, is 
-$\displaystyle\frac{2b^2}{a}$ (Figure~\ref{f.ellipse-latus-rectum-geometry}).
+$\displaystyle\frac{2BC^2}{AC}$ (Figure~\ref{f.ellipse-latus-rectum-geometry}).
 \end{theorem}
 \begin{proof}
 By Theorem~\ref{thm.ratios-besant},
 \[
-\frac{SL_1^2}{AS\cdot SA'}=\frac{BC^2}{AC^2}\,.
+\frac{HL_1^2}{AH\cdot HA'}=\frac{BC^2}{AC^2}\,.
 \]
-By Theorem 7.2, $SB=AC=a$, so by Pythagoras's theorem,
+By Theorem 7.2, $BH=AC$, so by Pythagoras's theorem,
 \[
-BC^2=BS^2-SC^2=AC^2-SC^2=(AC-SC)(AC+SC)=AS\cdot SA'\,.
+BC^2=BH^2-HC^2=AC^2-HC^2=(AC-HC)(AC+HC)=AS\cdot HA'\,.
 \]
 Therefore, the length of one-half the latus rectum is
-\begin{eqn}
-SL_1^2&=&\frac{BC^4}{AC^2}\\[6pt]
-SL_1&=&\frac{BC^2}{AC}=\frac{b^2}{a}\,.\fqed
-\end{eqn}
+\[
+HL_1^2=\frac{BC^4}{AC^2}\,.\fqed
+\]%
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -390,27 +410,12 @@ SL_1&=&\frac{BC^2}{AC}=\frac{b^2}{a}\,.\fqed
 \section{Areas of parallelograms}
 
 \begin{theorem}\label{thm.perp-tangent}
-Let $Y$ be the intersection the perpendicular through the focus $S$ to the tangent $TT'$ at $P$, and let $L$ be the intersection of $S'P$ and $SY$ (Figure~\ref{f.perp-focus-tangent}). Then $Y$ is on the circumscribing circle and $CY\parallel S'L$.
+Let $Y$ be the intersection the perpendicular from the focus $S$ to the tangent $TT'$ at $P$, and let $L$ be the intersection of $S'P$ and $SY$ (Figure~\ref{f.perp-focus-tangent}). Then $Y$ is on the circumscribing circle and $CY\parallel S'L$.
 \end{theorem}
-
-\begin{proof}
-
-$\triangle STY\sim\triangle T'TC$ since they are right triangles that share the acute angle $\angle CTT'=\angle YTS$, so $\angle CT'T=\angle YST=\beta$.
-
-By Theorem~\ref{thm.tangent-angles}, $\angle SPY=\angle S'PT'=\alpha$ since they are the angles to the foci at the tangent. $\angle S'PT'=\angle YPL=\alpha$ are vertical angles, so $\angle SPY=\angle LPY=\alpha$. 
-
-Then $\triangle SPY\cong\triangle LPY$ since they are right triangles with an equal acute angle and a common side $PY$. Therefore, $PL=PS$ and $S'L=S'P+PL=AA'=2a$.
-
-Since $\triangle SPY\cong\triangle LPY$, $SY=YL$, and since $S,S'$ are foci, $S'C=SC$. It follows that $\triangle CSY\sim \triangle S'SL$ and $CY\parallel S'L$. By similarity,
-\[
-\frac{CY}{S'L}=\frac{CS}{S'S}=\frac{CS}{2CS}\,.
-\]
-Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of radius $a$.\hqed
-\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
 
@@ -426,6 +431,8 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
   arc[start angle=0,end angle=180,radius=\a];
 
 \pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
+\node[fill=white,above right,white] at (P) {$P$};
+\node[above,xshift=2pt] at (P) {$P$};
 
 \pic{tangent-path={1.5*\a}/{1.5*\b}/{\angle}};
 \path[name path=ct] (O) -- ($(O)!2!(Right)$);
@@ -438,7 +445,7 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
 
 % Construct the perpendicular through S to the tangent at Y
 \draw (F2) -- ($(T)!(F2)!(TP)$) coordinate (Y);
-\node[right,xshift=3pt,yshift=2pt] at (Y) {$Y$};
+\node[right,xshift=3pt,yshift=4pt] at (Y) {$Y$};
 \draw[thick,dashed] (O) -- (Y);
 
 % Construct lines through P and Y that meet in L
@@ -456,17 +463,17 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
 \node[below right,xshift=-1pt,yshift=-2pt] at (TP) {\sm{\beta}};
 \node[above right,xshift=2pt,yshift=0pt] at (F2) {\sm{\beta}};
 
-\draw[rotate=-115]  (Y) rectangle +(5pt,5pt);
-\draw  (O) rectangle +(5pt,5pt);
+\draw[rotate=-115]  (Y) rectangle +(6pt,6pt);
+\draw  (O) rectangle +(6pt,6pt);
 
 \draw[thick,red] ($(F2)+(0,2pt)$) -- ($(T)+(-10pt,2pt)$);
 \draw[thick,red] ($(Y)+(0,-2pt)$) -- ($(T)+(-9pt,2pt)$);
 \draw[thick,red] (Y) -- (F2);
 \draw[thick,blue] (O) -- (TP) -- (T) -- cycle;
 
-\node[below] at (Left) {$A'$};
-\node[below] at (Right) {$A$};
-\node[below] at (O) {$O$};
+\node[below] at (Left) {$A$};
+\node[below] at (Right) {$A'$};
+\node[below] at (O) {$C$};
 \node[below] at (F1) {$S'$};
 \node[below] at (F2) {$S$};
 
@@ -477,8 +484,19 @@ Therefore, $2CY=S'L=2a$ so $CY=a$ and $Y$ is on the circumscribing circle of rad
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{proof}
+
+$\triangle STY\sim\triangle T'TC$ since they are right triangles that share an acute angle, so $\angle CT'T=\angle YST=\beta$. By Theorem~\ref{thm.tangent-angles}, $\angle SPY=\angle S'PT'=\alpha$ since they are the angles to the foci at the tangent. $\angle S'PT'=\angle YPL=\alpha$ are vertical angles, so $\angle SPY=\angle LPY=\alpha$. 
+
+Then $\triangle SPY\cong\triangle LPY$ since they are right triangles with an equal acute angle and a common side $PY$. Therefore, $PL=PS$ and $S'L=S'P+PL=S'P_PS=AA'$. Since $\triangle SPY\cong\triangle LPY$, $SY=YL$, and since $S,S'$ are foci, $S'C=SC$. It follows that $\triangle CSY\sim \triangle S'SL$ and $CY\parallel S'L$. By similarity,
+\[
+\frac{CY}{S'L}=\frac{CS}{S'S}=\frac{1}{2}\cdot\frac{CS}{CS}=\frac{1}{2}\,.
+\]
+Therefore, $2CY=S'L=AA'$ so $CY=CA$ and $Y$ is on the circumscribing circle.\hqed
+\end{proof}
+
 \begin{theorem}\label{thm.cnntacac}
-Let $N$ be the intersection of the perpendicular through $P$ to the major axis (Figure~\ref{f.segments-major}). Then $CN\cdot NT = AC^2=AN\cdot NA'$.
+Let $N$ be the intersection of the perpendicular from $P$ to the major axis (Figure~\ref{f.segments-major}). Then $CN\cdot NT = AC^2=AN\cdot NA'$.
 \end{theorem}
 
 \begin{figure}[t]
@@ -526,22 +544,22 @@ Let $N$ be the intersection of the perpendicular through $P$ to the major axis (
 \draw (N) -- (Y) -- (O);
 
 % Label the angles
-\node[left,xshift=-3pt] at (Y) {\sm{\alpha}};
+\node[left,xshift=-3pt,yshift=1pt] at (Y) {\sm{\alpha}};
 \node[left,xshift=-3pt] at (P) {\sm{\alpha}};
-\node[below right,xshift=1pt,yshift=-2pt] at (P) {\sm{\alpha}};
-\node[above right,xshift=4pt,yshift=1pt] at (N) {\sm{\alpha}};
+\node[below right,xshift=0pt,yshift=-2pt] at (P) {\sm{\alpha}};
+\node[above right,xshift=2pt,yshift=0pt] at (N) {\sm{\alpha}};
 
 % Draw the triangles
 \draw[thick,red] ($(Y)+(-1pt,-2pt)$) -- 
   ($(O)+(8pt,2pt)$) -- ($(T)+(-4pt,2pt)$) -- (Y);
 \draw[thick,blue] (O) -- (N) -- (Y) -- cycle;
 
-\draw[rotate=-115]  (Y) rectangle +(5pt,5pt);
-\draw[rotate=90]  (N) rectangle +(5pt,5pt);
+\draw[rotate=-115]  (Y) rectangle +(6pt,6pt);
+\draw[rotate=90]  (N) rectangle +(6pt,6pt);
 
-\node[below] at (Left) {$A'$};
-\node[below] at (Right) {$A$};
-\node[below] at (O) {$O$};
+\node[below] at (Left) {$A$};
+\node[below] at (Right) {$A'$};
+\node[below] at (O) {$C$};
 
 \end{tikzpicture}
 \caption{Ratios of segments of the major axis}\label{f.segments-major}
@@ -551,19 +569,16 @@ Let $N$ be the intersection of the perpendicular through $P$ to the major axis (
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-Continuing with the construction from Figure~\ref{f.perp-focus-tangent}, we focus on the segments $AN,NA'$ (Figure~\ref{f.segments-major}). We can deduce the angles that are shown.
-\begin{itemize}
-\item $CY\parallel S'P$ (Theorem~\ref{thm.perp-tangent}) so $\angle CYP = \angle S'PT'$ by corresponding angles.
-\item $\angle S'PT' = \angle SPY$ by Theorem~\ref{thm.tangent-angles} since they are the angles to the foci at the tangent.
-\item $\angle SYP$ and $\angle SNP$ are right angles and therefore $SYPN$ is quadrilateral that can be circumscribed by a circle whose diameter is $PS$.\footnote{It can be proven that a quadrilateral whose opposite angle are supplementary can be circumscribed by a circle. If two opposite angles are right angles that sum to $180^\circ$, then the other two angles must also sum to $180^\circ$.}
-Therefore, $\angle SPY = \angle SNY$ since they are subtended by the same chord $YS$.
-\end{itemize}
+Continuing with the construction from Figure~\ref{f.perp-focus-tangent}, we focus on the segments $AN,NA'$ (Figure~\ref{f.segments-major}).  
+
+$CY\parallel S'P$ (Theorem~\ref{thm.perp-tangent}) so $\angle CYP = \angle S'PT'=\angle SPY$ by corresponding angles and Theorem~\ref{thm.tangent-angles}. $\angle SYP$ and $\angle SNP$ are right angles and therefore $SYPN$ is quadrilateral that can be circumscribed by a circle whose diameter is $PS$.\footnote{A quadrilateral whose opposite angle are supplementary can be circumscribed by a circle. If two opposite angles are right angles, they sum to $180^\circ$ so the other two angles must also sum to $180^\circ$.} Therefore, $\angle SPY = \angle SNY$ since they are subtended by the same chord $YS$.
+
 Since $\angle CYT\sim \angle CNY$ and $\angle 	YCT$ is a common angle,
 $\triangle CYT\sim \triangle CNY$ and
 \begin{eqnlabels}
 \frac{CN}{CY}&=&\frac{CY}{CT}\nonumber\\[6pt]
 CN\cdot CT&=&CY^2=AC^2\,,\label{eqn.cnctacac}
-\end{eqnlabels}
+\end{eqnlabels}%
 since the perpendicular to the tangent from a focus is on the circumscribing circle (Theorem~\ref{thm.perp-tangent}). Since $NT=CT-CN$, we have $CN\cdot NT = CN\cdot CT - CN^2$ which equals $AC^2-CN^2$ by Equation~\ref{eqn.cnctacac}. This in turn equals $AN\cdot NA'$ by Theorem~\ref{thm.dividing}.\hqed
 \end{proof}
 
@@ -637,14 +652,15 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 \node[below right,xshift=-2pt,yshift=-4pt] at (T) {\sm{\alpha}};
 \node[above left,xshift=2pt,yshift=2pt] at (J) {\sm{\alpha}};
 
-\draw[rotate=-32]  (F) rectangle +(7pt,7pt);
-\draw[rotate=180]   (N) rectangle +(7pt,7pt);
-\draw[rotate=-212] (P) rectangle +(7pt,7pt);
-\draw[rotate=0]    (O) rectangle +(7pt,7pt);
+\draw[rotate=-32]  (F) rectangle +(6pt,6pt);
+\draw[rotate=180]   (N) rectangle +(6pt,6pt);
+\draw[rotate=-212] (P) rectangle +(6pt,6pt);
+\draw[rotate=0]    (O) rectangle +(6pt,6pt);
 
 \node[above left] at (Top) {$B$};
-\node[below right] at (Right) {$A$};
-\node[below left] at (O) {$O$};
+\node[below right] at (Right) {$A'$};
+\node[below left] at (Left) {$A$};
+\node[below left] at (O) {$C$};
 
 \end{tikzpicture}
 \caption{Parallelograms formed by conjugate diameters}\label{f.parallelogram-conjugate-diameters}
@@ -663,13 +679,13 @@ PF\cdot PG = BC^2\,.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-$\triangle NPG \sim \triangle FPJ$ (rotate $\triangle NPG$ to see this) so $\angle PGN=\angle PJF = \alpha$ and
+$\triangle NPG \sim \triangle FPJ$ so $\angle PGN=\angle PJF = \alpha$ and
 \begin{eqnlabels}
 \frac{PF}{PN}&=&\frac{PJ}{PG}\nonumber\\[6pt]
 PF\cdot PG &=& PJ\cdot PN\,.\label{eqn.pnpj}
 \end{eqnlabels}%
 By vertical angles $\angle PGN = \angle CGF = \alpha$ so 
-$\triangle NPG\sim \triangle FCG$ and $\angle NPG = \angle FCG = \beta =90^\circ-\alpha$. By adding $\beta$ to the right angles $\angle BCN$ and $\angle TPF$, we get that $\angle TCJ = \angle TPJ$ and therefore $TPJC$ is a parallelogram, so $CT=PJ$ and $PF\cdot PG = CT\cdot PN$. By Equation~\ref{eqn.pnpj}, the theorem will be proven if we can show that $CT\cdot PN=BC^2$.
+$\triangle NPG\sim \triangle FCG$ and $\angle NPG = \angle FCG = \beta =90^\circ-\alpha$. By adding $\beta$ to the right angles $\angle BCN$ and $\angle TPF$, we get that $\angle TCJ = \angle TPJ$ and therefore $TPJC$ is a parallelogram, so $CT=PJ$ and $PF\cdot PG =PJ\cdot PN= CT\cdot PN$. By Equation~\ref{eqn.pnpj}, the theorem will be proven if we can show that $CT\cdot PN=BC^2$.
 
 $\triangle TT'C\sim \triangle PT'N$ so 
 \begin{eqn}
@@ -685,7 +701,7 @@ By Equation~\ref{eqn.cnctacac}, $CN\cdot CT' = AC^2$, and by Theorem~\ref{thm.cn
 \[
 \frac{CT\cdot PN}{PN^2}=\frac{AC^2}{AN\cdot NA'}\,.
 \]
-Multiplying by $PN^2/PN^2$ and using Theorem~\ref{thm.ratios-besant} gives
+Multiplying the right-hand side by $PN^2/PN^2$ and use Theorem~\ref{thm.ratios-besant} to get
 \begin{eqnlabels}
 \frac{CT\cdot PN}{PN^2}&=&\frac{PN^2}{AN\cdot NA'}\cdot \frac{AC^2}{PN^2}=\frac{BC^2}{AC^2}\cdot \frac{AC^2}{PN^2}\nonumber\\[6pt]
 CT\cdot PN&=&BC^2\,.\label{eqn.ctpn}\fqed
@@ -694,13 +710,14 @@ CT\cdot PN&=&BC^2\,.\label{eqn.ctpn}\fqed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Let $PP',DK$ be conjugate diameters, let $DT',PT$ be tangents to $D,P$, respectively, where $T',T$ are their intersections with the major axis. Let $DM, PN$ be perpendiculars to the major axis (Figure~\ref{f.parallelogram3}).
 \begin{theorem}\label{thm.cmpnacbc}
-In Figure~\ref{f.parallelogram3},
-\begin{eqn}
-CN^2&=&AM\cdot MA',\quad CM^2=AN\cdot NA'\\[6pt]
-\frac{DM}{CN}&=&\frac{BC}{AC}\\[6pt]
-\frac{CM}{PN}&=&\frac{BC}{AC}
-\end{eqn}%
+\[
+\begin{array}{l@{\hspace{3em}}l}
+CN^2=AM\cdot MA'& CM^2=AN\cdot NA'\\[6pt]
+\displaystyle\frac{DM}{CN}=\frac{BC}{AC}& \displaystyle\frac{CM}{PN}=\frac{AC}{BC}\,.
+\end{array}
+\]
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -793,18 +810,12 @@ and by Equation~\ref{eqn.cnannap},
 \frac{DM^2}{CN^2}&=&\frac{BC^2}{AC^2}\\[6pt]
 \frac{DM}{CN}&=&\frac{BC}{AC}\,,
 \end{eqn}%
-A symmetric argument shows that
-\begin{eqn}
-CM^2&=& AN\cdot NA'\\[6pt]
-\frac{CM}{PN}&=&\frac{BC}{AC}\,\fqed.
-\end{eqn}%
+A symmetric argument shows that $CM^2= AN\cdot NA'$ and $CM/PN=BC/AC$.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This theorem proves Theorem~\ref{thm.conj-diam-para} in Euclidean geometry.
-
-\begin{theorem}\label{thm.area-parallelogram}
+\begin{theorem}(Theorem~\ref{thm.conj-diam-para})\label{thm.area-parallelogram}
 The area of the parallelogram formed by the tangents at the ends of the conjugate diameters $PP',DK$ is equal to the area of the rectangle enclosing the ellipse at the ends of the axes (Figure~\ref{f.parallelogram2}).
 \end{theorem}
 
@@ -908,21 +919,15 @@ The area of the parallelogram formed by the tangents at the ends of the conjugat
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-By the definition of conjugate diameters, it is sufficient to show that the area of $PCDL$ is $AC\cdot BC$. The area of a parallelogram is width times height so it is $CD\cdot PF$. 
+By the definition of conjugate diameters, it is sufficient to show that the area of $PCDL$ is $AC\cdot BC$. The area of a parallelogram is width times height so we need to show that $CD\cdot PF=AC\cdot BC$. 
 
 By vertical angles $\angle DCM = \angle GCF$ and $\angle CGF = \angle PGN$, so $\triangle DCM\sim \triangle PGN$ 
 \[
-\frac{PG}{CD}=\frac{PN}{CM}\,,
+\frac{PG}{CD}=\frac{PN}{CM}=\frac{BC}{AC}\,,
 \]
-and by Theorem~\ref{thm.cmpnacbc}
-\begin{eqnlabels}
-\frac{PG}{CD}&=&\frac{AC}{BC}\nonumber\\[6pt]
-\frac{CD}{AC}&=&\frac{PG}{BC}\,.\label{eqn.cdac}
-\end{eqnlabels}
-By Theorem~\ref{thm.parallelogram1},
+by Theorem~\ref{thm.cmpnacbc}. From Theorem~\ref{thm.parallelogram1}, $PF\cdot PG = BC^2$, giving
 \begin{equation}
-\frac{PG}{BC}=\frac{BC}{PF}\,.\label{eqn.pgbc}
+\frac{BC}{PF}=\frac{PG}{BC}=\frac{CD}{AC}\,.\fqed
 \end{equation}%
-From Equations~\ref{eqn.cdac} and~\ref{eqn.pgbc} gives $CD\cdot PF = AC \cdot BC$.\hqed
 \end{proof}
 
