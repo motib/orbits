@@ -1,0 +1,94 @@
+% !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
+
+\section{Maxwell's proof}
+
+Figure~\ref{f.maxwell} shows a construction similar to the one used in the proof of Theorem~\ref{thm.tangent-angles}. The foci are $S,H$, and $P,Q$ are points on the ellipse close to each other. Extend $SP$ to $SU$ so that its length is the same as the length of the major axis $AA'$. Bisect $HU$ at $Z$ and draw $ZP$ extended so that the perpendicular from $S$ to the line intersects it at $Y$. Theorem~\ref{thm.tangent-angles} showed that $ZP$ is a tangent to the ellipse and that $\angle HZP$ is a right angle.
+
+The area swept out from $P$ to $Q$ is approximately that of the triangle $\triangle PSQ$ whose area is $\frac{1}{2}PQ\cdot SY$ since $SY$ is the height of the triangle. The velocity at $P$ is $v=PQ/\Delta t$ so
+\[
+\kappa = \frac{\Delta A}{\Delta t} = \frac{\frac{1}{2}PQ\cdot SY}{\Delta t} = \frac{1}{2}v SY\,.
+\]
+By Theorem~\ref{thm.perp-perp-tangent}, $SY\cdot HZ=BC^2$.
+\begin{eqnarray*}
+HU&=& 2HZ = \frac{2BC^2}{SY}\\
+&=& \frac{2BC^2}{2\kappa/v}\\
+v &=& \frac{\kappa HU}{BC^2}\,.
+\end{eqnarray*}
+We conclude that $HU$ is perpendicular to the velocity vector at $P$ and proportional to the vector. Similarly, for $HV$, the line from $H$ to $V$, the extension of $SQ$, and for any other point on the ellipse. Therefore, the lines $SU, SV, \ldots$ are all equal to $AA'$, creating the velocity  circle with center $S$ and radius $r=AA'$.
+
+By Theorem~\ref{thm.f-proportional}, 
+\begin{eqnarray*}
+\kappa&=&\frac{\Delta A}{\Delta t} \sim \frac{r^2}{\Delta t}\\
+a&=&\frac{\Delta v}{\Delta t}= \frac{\kappa \Delta v}{r^2}\,.
+\end{eqnarray*}
+By Theorem~\ref{thm.deltav}, $\Delta v$ is independent of $r$, so the acceleration and hence the force to the focus $S$ is proportional to the inverse square of the distance.
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}
+\clip (-7,-6) rectangle +(14,13);
+
+\def\a{5.25}
+\def\b{3.5}
+\def\angleP{20}
+\def\angleQ{30}
+
+\coordinate (O) at (0,0);
+% Draw the ellipse
+\draw[name path global=ellipse] (O) ellipse[x radius={\b},y radius={\a}];
+
+% Locate foci
+\coordinate (F1) at (0,{-sqrt(\a*\a-\b*\b)});
+\coordinate (F2) at (0,{+sqrt(\a*\a-\b*\b)});
+\node[left] at (F1) {$S$};
+\node[left] at (F2) {$H$};
+
+% Draw arc
+\draw[name path=arc] ($(F1)+(130:{2*\a})$) 
+  arc[start angle=130,end angle=50,radius={2*\a}];
+
+% Locate vertices
+\coordinate (Top) at (0,{\a});
+\node[above left] at (Top) {$A'$};
+\coordinate (Bot) at (0,{-\a});
+\node[below left] at (Bot) {$A$};
+\draw (Top) -- (Bot);
+
+% Locate points on the ellipse
+\coordinate (P) at ({\angleP}:{\b} and {\a});
+\node[right] at (P) {$P$};
+\coordinate (Q) at ({\angleQ}:{\b} and {\a});
+\node[left] at (Q) {$Q$};
+\draw (F2) -- (P);
+
+% Locate points on circle
+\path[name path=sp] (F1) -- ($(F1)!1.6!(P)$);
+\path [name intersections = {of = arc and sp, by = {U} }];
+\node[above right] at (U) {$U$};
+\draw (F1) -- (U);
+\path[name path=sq] (F1) -- ($(F1)!1.6!(Q)$);
+\path [name intersections = {of = arc and sq, by = {V} }];
+\draw (F1) -- (V) -- (F2);
+\node[above] at (V) {$V$};
+
+% Find Z
+\draw (F2) -- (U);
+\coordinate (Z) at ($(F2)!.5!(U)$);
+\node[below right] at (Z) {$Z$};
+
+% Find Y
+\path[name path=zy] (Z) -- ($(Z)!3!(P)$);
+\draw (F1) -- ($(Z)!(F1)!(P)$) coordinate (Y);
+\draw (Y) -- (Z);
+\node[right] at (Y) {$Y$};
+
+\draw[rotate=105]  (Y) rectangle +(6pt,6pt);
+\draw[rotate=195]  (Z) rectangle +(6pt,6pt);
+
+\draw[thick,red] (F1) -- (P) -- (Q) -- cycle;
+
+\end{tikzpicture}
+\caption{Maxwell's proof}\label{f.maxwell}
+\end{center}
+\end{figure}
+

@@ -168,8 +168,6 @@ $P,A,A'$ are all points on the ellipse so Theorem~\ref{thm.bisect} applies. $FS$
 
 \section{Ratios of perpendiculars to the axes}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 We start with a preliminary theorem.
 \begin{theorem}\label{thm.dividing}
 Let $AA'$ be a line segment whose midpoint is $C$. Then 
@@ -495,6 +493,92 @@ Then $\triangle SPY\cong\triangle LPY$ since they are right triangles with an eq
 Therefore, $2CY=S'L=AA'$ so $CY=CA$ and $Y$ is on the circumscribing circle.\hqed
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Figure~\ref{f.perp-perp-tangent} is based on Figure~\ref{f.perp-focus-tangent} with the addition the perpendicular from focus $S'$ intersecting the tangent at $Y'$ and intersecting the extension of $SP$ at $L'$ (not shown).
+
+\begin{theorem}\label{thm.perp-perp-tangent}
+$SY\cdot S'Y' = BC^2$.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm.perp-tangent} showed that $Y$ is on the circumscribing circle and the same proof shows that $Y'$ is also on the circle. Extend $YS$ to intersect the circle at $Z$ and connect $Y'Z$. Since $\angle Y'YZ$ is a right angle, $Y'Z$ is a diameter and $C$ is on the line. $\triangle SCZ \cong S'C'Y'$ by side-angle-side so $SY\cdot S'Y' = SY \cdot SZ$. But $YZ$ and $AA'$ are secants intersecting at $S$, so
+\[
+SY\cdot SZ = AS\cdot SA' = AC^2-CS^ 2 = BC^2\,,
+\]
+by Theorems~\ref{thm.dividing} and \ref{thm.ellipses-features}.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+
+\clip (-5,-5) rectangle +(10.5,11);
+
+% Size and center of the ellipse
+\def\a{4.5}
+\def\b{3}
+\def\angle{55}
+
+\pic{ellipse={{\a}/{\b}}};
+\draw[very thick,dotted,name path=circle] (\a,0) 
+  arc[start angle=0,end angle=360,radius=\a];
+
+\pic{point-on-ellipse={{\a}/{\b}/{\angle}}};
+\node[fill=white,above right,white] at (P) {$P$};
+\node[above,xshift=2pt] at (P) {$P$};
+
+\pic{tangent={1.5*\a}/{1.5*\b}/{\angle}};
+\path[name path=ct] (O) -- ($(O)!2!(Right)$);
+\path[name path=bt] (O) -- ($(O)!1.5!(Top)$);
+\path [name intersections = {of = t and bt, by = {TP} }];
+\path [name intersections = {of = t and ct, by = {T} }];
+
+% Construct the perpendicular through S to the tangent at Y
+\path (F2) -- ($(T)!(F2)!(TP)$) coordinate (Y);
+\node[right,xshift=3pt,yshift=4pt] at (Y) {$Y$};
+\path (F1) -- ($(T)!(F1)!(TP)$) coordinate (YP);
+\node[right,xshift=-12pt,yshift=10pt] at (YP) {$Y'$};
+
+% Construct lines through P and Y that meet in L
+\path[name path=spp] (F1) -- ($(F1)!1.5!(P)$);
+\path[name path=sy] (F2) -- ($(F2)!2.3!(Y)$);
+\path [name intersections = {of = spp and sy, by = {LL} }];
+\node[above right] at (LL) {$L$};
+\draw (P) -- (F2) -- (LL) -- (F1) -- (YP) -- (O) -- (Y);
+
+\draw[rotate=-115]  (Y) rectangle +(6pt,6pt);
+\draw[rotate=-115]  (YP) rectangle +(6pt,6pt);
+
+\node[below left] at (Left) {$A$};
+\node[below right] at (Right) {$A'$};
+\node[above] at (Top) {$B$};
+\node[below,xshift=10pt] at (O) {$C$};
+\node[below] at (F1) {$S'$};
+\node[below,xshift=4pt] at (F2) {$S$};
+
+\draw[red,thick] (F2) -- ($(F2)!2.3!(P)$);
+\draw[red,thick] (F1) -- ($(F1)!1.3!(YP)$);
+\node[above,xshift=8pt,yshift=65pt] at (Top) {$L'$};
+\node[above,xshift=8pt,yshift=50pt] at (Top) {$\vdots$};
+
+\path[name path=ys] (Y) -- ($(Y)!4!(F2)$);
+\path [name intersections = {of = ys and circle, by = {Z} }];
+\draw (F2) -- (Z) node[below] {$Z$} -- (O);
+
+\draw[blue,thick] (F2) -- (O) -- (Z) -- cycle;
+\draw[blue,thick] (F1) -- (O) -- (YP);
+\draw[blue,thick] ($(F1)+(-2pt,0)$) -- ($(YP)+(-2pt,0)$);
+
+\end{tikzpicture}
+\caption{Perpendiculars from the foci to the tangent}\label{f.perp-perp-tangent}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{theorem}\label{thm.cnntacac}
 Let $N$ be the intersection of the perpendicular from $P$ to the major axis (Figure~\ref{f.segments-major}). Then $CN\cdot NT = AC^2=AN\cdot NA'$.
 \end{theorem}
@@ -671,9 +755,7 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 
 Construct the normal to the tangent at $P$ and let its intersection with the conjugate diameter $DK$ be $F$ and its intersection with the major axis be $G$. Construct a perpendicular from $P$ to the major axis and let its intersection be $N$. Let the intersection of the tangent with the minor axis be $T$ and its intersection with the major axis be $T'$ (Figure~\ref{f.parallelogram-conjugate-diameters}).
 \begin{theorem}\label{thm.parallelogram1}
-\[
-PF\cdot PG = BC^2\,.
-\]
+$PF\cdot PG = BC^2$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
