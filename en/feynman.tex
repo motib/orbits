@@ -3,7 +3,7 @@
 
 \chapter{The proofs by Feynman and Maxwell}\label{s.feynman}
 
-Newton proved that if a planet is in an elliptical orbit around the Sun, as empirically determined by Kepler, it must be subject to the inverse-square law. Richard P. Feynman proved the converse: if a planet is subject to the inverse-square law then its orbit is elliptical. Using techniques similar to those later used by Feynman, James Clerk Maxwell proved Newton's theorem.
+Newton proved that if a planet is in an elliptical orbit around the Sun, as empirically determined by Kepler, it must be subject to the inverse-square law. Richard P. Feynman proved the converse: if a planet is subject to the inverse-square law then its orbit is elliptical. Using techniques similar to those later used by Feynman, James Clerk Maxwell proved Newton's theorem. Maxwell's proof was based on \emph{hodographs} which were previous used by William Rowan Hamilton to prove Newton's theorem.
 
 \section{Dividing the orbit into sectors of equal angle}
 
@@ -393,7 +393,6 @@ We now extract the velocity vectors from the orbit diagram (Figure~\ref{f.f-velo
 \path[name path=za] (Z) -- ($(Z) ! 2 ! (A)$);
 \path[name path=b] (B) -- +(-10:1.5);
 \path [name intersections = {of = za and b, by = {BP} }];
-\draw (A) -- (BP) node[above] {$B'$};
 \draw (BP) -- node[below,xshift=0pt] {$\Delta v$} (B);
 \draw[thick,red] (B) node[black,above] {$B/C'$} -- +($(B)-(BP)$);
 
@@ -411,9 +410,10 @@ We now extract the velocity vectors from the orbit diagram (Figure~\ref{f.f-velo
   {$\Delta v$} +($(D)-(DP)$) coordinate (d);
 \node[above] at (c) {$C/D'$};
 \node[left] at (d) {$D$};
-\draw (A) -- (B);
-\draw (A) -- (c);
-\draw (A) -- (d);
+\draw[->] (A) -- (B);
+\draw[->] (A) -- (c);
+\draw[->] (A) -- (d);
+\draw[->] (A) -- (BP) node[above] {$B'$};
 \end{tikzpicture}
 \caption{Exterior angles}\label{f.f-exterior-angles}
 \end{center}
@@ -524,7 +524,7 @@ Consider the polygon whose sides are formed by the $\Delta v$ vectors for all se
   -- node[fill=white] {\sm{\Delta v}} (\angle:3.8)
 };
 \foreach \angle in {0,30,...,360} {
-  \draw (O) -- (\angle:3.8);
+  \draw[->] (O) -- (\angle:3.8);
 };
 \end{tikzpicture}
 \caption{Velocity circle}\label{f.f-velocity-circle}
@@ -593,7 +593,7 @@ We can now work with a smooth orbit and its velocity circle (Figures~\ref{f.f-ta
 
 The final step is to show that as $Cp$ rotates around the velocity circle, the orbit is an ellipse. In Figure~\ref{f.f-elliptical-orbit} let $p$ be an arbitrary point on the velocity circle with origin $O$ and center $C$.\footnote{For convenience the circle is rotated $90^\circ$ clockwise relative to the circle in Figure~\ref{f.f-vector-velocity}.} Construct the perpendicular bisector of $Op$ at $M$ and let its intersection with $Cp$ be $P$.
 
-%\newpage
+\newpage
 
 \begin{theorem}
 The locus of $P$ as $p$ moves around the velocity circle is an ellipse with foci $O,C$ and $OP+PC$ equals the radius of the circle.
@@ -735,3 +735,49 @@ By Theorem~\ref{thm.deltav}, $\Delta v$ is independent of $r$, so the accelerati
 \caption{Maxwell's proof}\label{f.maxwell}
 \end{center}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Hodographs}
+
+A \emph{hodograph} is the curve traced out by the tips of velocity vectors of a trajectory or an orbit when their initial points are co-located. In Figure~\ref{f.f-exterior-angles} the path $B'BCD$ is a hodograph as is the regular polygon in Figure~\ref{f.f-velocity-circle}. The circle containing $U,V$ is a hodograph in Figure~\ref{f.maxwell}. This hodograph is instructive because it clearly shows how it is created by the velocity vectors starting at the focus $S$.
+
+Hodographs were first proposed by William Rowan Hamilton who used them to prove Newton's theorem \cite{hamilton}. The advantage of hodographs is that velocity is a first-order derivative of position, while acceleration is a second-order derivative. Here we show that a hodograph can be used to easily obtain the horizontal distance traversed by a particle thrown at an angle and subject only to the force of gravity (Figure~\ref{f.hodograph1}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{minipage}{.45\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\path (-4,-1.8) rectangle +(8,1.8);
+\draw (-4,0) parabola[bend pos=0.5] bend +(0,2) (4,0);
+\draw[->] (-4,0) -- +(2,2) node[above] {$v_0$};
+\draw[<-] (4,0) -- +(-2,2) node[above] {$v_f$};
+\end{tikzpicture}
+\caption{Path of a projectile}\label{f.hodograph1}
+\end{center}
+\end{minipage}
+\hspace{3em}
+\begin{minipage}{.45\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\draw[->] (0,0) node [above right,xshift=8pt] {$\theta$} -- 
+  node[above left] {$v_0$} +(2,2);
+\draw[->] (0,0) node [below right,xshift=8pt,yshift=1pt] {$\theta$} -- 
+  node[below left] {$v_f$} +(2,-2);
+\draw (2,2) -- node[right] {$gt$} (2,-2);
+\draw[thick,dashed] (0,0) -- node[above,xshift=6pt] {$v_h$} ($(2,2)!(0,0)!(2,-2)$);
+\end{tikzpicture}
+\caption{Hodograph of a projectile}\label{f.hodograph2}
+\end{center}
+\end{minipage}
+\end{center}
+\end{figure}
+
+The initial velocity is $v_0$ and the final velocity is $v_f$, where $|v_0|=|v_f|$. The hodograph is shown in Figure~\ref{f.hodograph2}. The horizontal component of the velocity is constant $v_h=v_0\cos \theta$, while the vertical velocity is $gt$, that is, it is proportional to the time until the particle hits the earth. Therefore, the area of the triangle,
+\[
+\frac{1}{2}v_h\cdot gt = \frac{1}{2}v_0\cos\theta \cdot gt
+\]
+is one-half the distance traversed by the particle.
