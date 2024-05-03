@@ -145,7 +145,7 @@ so $AO=a$. Similarly, $OA'=a=AO$.
 \draw[<->] ($(X)+(0,-20pt)$) -- 
   node[fill=white] {$d$} ($(F1)+(0,-20pt)$);
 \end{tikzpicture}
-\caption{The focus and the directrix\\The eccentricity is the red segments divided by the blue segments}\label{f.ellipse-conic}
+\caption{The focus and the directrix}\label{f.ellipse-conic}
 \end{center}
 \end{figure}
 
@@ -156,7 +156,7 @@ so $AO=a$. Similarly, $OA'=a=AO$.
 \begin{definition}\label{def.ellipse-conic}
 Let $d$ be a line (the \emph{directrix}) and $S$ be a point (the \emph{focus}) not on the directrix, where $d$ is the distance from $S$ to the directrix (Figure~\ref{f.ellipse-conic}). Let $0<e<1$ be a number (the \emph{eccentricity}). An \emph{ellipse} is the locus of points $P$ such that the ratio of  $PS$ to the distance of $P$ to the directrix is $e$. 
 
-Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ on $SX$ is a \emph{vertex} of the ellipse if $SA/AX=e$.
+Let $X$ be the intersection of the perpendicular to the directrix from $S$. $A$ on $SX$ is a \emph{vertex} of the ellipse if $SA/AX=e$. In Figure~\ref{f.ellipse-conic} the eccentricity is the length of the red segments divided by the length of the blue segments.
 
 For other conic sections: $e=1$ for a parabola and $e>1$ for a hyperbola.
 \end{definition}
@@ -167,7 +167,7 @@ For other conic sections: $e=1$ for a parabola and $e>1$ for a hyperbola.
 
 Definition~\ref{def.ellipse-conic} is non-constructive. It states that the ellipse is the locus of points satisfying a certain property, but aside from the vertices we have not constructed any such points. The following construction shows how to construct arbitrary points on the ellipse.
 
-Let $E$ be a point on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $SX$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Construct the perpendicular from $P$ to the directrix and let $K$ be its intersection with the directrix. Let $L$ be the intersection of $KP$ with $ES$ (Figure~\ref{f.construct}). 
+Let $E$ be a point on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $XS$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Construct the perpendicular from $P$ to the directrix and let $K$ be its intersection with the directrix. Let $L$ be the intersection of $KP$ with $ES$ (Figure~\ref{f.construct}). 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -243,8 +243,10 @@ By construction $PK\parallel SX$ so $\triangle XEA\sim \triangle KEP$ and $\tria
 Now $\angle PLS = \angle LSN=\alpha$ by alternate interior angles, so $\triangle LPS$ is isosceles and $PL=SP$. Therefore, $SP/PK=PL/PK=$ and $P$ is on the ellipse. By choosing different points $E$ on the directrix, any point on the ellipse can be constructed.\hqed
 \end{proof}
 
+\subsection*{Parametric representation}
+
 \begin{definition}\label{def.parametric}[Parametric representation]
-Consider two concentric circles, one of radius $a$ (dashed blue) and one of radius $b$ (dotted red) (Figure~\ref{f.parametric}). An \emph{ellipse} is the locus of points $P=(x,y)$ such that
+Consider two concentric circles, one of radius $a$ (dotted red) and one of radius $b$ (dashed blue) (Figure~\ref{f.parametric}). An \emph{ellipse} is the locus of points $P=(x,y)$ such that
 \[
 (x,y)= (a\cos t,\, y = b \sin t)\,,
 \]
