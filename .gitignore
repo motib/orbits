@@ -14,3 +14,5 @@ lost-art/*
 *.synctex.gz
 *.toc
 en/*.pdf
+*.thm
+*.out

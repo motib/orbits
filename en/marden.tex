@@ -1,0 +1,424 @@
+% !TeX root = orbits.tex
+% !TeX Program=pdfLaTeX
+
+\chapter{Marden's Theorem}\label{s.marden}
+
+According to Dan Kalman, Marden's Theorem is ``the Most Marvelous
+Theorem in Mathematics'' \cite{marden-marvelous}. This chapter explains his proof of this theorem; it assumes that the reader is familiar with complex numbers.
+
+\begin{theorem}[Marden]\label{thm.marden}
+Let $p(z)$ be a cubic polynomial with complex coefficients whose roots $z_1,z_2,z_3$ are non-collinear in the complex plane. Let $T$ be the triangle whose vertices are $z_1,z_2,z_3$. Then there is a unique ellipse $E$ (called the \emph{Steiner inellipse}) inscribed within $T$ such that the sides of $T$ are tangent to the ellipse at their midpoints. $f_1,f_2$, the foci of the ellipse, are the roots of $p'(z)$ (Figures~\ref{f.marden-axis}, \ref{f.marden-arbitrary}).
+\end{theorem}
+We omit the relatively simple proof that without loss of generality we can assume that two of the roots are $1$ and $-1$, and that the third root $w$ is above the $x$-axis: $w=u+vi,v>0$  \cite[p.~332]{marden}. This follows since the theorem remains true if the triangle is translated, rotated or scaled.
+
+There are three steps to the proof. First, we show that there is \emph{an} ellipse which is tangent to one side of the triangle at its midpoint. Then we show that this ellipse is tangent to \emph{all} three sides of the triangle, and finally, that the points of contact are the midpoints of the sides.
+
+\section{An ellipse that is tangent to one side of the triangle}
+
+\begin{theorem}\label{thm.marden1}
+Let $p(z),p'(z),T$ be as defined in the statement of Marden's theorem. Then there is \emph{an} ellipse $E$ such that one side of $T$ is tangent to $E$ at its midpoint.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\clip (-2.2,-.25) rectangle +(4.4,1.5);
+\draw[line width=0.5pt,gray!50] (-2,0) grid (2,1);
+\draw[very thick] (-2,0) -- (-1,0);
+\draw[very thick] (1,0) -- (2,0);
+\draw[very thick] (0,0) -- (0,1);
+\coordinate (z1) at (-1,0);
+\coordinate (z2) at (1,0);
+\coordinate (z3) at (0,1);
+\draw[thick,red] (z1) -- (z2) -- (z3) -- cycle;
+\coordinate (f1) at ({-sqrt(2)/3},1/3);
+\coordinate (f2) at ({sqrt(2)/3},1/3);
+\draw[thick,blue] (f1) -- (f2);
+\coordinate (o) at (0,1/3);
+\draw[name path global=ellipse] (o)
+  ellipse[x radius={1/sqrt(3)},y radius= 1/3];
+\vertexsmcolor{f1}{blue};
+\vertexsmcolor{f2}{blue};
+\node[below] at (z1) {$(-1,0)$};
+\node[below] at (z2) {$(1,0)$};
+\node[above] at (z3) {$(0,i)$};
+\node[below] at (0,0) {$(0,0)$};
+\node[above right] at (f1) {$f_1$};
+\node[above left] at (f2) {$f_2$};
+\end{tikzpicture}
+\caption{The third root is on the $y$-axis}\label{f.marden-axis}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{First example}
+Suppose that the third root is on the $y$-axis, say at $i$ (Figure~\ref{f.marden-axis}). Then
+\begin{eqn}
+p(z) &=& (z+1)(z-1)(z-i) = z^3 -iz^2-z+i\\
+p'(z) &=&3z^2-2iz-1=3\left(z^2-\frac{2}{3}iz-\frac{1}{3}\right)\,.
+\end{eqn}%
+Using the quadratic formula we can compute that the roots of $p'(z)$ are
+$f_{1,2}=(1/3)(i\pm \sqrt{2})$, and it is easy to verify that the following relationship holds between the roots $f_1,f_2$ and the coefficients of $p'(z)$.
+\begin{eqn}
+f_1+f_2&=&\frac{2}{3}i\\
+f_1f_2&=&-\frac{1}{3}\,,
+\end{eqn}
+$c$, one-half the distance between the foci, is $\sqrt{2}/3$, and $b$, the semi-minor axis, is $1/3$, so $a$, the semi-major axis, is
+\[
+a = \sqrt{
+      \left(\frac{1}{3}\right)^2 + \left(\frac{\sqrt{2}}{3}\right)^2
+    } =  \frac{1}{\sqrt{3}} \approx 0.577\,.
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\clip (-2.2,-.25) rectangle +(4.4,2.5);
+\draw[line width=0.5pt,gray!50] (-2,0) grid (2,2);
+\draw[very thick] (-2,0) -- (-1,0);
+\draw[very thick] (1,0) -- (2,0);
+\draw[very thick] (0,0) -- (0,2);
+\coordinate (z1) at (-1,0);
+\coordinate (z2) at (1,0);
+\coordinate (z3) at (1,2);
+\draw[thick,red] (z1) -- (z2) -- (z3) -- cycle;
+\coordinate (f1) at ({(1/3)*(1+sqrt(2))},{(1/3)*(2+sqrt(2))});
+\coordinate (f2) at ({(1/3)*(1-sqrt(2))},{(1/3)*(2-sqrt(2))});
+\draw[thick,blue] (f1) -- (f2);
+\coordinate (o) at (1/3,2/3);
+\draw[rotate=45,name path global=ellipse] (o)
+  ellipse[x radius={sqrt(2/3)},y radius= {sqrt(2)/3}];
+\vertexsmcolor{f1}{blue};
+\vertexsmcolor{f2}{blue};
+\node[below] at (z1) {$(-1,0)$};
+\node[below] at (z2) {$(1,0)$};
+\node[above] at (z3) {$(1,2i)$};
+\node[below] at (0,0) {$(0,0)$};
+\node[above left,yshift=-4pt] at (f1) {$f_1$};
+\node[above,yshift=4pt] at (f2) {$f_2$};
+
+\end{tikzpicture}
+\caption{The third root is not on the $y$-axis}\label{f.marden-arbitrary}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{The general case}
+These equations are essentially the same for any position of the third root $w$ above the $x$-axis.
+\begin{eqn}
+p(z) &=& (z+1)(z-1)(z-w) = z^3 -wz^2-z+i)\\
+p'(z) &=&3z^2-2wz-1=3\left(z^2-\frac{2}{3}wz-\frac{1}{3}\right)\\
+f_{1,2}&=&\frac{1}{3}(w\pm \sqrt{w^2+3})\\
+f_1+f_2&=&\frac{2}{3}w\\
+f_1f_2&=&-\frac{1}{3}\,.
+\end{eqn}
+
+\paragraph{Second example}
+Let $w=1+2i$ and substitute in the above equations for the foci.
+\begin{eqn}
+f_{1,2}&=&\frac{1}{3}((1+2i)\pm 2\sqrt{i})=
+\frac{1}{3}((1\pm\sqrt{2})+(2\pm\sqrt{2})i)\\
+f_1+f_2&=&\frac{2}{3}(1+2i)\\
+f_1f_2&=&-\frac{1}{3}\,.
+\end{eqn}%
+where we used the fact that $\sqrt{i}=(1+i)/\sqrt{2}$ (check!).
+
+One-half the distance between the foci is $2/3$ and the semi-minor axis is $\sqrt{2}/3$, so the semi-major axis is $\sqrt{2/3}$. The ellipse is rotated by $45^\circ$ (Figure~\ref{f.marden-arbitrary}).
+
+
+\begin{proof} (Theorem~\ref{thm.marden1})\\
+Case 1: $w$ is not on the $y$-axis.
+
+Let $f_1=c_1+d_1i, f_2=c_2+d_2i$ and recall that $w=u+vi,v>0$. Then $f_1+f_2=\frac{2}{3}w=\frac{2}{3}(c_1+c_2)+\frac{2}{3}(d_1+d_2)i$, so $d_1+d_2>0$ and at least one of $f_1,f_2$ is above the $x$-axis. Since $f_1f_2=-\frac{1}{3}$, the imaginary part of the product is zero. Construct the lines from the foci to the origin (Figure~\ref{f.marden-ellipses}). Using the trigonometric identity for the sum of two tangents, we have
+\begin{eqn}
+\frac{d_1}{c_1}+\frac{d_2}{c_2}&=&0\\
+\tan \theta_1+\tan \theta_2&=& 
+\frac{\sin(\theta_1+\theta_2)}{\cos\theta_1 \cos\theta_2}=0\,.
+\end{eqn}%
+By assumption, the foci are not on $y$-axis so the cosines are non-zero, and, therefore, $\sin(\theta_1+\theta_2)=0$. $\theta_1+\theta_2$ cannot be $0^\circ$ since $w>0$ and we conclude that $\theta_1+\theta_2=180^\circ$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=5]
+\clip (-1.2,-.2) rectangle +(2.4,1);
+
+\draw[line width=0.5pt,gray!50] (-2,0) grid (2,2);
+\coordinate (O) at (0,0);
+\coordinate (z1) at (-1,0);
+\coordinate (z2) at (1,0);
+\coordinate (z3) at (1,2);
+\draw[thick,red] (z1) -- (z2) -- (z3) -- cycle;
+\coordinate (f1) at ({(1/3)*(1+sqrt(2))},{(1/3)*(2+sqrt(2))});
+\coordinate (f2) at ({(1/3)*(1-sqrt(2))},{(1/3)*(2-sqrt(2))});
+\draw[thick,dotted,blue] (f1) -- (f2);
+\coordinate (o) at (1/3,2/3);
+\draw[thick,dotted,rotate=45,name path global=ellipse] (o)
+  ellipse[x radius={sqrt(2/3)},y radius= {sqrt(2)/3}];
+
+\draw[thick,dashed] (f1) -- (O) -- ($(O)!4!(f2)$);
+\draw (.2,0) arc[start angle = 0, end angle = 54.7, radius = .2];
+\draw (.35,0) arc[start angle = 0, end angle = {180-54.7}, radius = .35];
+\draw (-.2,0) arc[start angle = 180, end angle = {180-54.7}, radius = .2];
+
+\vertexsmcolor{f1}{blue};
+\vertexsmcolor{f2}{blue};
+\node[below] at (z1) {$(-1,0)$};
+\node[below] at (z2) {$(1,0)$};
+\node[below] at (0,0) {$(0,0)$};
+\node[above] at (z3) {$(1,2i)$};
+\node[left,yshift=-2pt] at (f1) {$f_1$};
+\node at (.7,.6) {$f_1$};
+\draw[->] (.7,.67) -- +(0,.1);
+\node[right,xshift=4pt] at (f2) {$f_2$};
+\node[above right,xshift=22pt,yshift=12pt] at (O) {\sm{\theta_1}};
+\node[above left,xshift=-20pt,yshift=12pt] at (O) {\sm{\theta_1}};
+\node[above,xshift=20pt,yshift=46pt] at (O) {\sm{\theta_2}};
+
+\end{tikzpicture}
+\caption{The ellipse is tangent to the line $OW$}\label{f.marden-ellipses}
+\end{center}
+\end{figure}
+
+Referring again to the Figure, since $\theta_1, \theta_2$ are supplementary, the angle between the line from $f_2$ and the origin forms an angle $\theta_1$ with the negative $x$-axis. Consider the ellipse with foci $f_1,f_2$ that passes through the origin, which is also the midpoint of one side of the triangle. Since the side on the $x$-axis makes equal angles with the lines to the foci, by Theorem~\ref{thm.tangent-angles}, this side is a tangent.
+
+(Case 2: $w$ is on the $y$-axis. Then $w=vi, v>0$ and $f_1+f_2=\frac{1}{3}vi$, so the foci are symmetric around the $y$-axis and have the same imaginary part and the angles from the origin to the foci are equal. In case both foci are on the $y$-axis, the two angles are equal right angles.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The ellipse is tangent to all three sides of the triangle}
+
+We showed that the ellipse whose foci are the roots of $p'(z)$ has a tangent that is the side of the triangle on the $x$-axis and that the point of contact is the midpoint of that side. To prove Marden's theorem, we must show that the other sides of the triangle are tangent at their midpoints to the \emph{same} ellipse. 
+
+\begin{theorem}\label{thm.marden2}
+Let $p(z),p'(z),T$ be as defined in the statement of Marden's theorem and the ellipse $E$ with foci $f_1,f_2$ be constructed as described in Theorem~\ref{thm.marden1}. Then the other two sides of $T$ are tangent to $E$.
+\end{theorem}
+
+\begin{proof}
+By symmetry it is sufficient to prove for one of the other sides $OW$ (Figure~\ref{f.marden-tangent}). In the Figure, the vertices of the triangle on the $x$-axis are now $(0,0),(2,0)$, and the third vertex is at an arbitrary position $w=u+iv,v>0$. As before we have $f_1+f_2=\frac{2}{3}(1+w)$ and $f_1f_2=\frac{w}{3}$. From the first equation and $w>0$ we know that at least one focus is above the $x$-axis and since the ellipse is tangent to the $x$-axis the other focus is too.
+
+Let us express $f_1f_2=w/3$ in polar coordinates (notation from Figure~\ref{f.marden-tangent}).
+\[
+f_1f_2=r_1e^{i\theta_1}\cdot r_2e^{i\theta_2}=r_1r_2e^{i(\theta_1+\theta_2)}=\frac{r}{3}e^{i\theta}\,,
+\]
+so $\theta_1+\theta_2=\theta$ and $\theta-\theta_2=\theta_1$. Therefore, $\angle f_2OV=\theta=\angle f_1OW$. But $O=(0,0)$ is \emph{external} to the ellipse because $OV$ is tangent to the ellipse at $(1,0)$. By Theorem~\ref{thm.marden-tangent}, $OW$ is tangent to the ellipse.\hqed
+\end{proof}
+
+\begin{proof} (Theorem~\ref{thm.marden})
+We must show that the tangent $OW$ contacts the ellipse at its midpoint. By construction, ellipse $E$ is tangent to the \emph{midpoint} of $OV$ and by Theorem~\ref{thm.marden2} it is also tangent to $OW,VW$. Using Theorem~\ref{thm.marden1} again, construct an ellipse $E'$ that is tangent to the $OW$ at its midpoint, which by Theorem~\ref{thm.marden2} is also tangent to the other sides of $T$. But $E,E'$ have the same foci and the same tangents, so they must be the same ellipse.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=2.5]
+\clip (-2.2,-.25) rectangle +(4.4,2.5);
+\draw[line width=0.5pt,gray!50] (-2,0) grid (2,2);
+%\draw[very thick] (-2,0) -- (-1,0);
+%\draw[very thick] (1,0) -- (2,0);
+%\draw[very thick] (-1,0) -- (-1,2);
+\coordinate (z1) at (-1,0);
+\coordinate (z2) at (1,0);
+\coordinate (z3) at (1,2);
+\draw[thick,red] (z1) -- (z2) -- (z3) -- cycle;
+\coordinate (f1) at ({(1/3)*(1+sqrt(2))},{(1/3)*(2+sqrt(2))});
+\coordinate (f2) at ({(1/3)*(1-sqrt(2))},{(1/3)*(2-sqrt(2))});
+\draw[thick,blue] (f1) -- (f2);
+\coordinate (o) at (1/3,2/3);
+\draw[thick,dotted,rotate=45,name path global=ellipse] (o)
+  ellipse[x radius={sqrt(2/3)},y radius= {sqrt(2)/3}];
+\vertexsmcolor{f1}{blue};
+\vertexsmcolor{f2}{blue};
+\node[below] at (z1) {$O=(0,0)$};
+\node[below] at (z2) {$V=(2,0)$};
+\node[above] at (z3) {$W=w=(2,2)$};
+\node[below] at (0,0) {$(1,0)$};
+\node[above left,yshift=-4pt] at (f1) {$f_1$};
+\node[right,xshift=10pt] at (f2) {$f_2$};
+\coordinate (O) at (-1,0);
+\draw[thick,dashed] (f1) -- (O) -- (f2);
+\draw (-.3,0) arc[start angle = 0, end angle = {32}, radius = .7];
+\draw (-.6,0) arc[start angle = 0, end angle = {13}, radius = .4];
+\draw (-.05,0) arc[start angle = 0, end angle = {45}, radius = .95];
+
+\node[right,xshift=32pt,yshift=4pt] at (O) {\sm{\theta_1}};
+\node[above right,xshift=46pt,yshift=12pt] at (O) {\sm{\theta_2}};
+\node[above right,xshift=60pt,yshift=22pt] at (O) {\sm{\theta}};
+\end{tikzpicture}
+\caption{The ellipse is also tangent to $OW$}\label{f.marden-tangent}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Steiner circumellipse}
+
+Any triangle can have a circle circumscribed around it and a circle inscribed within it (Figure~\ref{f.circles}). The center of the circumcircle is called the \emph{circumcenter} and it is the intersection of the perpendicular bisectors to the sides (blue). The center of the incircle is called the \emph{incenter} and it is the intersection of the angle bisectors (red). 
+
+The intersection of the medians is called the \emph{centroid} (green) and it is the center of the unique Steiner inellipse as proved in Marden's Theorem. This can be seen because the sides of the triangle are tangent to the inellipse at their midpoints.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\clip (-.5,-.5) rectangle +(3,3);
+
+\coordinate (z1) at (0,0);
+\coordinate (z2) at (2,0);
+\coordinate (z3) at (2,2);
+
+\draw[name path=side1] (z1) -- (z2);
+\draw[name path=side2] (z2) -- (z3);
+\draw[name path=side3] (z3) -- (z1);
+
+\path[name path=angle1] (z1) -- +(22.5:2.5);
+\path[name path=angle2] (z2) -- +(135:2.5);
+\path[name path=angle3] (z3) -- +(-112.5:2.5);
+
+\path[name intersections={of=angle1 and side2,by={tan1}}];
+\path[name intersections={of=angle2 and side3,by={tan2}}];
+\path[name intersections={of=angle3 and side1,by={tan3}}];
+\draw[red] (z1) -- (tan1);
+\draw[red] (z2) -- (tan2);
+\draw[red] (z3) -- (tan3);
+
+\path [name intersections={of=angle1 and angle2,by={incenter}}];
+\node[draw,red,circle through=(tan2)] at (incenter) {};
+
+\draw[thick,name path=side1] (z1) -- (z2);
+\draw[thick,name path=side2] (z2) -- (z3);
+\draw[thick,name path=side3] (z3) -- (z1);
+
+\draw[blue,name path=perp1] ($(z1)!.5!(z2)$) -- +(0,1);
+\draw[blue,name path=perp2] ($(z2)!.5!(z3)$) -- +(-1,0);
+\draw[blue,name path=perp3] ($(z3)!.5!(z1)$) -- +(-45:1.4);
+
+\coordinate (circum) at (1,1);
+\node[draw,blue,circle through=(z1)] at (circum) {};
+
+
+\draw[name path=med1,color=green!80!black] (z1) -- (2,1); 
+\draw[name path=med2,color=green!80!black] (z2) -- (1,1); 
+\draw[name path=med3,color=green!80!black] (z3) -- (1,0); 
+
+\path [name intersections={of=med1 and med2,by={centroid}}];
+\vertexcolor{centroid}{green!80!black};
+\vertexcolor{incenter}{red};
+\vertexcolor{circum}{blue};
+
+
+\end{tikzpicture}
+\caption{Incenter, circumcenter, centroid}\label{f.circles}
+\end{center}
+\end{figure}
+
+In a circle the centroid divides the medians into two segments: the one from the vertex to the centroid is twice as long as the one from the centroid to the side (Figure~\ref{f.two-to-one}). Just like the ellipse has a unique inellipse, it has a unique \emph{Steiner circumellipse} (or simply \emph{Steiner ellipse}) which is twice as large as the inellipse (Figure~\ref{f.steiner-ellipse}).
+
+\begin{figure}[b]
+\begin{minipage}{.49\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\clip (-1.2,-.8) rectangle +(2.5,2.8);
+
+\path (-1,1.5) rectangle +(2,1.5); % Padding
+
+\coordinate (z1) at (-1,0);
+\coordinate (z2) at (1,0);
+
+\path[name path=side1] (z1) -- +(60:2);
+\path[name path=side2] (z2) -- +(120:2);
+\path[name intersections={of=side1 and side2,by={z3}}];
+\draw[red] (z1) -- (z2) -- (z3) -- cycle;
+
+\draw[name path=med1] (z1) -- ($(z2)!.5!(z3)$) coordinate (mid1);
+\draw[name path=med2] (z2) -- ($(z1)!.5!(z3)$) coordinate (mid2);
+\draw[name path=med3] (z3) -- ($(z1)!.5!(z2)$) coordinate (mid3);
+\path[name intersections={of=med1 and med2,by={o}}];
+
+\vertex{o};
+\node[draw,blue,circle through=(mid1)] at (o) {};
+\node[draw,blue,circle through=(z1)] at (o) {};
+
+\path (z1) -- node[fill=white] {$2$} (o) -- node[fill=white] {$1$} (mid1);
+\path (z2) -- node[fill=white] {$2$} (o) -- node[fill=white] {$1$} (mid2);
+\path (z3) -- node[fill=white] {$2$} (o) -- node[fill=white] {$1$} (mid3);
+
+\path (-1,-.85) rectangle +(2,1); % Padding
+
+\end{tikzpicture}
+\caption{The two-one division of the\\medians}\label{f.two-to-one}
+\end{center}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\clip (-.1,-.7) rectangle +(2.8,2.8);
+
+\coordinate (z1) at (0,0);
+\coordinate (z2) at (2,0);
+\coordinate (z3) at (2,2);
+
+\draw[name path=side1] (z1) -- (z2);
+\draw[name path=side2] (z2) -- (z3);
+\draw[name path=side3] (z3) -- (z1);
+
+\path[name path=angle1] (z1) -- +(22.5:2.5);
+\path[name path=angle2] (z2) -- +(135:2.5);
+\path[name path=angle3] (z3) -- +(-112.5:2.5);
+
+\path[name intersections={of=angle1 and side2,by={tan1}}];
+\path[name intersections={of=angle2 and side3,by={tan2}}];
+\path[name intersections={of=angle3 and side1,by={tan3}}];
+\path[red] (z1) -- (tan1);
+\path[red] (z2) -- (tan2);
+\path[red] (z3) -- (tan3);
+
+\path [name intersections={of=angle1 and angle2,by={incenter}}];
+%\node[draw,red,circle through=(tan2)] at (incenter) {};
+
+\draw[thick,name path=side1] (z1) -- (z2);
+\draw[thick,name path=side2] (z2) -- (z3);
+\draw[thick,name path=side3] (z3) -- (z1);
+
+\path[blue,name path=perp1] ($(z1)!.5!(z2)$) -- +(0,1);
+\path[blue,name path=perp2] ($(z2)!.5!(z3)$) -- +(-1,0);
+\path[blue,name path=perp3] ($(z3)!.5!(z1)$) -- +(-45:1.4);
+
+\coordinate (circum) at (1,1);
+%\node[draw,blue,circle through=(z1)] at (circum) {};
+
+\path[name path=med1,color=green!80!black] (z1) -- (2,1); 
+\path[name path=med2,color=green!80!black] (z2) -- (1,1); 
+\path[name path=med3,color=green!80!black] (z3) -- (1,0); 
+
+\path [name intersections={of=med1 and med2,by={centroid}}];
+
+\coordinate (o) at (4/3,2/3);
+\draw[very thick,dotted,rotate=45,name path global=ellipse] (o)
+  ellipse[x radius={sqrt(2/3)},y radius= {sqrt(2)/3}];
+\draw[very thick,dotted,rotate=45,name path global=ellipse] (o)
+  ellipse[x radius={2*sqrt(2/3)},y radius= {2*sqrt(2)/3}];
+
+\draw[green!80!black] (z1) -- ($(z1)!2!(centroid)$);
+\draw[green!80!black] (z2) -- ($(z2)!2!(centroid)$);
+\draw[green!80!black] (z3) -- ($(z3)!2!(centroid)$);
+
+\vertexcolor{centroid}{green!80!black};
+%\vertexcolor{incenter}{red};
+%\vertexcolor{circum}{blue};
+
+\end{tikzpicture}
+\caption{The Steiner inellipse and circumellipse}\label{f.steiner-ellipse}
+\end{center}
+\end{minipage}
+\end{figure}

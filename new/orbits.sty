@@ -9,8 +9,6 @@
 \usepackage{url}
 \usepackage{bm}
 \usepackage{wrapfig}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=magenta}
 
 % Fancy header: chapter and page number in header
 \usepackage{fancyhdr}
@@ -120,12 +118,12 @@
   {\fill[shift only] (#1) circle (1.5pt)}
 \newcommand*{\vertexsmcolor}[2]
   {\fill[shift only,#2] (#1) circle (1.5pt)}
-
-% Display vertex not affected by tikz scale
+% Display small vertex not affected by tikz scale
 \newcommand*{\vertex}[1]
   {\fill[shift only] (#1) circle (2pt)}
 \newcommand*{\vertexcolor}[2]
-  {\fill[shift only,#2] (#1) circle (2pt)}
+  {\fill[shift only,#2] (#1) circle (2.5pt)}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TikZ pics
 % Eccentricity of the ellipses is \sqrt{5}/3 \approx 0.754

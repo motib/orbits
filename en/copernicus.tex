@@ -18,7 +18,8 @@ Today we know that the universe is immensely large and that the stars are moving
 \clip (-5.1,-5.7) rectangle +(10.2,11.5);
 
 % Draw the orbit of the Earth and the celestial sphere
-\coordinate (S) at (0,0) node[above right,xshift=-2pt,yshift=-2pt] {$O,S$};
+\coordinate (S) at (0,0) 
+  node[above right,xshift=-2pt,yshift=-2pt] {$O,S$};
 \draw[name path=Eorbit] (S) circle[radius=3cm];
 \draw[name path=Csphere] (S) circle[radius=5cm];
 
@@ -49,7 +50,7 @@ Today we know that the universe is immensely large and that the stars are moving
 \node at (-45:1.8) {\textsf{\small winter}};
 
 \end{tikzpicture}
-\caption{The orbit of the Earth\\and the seasons\\%
+\caption{The orbit of the Earth\\and the seasons\\
 \textsf{\small AE=autumn equinox}, \textsf{\small SE=spring equinox}}\label{f.circle}
 \end{center}
 \end{minipage}
@@ -96,7 +97,7 @@ Today we know that the universe is immensely large and that the stars are moving
 \node at (-45:1.8) {\textsf{\small winter}};
 
 \end{tikzpicture}
-\caption{The lengths of the seasons\\are not equal\\%
+\caption{The lengths of the seasons\\are not equal\\
 \textsf{\small AE=autumn equinox}, \textsf{\small SE=spring equinox}}\label{f.seasons}
 \end{center}
 \end{minipage}
@@ -181,7 +182,7 @@ Figure~\ref{f.seasons-details} shows a magnified view of Figure~\ref{f.seasons} 
     }];
 \draw[dashed] (O) -- 
   (AP) node[right] {$A'$} --
-  (CP) node[left,xshift=2pt] {$C'$};;
+  (CP) node[left,xshift=2pt] {$C'$};
 
 % Draw line B' to D'
 \path[name path = Soffset] ($(O)+(0,-2.5)$) -- ($(O)+(0,2.5)$);

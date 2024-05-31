@@ -282,21 +282,24 @@ We now extract the velocity vectors from the orbit diagram (Figure~\ref{f.f-velo
 \path [name intersections = {of = za and b, by = {BP} }];
 \vertexsm{BP};
 \draw[thick,dashed] (A) -- (BP) node[right] {$B'$};
-\draw[very thick,dashed,red,->] (BP) -- node[above,xshift=8pt] {$\bm{\Delta v}$} (B);
+\draw[very thick,dashed,red,->] (BP) -- 
+  node[above,xshift=8pt] {$\bm{\Delta v}$} (B);
 
 \path[name path=ab] (A) -- ($(A) ! 3 ! (B)$);
 \path[name path=c] (C) -- +(25:2);
 \path [name intersections = {of = ab and c, by = {CP} }];
 \vertexsm{CP};
 \draw[thick,dashed] (B) -- (CP) node[above right] {$C'$};
-\draw[very thick,dashed,red,->] (CP) -- node[above,yshift=2pt] {$\bm{\Delta v}$} (C);
+\draw[very thick,dashed,red,->] (CP) -- 
+  node[above,yshift=2pt] {$\bm{\Delta v}$} (C);
 
 \path[name path=bc] (B) -- ($(B) ! 3 ! (C)$);
 \path[name path=d] (D) -- +(60:1);
 \path [name intersections = {of = bc and d, by = {DP} }];
 \vertexsm{DP};
 \draw[thick,dashed] (C) -- (DP) node[above right] {$D'$};
-\draw[very thick,red,dashed,->] (DP) -- node[near start,left] {$\bm{\Delta v}$} (D);
+\draw[very thick,red,dashed,->] (DP) -- 
+  node[near start,left] {$\bm{\Delta v}$} (D);
 \draw (A) -- (B) -- (C) -- (D);
 
 \node[right,xshift=10pt,yshift=2pt] at (S) {$\alpha$};
