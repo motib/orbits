@@ -9,6 +9,8 @@
 \usepackage{url}
 \usepackage{bm}
 \usepackage{wrapfig}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=magenta}
 
@@ -81,10 +83,10 @@
 
 % Page layout
 %\textwidth=117mm  % Springer page size
+%\textheight=191mm   % Springer page size
 \textwidth=145mm
+\textheight=225mm
 \headwidth=\textwidth
-%\textheight=191mm
-\textheight=225mm  % Springer page size
 \topmargin=0pt
 \headheight=25pt
 \oddsidemargin=2em
@@ -126,6 +128,7 @@
   {\fill[shift only] (#1) circle (2pt)}
 \newcommand*{\vertexcolor}[2]
   {\fill[shift only,#2] (#1) circle (2pt)}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TikZ pics
 % Eccentricity of the ellipses is \sqrt{5}/3 \approx 0.754

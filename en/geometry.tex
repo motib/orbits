@@ -650,23 +650,7 @@ Let $N$ be the intersection of the perpendicular from $P$ to the major axis (Fig
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{proof}
-Continuing with the construction from Figure~\ref{f.perp-focus-tangent}, we focus on the segments $AN,NA'$ (Figure~\ref{f.segments-major}).  
-
-$CY\parallel S'P$ (Theorem~\ref{thm.perp-tangent}) so $\angle CYP = \angle S'PT'=\angle SPY$ by corresponding angles and Theorem~\ref{thm.tangent-angles}. $\angle SYP$ and $\angle SNP$ are right angles and therefore $SYPN$ is quadrilateral that can be circumscribed by a circle whose diameter is $PS$.\footnote{A quadrilateral whose opposite angle are supplementary can be circumscribed by a circle. If two opposite angles are right angles, they sum to $180^\circ$ so the other two angles must also sum to $180^\circ$.} Therefore, $\angle SPY = \angle SNY$ since they are subtended by the same chord $YS$.
-
-Since $\angle CYT\sim \angle CNY$ and $\angle 	YCT$ is a common angle,
-$\triangle CYT\sim \triangle CNY$ and
-\begin{eqnlabels}
-\frac{CN}{CY}&=&\frac{CY}{CT}\nonumber\\[6pt]
-CN\cdot CT&=&CY^2=AC^2\,,\label{eqn.cnctacac}
-\end{eqnlabels}%
-since the perpendicular to the tangent from a focus is on the circumscribing circle (Theorem~\ref{thm.perp-tangent}). Since $NT=CT-CN$, we have $CN\cdot NT = CN\cdot CT - CN^2$ which equals $AC^2-CN^2$ by Equation~\ref{eqn.cnctacac}. This in turn equals $AN\cdot NA'$ by Theorem~\ref{thm.dividing}.\hqed
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}
 
@@ -751,9 +735,24 @@ since the perpendicular to the tangent from a focus is on the circumscribing cir
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Construct the normal to the tangent at $P$ and let its intersection with the conjugate diameter $DK$ be $F$ and its intersection with the major axis be $G$. Construct a perpendicular from $P$ to the major axis and let its intersection be $N$. Let the intersection of the tangent with the minor axis be $T$ and its intersection with the major axis be $T'$ (Figure~\ref{f.parallelogram-conjugate-diameters}).
+\begin{proof}
+Continuing with the construction from Figure~\ref{f.perp-focus-tangent}, we focus on the segments $AN,NA'$ (Figure~\ref{f.segments-major}).  
+
+$CY\parallel S'P$ (Theorem~\ref{thm.perp-tangent}) so $\angle CYP = \angle S'PT'=\angle SPY$ by corresponding angles and Theorem~\ref{thm.tangent-angles}. $\angle SYP$ and $\angle SNP$ are right angles and therefore $SYPN$ is quadrilateral that can be circumscribed by a circle whose diameter is $PS$.\footnote{A quadrilateral whose opposite angle are supplementary can be circumscribed by a circle. If two opposite angles are right angles, they sum to $180^\circ$ so the other two angles must also sum to $180^\circ$.} Therefore, $\angle SPY = \angle SNY$ since they are subtended by the same chord $YS$.
+
+Since $\angle CYT\sim \angle CNY$ and $\angle 	YCT$ is a common angle,
+$\triangle CYT\sim \triangle CNY$ and
+\begin{eqnlabels}
+\frac{CN}{CY}&=&\frac{CY}{CT}\nonumber\\[6pt]
+CN\cdot CT&=&CY^2=AC^2\,,\label{eqn.cnctacac}
+\end{eqnlabels}%
+since the perpendicular to the tangent from a focus is on the circumscribing circle (Theorem~\ref{thm.perp-tangent}). Since $NT=CT-CN$, we have $CN\cdot NT = CN\cdot CT - CN^2$ which equals $AC^2-CN^2$ by Equation~\ref{eqn.cnctacac}. This in turn equals $AN\cdot NA'$ by Theorem~\ref{thm.dividing}.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{theorem}[Prop.~XVII]\label{thm.parallelogram1}
-$PF\cdot PG = BC^2$.
+Construct the normal to the tangent at $P$ and let its intersection with the conjugate diameter $DK$ be $F$ and its intersection with the major axis be $G$. Construct a perpendicular from $P$ to the major axis and let its intersection be $N$. Let the intersection of the tangent with the minor axis be $T$ and its intersection with the major axis be $T'$ (Figure~\ref{f.parallelogram-conjugate-diameters}). Then $PF\cdot PG = BC^2$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -790,8 +789,8 @@ CT\cdot PN&=&BC^2\,.\label{eqn.ctpn}\fqed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let $PP',DK$ be conjugate diameters, let $DT',PT$ be tangents to $D,P$, respectively, where $T',T$ are their intersections with the major axis. Let $DM, PN$ be perpendiculars to the major axis (Figure~\ref{f.parallelogram3}).
 \begin{theorem}[Prop.~XXII]\label{thm.cmpnacbc}
+Let $PP',DK$ be conjugate diameters, let $DT',PT$ be tangents to $D,P$, respectively, where $T',T$ are their intersections with the major axis. Let $DM, PN$ be perpendiculars to the major axis (Figure~\ref{f.parallelogram3}). Then
 \[
 \begin{array}{l@{\hspace{3em}}l}
 CN^2=AM\cdot MA'& CM^2=AN\cdot NA'\\[6pt]
@@ -1014,9 +1013,7 @@ by Theorem~\ref{thm.cmpnacbc}. From Theorem~\ref{thm.parallelogram1}, $PF\cdot P
 
 \section{Equal angles between the tangents the lines to the foci}
 
-The following theorem is used in Section~\ref{s.marden}.
-
-\begin{theorem}[Prop. XIII]\label{thm.marden-tangent} If two tangents are constructed to an ellipse from an external point, the angle between them and lines to the foci are equal (Figure~\ref{f.tangent-equal-angles}).
+\begin{theorem}[Prop. XIII. Isogonal property of ellipses]\label{thm.marden-tangent} If two tangents are constructed to an ellipse from an external point, the angle between them and lines to the foci are equal (Figure~\ref{f.tangent-equal-angles}).
 \end{theorem}
 
 \begin{proof}

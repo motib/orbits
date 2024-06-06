@@ -1,13 +1,13 @@
 % !TeX root = orbits.tex
 % !TeX Program=pdfLaTeX
-
+%\begin{comment}
 \part{Fun with ellipses}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Constructing an ellipse}\label{s.constructing}
 
-There are many methods and tools for drawing ellipses. The simplest method is the \emph{gardener's method} (Figure~\ref{f.gardener}): given $a$, the length of the semi-major axis and two points $S,H$, the foci, attach a rope of length $2a$ to two stakes at the foci and pull taut with a pencil. As the pencil moves around the foci maintaining tension on the rope, it will trace an ellipse.
+The simplest method for constructing an ellipse is the \emph{gardener's method} (Figure~\ref{f.gardener}): given $a$, the length of the semi-major axis and two points $S,H$, the foci, attach a rope of length $2a$ to two stakes at the foci and pull taut with a pencil. As the pencil moves around the foci maintaining tension on the rope, it will trace an ellipse.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -40,7 +40,7 @@ There are many methods and tools for drawing ellipses. The simplest method is th
 \end{figure}
 
 
-This Section presents several more accurate methods for drawing ellipses. First, we review two methods to construct \emph{individual points} on an ellipse (Section~\ref{s.individual}).  Section~\ref{s.roulette} describes a \emph{roulette} called the \emph{Tusi couple}. This is followed by four methods of constructing an ellipse with a \emph{glissette}: Section~\ref{s.glissette} on the \emph{Trammel of Archimedes}, Section~\ref{s.articulated} on two articulated glissettes by Frans van Schooten, and Section~\ref{s.triangle-glissette} on a triangle glissette. The final Section~\ref{s.confocal} describes how to construct a \emph{confocal} ellipse.
+This Chapter presents more accurate methods for drawing ellipses. First, we review two methods to construct \emph{individual points} on an ellipse (Section~\ref{s.individual}).  Section~\ref{s.roulette} describes a \emph{roulette} called the \emph{Tusi couple}. This is followed by four methods of constructing an ellipse with a \emph{glissette} (Section~\ref{s.glissette}): the \emph{Trammel of Archimedes}, two articulated glissettes by Frans van Schooten, and the triangle glissette. Section~\ref{s.perfect} presents the \emph{perfect compass} which can construct all conics and Section~\ref{s.confocal} describes how to construct an ellipse that is \emph{confocal} with a given ellipse.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -48,7 +48,7 @@ This Section presents several more accurate methods for drawing ellipses. First,
 
 \subsubsection*{From an arbitrary point on the directrix}
 
-Let us repeat without proof the construction for Theorem~\ref{thm.point-on-an-ellipse}. Assume that we are given $a$, the length of the semi-major axis and $c$, the distance of a focus from the center. Let $E$ be a point on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $XS$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Then $P$ is a point on the ellipse (Figure~\ref{f.construct1}). 
+Let us repeat without proof the construction for Theorem~\ref{thm.point-on-an-ellipse} (Figure~\ref{f.construct1}, where $X,S,A$ have the same meaning as before). Given $a$, the length of the semi-major axis and $c$, the distance of a focus from the center, let $E$ be a point on the directrix and construct lines from $E$ through $A$ and $S$. The line through $S$ will make an angle $\alpha$ with $XS$. Construct a line from $S$ at the \emph{same angle} $\alpha$ from $ES$ and let its intersection with $EA$ be $P$. Then $P$ is a point on the ellipse. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -110,7 +110,7 @@ Let us repeat without proof the construction for Theorem~\ref{thm.point-on-an-el
 
 \subsubsection*{From an arbitrary angle to the circumscribed and inscribed circles}
 
-Recall the definition of the parametric representation given $a$ and $b$, the lengths of the semi-axes (Definition~\ref{def.parametric}): Construct two concentric circles, one of radius $a$ (dotted red) and one of radius $b$ (dashed blue) (Figure~\ref{f.parametric1}). For an arbitrary angle $t$, construct a ray that intersects the two circles at $P_O$ and $P_I$. Draw a perpendicular from $P_I$ to the $y$-axis and a perpendicular from $P_O$ to the $x$-axis. Their intersection $P$ is a point on the ellipse.
+Recall the parametric representation of an ellipse (Definition~\ref{def.parametric}).Ggiven $a$ and $b$, the lengths of the semi-axes, onstruct two concentric circles, one of radius $a$ (dotted red) and one of radius $b$ (dashed blue) (Figure~\ref{f.parametric1}). For an arbitrary angle $t$, construct a ray that intersects the two circles at $P_O$ and $P_I$. Draw a perpendicular from $P_I$ to the $y$-axis and a perpendicular from $P_O$ to the $x$-axis. The intersection of the two perpendicular lines $P$ is a point on the ellipse.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -185,9 +185,9 @@ Recall the definition of the parametric representation given $a$ and $b$, the le
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{A roulette for drawing an ellipse---the Tusi couple}\label{s.roulette}
+\section{A roulette for drawing an ellipse}\label{s.roulette}
 
-A \emph{roulette} is a curve generated by one curve $c_1$ \emph{rolling} on another curve $c_2$. An ellipse can be generated by a circle of radius $r$ rotating within the circumference of a circle of radius $2r$.
+A \emph{roulette} is a curve generated by one curve $c_1$ \emph{rolling} on another curve $c_2$. An ellipse can be generated by a circle of radius $r$ rotating within the circumference of a circle of radius $2r$; this is called the \emph{Tusi couple}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -248,8 +248,8 @@ A \emph{roulette} is a curve generated by one curve $c_1$ \emph{rolling} on anot
 \draw[thick,red] (E) -- (O) -- (Q);
 \draw[thick,blue] ($(C)+(2pt,-1pt)$) -- (Q);
 \draw[thick,blue] ($(C)+(2pt,-3pt)$) -- ($(E)+(3pt,-1pt)$);
-
 \vertexsmcolor{P}{blue};
+\draw (Q) -- (E);
 
 \end{tikzpicture}
 \caption{Constructing an ellipse from a roulette}\label{f.roulette1}
@@ -259,7 +259,7 @@ A \emph{roulette} is a curve generated by one curve $c_1$ \emph{rolling} on anot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}
-Let $P$ be an arbitrary point within with circle $c_1$ of the roulette. Then as $c_1$ rotates within $c_2$, the locus of $P$ is an ellipse (Figure~\ref{f.roulette1}).
+Let $P$ be an arbitrary point within with the circle $c_1$ of the roulette. As $c_1$ rotates within $c_2$, the locus of $P$ is an ellipse (Figure~\ref{f.roulette1}).
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -307,26 +307,32 @@ Let $P$ be an arbitrary point within with circle $c_1$ of the roulette. Then as 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{proof}
-Let $C$ be the center of $c_1$ and let $O$ be the center of $c_2$. Let $E$ be an arbitrary point on $c_2$ where it is contacted by $c_1$. The radius $OE$ of length $2r$ is a chord of $c_1$ and since it equals twice the radius of $c_1$ it is a diameter. $c_1$ will intersect $OA$ at some point $Q$ and since $OE$ is a diameter of $c_1$, $\angle EQO$ is a right angle.
+Let $C$ be the center of $c_1$ and let $O$ be the center of $c_2$. Let $E$ be an arbitrary point on $c_2$ where it is in contact with $c_1$. The radius $OE$ of length $2r$ is a chord of $c_1$ and since it equals twice the radius of $c_1$ it is a diameter and passes through $C$. $c_1$ will intersect $OA$ at some point $Q$ and since $OE$ is a diameter of $c_1$, $\angle EQO$ is a right angle.
 
 $\angle ECQ=2\cdot\angle EOQ=2\alpha$ because $\angle ECQ$ is a central angle of $c_1$ subtended by $EQ$ which also subtends the inscribed angle $\angle EOQ$. Therefore the arc $\widehat{EQ}$ equals $2\alpha r$. But $\angle EOQ$ is the same angle as $EOA$ and is therefore an inscribed angle of $c_2$. It follows that the arc $\widehat{EA}$ equals $2r\alpha$ and $\widehat{EA} =\widehat{EQ}$, so as $c_1$ rotates, $Q$ is always on the diameter.
 
 Let $P$ be an arbitrary point on $CQ$ and construct $RP\parallel EQ$ and $R'P\parallel OQ$. Let $N$ be the intersection of $RP$ with $OA$. Since $CE=CQ$ are radii of $c_1$, by $RP\parallel EQ$, $\triangle PCR\sim \triangle QCE$ so $\triangle PCR$ is isosceles and $CP=CR=a$. Similarly, $\triangle PCR'$ is isosceles and $CP=CR'=a$.
 
-Now let $c_1$ rotate within $c_2$. Since $P$ is fixed relative to $C$ and $E$ is fixed relative to $O$, $OR=r+a$ and $OR'=r-a$ are constant and their loci are circles. From $R'P\parallel ON$ we get $\triangle RPR'\sim \triangle RNO$ and
+Now let $c_1$ rotate within $c_2$. Since $P$ is fixed relative to $C$, $OR=r+a$ and $OR'=r-a$ are constant and their loci are circles. From $R'P\parallel ON$ we get $\triangle RPR'\sim \triangle RNO$ and
 \[
 \frac{PN}{RN} = \frac{OR'}{OR}=\frac{PQ}{OR}\,,
 \]
-since $OR'=r-a=PQ$. By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $P$ is an ellipse with $OR$ the semi-major axis and $OR'=PQ$ the semi-minor axis.\hqed
-\end{proof}
+since $OR'=r-a=PQ$. By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $P$ is an ellipse with $OR$ the semi-major axis and $OR'=PQ$ the semi-minor axis.
 
-Figure~\ref{f.roulette2} shows traces of $P,R,R'$.
+Figure~\ref{f.roulette2} shows traces of $P,R,R'$.\hqed
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{A glissette for drawing an ellipse---the trammel of Archimedes}\label{s.glissette}
+\section{Glissettes for drawing an ellipse}\label{s.glissette}
 
- A \emph{glissette} is a curve generated by one curve $c_1$ \emph{sliding} on another curve $c_2$. In Figure~\ref{f.glissette1}, the line segment $AB$ is constrained to move so that $A$ slides on $OA$ and $B$ slides on $OB$ where $OA\perp OB$. Let: $P$ be an arbitrary point on $AB$, $C$ be the bisector of $AB$, $PN$ the perpendicular to $OB$, and $Q$ intersection of $PN$ with $OC$. As $A$ slides on $OA$ and $B$ on $OB$, the locus of $Q$ is a circle and the locus of $P$ is an ellipse.
+\subsection*{The trammel of Archimedes}
+
+ A \emph{glissette} is a curve generated by one curve $c_1$ \emph{sliding} on another curve $c_2$. In Figure~\ref{f.glissette1}, the line segment $AB$ is constrained to move such that $A$ slides on $OA$ and $B$ slides on $OB$ where $OA\perp OB$. Let: $P$ be an arbitrary point on $AB$, $C$ be the midpoint of $AB$, $PN$ the perpendicular to $OB$, and $Q$ intersection of $PN$ with $OC$. 
+
+\begin{theorem}
+As $A$ slides on $OA$ and $B$ on $OB$, the locus of $Q$ is a circle and the locus of $P$ is an ellipse.
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -391,7 +397,8 @@ Figure~\ref{f.roulette2} shows traces of $P,R,R'$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Since $OC$ is the median to the hypotenuse of a right triangle, $AC=CB=OC=x$  and therefore $\angle COA=\angle CAO$. $\triangle ACO\sim \triangle PCQ$ since $AO\parallel QP$, so $CP=CQ=y, OQ=AP=x+y$. $P$ is fixed (on $AB$) so the locus of $Q$ is a circle.
+\begin{proof}
+Since $OC$ is the median to the hypotenuse of a right triangle, $AC=CB=OC=x$  and therefore $\angle COA=\angle CAO$. $\triangle ACO\sim \triangle PCQ$ since $AO\parallel QP$, so $CP=CQ=y, OQ=AP=x+y$. Since $P$ is fixed on $AB$ even when $AB$ moves, $OQ$ is fixed (the length from $O$ to $Q$), so the locus of $Q$ is a circle centered at $O$.
 
 Since $\triangle PCQ$ is isosceles, $\angle CPQ=\angle CQP=\alpha$ and $\angle CPQ=\angle BPN=\alpha$ by vertical angles. Therefore, $\triangle PBN\sim \triangle QON$ and
 \[
@@ -399,8 +406,8 @@ Since $\triangle PCQ$ is isosceles, $\angle CPQ=\angle CQP=\alpha$ and $\angle C
 \]
 By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $P$ is an ellipse with $AP=x+y$ the semi-major axis and $BP=x-y$ the semi-minor axis.
 
-Figure~\ref{f.glissette2} shows the loci of $P$ and $Q$ for $AB=10$.
-
+Figure~\ref{f.glissette2} shows the loci of $P$ and $Q$ for $AB=10$.\hqed
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[t]
@@ -414,7 +421,7 @@ Figure~\ref{f.glissette2} shows the loci of $P$ and $Q$ for $AB=10$.
 \coordinate (A) at (0,{\a});
 \coordinate (B) at ({\b},0);
 \draw (A) -- (O) --(B);
-\draw[thick,dotted] (A) -- (B);
+\draw[loosely dashed] (A) -- (B);
 \fill ($(A)+(-1.5pt,-3pt)$) rectangle +(3pt,6pt);
 \fill ($(B)+(-3pt,-1.5pt)$) rectangle +(6pt,3pt);
 
@@ -426,10 +433,10 @@ Figure~\ref{f.glissette2} shows the loci of $P$ and $Q$ for $AB=10$.
 
 \path[name path=np] (N) --  ($(N)!3!(P)$);
 \path [name intersections = {of = oc and np, by = {Q} }];
-\draw (N) -- (Q) -- (O);
+\draw[thin] (N) -- (Q) -- (O);
 
-\fill[shift only,red] (P) circle (2pt);
-\fill[shift only,blue] (Q) circle (2pt);
+\vertexcolor{P}{red};
+\vertexcolor{Q}{blue};
 }
 \end{tikzpicture}
 \caption{The circle ($Q$ blue) and the ellipse ($P$ red)}\label{f.glissette2}
@@ -437,31 +444,37 @@ Figure~\ref{f.glissette2} shows the loci of $P$ and $Q$ for $AB=10$.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Articulated glissettes}\label{s.articulated}
 
-The following images of the glissettes are taken from \cite{van-schooten}, a website devoted to the work of Frans van Schooten.
-%\begin{figure}[h]
+\subsection*{Articulated glissettes}\label{s.articulated}
+
+The images of the glissettes in Figure~\ref{f.van-schooten} are taken from \cite{van-schooten}, a website devoted to the work of Frans van Schooten.
+\begin{figure}[b]
 \begin{center}
 \includegraphics[width=.48\textwidth,keepaspectratio=true]{vanschooten1.jpg}
 \includegraphics[width=.48\textwidth,keepaspectratio=true]{vanschooten2.jpg}
-%\caption{Van Schooten's glissettes}\label{f.van-schooten}
+\caption{Van Schooten's glissettes}\label{f.van-schooten}
 \end{center}
-%\end{figure}
+\end{figure}
 
-\subsection*{First glissette}
+\subsubsection*{First glissette}
 
-Given $a,b$ let $ABD$ be an articulated arm of length $a+b$ with a rotating joint at its midpoint $B$. $D$ can slide on the $x$-axis $AK$ while $A$ can rotate at the origin (Figure~\ref{f.articulated1}). Let $E$ be at a fixed distance $b$ from $D$. Using parametric equations, we have that the locus of $E$ is an ellipse.
+Given $a,b$ let $ABD$ be an articulated arm of length $a+b$ with a rotating joint at its midpoint $B$. $D$ can slide on the $x$-axis $AK$ while $A$ can rotate at the origin (Figure~\ref{f.articulated1}). Let $E$ be at a fixed distance $b$ from $D$. Construct perpendiculars $EQ$ to $AL$ and $ER$ to $AD$.
+
+\begin{theorem}
+The locus of $E$ is an ellipse.
+\end{theorem}
+\begin{proof}
+Using parametric equations, we have that 
 \begin{eqn}
-PE&=&\left[ \frac{a+b}{2}+\left(\frac{a+b}{2}-b\right)\right]\cdot \cos \alpha=a\cos \alpha\\
-RE&=&b\sin\alpha\,.
-\end{eqn}
-
+QE&=&\left[ \frac{a+b}{2}+\left(\frac{a+b}{2}-b\right)\right]\cdot \cos \alpha=a\cos \alpha\\
+RE&=&b\sin\alpha\,.\fqed
+\end{eqn}%
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
 \begin{center}
-\begin{tikzpicture}[scale=.6]
+\begin{tikzpicture}[scale=.75]
 \clip (-5.5,-1.1) rectangle +(15,8.5);
 
 \def\a{8}
@@ -476,21 +489,22 @@ RE&=&b\sin\alpha\,.
 %\node[below] at (AP) {$AP$};
 \draw[name path=major] (AP) -- (A);
 \path (O) -- node[below]  {$\frac{a+b}{2}$} (A);
-\draw[name path=minor,thick,dashed] (O) -- ($(O)!1.4!(B)$);
 \draw (AP) arc[start angle=180,end angle=0,radius={\ab2}];
 
 \draw[blue,thick] (O) -- 
-  node[above,black,yshift=2pt] {$\frac{a+b}{2}$} ({\angle}:{\ab2}) coordinate (M);
+  node[above,black,yshift=2pt] {$\frac{a+b}{2}$} ({\angle}:{\ab2})
+  coordinate (M);
 
 \path[name path=circle] (M) circle[radius={\ab2}];
 \draw[name path=xaxis] (O) -- ($(O)!2!(A)$);
 \path [name intersections = {of = xaxis and circle, by = {dummy,N} }];
 \draw[red,thick] (N) -- node[above,black,yshift=2pt] {$\frac{a+b}{2}$} (M);
-\draw (M) -- node[above,yshift=2pt] {$\frac{a+b}{2}$} ($(N)!2!(M)$) coordinate (L);
-
-\draw (O) rectangle +(8pt,8pt);
+\draw (M) -- node[above,yshift=2pt] {$\frac{a+b}{2}$} 
+  ($(N)!2!(M)$) coordinate (L);
+\node[left] at (L) {$L$};
+\draw[name path=minor,thick,dashed] (O) -- (L);
 \draw[very thick,red] (N) --
-  node[above,black,xshift=2pt] {$b$} ($(N)!{2/5}!(M)$) coordinate (P);
+  node[above,black,near start,xshift=2pt] {$b$} ($(N)!{2/5}!(M)$) coordinate (P);
 \fill ($(N)+(-4pt,-2pt)$) rectangle +(8pt,4pt);
 
 \draw[thick,dashed] (P) -- ($(L)!(P)!(O)$) node[black,left] {$Q$};
@@ -518,7 +532,7 @@ RE&=&b\sin\alpha\,.
 \begin{figure}[b]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-\clip (-9,-2.7) rectangle +(18,5.4);
+\clip[draw] (-9,-2.7) rectangle +(18,5.4);
 
 \def\a{5}
 \def\b{3}
@@ -526,10 +540,10 @@ RE&=&b\sin\alpha\,.
 
 \coordinate (O) at (0,0);
 \node[below right] at (O) {$A$};
-\coordinate (APX) at ({-\a-\b},0);
+\coordinate (APX) at ({-(\a+\b)},0);
 \coordinate (AX) at ({\a+\b},0);
 \coordinate (BX) at (0,{\b-\a});
-\coordinate (BPX) at (0,{\a-\b});
+\coordinate (BPX) at (0,{-(\b-\a)});
 \node[left] at (APX) {$K$};
 \node[right] at (AX) {$L$};
 \draw[name path=major] (APX) -- (AX);
@@ -538,16 +552,15 @@ RE&=&b\sin\alpha\,.
 \draw[very thick,dotted,name path=ellipse] (O)
   ellipse[x radius={\a+\b},y radius= {\b-\a}];
 
-\coordinate (D) at ({-0.6*\a},0);
+%\coordinate (D) at ({-0.6*\a},0);
 
-\path[name path=arm1] (O) -- +({\angle}:3);
-\path[name path=arm2] (D) -- +({180-\angle}:3);
-\path [name intersections = {of = arm1 and arm2, by = {B} }];
-\draw [thick,blue] (O) -- node[right,black,xshift=2pt] {$a$} (B);
-\draw[thick,red] (B) -- node[left,black,xshift=-2pt] {$a$} (D);
-\path [name path=arm3] (B) -- ($(B)!2.5!(D)$);
-\path [name intersections = {of = arm3 and ellipse, by = {E} }];
-\draw [thick,red] (D) -- node[right,black,xshift=4pt] {$b-a$} (E);
+\path[name path=arm1] (O) -- +({\angle}:3.2);
+\path [name intersections = {of = arm1 and ellipse, by = {B} }];
+\draw [thick,blue] (O) -- node[right,black] {$a$} (B);
+\path[name path=arm2] (B) -- +({360-\angle}:6);
+\path [name intersections = {of = arm2 and ellipse, by = {E} }];
+\draw[thick,red] (B) -- (E);
+\path [name intersections = {of = arm2 and major, by = {D} }];
 
 \fill ($(D)+(-4pt,-2pt)$) rectangle +(8pt,4pt);
 \draw[thick,dashed] (B) -- ($(O)!(B)!(D)$) coordinate (H);
@@ -556,16 +569,19 @@ RE&=&b\sin\alpha\,.
 \node[above] at (N) {$N$};
 \node[below] at (H) {$H$};
 \node[below right] at (O) {$A$};
-\node[above,yshift=4pt] at (B) {$B$};
-\node[below right] at (D) {$D$};
+\node[above,yshift=2pt] at (B) {$B$};
+\node[above left] at (D) {$D$};
 \node[below left] at (E) {$E$};
 
-\draw (H) rectangle +(6pt,6pt);
-\draw[rotate=-90] (N) rectangle +(6pt,6pt);
+\draw (H) rectangle +(7pt,7pt);
+\draw[rotate=-90] (N) rectangle +(7pt,7pt);
 
-\node[above left,xshift=-6pt] at (O) {$\alpha$};
-\node[above right,xshift=6pt] at (D) {$\alpha$};
-\node[below left,xshift=-6pt] at (D) {$\alpha$};
+\path (E) -- node[right,yshift=-4pt] {$b\!-\!a$} (D);
+\path (D) -- node[left] {$a$} (B);
+
+\node[above left,xshift=-4pt,yshift=-1pt] at (O) {$\alpha$};
+\node[above right,xshift=4pt,yshift=-1pt] at (D) {$\alpha$};
+\node[below left,xshift=-4pt,yshift=1pt] at (D) {$\alpha$};
 \vertexsmcolor{E}{red};
 \draw[very thick] (O) circle[radius=3pt];
 \draw[very thick] (B) circle[radius=3pt];
@@ -577,24 +593,33 @@ RE&=&b\sin\alpha\,.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection*{Second glissette}
+\subsubsection*{Second glissette}
 
-Given $a,b$ let $ABE$ be an articulated arm of length $a+b$ with a rotating joint at $B$, where $AB=a, BE=b$. $D$, the intersection of $BE$ with the $x$-axis, can slide on the $x$-axis while $A$ can rotate at the origin (Figure~\ref{f.articulated2}). The locus of $E$ is an ellipse. Since $AB=AD=a$, $\angle BAD=\angle BDA=\alpha$ and $\angle NDE=\alpha$ by vertical angles. Therefore, the coordinates of $E=(x,y)$ are
+Given $a,b$ let $ABE$ be an articulated arm of length $a+b$ with a rotating joint at $B$, where $AB=a, BE=b$. $D$, the intersection of $BE$ with the $x$-axis, can slide on the $x$-axis while $A$ can rotate at the origin (Figure~\ref{f.articulated2}). 
+
+\begin{theorem}
+The locus of $E$ is an ellipse.
+\end{theorem}
+\begin{proof}
+$AB=AD=a$, $\angle BAD=\angle BDA=\alpha$ and $\angle NDE=\alpha$ by vertical angles. Therefore, the coordinates of $E=(x,y)$ are
 \begin{eqn}
-E &=& (-2a\cos \alpha - (b-a) \cos \alpha, (b-a)\sin \alpha)\\
+E &=& (-2a\cos \alpha - (b\!-\!a) \cos \alpha, (b\!-\!a)\sin \alpha)\\
 &=& (-(a+b)\cos \alpha, b\sin\alpha)\,,
 \end{eqn}
 and a simple computation shows that 
 \[
 \frac{x^2}{(a+b)^2} + \frac{y^2}{(b-a)^2}=1\,,
 \]
-so $E$ is a point on an ellipse with semi-major axis $a+b$ and semi-minor axis $b-a$.
+so $E$ is a point on an ellipse with semi-major axis $a+b$ and semi-minor axis $b-a$.\hqed
+\end{proof}
 
-\newpage
+\subsection*{A triangle glissette}\label{s.triangle-glissette}
 
-\section{A triangle glissette}\label{s.triangle-glissette}
+Let $\triangle AQB$ be a triangle such that $A$ is constrained to move on the $OA$ and $B$ is constrained to move along along $OB$, where $OA\perp OB$ (Figure~\ref{f.triangle1}). Let $OC$ be the midpoint of $AB=2a$ and extend $OC$ so that $CP=CQ=b$.
 
-An ellipse can be drawing by sliding a given triangle $\triangle AQB$ along perpendicular lines $OA,OB$ (Figure~\ref{f.triangle1}). Let $OC$ be the midpoint of $AB$ and extend $OC$ so that $CP=CQ=b$. Since $\triangle AOB$ is a right triangle, $OC=AC=BC=a$. The locus of $P$ is a circle with radius $OC+CP=OC+CQ=a+b$.
+\begin{theorem}
+The locus of $Q$ is an ellipse.
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -656,14 +681,15 @@ An ellipse can be drawing by sliding a given triangle $\triangle AQB$ along perp
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ$ rotates upwards while $OC$ rotates downwards. By considering the extremes ($A$ near $O$ and $B$ near $O$), it is clear that $OCQ$ will be ``concave'' up at one extreme and ``concave'' down at the other. Therefore, there must be a position of $AB$ which $OCQ$ is a line segment (green).
+\begin{proof}
+Since $\triangle AOB$ is a right triangle, $OC=AC=BC=a$. The locus of $P$ is a circle with radius $OC+CP=OC+CQ=a+b$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-\clip (-.5,-.6) rectangle +(10.2,8.8);
+\clip (-.8,-.6) rectangle +(10.8,8.8);
 
 \def\b{8}
 \def\a{sqrt(100-\b*\b)}
@@ -672,6 +698,8 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
 \coordinate (O) at (0,0);
 \coordinate (A) at ({\a},0);
 \coordinate (B) at ({0,\b});
+\node[below] at (A) {$A_1$};
+\node[left] at (B) {$B_1$};
 \path[name path=a,blue] (A) -- +({180-atan2(\b,\a)-\anglea}:8);
 \path[name path=b,red] (B) -- +({-90+atan2(\a,\b)+\angleb}:10);
 \path [name intersections = {of = a and b, by = {Q} }];
@@ -688,10 +716,11 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
     \n2 = {veclen(\x2, \y2)}
   in 
     (O) -- ($(O) ! \n1+\n2 ! (C)$) coordinate (P);
-\node[right] at (P) {$P$};
+\node[right] at (P) {$P_1$};
 \draw[thick,red] (O) node[below,black] {$O$} -- 
-  (C) node[left,black] {$C$} -- (Q) node[right,black] {$Q$};
-\fill[shift only,red] (P) circle (2pt);
+  (C) node[left,black] {$C_1$} -- (Q) node[right,black] {$Q_1$};
+\vertexcolor{P}{red};
+\vertexcolor{Q}{red};
 
 \def\b{3}
 \def\a{sqrt(100-\b*\b)}
@@ -700,6 +729,8 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
 \coordinate (O) at (0,0);
 \coordinate (A) at ({\a},0);
 \coordinate (B) at ({0,\b});
+\node[below] at (A) {$A_3$};
+\node[left] at (B) {$B_3$};
 \path[name path=a,blue] (A) -- +({180-atan2(\b,\a)-\anglea}:8);
 \path[name path=b,red] (B) -- +({-90+atan2(\a,\b)+\angleb}:10);
 \path [name intersections = {of = a and b, by = {Q} }];
@@ -716,10 +747,11 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
     \n2 = {veclen(\x2, \y2)}
   in 
     (O) -- ($(O) ! \n1+\n2 ! (C)$) coordinate (P);
-\node[right,xshift=8pt,yshift=2pt] at (P) {$P$};
-\draw[thick,blue] (O) -- (C) node[below,black] {$C$} --  
-  (Q) node[right,black,xshift=5pt] {$Q$};
-\fill[shift only,blue] (P) circle (2pt);
+\node[right,xshift=8pt,yshift=2pt] at (P) {$P_3$};
+\draw[thick,blue] (O) -- (C) node[below,black] {$C_3$} --  
+  (Q) node[right,black,xshift=5pt] {$Q_3$};
+\vertexcolor{P}{blue};
+\vertexcolor{Q}{blue};
 
 \def\b{5}
 \def\a{sqrt(100-\b*\b)}
@@ -728,6 +760,8 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
 \coordinate (O) at (0,0);
 \coordinate (A) at ({\a},0);
 \coordinate (B) at ({0,\b});
+\node[below] at (A) {$A_2$};
+\node[left] at (B) {$B_2$};
 \path[name path=a,blue] (A) -- +({180-atan2(\b,\a)-\anglea}:8);
 \path[name path=b,red] (B) -- +({-90+atan2(\a,\b)+\angleb}:10);
 \path [name intersections = {of = a and b, by = {Q} }];
@@ -738,9 +772,9 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
 \coordinate (C) at ($(A)!.5!(B)$);
 %\node[right,xshift=10pt,yshift=1pt] at (Q) {$P$};
 \draw[thick,green!80!black] (O) -- 
-  (C) node[above,black] {$C$} --
-  (Q) node[right,black] {$Q,P$};
-\fill[shift only,green!80!black] (Q) circle (2pt);
+  (C) node[above,black,xshift=-1pt] {$C_2$} --
+  (Q) node[right,black] {$Q_2,P_2$};
+\vertexcolor{Q}{green!80!black};
 
 \end{tikzpicture}
 \caption{There are $A,B$ such that $OCQ$ is a line segment (green)}\label{f.triangle2}
@@ -749,31 +783,15 @@ Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Referring now to Figure~\ref{f.triangle3}, let $OQ'$ is the straight line segment and let $C,Q,P$ are points generated by another arbitrary position of $AB$. Construct $CE\parallel OQ'$ which bisects $\angle PCQ$ since $CP=CQ$, and construct $PN\perp OQ'$ and $CL\perp OQ'$.
+Figure~\ref{f.triangle2} shows that as $B$ slides down and $A$ slides right, $CQ$ rotates upwards while $OC$ rotates downwards. By considering the extremes ($A$ near $O$ and $B$ near $O$), we see that $OCQ$ will be ``concave'' up at one extreme and ``concave'' down at the other. Therefore, there must be a position of $AB$ which $OCQ$ is a line segment (green).
 
-From $\triangle OCL\sim \triangle CPE$ we have
-\begin{eqnarray*}
-\frac{CL}{PE}&=&\frac{OC}{CP}\\[4pt]
-\frac{CL}{PE}-\frac{PE}{PE}&=&\frac{OC}{CP}-\frac{CP}{CP}\\[4pt]
-\frac{CL-PE}{PE}&=&\frac{OC-CP}{CP}\,,
-\end{eqnarray*}
-and similarly,
-\[
-\frac{CL+PE}{PE}=\frac{OC+CP}{CP}\,.
-\]
-Now,
-\begin{eqnarray*}
-QN &=& EN - EQ = CL - PE\\
-PN &=& EN + PE = CL + PE\\[4pt]
-\frac{QN}{PN}&=& \frac{CL-PE}{CL+PE}=\frac{OC-CP}{OC+CP}\,.
-\end{eqnarray*}
-By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $Q$ is an ellipse with $OC+CQ=a+b$ the semi-major axis and $OC-CQ=a-b$ the semi-minor axis.
+Referring now to Figure~\ref{f.triangle3}, let $OQ'$ (green) be this straight line segment and let $C,Q,P$ (red) be points generated by another arbitrary position of $AB$. Construct $CE\parallel OQ'$ which bisects $\angle PCQ$ since $CP=CQ$, and construct $PN\perp OQ'$ and $CL\perp OQ'$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=.85]
+\begin{tikzpicture}[scale=.9]
 \clip (-.5,-.6) rectangle +(8,7);
 
 \def\b{8}
@@ -821,8 +839,8 @@ By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $Q$ is an ellipse wit
 \draw (C) -- ($(P)!(C)!(N)$) coordinate (E);
 \node[right,xshift=0pt,yshift=0pt] at (E) {$E$};
 
-\node[above right,xshift=10pt,yshift=9pt] at (C) {$\alpha$};
-\node[above right,xshift=14pt,yshift=2pt] at (C) {$\alpha$};
+%\node[above right,xshift=10pt,yshift=9pt] at (C) {$\alpha$};
+%\node[above right,xshift=14pt,yshift=2pt] at (C) {$\alpha$};
 
 \draw[rotate=120] (L) rectangle +(6pt,6pt);
 \draw[rotate=124] (N) rectangle +(6pt,6pt);
@@ -834,201 +852,24 @@ By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $Q$ is an ellipse wit
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Confocal ellipses}\label{s.confocal}
-
-\emph{Confocal ellipses} are ellipses with the same foci. Given an ellipse $E$, a confocal ellipse can be drawn using a modification of the gardener method. If the length of the major axis of $E$ is $2a$, take a rope of length greater than $2a$, wrap it around $E$ and pull taut with a pencil. As you move around $E$, the pencil will trace a confocal ellipse (Figure~\ref{f.confocal1}).
-
-\begin{figure}[t]
-\begin{center}
-\begin{tikzpicture}[scale=.75]
-
-\clip (-4.2,-2.2) rectangle +(8.5,6.5);
-
-% Size and center of the ellipse
-\def\a{4}
-\def\b{2}
-\def\angle{30}
-
-\pic{ellipse={3*\a/4}/{3*\b/4}};  % Scale
-\coordinate (P) at ({\angle}:{\a} and {\b});
-\draw[white] (Top) -- (Bot);
-\draw[white] (Left) -- (Right);
-\path[name path global=t1] 
-  (P) -- ++ ({-2*\a*sin(\angle)},{2*\b*cos(\angle)});
-
-\coordinate (D) at ({\angle+120}:{\a} and {\b});
-\path[name path global=t2] 
-  (D) -- ++ ({2*\a*sin(\angle+120)},{-2*\b*cos(\angle+120)});
-
-\path [name intersections = {of = t1 and t2, by = {Q}}];
-\draw [thick,red] (D) -- (Q) -- (P);
-\draw[thick] (Q) circle[radius=3pt];
-
-\draw[thick,red] (P) 
-        arc[start angle=30,end angle=-210, x radius=\a,y radius=\b];
-
-\end{tikzpicture}
-\caption{Gardner's method for constructing a confocal ellipse}\label{f.confocal1}
-\end{center}
-\end{figure}
-
-To prove that the locus is an ellipse, let the tip of the pencil be at $T$ and very soon after let it be at $t$.\footnote{The proof is from the solution for problem 46 in the 1890 edition of Besant \url{https://archive.org/details/solutionsexampl00besagoog}, with details supplied by ``Intelligenti pauca'' at \url{https://math.stackexchange.com/questions/4908340/besants-proof-of-graves-theorem}.}
-The string forms two pairs of tangents $PT,TQ$ and $pt,tq$. Now $PT\approx pt$ so
-\begin{eqn}
-PT&\approx&\widehat{Pp} +PV \approx \widehat{Pp} + pt-tV\\
-tV&\approx& \widehat{Pp} + pt - PT\,.
-\end{eqn}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[b]
-\begin{center}
-\begin{tikzpicture}[scale=1]
-
-\clip (-6.5,2) rectangle +(13,4.5);
-
-% Size and center of the ellipse
-\def\a{7}
-\def\b{4}
-
-\coordinate (O) at (0,0);
-\draw[name path global=ellipse] (0,0) ellipse [x radius=\a,y radius=\b];
-
-\def\anglep{140}
-\def\angleq{50}
-\def\anglepp{130}
-\def\angleqp{40}
-
-\coordinate (P) at ({\anglep}:{\a} and {\b});
-\path[name path global=tp] 
-  (P) -- ++ ({1.8*\a*sin(\anglep)},{-1.8*\b*cos(\anglep)});
-\coordinate (Q) at ({\angleq}:{\a} and {\b});
-\path[name path global=tq] 
-  (Q) -- ++ ({-1.8*\a*sin(\angleq)},{1.8*\b*cos(\angleq)});
-\path [name intersections = {of = tp and tq, by = {T}}];
-\draw (P) -- (T) -- (Q);
-
-\coordinate (PP) at ({\anglepp}:{\a} and {\b});
-\path[name path global=tpp] 
-  (PP) -- ++ ({1.5*\a*sin(\anglepp)},{-1.5*\b*cos(\anglepp)});
-\coordinate (QP) at ({\angleqp}:{\a} and {\b});
-\path[name path global=tqp] 
-  (QP) -- ++ ({-1.5*\a*sin(\angleqp)},{1.5*\b*cos(\angleqp)});
-\path [name intersections = {of = tpp and tqp, by = {TP}}];
-\draw (PP) -- (TP) -- (QP);
-
-\draw (T) -- ($(PP)!(T)!(TP)$) coordinate (V);
-\draw (TP) -- ($(T)!(TP)!(Q)$) coordinate (VP);
-
-\draw[rotate=29] (V) rectangle +(5pt,5pt);
-\draw[rotate=-30] (VP) rectangle +(5pt,5pt);
-
-\node[above] at (T) {$T$};
-\node[above] at (P) {$P$};
-\node[above] at (TP) {$t$};
-\node[below] at (PP) {$p$};
-\node[below] at (V) {$V$};
-\node[below] at (VP) {$y$};
-\node[above] at (Q) {$Q$};
-\node[right] at (QP) {$q$};
-
-\vertexsm{P};
-\vertexsm{PP};
-\vertexsm{Q};
-\vertexsm{QP};
-
-\end{tikzpicture}
-\caption{Constructing a confocal ellipse}\label{f.confocal}
-\end{center}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Similarly,
-\begin{eqn}
-tq&\approx& \widehat{Qq} + QT - Ty\\
-Ty&\approx& \widehat{Qq} + QT - tq\,.
-\end{eqn}
-Since the length of the string is fixed, $PT+TQ = pt+tq$ and $\widehat{Pp}\approx\widehat{Qq}$. Substituting into the above equations gives
+From $\triangle OCL\sim \triangle CPE$ we have
+\begin{eqnlabels}
+\frac{CL}{PE}&=&\frac{OC}{CP}\nonumber\\[4pt]
+\frac{CL}{PE}-\frac{PE}{PE}&=&\frac{OC}{CP}-\frac{CP}{CP}\nonumber\\[4pt]
+\frac{CL-PE}{PE}&=&\frac{OC-CP}{CP}\,,\label{eqn.glissette-triangle1}
+\end{eqnlabels}
+and similarly,
+\begin{equation}\label{eqn.glissette-triangle2}
+\frac{CL+PE}{PE}=\frac{OC+CP}{CP}\,.
+\end{equation}
+By computing the lengths of the line segments we have
+$QN = EN - EQ = CL - PE$ and $PN = EN + PE = CL + PE$.
+Substituting from Equations~\ref{eqn.glissette-triangle1}, \ref{eqn.glissette-triangle2} gives
 \[
-tV= \widehat{Pp} + pt - PT \approx \widehat{Pp} + TQ -tq\approx
-\widehat{Qq} + QT - tq\approx Ty\,.
+\frac{QN}{PN}= \frac{CL-PE}{CL+PE}=\frac{OC-CP}{OC+CP}\,.
 \]
-
-Consider now Figure~\ref{f.confocal-details} which is a detail from Firgure~\ref{f.confocal}. The angles $\alpha$ are vertical angles and we showed that $TV\approx ty$ so $\triangle TVW\cong \triangle tyW$. Therefore, $\triangle TVt\cong tyT$ and $\angle TtW=\angle tTW=\beta$.  What happens as $t$ approaches $T$ each other? $tT$ becomes the ``left'' part of the tangent at $T$ and $Tt$ becomes the ``right'' part of the tangent. It follows by Theorem~\ref{thm.tangent-angles} that there is a tangent of an ellipse at $T$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}[scale=3]
-
-\clip (-1.5,4.5) rectangle +(3,1.3);
-
-% Size and center of the ellipse
-\def\a{7}
-\def\b{4}
-
-\coordinate (O) at (0,0);
-\draw[name path global=ellipse] (0,0) ellipse [x radius=\a,y radius=\b];
-
-\def\anglep{140}
-\def\angleq{50}
-\def\anglepp{130}
-\def\angleqp{40}
-
-\coordinate (P) at ({\anglep}:{\a} and {\b});
-\path[name path global=tp] 
-  (P) -- ++ ({1.8*\a*sin(\anglep)},{-1.8*\b*cos(\anglep)});
-\coordinate (Q) at ({\angleq}:{\a} and {\b});
-\path[name path global=tq] 
-  (Q) -- ++ ({-1.8*\a*sin(\angleq)},{1.8*\b*cos(\angleq)});
-\path [name intersections = {of = tp and tq, by = {T}}];
-\draw (P) -- (T) -- (Q);
-
-\coordinate (PP) at ({\anglepp}:{\a} and {\b});
-\path[name path global=tpp] 
-  (PP) -- ++ ({1.5*\a*sin(\anglepp)},{-1.5*\b*cos(\anglepp)});
-\coordinate (QP) at ({\angleqp}:{\a} and {\b});
-\path[name path global=tqp] 
-  (QP) -- ++ ({-1.5*\a*sin(\angleqp)},{1.5*\b*cos(\angleqp)});
-\path [name intersections = {of = tpp and tqp, by = {TP}}];
-\draw (PP) -- (TP) -- (QP);
-
-\draw (T) -- ($(PP)!(T)!(TP)$) coordinate (V);
-\draw (TP) -- ($(T)!(TP)!(Q)$) coordinate (VP);
-
-\draw[rotate=26] (V) rectangle +(2pt,2pt);
-\draw[rotate=63] (VP) rectangle +(2pt,2pt);
-
-\node[above] at (T) {$T$};
-\node[above] at (P) {$P$};
-\node[above] at (TP) {$t$};
-\node[below] at (PP) {$p$};
-\node[below] at (V) {$V$};
-\node[below] at (VP) {$y$};
-\node[above] at (Q) {$Q$};
-\node[right] at (QP) {$q$};
-
-\vertexsm{P};
-\vertexsm{PP};
-\vertexsm{Q};
-\vertexsm{QP};
-
-\draw (T) -- (TP);
-\path [name intersections = {of = tpp and tq, by = {W}}];
-\node[below,yshift=-2pt] at (W) {$W$};
-\node[left,xshift=-6pt] at (W) {$\alpha$};
-\node[right,xshift=6pt] at (W) {$\alpha$};
-\node[below right,xshift=10pt,yshift=-10pt] at (T) {$\alpha'$};
-\node[below left,xshift=-10pt,yshift=-10pt] at (TP) {$\alpha'$};
-\node[right,xshift=24pt,yshift=-7pt] at (T) {$\beta$};
-\node[left,xshift=-24pt,yshift=-7pt] at (TP) {$\beta$};
-
-\end{tikzpicture}
-\caption{Detail of the proof for a confocal ellipse}\label{f.confocal-details}
-\end{center}
-\end{figure}
+By Theorem~\ref{thm.ellipse-b-over-a-besant}, the locus of $Q$ is an ellipse with $OC+CQ=a+b$ the semi-major axis and $OC-CQ=a-b$ the semi-minor axis.\hqed
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1039,7 +880,7 @@ The \emph{perfect compass} is an instrument that is capable of constructing any 
 The notation in the figures in the sequel conforms to the notation in \cite{henk}. $B$ denotes the point of attachment of the arm to the axis while $O$ is reserved for the center of the conic section. The axis is drawn in red and the arm in blue.
 
 The parameters $\alpha, \beta, AB$ determine which conic section will be drawn. Here we limit ourselves to ellipses by specifying that $0< \beta <\alpha< 90$. 
-\begin{figure}[h]
+\begin{figure}[t]
 \begin{minipage}{.45\textwidth}
 \begin{center}
 \includegraphics[width=.9\textwidth,keepaspectratio=true]{perfect1.jpg}
@@ -1048,27 +889,14 @@ The parameters $\alpha, \beta, AB$ determine which conic section will be drawn. 
 \end{center}
 \end{minipage}
 \hfill
-\begin{minipage}{.55\textwidth}
+\begin{minipage}{.525\textwidth}
 \begin{center}
 \includegraphics[width=\textwidth,keepaspectratio=true]{perfect2.jpg}
+\vspace*{2pt}
 \caption{The configuration of a perfect compass}\label{f.perfect-image2}
 \end{center}
 \end{minipage}
 \end{figure}
-
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[width=.5\textwidth,keepaspectratio=true]{perfect1.jpg}
-%\caption{A perfect compass}\label{f.perfect-image1}
-%\end{center}
-%\end{figure}
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[width=.6\textwidth,keepaspectratio=true]{perfect2.jpg}
-%\caption{The configuration of a perfect compass}\label{f.perfect-image2}
-%\end{center}
-%\end{figure}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1076,15 +904,15 @@ The parameters $\alpha, \beta, AB$ determine which conic section will be drawn. 
 
 Consider an arbitrary point $A$ on an arbitrary line $l$ that (Figure~\ref{f.perfect-major}). Place the base of the axis at $A$ and rotate the axis until the arm at $B$ intersects the line $l$. There are two such intersections labeled $E$ and $D$. Let the midpoint of $ED$ be $O$. Construct the (outer) circle centered at $O$ with radius $OD=OE=r_o$.
 
-The diagrams will be drawn in two dimensions; you have to imagine that $B$ is actually above the plane and the axis $AB$ and the arms $BD, BE$ have been ``laid flat.''
+The diagrams will be drawn in two dimensions: you have to imagine that $B$ is actually above the plane, and that the axis $AB$ and the arms $BD, BE$ have been ``laid flat.''
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
-\begin{minipage}{.49\textwidth}
+\begin{figure}[t]
+\begin{minipage}{.47\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.8]
-\clip  (-3.9,-3.6) rectangle +(9,7.2);
+\clip (-3.8,-3.6) rectangle +(8.9,7.2);
 
 \def\alph{50}
 \def\bet{30}
@@ -1112,13 +940,14 @@ The diagrams will be drawn in two dimensions; you have to imagine that $B$ is ac
 \node[below left] at (O) {$O$};
 \node[draw,thick,dashed,name path=circle] at (O) 
   [circle through = (D)] {};
-\draw ($(E)+(-36pt,0)$) -- ($(D)+(36pt,0)$) node[xshift=-2pt,above] {$l$};
+\draw ($(E)+(-30pt,0)$) -- 
+  ($(D)+(30pt,0)$) node[xshift=-2pt,above] {$l$};
 \path (E) -- node[below] {$r_o$} (O);
 
-\node[above right,xshift=3pt] at (A) {\sm{\alpha}};
+\node[above right,xshift=5pt] at (A) {\sm{\alpha}};
 \node[above left,xshift=5pt] at (A) {\sm{180\!-\!\alpha}};
 \node[below left,xshift=-10pt,yshift=-5pt] at (B) {\sm{\beta}};
-\node[below left,xshift=-1pt,yshift=-7pt] at (B) {\sm{\beta}};
+\node[below left,xshift=0pt,yshift=-8pt] at (B) {\sm{\beta}};
 \vertexsm{O};
 
 \end{tikzpicture}
@@ -1128,7 +957,7 @@ The diagrams will be drawn in two dimensions; you have to imagine that $B$ is ac
 %\end{figure}
 \hfill
 %\begin{figure}[t]
-\begin{minipage}{.49\textwidth}
+\begin{minipage}{.51\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.8]
 \clip  (-3.7,-3.6) rectangle +(9.4,7.2);
@@ -1162,7 +991,7 @@ The diagrams will be drawn in two dimensions; you have to imagine that $B$ is ac
   [circle through = (D)] {};
 
 \draw[thick,red] (A) -- +({\len},0) coordinate (U);
-\node[below] at (U) {$U$};
+\node[above left,xshift=2pt] at (U) {$U$};
 
 \path[name path=arm3] (U) -- +({180+\bet}:7);
 \path[name path=perp] (A) -- +(-90:5);
@@ -1190,15 +1019,11 @@ The diagrams will be drawn in two dimensions; you have to imagine that $B$ is ac
 \draw (H) -- node[left] {$r_i$} (O) -- node[left] {$r_i$} (T);
 
 \draw[very thick,cyan] (O) -- node[xshift=-3pt,below,black] {$r_i$} (L);
-\draw[very thick,brown] ($(O)+(4pt,0pt)$) --
-   node[above,black,xshift=4pt] {$r_o$} ($(K)+(4pt,0pt)$);
+\draw[very thick,brown] ($(O)+(2.5pt,0pt)$) --
+   node[above,black,xshift=4pt] {$r_o$} ($(K)+(2.5pt,0pt)$);
 
-%\node[above,xshift=-3pt,yshift=5pt] at (K) {\sm{\beta}};
 \node[below left,xshift=-12pt,yshift=1pt] at (U) {\sm{\beta}};
-%\vertexsm{G};
-%\draw[rotate=180] (G) rectangle +(5pt,5pt);
-%\draw[rotate=180] (A) rectangle +(5pt,5pt);
-%\draw[rotate=90] (O) rectangle +(5pt,5pt);
+\draw[dashed] (L) -- (A-|L) node[above] {$A'$};
 \end{tikzpicture}
 \caption{Constructing the minor axis}\label{f.perfect-minor}
 \end{center}
@@ -1212,7 +1037,7 @@ The diagrams will be drawn in two dimensions; you have to imagine that $B$ is ac
 Consider now the situation where axis is rotated to $-90^\circ$ and denote by $G$ the intersection of the arm with the plane. If you lay the compass flat, the axis $AB$ becomes $U$ (Figure~\ref{f.perfect-minor}). Extend $AG$ until it intersects the circle at $K$ and construct $OK=r_o$ (brown). Construct the perpendicular to $AK$ at $G$ and let its intersection with $OK$ be $L$. Draw the (inner) circle centered at $O$ with radius $OL=r_i$ (cyan). Construct the perpendicular to $ED$ at $O$ and let its intersections with the inner circle be $H,T$.
 
 \begin{theorem}[Prop. VIII]\label{thm.propviii}
-$\displaystyle\frac{AG}{AK}=\frac{HO}{OD}$, where $HO=r_i$ and $OD=r_o$ are the semi-minor and semi-major axes of an ellipse.
+$\frac{AG}{AK}=\frac{HO}{OD}$, where $HO=r_i$ and $OD=r_o$ are the semi-minor and semi-major axes of an ellipse.
 \end{theorem}
 \begin{proof}
 By Theorem~\ref{thm.ratios-besant},
@@ -1225,32 +1050,35 @@ and by Theorem~\ref{thm.alt-hypo}, $AK^2=DA\cdot AE$ .\hqed
 \subsubsection*{$G$ is a point on the ellipse}
 
 \begin{theorem}
-$G$ is a point on the ellipse with semi-major axis $r_o$ and semi-minor axis $r_i$
+$G$ is a point on the ellipse with semi-major axis $r_o$ and semi-minor axis $r_i$.
 \end{theorem}
-\begin{proof}(Proof 1)
-Since $\triangle AKO \sim \triangle AGO$, by Theorem~\ref{thm.propviii},
+\begin{proof} (Proof 1)
+Construct a line $LA'$ perpendicular to $OD$. Then $\triangle AKO \sim \triangle A'LO$, by Theorem~\ref{thm.propviii},
 \[
-\frac{AG}{AK}=\frac{OL}{OK}=\frac{r_i}{r_o}=\frac{HO}{OD}\,,
+\frac{A'L}{AK}=\frac{AG}{AK}=\frac{OL}{OK}=\frac{r_i}{r_o}=\frac{HO}{OD}\,,
 \]
 and $G$ is a point on an ellipse with semi-minor axis $r_i$ and semi-major axis $r_o$.\hqed
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{proof}(Proof 2)
+\begin{proof} (Proof 2)
 $G$ will be on the ellipse if its coordinates satisfy the parametric representation (Definition~\ref{def.parametric}). Let $t$ be the angle between $OD$ and $OK$. $OA=r_o\cos t$ and $AG=r_i\sin t$ (Figure~\ref{f.perfect-parametric}), so $G$ is a point on the ellipse. \hqed
 \end{proof}
 
-Figure~\ref{f.perfect-ellipse} shows the ellipse (green) and you can check that $G$ is on the ellipse. It also shows that a symmetric construction gives the point $G'$ on the ellipse. Another symmetric construction shows that there are an additional pair of points to the left of the minor-axis.  We have now located six points on an ellipse. From the following surprising theorem (proof omitted) we conclude that the perfect compass constructs an ellipse.\footnote{Approaches to proving the theorem are discussed in the Wikipedia article \emph{Five points determine a conic}.}
+\newpage
 
 \begin{theorem}
-Given five points, no three of which are collinear, there is a unique conic section containing the points.
+The perfect compass constructs an ellipse.
 \end{theorem}
 
+\begin{proof}
+Figure~\ref{f.perfect-ellipse} shows the ellipse (green) and you can check that $G$ is on the ellipse. It also shows that a symmetric construction gives the point $G'$ on the ellipse. Another symmetric construction shows that there are an additional pair of points to the left of the minor-axis.  We have now located six points on an ellipse. By Theorem~\ref{thm.five} we can conclude that the perfect compass constructs an ellipse.\hqed
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}
+\begin{figure}[t]
 \begin{minipage}{.49\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=.8]
@@ -1308,8 +1136,8 @@ Given five points, no three of which are collinear, there is a unique conic sect
 \draw (H) -- node[left] {$r_i$} (O) -- node[left] {$r_i$} (T);
 
 \draw[very thick,cyan] (O) -- node[xshift=-3pt,below,black] {$r_i$} (L);
-\draw[very thick,brown] ($(O)+(4pt,0pt)$) --
-   node[above,black,xshift=4pt] {$r_o$} ($(K)+(4pt,0pt)$);
+\draw[very thick,brown] ($(O)+(2.5pt,0pt)$) --
+   node[above,black,xshift=4pt] {$r_o$} ($(K)+(2.5pt,0pt)$);
 
 \node[below right,xshift=10pt] at (O) {$t$};
 
@@ -1427,4 +1255,387 @@ Given five points, no three of which are collinear, there is a unique conic sect
 \caption{Checking that $G$ is on the ellipse}\label{f.perfect-ellipse}
 \end{center}
 \end{minipage}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Confocal ellipses}\label{s.confocal}
+
+We need the following theorem on the relationship between second-degree equations and conics. The familiar conics are parabolas, ellipses (circles) and hyperbolas, but straight lines are also conics, as are imaginary ellipses. To simplify the presentation, we focus on the familiar conics.
+
+\begin{theorem}\label{thm.five}
+A second-degree equation describes a conic.
+\end{theorem}
+\begin{proof}
+The general equation for a conic is
+\[
+ax^2+2bxy+cy^2+2dx+2ey+f=0\,.
+\]
+We omit the proof of one step: there is an equivalent equation that does not contain a term in $xy$.
+
+First assume that the equation is second-degree, that is, that neither $a$ nor $c$ are zero. Then the equation can be written as
+\begin{eqn}
+a\left(x^2+2\frac{d}{a}x+\left(\frac{d}{a}\right)^2\right) - 
+\frac{d^2}{a} + 
+c\left(y^2+2\frac{e}{c}y+\left(\frac{e}{c}\right)^2\right) -
+\frac{e^2}{c} + f&=&0\\
+a\left(x+\frac{d}{a}\right)^2 + 
+c\left(y+\frac{e}{c}\right)^2 &=& 
+\frac{d^2}{a} +\frac{e^2}{c} -f \,.
+\end{eqn}%
+Denote the (constant) right-hand side of the equation by $k$. Perform a change of variables $u=x+(a/d),v=y+(e/c)$ and divide by $k$ to obtain
+\[
+\frac{u^2}{k/a} + \frac{v^2}{k/c}=k\,.
+\]
+The conic described by this equation depends on the values of $a,c,k$: 
+\begin{itemize}
+\item $k/a>0$ and $k/c>0$ is an ellipse.
+\item  $k/a>0,k/c<0$ is a hyperbola. 
+\item  $k/a<0,k/c>0$ is a hyperbola. 
+\item $a=0$ but not $c=0$ and $d\ne 0$ is a parabola.
+\item $c=0$ but not $a=0$ and $e\ne 0$ is a parabola.\hqed
+\end{itemize}
+\end{proof}
+
+\begin{theorem}
+Given five points, no four of which are collinear, there is a unique conic section containing the points (Figure~\ref{f.five-hyperbola}).
+\end{theorem}
+
+\begin{proof}
+The equation for a conic is
+\[
+ax^2+2bxy+cy^2+2dx+2ey+f=0\,,
+\]
+but by dividing through by $a$ we obtain a monic second-order equation with only five coefficients. The problem is to show that there is a unique conic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}
+\draw[thin,step=10mm] (-2,-3) grid (8,3);
+
+\coordinate (p1) at (2,1);
+\coordinate (p2) at (1,0);
+\coordinate (p3) at (3,-1);
+\coordinate (p4) at (-1,0);
+\coordinate (p5) at (3,-2);
+
+\vertex{p1};
+\vertex{p2};
+\vertex{p3};
+\vertex{p4};
+\vertex{p5};
+
+\node[above right,,xshift=-2pt,yshift=8pt] at (p1) {$p_1$};
+\node[above left] at (p2) {$p_2$};
+\node[below left] at (p3) {$p_3$};
+\node[above right] at (p4) {$p_4$};
+\node[below left] at (p5) {$p_5$};
+
+\draw[thick,red] (-2,-3) -- (4,3);
+\draw[thick,red] (-2,.25) -- (8,-2.25);
+
+\draw[thick,blue] (-2,0) -- (8,0);
+\draw[thick,blue] (1,3) -- (4,-3);
+
+% Plot exported from Geogebra
+
+\begin{axis}[
+x=1cm,y=1cm,
+xmin=-2,
+xmax=8,
+ymin=-3,
+ymax=3,
+xshift=-2cm,
+yshift=-3cm,
+xtick={-2,-1,...,8},
+ytick={-3,-2,...,3},
+]
+
+\draw [green!80!black,very thick,samples=50,domain=-0.99:0.99,rotate around={-40.51368669255181:(2.4782608695652173,-0.2608695652173913)},xshift=2.4782608695652173cm,yshift=-0.2608695652173913cm,] plot ({0.8271332831869127*(1+(\x)^2)/(1-(\x)^2)},{0.6339209985201321*2*(\x)/(1-(\x)^2)});
+\draw [green!80!black,very thick,samples=50,domain=-0.99:0.99,rotate around={-40.51368669255181:(2.4782608695652173,-0.2608695652173913)},xshift=2.4782608695652173cm,yshift=-0.2608695652173913cm,] plot ({0.8271332831869127*(-1-(\x)^2)/(1-(\x)^2)},{0.6339209985201321*(-2)*(\x)/(1-(\x)^2)});
+\end{axis}
+\end{tikzpicture}
+\caption{The conic passing through five points}\label{f.five-hyperbola}
+\end{center}
+\end{figure}
+
+Choose any four points. Since the four lines are not collinear, four lines can be drawn passing through each pair of points. In the Figure, the red line $x-y-1=0$ passes through $p_1, p_2$ and the red line $x+4y+1=0$ passes through $p_3,p_4$, so $(x-y-1)(x+4y+1)=0$. Similarly, the blue line $y=0$ passes through $p_2,p_4$ and the blue line $2x+y-5=0$ passes through $p_1,p_3$, so $y(2x+y-5)=0$. It follows that for arbitrary $k$, the second-degree equations
+\[
+(x-y-1)(x+4y+1) - ky(2x+y-5)=0\,,
+\]
+are the only equations passing through all four points. But a second-degree equation must describe a conic.
+
+Substituting $p_5$ gives $4\cdot (-4) - k\cdot (-2)\cdot -1=0$, and $k=8$ is the \emph{only} value that satisfies that linear equation. We conclude that the conic
+\[
+(x-y-1)(x+4y+1) - 8y(2x+y-5)=x^2+19xy+4y^2-45y-1=0
+\]
+passes through all five points (green); in this case it is a hyperbola.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\emph{Confocal ellipses} are ellipses with the same foci. Given an ellipse $E$, a confocal ellipse can be drawn using a modification of the gardener method. 
+
+\begin{theorem}
+Let $2a$ be length of the major axis of an ellipse $E$. Take a rope of length greater than $2a$, wrap it around $E$ and pull taut with a pencil. As you move around $E$, the pencil will trace a confocal ellipse (Figure~\ref{f.confocal1}).\footnote{The proof is from the solution for problem 46 in the 1890 edition of Besant \url{https://archive.org/details/solutionsexampl00besagoog}, with details supplied by ``Intelligenti pauca'' at \url{https://math.stackexchange.com/questions/4908340/besants-proof-of-graves-theorem}.}
+\end{theorem}
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}[scale=.667]
+
+\clip (-4.2,-2.2) rectangle +(8.5,6.5);
+
+% Size and center of the ellipse
+\def\a{4}
+\def\b{2}
+\def\angle{30}
+
+\pic{ellipse={2*\a/3}/{2*\b/3}};  % Scale
+\coordinate (P) at ({\angle}:{\a} and {\b});
+\draw[white] (Top) -- (Bot);
+\draw[white] (Left) -- (Right);
+\path[name path global=t1] 
+  (P) -- ++ ({-2*\a*sin(\angle)},{2*\b*cos(\angle)});
+
+\coordinate (D) at ({\angle+120}:{\a} and {\b});
+\path[name path global=t2] 
+  (D) -- ++ ({2*\a*sin(\angle+120)},{-2*\b*cos(\angle+120)});
+
+\path [name intersections = {of = t1 and t2, by = {Q}}];
+\draw [thick,red] (D) -- (Q) -- (P);
+\draw[thick] (Q) circle[radius=3pt];
+
+\draw[thick,red] (P) 
+        arc[start angle=30,end angle=-210, x radius=\a,y radius=\b];
+
+\end{tikzpicture}
+\caption{Gardner's method for constructing a confocal ellipse}\label{f.confocal1}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=1]
+
+\clip (-6.5,2) rectangle +(13,4.5);
+
+% Size and center of the ellipse
+\def\a{7}
+\def\b{4}
+
+\coordinate (O) at (0,0);
+\draw[name path global=ellipse] (0,0) ellipse [x radius=\a,y radius=\b];
+
+\def\anglep{140}
+\def\angleq{50}
+\def\anglepp{130}
+\def\angleqp{40}
+
+\coordinate (P) at ({\anglep}:{\a} and {\b});
+\path[name path global=tp] 
+  (P) -- ++ ({1.8*\a*sin(\anglep)},{-1.8*\b*cos(\anglep)});
+\coordinate (Q) at ({\angleq}:{\a} and {\b});
+\path[name path global=tq] 
+  (Q) -- ++ ({-1.8*\a*sin(\angleq)},{1.8*\b*cos(\angleq)});
+\path [name intersections = {of = tp and tq, by = {T}}];
+\draw (P) -- (T) -- (Q);
+
+\coordinate (PP) at ({\anglepp}:{\a} and {\b});
+\path[name path global=tpp] 
+  (PP) -- ++ ({1.5*\a*sin(\anglepp)},{-1.5*\b*cos(\anglepp)});
+\coordinate (QP) at ({\angleqp}:{\a} and {\b});
+\path[name path global=tqp] 
+  (QP) -- ++ ({-1.5*\a*sin(\angleqp)},{1.5*\b*cos(\angleqp)});
+\path [name intersections = {of = tpp and tqp, by = {TP}}];
+\draw (PP) -- (TP) -- (QP);
+
+\draw (T) -- ($(PP)!(T)!(TP)$) coordinate (V);
+\draw (TP) -- ($(T)!(TP)!(Q)$) coordinate (VP);
+
+\draw[rotate=29] (V) rectangle +(5pt,5pt);
+\draw[rotate=-30] (VP) rectangle +(5pt,5pt);
+
+\node[above] at (T) {$T$};
+\node[above] at (P) {$P$};
+\node[above] at (TP) {$t$};
+\node[below] at (PP) {$p$};
+\node[below] at (V) {$V$};
+\node[below] at (VP) {$v$};
+\node[above] at (Q) {$Q$};
+\node[above right] at (QP) {$q$};
+
+\vertexsm{P};
+\vertexsm{PP};
+\vertexsm{Q};
+\vertexsm{QP};
+
+\end{tikzpicture}
+\caption{$T$ and $t$ are close to each other on the curve}
+\label{f.confocal}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+To prove that the locus is an ellipse, let the tip of the pencil be at $T$ and very soon after let it be at $t$.The string forms two pairs of tangents $PT,TQ$ and $pt,tq$. Construct the perpendiculars $TV$ to $pt$ and $tv$ to $TQ$. $PT\approx pt$ so
+\begin{eqnlabels}
+PT&\approx&\widehat{Pp} +pV \approx \widehat{Pp} + pt-tV\nonumber\\
+tV&\approx& \widehat{Pp} + pt - PT\,.\label{eqn.tv}
+\end{eqnlabels}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Since the length of the string is fixed, $PT+QT = pt+tq$ and $\widehat{Pp}\approx\widehat{Qq}$. Substituting into the Equation~\ref{eqn.tv} gives
+\[
+tV\approx \widehat{Qq} + QT - tq\,.
+\]
+By a similar approximation $Tv\approx \widehat{Qq} + QT - tq$ and therefore $tV=Tv$.
+
+Consider now Figure~\ref{f.confocal-details} which is a detail from Firgure~\ref{f.confocal}. The angles $\alpha$ are vertical angles and we showed that $tV\approx Tv$ so $\triangle TVt\cong tvT$ and $\angle TtV=\angle tTv=\beta$.  What happens as $t$ approaches $T$? $tT$ becomes the ``left'' part of the tangent at $T$ and $Tt$ becomes the ``right'' part of the tangent.
+
+Figure~\ref{f.confocal-angles} shows the resulting point $T$ and the equal angles $\beta$ which the tangent of the outer curve at $T$ makes with the tangents of the inner ellipse at $P,Q$. But by the isogonal property of ellipses (Theorem~\ref{thm.marden-tangent}), $\angle PTF_1=\angle QTF_2$. Therefore, the tangent at $T$ makes equal angles $\beta+ \gamma$ with the foci, so by Theorem~\ref{thm.tangent-angles} the outer curve must be an ellipses.\hqed
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale=2.5]
+
+\clip (-2,4.5) rectangle +(4,1.3);
+
+% Size and center of the ellipse
+\def\a{7}
+\def\b{4}
+
+\coordinate (O) at (0,0);
+\draw[name path global=ellipse] (0,0) ellipse [x radius=\a,y radius=\b];
+
+\def\anglep{140}
+\def\angleq{50}
+\def\anglepp{130}
+\def\angleqp{40}
+
+\coordinate (P) at ({\anglep}:{\a} and {\b});
+\path[name path global=tp] 
+  (P) -- ++ ({1.8*\a*sin(\anglep)},{-1.8*\b*cos(\anglep)});
+\coordinate (Q) at ({\angleq}:{\a} and {\b});
+\path[name path global=tq] 
+  (Q) -- ++ ({-1.8*\a*sin(\angleq)},{1.8*\b*cos(\angleq)});
+\path [name intersections = {of = tp and tq, by = {T}}];
+
+\draw[->] (T) -- ($(T)!.15!(P)$) node[below left] {$P$};
+\draw (T) -- (Q);
+
+\coordinate (PP) at ({\anglepp}:{\a} and {\b});
+\path[name path global=tpp] 
+  (PP) -- ++ ({1.5*\a*sin(\anglepp)},{-1.5*\b*cos(\anglepp)});
+\coordinate (QP) at ({\angleqp}:{\a} and {\b});
+\path[name path global=tqp] 
+  (QP) -- ++ ({-1.5*\a*sin(\angleqp)},{1.5*\b*cos(\angleqp)});
+\path [name intersections = {of = tpp and tqp, by = {TP}}];
+\draw[->] (T) -- ($(T)!.15!(P)$) node[below left] {$P$};
+
+\draw[->] (TP) -- ($(TP)!.15!(Q)$) node[below right] {$Q$};
+\draw (TP) -- (P);
+
+\draw (T) -- ($(P)!(T)!(TP)$) coordinate (V);
+\draw (TP) -- ($(T)!(TP)!(Q)$) coordinate (VP);
+
+\draw[rotate=26] (V) rectangle +(2pt,2pt);
+\draw[rotate=63] (VP) rectangle +(2pt,2pt);
+
+\node[above] at (T) {$T$};
+\node[above] at (P) {$P$};
+\node[above] at (TP) {$t$};
+\node[below] at (PP) {$p$};
+\node[below] at (V) {$V$};
+\node[below] at (VP) {$v$};
+\node[above] at (Q) {$Q$};
+\node[right] at (QP) {$q$};
+
+\vertexsm{P};
+\vertexsm{PP};
+\vertexsm{Q};
+\vertexsm{QP};
+
+\draw (T) -- (TP);
+\path [name intersections = {of = tpp and tq, by = {W}}];
+\node[below,yshift=-2pt] at (W) {$W$};
+\node[left,xshift=-6pt] at (W) {$\alpha$};
+\node[right,xshift=6pt] at (W) {$\alpha$};
+\node[below right,xshift=10pt,yshift=-10pt] at (T) {$\alpha'$};
+\node[below left,xshift=-10pt,yshift=-10pt] at (TP) {$\alpha'$};
+\node[right,xshift=24pt,yshift=-7pt] at (T) {$\beta$};
+\node[left,xshift=-24pt,yshift=-7pt] at (TP) {$\beta$};
+
+\end{tikzpicture}
+\caption{Detail of the proof for a confocal ellipse}\label{f.confocal-details}
+\end{center}
+\end{figure}
+
+\begin{figure}[b]
+\begin{center}
+\begin{tikzpicture}[scale=.55]
+
+\clip (-10,-6) rectangle +(20,12.5);
+
+% Size and center of the ellipse
+\def\a{7}
+\def\b{4}
+
+\coordinate (O) at (0,0);
+\draw[name path global=ellipse] (0,0) ellipse [x radius=\a,y radius=\b];
+\draw[red,dashed,name path global=confocal] (0,0) 
+  ellipse [x radius=1.414*\a,y radius=1.414*\b];
+
+%\draw[dashed,red,thick,name path global=confocal] (0,0) ellipse 
+%  [x radius={1.414*\a},y radius={1.414*\b}];
+
+\def\anglep{135}
+\def\angleq{45}
+\def\anglepp{135}
+\def\angleqp{45}
+
+\coordinate (P) at ({\anglep}:{\a} and {\b});
+\path[name path global=tp] 
+  (P) -- ++ ({1.8*\a*sin(\anglep)},{-1.8*\b*cos(\anglep)});
+\coordinate (Q) at ({\angleq}:{\a} and {\b});
+\path[name path global=tq] 
+  (Q) -- ++ ({-1.8*\a*sin(\angleq)},{1.8*\b*cos(\angleq)});
+\path [name intersections = {of = tp and tq, by = {T}}];
+\draw (P) -- (T) -- (Q);
+
+\draw ($(T)+(-8,0)$) -- ($(T)+(8,0)$);
+
+\node[right,xshift=24pt,yshift=-9pt] at (T) {$\beta$};
+\node[left,xshift=-24pt,yshift=-9pt] at (T) {$\beta$};
+
+\vertexsm{F1};
+\vertexsm{F2};
+\node[below] at (F1) {$F_1$};
+\node[below] at (F2) {$F_2$};
+
+\draw (F1) -- (T) -- (F2);
+
+\draw[dashed,blue] (F1) -- (P) -- (F2);
+\draw[dashed,blue] (F1) -- (Q) -- (F2);
+
+\node[below right,xshift=17pt,yshift=-14pt] at (T) {$\gamma$};
+\node[below left,xshift=-17pt,yshift=-14pt] at (T) {$\gamma$};
+
+\node[above] at (T) {$T$};
+\node[above] at (P) {$P$};
+\node[above] at (Q) {$Q$};
+
+\end{tikzpicture}
+\caption{Equal angles follow by the isogonal property of ellipses}
+\label{f.confocal-angles}
+\end{center}
 \end{figure}
