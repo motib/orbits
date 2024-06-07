@@ -133,9 +133,7 @@ One-half the distance between the foci is $2/3$ and the semi-minor axis is $\sqr
 
 
 \begin{proof} (Theorem~\ref{thm.marden1})\\
-Case 1: $w$ is not on the $y$-axis.
-
-Let $f_1=c_1+d_1i, f_2=c_2+d_2i$ and recall that $w=u+vi,v>0$. Then $f_1+f_2=\frac{2}{3}w=\frac{2}{3}(c_1+c_2)+\frac{2}{3}(d_1+d_2)i$, so $d_1+d_2>0$ and at least one of $f_1,f_2$ is above the $x$-axis. Since $f_1f_2=-\frac{1}{3}$, the imaginary part of the product is zero. Construct the lines from the foci to the origin (Figure~\ref{f.marden-ellipses}). Using the trigonometric identity for the sum of two tangents, we have
+Case 1: $w$ is not on the $y$-axis. Let $f_1=c_1+d_1i, f_2=c_2+d_2i$ and recall that $w=u+vi,v>0$. Then $f_1+f_2=\frac{2}{3}w=\frac{2}{3}(c_1+c_2)+\frac{2}{3}(d_1+d_2)i$, so $d_1+d_2>0$ and at least one of $f_1,f_2$ is above the $x$-axis. Since $f_1f_2=-\frac{1}{3}$, the imaginary part of the product is zero. Construct the lines from the foci to the origin (Figure~\ref{f.marden-ellipses}). Using the trigonometric identity for the sum of two tangents, we have
 \begin{eqn}
 \frac{d_1}{c_1}+\frac{d_2}{c_2}&=&0\\
 \tan \theta_1+\tan \theta_2&=& 
@@ -147,8 +145,8 @@ By assumption, the foci are not on $y$-axis so the cosines are non-zero, and, th
 
 \begin{figure}[t]
 \begin{center}
-\begin{tikzpicture}[scale=5]
-\clip (-1.2,-.2) rectangle +(2.4,1);
+\begin{tikzpicture}[scale=2.5]
+%\clip (-1.2,-.2) rectangle +(2.4,1);
 
 \draw[line width=0.5pt,gray!50] (-2,0) grid (2,2);
 \coordinate (O) at (0,0);
@@ -183,11 +181,11 @@ By assumption, the foci are not on $y$-axis so the cosines are non-zero, and, th
 \node[above,xshift=20pt,yshift=46pt] at (O) {\sm{\theta_2}};
 
 \end{tikzpicture}
-\caption{The ellipse is tangent to the line $OW$}\label{f.marden-ellipses}
+\caption{The angles of the lines from the foci to the origin}\label{f.marden-ellipses}
 \end{center}
 \end{figure}
 
-Referring again to the Figure, since $\theta_1, \theta_2$ are supplementary, the angle between the line from $f_2$ and the origin forms an angle $\theta_1$ with the negative $x$-axis. Consider the ellipse with foci $f_1,f_2$ that passes through the origin, which is also the midpoint of one side of the triangle. Since the side on the $x$-axis makes equal angles with the lines to the foci, by Theorem~\ref{thm.tangent-angles}, this side is a tangent.
+Since $\theta_1, \theta_2$ are supplementary, the angle between the line from $f_2$ and the origin forms an angle $\theta_1$ with the negative $x$-axis (Figure~\ref{f.marden-ellipses}). Consider the ellipse with foci $f_1,f_2$ that passes through the origin, which is also the midpoint of one side of the triangle. Since the side on the $x$-axis makes equal angles with the lines to the foci, by Theorem~\ref{thm.tangent-angles}, this side is a tangent.
 
 (Case 2: $w$ is on the $y$-axis. Then $w=vi, v>0$ and $f_1+f_2=\frac{1}{3}vi$, so the foci are symmetric around the $y$-axis and have the same imaginary part and the angles from the origin to the foci are equal. In case both foci are on the $y$-axis, the two angles are equal right angles.\hqed
 \end{proof}
@@ -196,7 +194,7 @@ Referring again to the Figure, since $\theta_1, \theta_2$ are supplementary, the
 
 \section{The ellipse is tangent to all three sides of the triangle}
 
-We showed that the ellipse whose foci are the roots of $p'(z)$ has a tangent that is the side of the triangle on the $x$-axis and that the point of contact is the midpoint of that side. To prove Marden's theorem, we must show that the other sides of the triangle are tangent at their midpoints to the \emph{same} ellipse. 
+We showed that the side of the triangle on the $x$-axis is a tangent at its midpoin to the ellipse whose foci are the roots of $p'(z)$. To prove Marden's theorem, we must show that the other sides of the triangle are tangent at their midpoints to the \emph{same} ellipse. 
 
 \begin{theorem}\label{thm.marden2}
 Let $p(z),p'(z),T$ be as defined in the statement of Marden's theorem and the ellipse $E$ with foci $f_1,f_2$ be constructed as described in Theorem~\ref{thm.marden1}. Then the other two sides of $T$ are tangent to $E$.
@@ -212,13 +210,9 @@ f_1f_2=r_1e^{i\theta_1}\cdot r_2e^{i\theta_2}=r_1r_2e^{i(\theta_1+\theta_2)}=\fr
 so $\theta_1+\theta_2=\theta$ and $\theta-\theta_2=\theta_1$. Therefore, $\angle f_2OV=\theta=\angle f_1OW$. But $O=(0,0)$ is \emph{external} to the ellipse because $OV$ is tangent to the ellipse at $(1,0)$. By Theorem~\ref{thm.marden-tangent}, $OW$ is tangent to the ellipse.\hqed
 \end{proof}
 
-\begin{proof} (Theorem~\ref{thm.marden})
-We must show that the tangent $OW$ contacts the ellipse at its midpoint. By construction, ellipse $E$ is tangent to the \emph{midpoint} of $OV$ and by Theorem~\ref{thm.marden2} it is also tangent to $OW,VW$. Using Theorem~\ref{thm.marden1} again, construct an ellipse $E'$ that is tangent to the $OW$ at its midpoint, which by Theorem~\ref{thm.marden2} is also tangent to the other sides of $T$. But $E,E'$ have the same foci and the same tangents, so they must be the same ellipse.\hqed
-\end{proof}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[b]
+\begin{figure}[t]
 \begin{center}
 \begin{tikzpicture}[scale=2.5]
 \clip (-2.2,-.25) rectangle +(4.4,2.5);
@@ -260,11 +254,13 @@ We must show that the tangent $OW$ contacts the ellipse at its midpoint. By cons
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{proof} (Theorem~\ref{thm.marden})
+We must show that the tangent $OW$ contacts the ellipse at its midpoint. By construction, ellipse $E$ is tangent to the \emph{midpoint} of $OV$ and by Theorem~\ref{thm.marden2} it is also tangent to $OW,VW$. Using Theorem~\ref{thm.marden1} again, construct an ellipse $E'$ that is tangent to the $OW$ at its midpoint, which by Theorem~\ref{thm.marden2} is also tangent to the other sides of $T$. But $E,E'$ have the same foci and the same tangents, so they must be the same ellipse.\hqed
+\end{proof}
+
 \section{The Steiner circumellipse}
 
-Any triangle can have a circle circumscribed around it and a circle inscribed within it (Figure~\ref{f.circles}). The center of the circumcircle is called the \emph{circumcenter} and it is the intersection of the perpendicular bisectors to the sides (blue). The center of the incircle is called the \emph{incenter} and it is the intersection of the angle bisectors (red). 
-
-The intersection of the medians is called the \emph{centroid} (green) and it is the center of the unique Steiner inellipse as proved in Marden's Theorem. This can be seen because the sides of the triangle are tangent to the inellipse at their midpoints.
+Any triangle can have a circle circumscribed around it and a circle inscribed within it (Figure~\ref{f.circles}). The center of the circumcircle, the \emph{circumcenter}, is the intersection of the perpendicular bisectors to the sides (blue). The center of the incircle, the \emph{incenter}, is the intersection of the angle bisectors (red). The intersection of the medians, the \emph{centroid}, the center of the unique Steiner inellipse as proved in Marden's Theorem (green), because the sides of the triangle are tangent to the inellipse at their midpoints.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -322,7 +318,7 @@ The intersection of the medians is called the \emph{centroid} (green) and it is 
 \end{center}
 \end{figure}
 
-In a circle the centroid divides the medians into two segments: the one from the vertex to the centroid is twice as long as the one from the centroid to the side (Figure~\ref{f.two-to-one}). Just like the ellipse has a unique inellipse, it has a unique \emph{Steiner circumellipse} (or simply \emph{Steiner ellipse}) which is twice as large as the inellipse (Figure~\ref{f.steiner-ellipse}).
+In a circle the centroid divides each medians into two segments: the one from the vertex to the centroid is twice as long as the one from the centroid to the side (Figure~\ref{f.two-to-one}). An ellipse has a unique inellipse, \emph{Steiner (circum)ellipse}, which is twice as large as the inellipse (Figure~\ref{f.steiner-ellipse}).
 
 \begin{figure}[b]
 \begin{minipage}{.49\textwidth}
